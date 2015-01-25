@@ -1,3 +1,168 @@
+/* {
+		border-style: solid;
+	border-color: red;
+	border width: 1px;
+}*/
+
+body {
+	margin: 0;
+}
+
+#mainnav {
+	background-color: white;
+	padding: .72em 5em;
+}
+
+#submenu {
+	background-color: #f6f6f6;
+	padding: .72em 5em;
+}
+
+ul {
+	float: center;
+	width: 100%;
+	margin: 0;
+	list-style-type: none;
+}
+
+li {
+	font-family: "Akkurat-Light";
+	padding-right: 1em;
+	display: inline;
+
+	font-size: .9em;
+	line-height: 1em;
+}
+
+
+
+
+
+#blog {
+	background-color: #ededed;
+	margin: 0;
+	padding: 0 5em;
+}
+
+
+
+.post {
+	padding: 2em;
+	height: 400px;
+	width: 400px;
+	position: relative;
+}
+
+img {
+	position: absolute;
+	left: 25;
+	top: 0;
+	width: 350px;
+
+	opacity: .65;
+}
+
+.text {
+	z-index: 100;
+	position: absolute;
+
+	width: 350px;
+
+	left: 50px;
+	top: 50px;
+}
+
+h1 {
+	font-family: "Akkurat-Light";
+	font-size: 2em;
+	margin: 0 0;
+	color: #333;
+}
+
+h1 a {
+	text-decoration: none;
+	color: #333;
+}
+
+h1 a:hover {
+	text-decoration: underline;
+}
+
+.data {
+	display: inline;
+}
+
+h2 {
+	font-family: "Akkurat";
+	font-size: .8em;
+	color: #333;
+
+	margin: 1em 0;
+
+	padding-right: 1em;
+	float: left;
+}
+
+h3 {
+	font-family: "Akkurat-Light";
+	font-size: .8em;
+	color: #333;
+
+	margin: 1em;
+
+}
+
+h3 a {
+	text-decoration: none;
+	color: #333;
+}
+
 p {
-	color: blue;
+	font-family: "Akkurat";
+	font-size: 1em;
+
+	color: #333;
+
+	margin: 0;
+}
+
+
+footer {
+	background-color: white;
+	padding: .72em 5em;
+}
+
+
+
+/* ------------ FONTS ------------- */
+
+@font-face {
+	font-family: "Akkurat";
+	src: url('fonts/Akkurat.otf');
+}
+
+@font-face {
+	font-family: "Akkurat-Bold";
+	src: url('fonts/Akkurat-Bold.otf');
+}
+
+
+@font-face {
+	font-family: "Akkurat-BoldItalic";
+	src: url('fonts/Akkurat-BoldItalic.otf');
+}
+
+@font-face {
+	font-family: "Akkurat-Italic";
+	src: url('fonts/Akkurat-Italic.otf');
+}
+
+@font-face {
+	font-family: "Akkurat-Light";
+	src: url('fonts/Akkurat-Light.otf');
+}
+
+@font-face {
+	font-family: "Akkurat-LightItalic";
+	src: url('fonts/Akkurat-LightItalic.otf');
 }
