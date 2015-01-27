@@ -32,7 +32,8 @@ body {
 }
 
 .nav-center img {
-	width: 25px;
+	padding: .72em 0;
+	width: 2em;
 }
 
 #submenu {
@@ -46,7 +47,7 @@ ul {
 }
 
 li {
-	font-family: "Akkurat-Light";
+	font-family: "Akkurat";
 	padding-right: 1em;
 	display: inline;
 
