@@ -99,7 +99,6 @@ li > a:hover {
 }
 
 
-
 .container {
 	margin: 35px;
 	height: 400px;
@@ -108,20 +107,45 @@ li > a:hover {
 	position: relative;
 
 	display: inline-block;
+
+	border-style: solid;
+	border-color: red;
+	border width: 1px;
+}
+
+.content {
+	position: absolute;
+
+	top: 50%;
+	width: 100%;
+
+	display: block;
 }
 
 
 article img {
 	position: absolute;
-
 	opacity: .5;
 }
 
 .text {
-	z-index: 100;
-
+	
+	margin-left: -140px;
 	position: absolute;
 
+	top: -140px;
+	left: 50%;
+
+	width: 280px;
+	height: 280px;
+
+	visibility: visible;
+
+	border-style: solid;
+	border-color: green;
+	border width: 1px;
+
+	z-index: 100;
 }
 
 h1 {
