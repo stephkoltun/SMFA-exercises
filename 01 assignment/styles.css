@@ -1,5 +1,5 @@
 /* {
-		border-style: solid;
+	border-style: solid;
 	border-color: red;
 	border width: 1px;
 }*/
@@ -8,9 +8,33 @@ body {
 	margin: 0;
 }
 
+/* ----------- NAVIGATION ----------- */
+
 #mainnav {
 	background-color: white;
-	padding: .72em 5em;
+	padding: 1.2em 12em;
+}
+
+#submenu {
+	background-color: #f6f6f6;
+	padding: 1.2em 12em;
+}
+
+ul {
+	margin: 0;
+	list-style-type: none;
+}
+
+li, a, a:visited {
+	font-family: "Akkurat";
+	color: #333;
+	font-size: 1.1em;
+	line-height: 1.3em;
+
+	text-decoration: none;
+
+	padding-right: 1em;
+	display: inline;
 }
 
 .nav-left {
@@ -32,37 +56,24 @@ body {
 }
 
 .nav-center img {
-	padding: .72em 0;
+	padding: 1em 0;
 	width: 2em;
 }
 
-#submenu {
-	background-color: #f6f6f6;
-	padding: .72em 5em;
-}
-
-ul {
-	margin: 0;
-	list-style-type: none;
-}
-
-li {
-	font-family: "Akkurat";
-	padding-right: 1em;
-	display: inline;
-
-	font-size: .9em;
-	line-height: 1em;
+#current {
+	text-decoration: underline;
 }
 
 
 
+
+/*--------- BLOG ARTICLE INDEX ---------*/
 
 
 #blog {
 	background-color: #ededed;
 	margin: 0;
-	padding: 0 5em;
+	padding: 0 12em;
 }
 
 
@@ -148,9 +159,15 @@ p {
 }
 
 
-footer {
+#footer {
 	background-color: white;
-	padding: .72em 5em;
+	padding: 1.2em 12em;
+
+	margin: 0;
+}
+
+#footer > div > li {
+	color: #b2b2b2;
 }
 
 
