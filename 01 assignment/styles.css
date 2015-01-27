@@ -13,14 +13,34 @@ body {
 	padding: .72em 5em;
 }
 
+.nav-left {
+	margin: 0;
+	float: left;
+	display: inline;
+}
+
+.nav-right {
+	margin: 0;
+	float: right;
+	display: inline;
+}
+
+.nav-center {
+	margin: auto;
+	text-align: center;
+	padding-right: 0;
+}
+
+.nav-center img {
+	width: 25px;
+}
+
 #submenu {
 	background-color: #f6f6f6;
 	padding: .72em 5em;
 }
 
 ul {
-	float: center;
-	width: 100%;
 	margin: 0;
 	list-style-type: none;
 }
