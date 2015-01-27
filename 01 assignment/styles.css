@@ -8,27 +8,25 @@ body {
 	margin: 0;
 }
 
-#mainnav {
+.mainnav-left {
 	background-color: white;
 	padding: .72em 5em;
-}
 
-.nav-left {
 	margin: 0;
 	float: left;
-	display: inline;
 }
 
-.nav-right {
+.mainnav-right {
+	background-color: white;
+	padding: .72em 5em;
+
 	margin: 0;
 	float: right;
-	display: inline;
 }
 
 .nav-center {
 	margin: auto;
 	text-align: center;
-	padding-right: 0;
 }
 
 .nav-center img {
@@ -55,7 +53,10 @@ li {
 }
 
 
-
+header {
+	display: block;
+	clear: both;
+}
 
 
 #blog {
