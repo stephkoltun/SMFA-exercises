@@ -10,31 +10,41 @@ body {
 
 /* ----------- NAVIGATION ----------- */
 
-#mainnav {
-	background-color: white;
-	padding: 1.2em 12em;
-}
-
-#submenu {
-	background-color: #f6f6f6;
-	padding: 1.2em 12em;
-}
-
 ul {
 	margin: 0;
 	list-style-type: none;
 }
 
-li, a, a:visited {
-	font-family: "Akkurat";
-	color: #333;
-	font-size: 1.1em;
-	line-height: 1.3em;
-
-	text-decoration: none;
-
+li {
 	padding-right: 1em;
 	display: inline;
+}
+
+li > a:link, a:visited {
+	text-decoration: none;
+	color: #333;
+}
+
+li > a:hover {
+	text-decoration: underline;
+}
+
+#mainnav, #submenu, #footer {
+	padding: 1.2em 12em;
+	font-size: 1.1em;
+	line-height: 1.3em;
+}
+
+#mainnav {
+	background-color: white;
+	font-family: "Akkurat";
+	color: #333;
+}
+
+#submenu {
+	background-color: #f6f6f6;
+	font-family: "Akkurat-Light";
+	color: #333;
 }
 
 .nav-left {
@@ -56,7 +66,7 @@ li, a, a:visited {
 }
 
 .nav-center img {
-	padding: 1em 0;
+	padding: 0;
 	width: 2em;
 }
 
@@ -64,6 +74,16 @@ li, a, a:visited {
 	text-decoration: underline;
 }
 
+
+/*--------- FOOTER ---------*/
+
+
+#footer {
+	margin: 0;
+	background-color: white;
+	font-family: "Akkurat";
+	color: #b2b2b2;
+}
 
 
 
@@ -74,50 +94,51 @@ li, a, a:visited {
 	background-color: #ededed;
 	margin: 0;
 	padding: 0 12em;
+
+	/*height: 100%;*/
 }
 
 
 
-.post {
-	padding: 2em;
+.container {
+	margin: 35px;
 	height: 400px;
 	width: 400px;
+
 	position: relative;
+
+	display: inline-block;
 }
 
-img {
-	position: absolute;
-	left: 25;
-	top: 0;
-	width: 350px;
 
-	opacity: .65;
+article img {
+	position: absolute;
+
+	opacity: .5;
 }
 
 .text {
 	z-index: 100;
+
 	position: absolute;
 
-	width: 350px;
-
-	left: 50px;
-	top: 50px;
 }
 
 h1 {
 	font-family: "Akkurat-Light";
+	font-weight: 400;
 	font-size: 2em;
 	margin: 0 0;
 	color: #333;
 }
 
-h1 a {
-	text-decoration: none;
+h1 a:link {
+	text-decoration: underline;
 	color: #333;
 }
 
 h1 a:hover {
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 .data {
@@ -136,7 +157,7 @@ h2 {
 }
 
 h3 {
-	font-family: "Akkurat-Light";
+	font-family: "Akkurat-LightItalic";
 	font-size: .8em;
 	color: #333;
 
@@ -144,7 +165,7 @@ h3 {
 
 }
 
-h3 a {
+h3 a:link {
 	text-decoration: none;
 	color: #333;
 }
@@ -152,23 +173,10 @@ h3 a {
 p {
 	font-family: "Akkurat";
 	font-size: 1em;
-
 	color: #333;
-
-	margin: 0;
 }
 
 
-#footer {
-	background-color: white;
-	padding: 1.2em 12em;
-
-	margin: 0;
-}
-
-#footer > div > li {
-	color: #b2b2b2;
-}
 
 
 
