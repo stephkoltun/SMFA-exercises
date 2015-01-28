@@ -2,8 +2,6 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="styles.css">
-		<link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
-
 		<title>Blog - Sn&oslash;hetta</title>
 		<meta name="description" content="A blog documenting Sn&oslash;hetta's culture, recent happenings, process and innovations.">
 	</head>
@@ -11,16 +9,24 @@
 	<body>
 		<header>
 			<ul id="mainnav">
-				<div id ="nav1">
-					<li>PROJECTS</li>
-					<li>PEOPLE</li>
-					<li>PROCESS</li>
+				<div class ="nav-left">
+					<li><a href="http://snohetta.com/projects">PROJECTS</a></li>
+					<li><a href="http://snohetta.com/people">PEOPLE</a></li>
+					<li><a href="http://snohetta.com/process">PROCESS</a></li>
 				</div>
-				<li>*icon*</li>
-				<li>Blog</li>
-				<li>News</li>
-				<li>Contact</li>
-				<li><i class="fa fa-search fa-fw fa-flip-horizontal"></i></li>
+				<div class="nav-right">
+					<li id="current">Blog</li>
+					<li><a href="http://snohetta.com/news">News</a></li>
+					<li><a href="http://snohetta.com/contact">Contact</a></li>
+					<li>
+						<form>
+							<span><input type="text" class="search rounded" name="search" size="10" placeholder="&#xf002; search"></span>
+						</form>
+					</li>
+				</div>
+				<div class="nav-center">
+					<li><img src="images/snohetta.svg"></li>
+				</div>
 			</ul>
 			<ul id="submenu">
 				<li>Concept</li>
@@ -37,27 +43,32 @@
 		<section id="blog">
 
 			<article class="post">
-
-				<img src="images/model.jpg"/>
-
-<div class="text">
-				<h1><a href="blogpost.html">Blog post title</a></h1>
-				<div class="data">
-					<h2>02.02.2015</h2>
-					<h3><a href="">research</a></h3>
-				</div>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a risus non ante blandit feugiat. Morbi a tortor sit amet erat faucibus sollicitudin. Cras at pellentesque nisl. Nulla non mattis ante. Quisque arcu nunc, varius in venenatis dictum, scelerisque quis sapien. Nullam vitae enim non ligula mollis aliquam. <a href="blogpost.html">More...</a></p>
-			</div>
+					<h1><a href="blogpost.html">Model Making For Details</a></h1>
+					<hgroup class="data">
+						<h2>02.02.2015</h2>
+						<h3><a href="">research</a></h3>
+					</hgroup>
+					<p>Quisque arcu nunc, varius in venenatis dictum, scelerisque quis sapien. Nullam vitae enim non ligula mollis aliquam.</p>
 			</article>
 
+			<aside>
+				<img src="images/model.jpg">
+				<p>"<br>Quisque arcu nunc, varius in venenatis dictum, scelerisque quis sapien. Nullam vitae enim non ligula mollis aliquam.</p>
+			</aside>
 
 		</section>
 
 		<footer>
-			<ul>
-				<li>Sn&oslash;hetta</li>
-				<li>*icon*</li>
-				<li>social media</li>
+			<ul id="footer">
+				<div class="nav-left">
+					<li>Sn&oslash;hetta</li>
+				</div>
+				<div class="nav-right"> 
+					<li>*social media*</li>
+				</div>
+				<div class="nav-center">
+					<li><img src="images/snohetta.svg"></li>
+				</div>	
 			</ul>
 		</footer>
 	</body>

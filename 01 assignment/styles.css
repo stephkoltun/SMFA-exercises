@@ -8,6 +8,12 @@ body {
 	margin: 0;
 }
 
+p {
+	font-family: "Akkurat";
+	font-size: .9em;
+	color: #333;
+}
+
 /* ----------- NAVIGATION ----------- */
 
 #mainnav, #submenu, #footer {
@@ -175,6 +181,31 @@ article img {
 
 
 
+.post {
+	width: 50%;
+	float: left;
+}
+
+aside {
+	width: 45%;
+	float: right;
+}
+
+aside img {
+	width: 80%;
+}
+
+aside p {
+	font-family: "Akkurat-LightItalic";
+	font-weight: 400;
+	text-align: center;
+	font-size: 1.3em;
+	margin: 0 0;
+	color: #333;
+}
+
+
+
 h1 {
 	font-family: "Akkurat-Light";
 	font-weight: 400;
@@ -218,12 +249,6 @@ h3 {
 
 h3 a:link {
 	text-decoration: none;
-	color: #333;
-}
-
-p {
-	font-family: "Akkurat";
-	font-size: .9em;
 	color: #333;
 }
 
