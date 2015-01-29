@@ -28,10 +28,18 @@ p {
 	color: #333;
 }
 
+#mainnav li > a:hover {
+	text-decoration: underline;
+}
+
 #submenu {
 	background-color: #f6f6f6;
 	font-family: "Akkurat-Light";
 	color: #333;
+}
+
+#submenu li > a:hover {
+	font-family: "Akkurat-LightItalic";
 }
 
 #footer {
@@ -82,9 +90,7 @@ li > a:link, a:visited {
 	color: #333;
 }
 
-li > a:hover {
-	text-decoration: underline;
-}
+
 
 
 
@@ -127,12 +133,16 @@ input[type=text]:focus {
 
 /*--------- BLOG ---------*/
 
+.clear {
+	clear: both;
+	line-height: 0;
+}
 
 #blog {
 	background-color: #ededed;
 	padding: 30px 8%;
 
-	height: 800px;  /*ugh - why is this not working when not a fixed value */
+	display: block;
 }
 
 .container {
@@ -187,12 +197,16 @@ article img {
 }
 
 aside {
-	width: 45%;
+	width: 40%;
 	float: right;
 }
 
 aside img {
-	width: 80%;
+	width: 90%;
+	display: block;
+	margin: 0 auto;
+
+	padding: 50px 0;
 }
 
 aside p {
@@ -200,8 +214,10 @@ aside p {
 	font-weight: 400;
 	text-align: center;
 	font-size: 1.3em;
-	margin: 0 0;
+	margin: 0 auto;
 	color: #333;
+
+	width: 90%;
 }
 
 
@@ -251,7 +267,6 @@ h3 a:link {
 	text-decoration: none;
 	color: #333;
 }
-
 
 
 
