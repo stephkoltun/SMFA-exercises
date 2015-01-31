@@ -19,7 +19,11 @@ p {
 #mainnav, #submenu, #footer {
 	padding: 1em 8%;
 	font-size: 1em;
-	line-height: 1em;
+}
+
+#mainnav li > a:link, a:visited ,#submenu li > a:link, a:visited {
+	text-decoration: none;
+	color: #333;
 }
 
 #mainnav {
@@ -42,11 +46,21 @@ p {
 	font-family: "Akkurat-LightItalic";
 }
 
+
 #footer {
 	margin: 0;
 	background-color: white;
 	font-family: "Akkurat";
 	color: #b2b2b2;
+}
+
+#footer a:link, #footer a:visited {
+	color: #b2b2b2;
+	text-decoration: none;
+}
+
+#footer a:hover {
+	color: #333;
 }
 
 .nav-left {
@@ -85,10 +99,7 @@ li {
 	display: inline;
 }
 
-li > a:link, a:visited {
-	text-decoration: none;
-	color: #333;
-}
+
 
 
 
@@ -101,6 +112,7 @@ li > a:link, a:visited {
 
 form {
 	float: right;
+	margin: auto;
 }
 
 .search {
