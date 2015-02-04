@@ -21,7 +21,7 @@ p {
 	font-size: 1em;
 }
 
-#mainnav li > a:link, a:visited ,#submenu li > a:link, a:visited {
+#mainnav li > a:link, a:visited {
 	text-decoration: none;
 	color: #333;
 }
@@ -39,11 +39,22 @@ p {
 #submenu {
 	background-color: #f6f6f6;
 	font-family: "Akkurat-Light";
-	color: #333;
+	text-transform: lowercase;
+}
+
+#submenu li > a:link, #submenu li > a:visited {
+	text-decoration: none;
+	color: lightgrey;
+
+	-webkit-transition: color 1s ease;
+    -moz-transition: color 1s ease;
+    -o-transition: color 1s ease;
+    -ms-transition: color 1s ease;
+    transition: color 1s ease;
 }
 
 #submenu li > a:hover {
-	font-family: "Akkurat-LightItalic";
+	color: #333;
 }
 
 
@@ -182,11 +193,32 @@ input[type=text]:focus {
 
 img.horizontal {
 	width: 90%;
+	
+	-webkit-transition: all .4s linear;
+    -moz-transition: all .4s linear;
+    -o-transition: all .4s linear;
+    -ms-transition: all .4s linear;
+    transition: all .4s linear;
 }
 
 img.vertical {
 	height: 80%;
+
+	-webkit-transition: all .4s linear;
+    -moz-transition: all .4s linear;
+    -o-transition: all .4s linear;
+    -ms-transition: all .4s linear;
+    transition: all .4s linear;
 }
+
+.container:hover img.vertical{
+	-webkit-filter: blur(2px);
+}
+
+.container:hover img.horizontal{
+	-webkit-filter: blur(2px);
+}
+
 
 article img {
 	margin: auto;
@@ -200,7 +232,6 @@ article img {
 
 	z-index: -1;
 }
-
 
 
 .post {
@@ -242,7 +273,7 @@ h1 {
 	color: #333;
 }
 
-h1 a:link {
+h1 a:link, h1 a:visited {
 	text-decoration: underline;
 	color: #333;
 }
@@ -250,6 +281,7 @@ h1 a:link {
 h1 a:hover {
 	text-decoration: none;
 }
+
 
 .data {
 	display: inline;
