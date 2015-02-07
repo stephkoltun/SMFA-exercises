@@ -18,6 +18,18 @@ p a:link, p a:visited {
 	color: #333;
 }
 
+p a:hover {
+	font-family: "Akkurat-Italic";
+	letter-spacing: 1px;
+
+	/*new in alt-css3*/
+	-webkit-transition: all .6s ease; 
+    -moz-transition: all .6s ease;
+    -o-transition: all .6s ease;
+    -ms-transition: all .6s ease;
+    transition: all .6s ease;
+}
+
 h1 {
 	font-family: "Akkurat-Light";
 	font-weight: 400;
@@ -58,6 +70,14 @@ h3 {
 
 h3 a:link, h3 a:visited {
 	text-decoration: none;
+	color: #333;
+}
+
+h4 {
+	margin: 5px 0;
+	font-family: "Akkurat";
+	font-weight: 400;
+	font-size: 1em;
 	color: #333;
 }
 
@@ -311,23 +331,15 @@ aside p {
 	font-size: 1.4em;
 	line-height: 1.5em;
 	margin: 0 auto;
+
+	padding: 35px 35px ;
 	color: #333;
 
+	border: 2.5px solid #ededed;
+
 	max-width: 80%;
-}
 
-figure {
-	width: 100%;
-	display: block;
-	margin: 0 auto;
-
-	position: relative;
-	text-align: center;
-
-	margin: 50px 0;
-
-	opacity: .3;
-
+	/*new in alt-css3*/
 	-webkit-transition: all .9s ease;
     -moz-transition: all .9s ease;
     -o-transition: all .9s ease;
@@ -335,23 +347,67 @@ figure {
     transition: all .9s ease;
 }
 
+aside p:hover {
+	border: 2.5px solid #333;
+}
+
+figure {
+	width: 100%;
+	display: block;
+	margin: 50px auto 35px auto;
+
+	padding: 30px 0 20px 0;
+
+	text-align: center;
+}
+
 figure:hover {
+	background-color: #f6f6f6;
+	/*new in alt-css3*/
+	-webkit-transition: all .9s ease;
+    -moz-transition: all .9s ease;
+    -o-transition: all .9s ease;
+    -ms-transition: all .9s ease;
+    transition: all .9s ease;
+}
+
+figure img {
+	opacity: .3;
+	max-width: 100%;
+
+	/*new in alt-css3*/
+	-webkit-transition: all .9s ease;
+    -moz-transition: all .9s ease;
+    -o-transition: all .9s ease;
+    -ms-transition: all .9s ease;
+    transition: all .9s ease;
+}
+
+figure:hover img{
 	opacity: 1;
 }
 
 figcaption {
+	padding: 10px 0px;
+	font-family: "Akkurat-Light";
+	font-size: .8em;
+	color: #333;
+
+
+
 	opacity: 0;
 
-	position: absolute;
-	bottom: -20px;
-	left: 20px;
-	z-index: 100;
-
-	font-family: "Akkurat";
-	font-size: .8em;
-	color: #ededed;
+	/*new in alt-css3*/
+	-webkit-transition: all .9s ease-in;
+    -moz-transition: all .9s ease-in;
+    -o-transition: all .9s ease-in;
+    -ms-transition: all .9s ease-in;
+    transition: all .9s ease-in;
 }
 
+figure:hover figcaption {
+	opacity: 1;
+}
 
 
 
