@@ -72,7 +72,7 @@ h3 a:link, h3 a:visited {
 
 #mainnav li > a:link, #mainnav li > a:visited {
 	text-decoration: none;
-	color: #333;
+	color: #e0e0e0;
 
 	/*new in alt-css3*/
 	-webkit-transition: all .8s ease; 
@@ -110,7 +110,7 @@ h3 a:link, h3 a:visited {
     -moz-transition: color .7s ease;
     -o-transition: color .7s ease;
     -ms-transition: color .7s ease;
-    transition: color s ease;
+    transition: color .7s ease;
 }
 
 #submenu li > a:hover {
@@ -291,6 +291,7 @@ article img {
 
 
 
+
 /*--------- POST ---------*/
 
 .post {
@@ -312,7 +313,7 @@ aside p {
 	margin: 0 auto;
 	color: #333;
 
-	width: 90%;
+	max-width: 80%;
 }
 
 figure {
@@ -321,8 +322,21 @@ figure {
 	margin: 0 auto;
 
 	position: relative;
+	text-align: center;
 
 	margin: 50px 0;
+
+	opacity: .3;
+
+	-webkit-transition: all .9s ease;
+    -moz-transition: all .9s ease;
+    -o-transition: all .9s ease;
+    -ms-transition: all .9s ease;
+    transition: all .9s ease;
+}
+
+figure:hover {
+	opacity: 1;
 }
 
 figcaption {
