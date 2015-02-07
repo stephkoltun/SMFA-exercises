@@ -74,22 +74,26 @@ h3 a:link, h3 a:visited {
 	text-decoration: none;
 	color: #333;
 
-	-webkit-transition: all .4s ease .1s; 
-    -moz-transition: all .4s ease .1s;
-    -o-transition: all .4s ease .1s;
-    -ms-transition: all .4s ease .1s;
-    transition: all .4s ease .1s;
+	/*new in alt-css3*/
+	-webkit-transition: all .8s ease; 
+    -moz-transition: all .8s ease;
+    -o-transition: all .8s ease;
+    -ms-transition: all .8s ease;
+    transition: all .8s ease;
 }
 
 #mainnav {
-	background-color: white;
+	background-color: #fff;
 	font-family: "Akkurat";
 	color: #333;
 }
 
 #mainnav li > a:hover {
-	letter-spacing: 2px;
+	background-color: #e0e0e0;
+	padding: 5px;
+	color: #fff;
 }
+
 
 #submenu {
 	background-color: #f6f6f6;
@@ -101,6 +105,7 @@ h3 a:link, h3 a:visited {
 	text-decoration: none;
 	color: lightgrey;
 
+	/*kept transition from original css*/
 	-webkit-transition: color .7s ease;
     -moz-transition: color .7s ease;
     -o-transition: color .7s ease;
@@ -159,7 +164,7 @@ img.logo {
 }
 
 img.logo:hover {
-	opacity: 1;
+	opacity: .8;
 }
 
 
@@ -263,44 +268,13 @@ input[type=text]:focus {
 img.horizontal {
 	width: 90%;
 	opacity: .35;
-	
-	-webkit-transition: all .4s linear;
-    -moz-transition: all .4s linear;
-    -o-transition: all .4s linear;
-    -ms-transition: all .4s linear;
-    transition: all .4s linear;
 }
 
 img.vertical {
 	height: 80%;
 	opacity: .35;
-
-	-webkit-transition: all .4s linear;
-    -moz-transition: all .4s linear;
-    -o-transition: all .4s linear;
-    -ms-transition: all .4s linear;
-    transition: all .4s linear;
 }
 
-.container:hover img.vertical{
-	opacity: .2;
-
-	-webkit-filter: blur(2px);
-	-moz-filter: blur(2px);
-	-o-filter: blur(2px);
-	-ms-filter: blur(2px);
-	filter: blur(2px);
-}
-
-.container:hover img.horizontal{
-	opacity: .2;
-
-	-webkit-filter: blur(2px);
-	-moz-filter: blur(2px);
-	-o-filter: blur(2px);
-	-ms-filter: blur(2px);
-	filter: blur(2px);
-}
 
 
 article img {
@@ -313,6 +287,8 @@ article img {
 
 	z-index: -1;
 }
+
+
 
 
 /*--------- POST ---------*/
@@ -360,20 +336,8 @@ figcaption {
 	font-family: "Akkurat";
 	font-size: .8em;
 	color: #ededed;
-
-
-	-webkit-transition: all .8s ease;
-    -moz-transition: all .8s ease;
-    -o-transition: all .8s ease;
-    -ms-transition: all .8s ease;
-    transition: all .8s ease;
-
 }
 
-figure:hover figcaption {
-	opacity: 1;
-	bottom: 20px;
-}
 
 
 
