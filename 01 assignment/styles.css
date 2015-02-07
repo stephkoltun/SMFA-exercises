@@ -336,7 +336,7 @@ aside p {
 	margin: 0 auto;
 	color: #333;
 
-	width: 90%;
+	max-width: 80%;
 }
 
 figure {
@@ -345,6 +345,7 @@ figure {
 	margin: 0 auto;
 
 	position: relative;
+	text-align: center;
 
 	margin: 50px 0;
 }
