@@ -1,428 +1,426 @@
-/* {
-	border-style: solid;
-	border-color: red;
-	border width: 1px;
-}*/
+/*
+-----------------------------------------------------
+Main SCSS file for IWD - 03 Assignment
 
-body {
-	margin: 0 auto;
+Stephanie Koltun 
+
+-----------------------------------------------------
+*/
+/* Compass */
+/* Import partial files */
+@font-face {
+  font-family: "Akkurat";
+  src: url('/stylesheets/fonts/fonts/Akkurat.otf') format('opentype');
 }
 
+@font-face {
+  font-family: "Akkurat-Italic";
+  src: url('/stylesheets/fonts/fonts/Akkurat-Italic.otf') format('opentype');
+}
+
+@font-face {
+  font-family: "Akkurat-Bold";
+  src: url('/stylesheets/fonts/fonts/Akkurat-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: "Akkurat-BoldItalic";
+  src: url('/stylesheets/fonts/fonts/Akkurat-BoldItalic.otf') format('opentype');
+}
+
+@font-face {
+  font-family: "Akkurat-Light";
+  src: url('/stylesheets/fonts/fonts/Akkurat-Light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: "Akkurat-LightItalic";
+  src: url('/stylesheets/fonts/fonts/Akkurat-LightItalic.otf') format('opentype');
+}
+
+@font-face {
+  font-family: "FontAwesome";
+  src: url('/stylesheets/fonts/fonts/font-awesome/fonts/FontAwesome.otf') format('opentype');
+}
+
+/* line 10, scss/defaults/_typography.scss */
 p {
-	font-family: "Akkurat";
-	font-size: .9em;
-	color: #333;
+  color: #333333;
+  font-family: "Akkurat";
+  font-size: .9em;
 }
-
+/* line 17, scss/defaults/_typography.scss */
+p a {
+  text-decoration: none;
+}
+/* line 20, scss/defaults/_typography.scss */
 p a:link, p a:visited {
-	color: #333;
+  color: #333333;
 }
 
+/* line 28, scss/defaults/_typography.scss */
 h1 {
-	font-family: "Akkurat-Light";
-	font-weight: 400;
-	font-size: 1.8em;
-	margin: 0 0;
-	color: #333;
+  margin: 0 0;
+  color: #333333;
+  font-family: "Akkurat-Light";
+  font-weight: 400;
+  font-size: 1.8em;
 }
-
+/* line 38, scss/defaults/_typography.scss */
 h1 a:link, h1 a:visited {
-	text-decoration: underline;
-	color: #333;
+  text-decoration: underline;
+  color: #333333;
 }
-
+/* line 43, scss/defaults/_typography.scss */
 h1 a:hover {
-	text-decoration: none;
+  text-decoration: none;
 }
 
-
+/* line 51, scss/defaults/_typography.scss */
 h2 {
-	font-family: "Akkurat";
-	font-size: .8em;
-	color: #333;
-
-	margin: 1em 0;
-
-	padding-right: 1em;
-	float: left;
+  margin: 1em 0;
+  padding-right: 1em;
+  float: left;
+  color: #333333;
+  font-family: "Akkurat";
+  font-size: .8em;
+  font-weight: 400;
 }
 
+/* line 68, scss/defaults/_typography.scss */
 h3 {
-	font-family: "Akkurat-LightItalic";
-	font-size: .8em;
-	color: #333;
-
-	margin: 1em;
-
+  margin: 1em;
+  color: #333333;
+  font-family: "Akkurat-Light";
+  font-size: .8em;
+  font-weight: 100;
 }
-
+/* line 79, scss/defaults/_typography.scss */
 h3 a:link, h3 a:visited {
-	text-decoration: none;
-	color: #333;
+  family: "Akkurat-LightItalic";
+  text-decoration: none;
+  weight: 400;
+  color: #333333;
 }
 
+/* line 36, scss/styles.scss */
+body {
+  margin: 0 auto;
+}
 
+/* line 41, scss/styles.scss */
+ul {
+  margin: 0;
+  list-style-type: none;
+}
+
+/* line 46, scss/styles.scss */
+li {
+  padding-right: 1em;
+  display: inline;
+}
 
 /* ----------- NAVIGATION ----------- */
-
-#mainnav, #submenu, #footer {
-	padding: 1em 8%;
-	font-size: 1em;
-}
-
-#mainnav li > a:link, #mainnav li > a:visited {
-	text-decoration: none;
-	color: #333;
-
-	-webkit-transition: all .5s ease .1s; 
-    -moz-transition: all .5s ease .1s;
-    -o-transition: all .5s ease .1s;
-    -ms-transition: all .5s ease .1s;
-    transition: all .5s ease .1s;
-}
-
+/* line 56, scss/styles.scss */
 #mainnav {
-	background-color: white;
-	font-family: "Akkurat";
-	color: #333;
+  padding: 1em 8%;
+  font-size: 1em;
+  background-color: white;
+  font-family: "Akkurat";
+}
+/* line 62, scss/styles.scss */
+#mainnav a, #mainnav a:visited {
+  color: #333333;
+  text-decoration: none;
+}
+/* line 66, scss/styles.scss */
+#mainnav a:hover {
+  color: #333333;
+  text-decoration: underline;
 }
 
-#mainnav li > a:hover {
-	letter-spacing: 2px;
-}
-
+/* line 71, scss/styles.scss */
 #submenu {
-	background-color: #f6f6f6;
-	font-family: "Akkurat-Light";
-	text-transform: lowercase;
+  padding: 1em 8%;
+  font-size: 1em;
+  background-color: #f6f6f6;
+  font-family: "Akkurat-Light";
+  text-transform: lowercase;
+}
+/* line 78, scss/styles.scss */
+#submenu a, #submenu a:visited {
+  color: #b2b2b2;
+  text-decoration: none;
+  -webkit-transition-property: color;
+  -moz-transition-property: color;
+  -o-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.7s;
+  -moz-transition-duration: 0.7s;
+  -o-transition-duration: 0.7s;
+  transition-duration: 0.7s;
+}
+/* line 87, scss/styles.scss */
+#submenu a:hover {
+  color: #333333;
+  text-decoration: none;
 }
 
-#submenu li > a:link, #submenu li > a:visited {
-	text-decoration: none;
-	color: lightgrey;
-
-	-webkit-transition: color .7s ease;
-    -moz-transition: color .7s ease;
-    -o-transition: color .7s ease;
-    -ms-transition: color .7s ease;
-    transition: color s ease;
-}
-
-#submenu li > a:hover {
-	color: #333;
-}
-
-
+/* line 93, scss/styles.scss */
 #footer {
-	margin: 0;
-	background-color: white;
-	font-family: "Akkurat";
-	color: #b2b2b2;
+  padding: 1em 8%;
+  font-size: 1em;
+  margin: 0;
+  background-color: white;
+  font-family: "Akkurat";
 }
-
-#footer a:link, #footer a:visited {
-	color: #b2b2b2;
-	text-decoration: none;
+/* line 100, scss/styles.scss */
+#footer a, #footer a:visited {
+  color: #b2b2b2;
+  text-decoration: none;
+  -webkit-transition-property: color;
+  -moz-transition-property: color;
+  -o-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.7s;
+  -moz-transition-duration: 0.7s;
+  -o-transition-duration: 0.7s;
+  transition-duration: 0.7s;
 }
-
+/* line 108, scss/styles.scss */
 #footer a:hover {
-	color: #333;
+  color: #333333;
+  text-decoration: none;
 }
 
+/* line 114, scss/styles.scss */
 .nav-left {
-	margin: 0;
-	float: left;
-	display: inline;
+  margin: 0;
+  float: left;
+  display: inline;
 }
 
+/* line 120, scss/styles.scss */
 .nav-right {
-	margin: 0;
-	float: right;
-	display: inline;
+  margin: 0;
+  float: right;
+  display: inline;
 }
 
+/* line 126, scss/styles.scss */
 .nav-center {
-	margin: 0 auto;
-	text-align: center;
+  margin: 0 auto;
+  text-align: center;
 }
 
+/* line 131, scss/styles.scss */
 .nav-center img {
-	width: 1.5em;
+  width: 1.5em;
 }
 
+/* line 135, scss/styles.scss */
 #current {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
+/* line 139, scss/styles.scss */
 img.logo {
-	opacity: .3
+  opacity: 0.3;
 }
 
+/* line 143, scss/styles.scss */
 img.logo:hover {
-	opacity: 1;
+  opacity: 1;
 }
-
-
-ul {
-	margin: 0;
-	list-style-type: none;
-}
-
-li {
-	padding-right: 1em;
-	display: inline;
-}
-
-
-
-
-
-
-
-
 
 /*--------- SEARCH ---------*/
-
-
+/* line 155, scss/styles.scss */
 form {
-	float: right;
-	margin: auto;
+  float: right;
+  margin: auto;
 }
 
+/* line 160, scss/styles.scss */
 .search {
-	padding: 3px 8px;
+  padding: 3px 8px;
 }
 
-.rounded {  
-	-webkit-border-radius:12px; 
-	-moz-border-radius:12px;
-	-o-border-radius:12px; 
-	-ms-border-radius:12px; 
-	border-radius:12px;
+/* line 164, scss/styles.scss */
+.rounded {
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  border-radius: 12px;
 }
 
-input[type=text]{
-	font-family: FontAwesome;
-	color:#bcbcbc;
-	outline: none;
-
-	border:1px solid #d0d0d0;
-	background-color:white;
+/* line 168, scss/styles.scss */
+input[type=text] {
+  font-family: "FontAwesome";
+  color: #b2b2b2;
+  outline: none;
+  border: 1px solid #b2b2b2;
+  background-color: white;
 }
 
+/* line 177, scss/styles.scss */
 input[type=text]:focus {
-	box-shadow: 0 0 5px #d0d0d0;
+  box-shadow: 0 0 3px #b2b2b2;
 }
 
-
-
-
-
-
-/*--------- BLOG ---------*/
-
+/*--------- MAIN BLOG PAGE ---------*/
+/* line 187, scss/styles.scss */
 .clear {
-	clear: both;
-	line-height: 0;
+  clear: both;
+  line-height: 0;
 }
 
+/* line 192, scss/styles.scss */
 #blog {
-	background-color: #ededed;
-	padding: 30px 8%;
-
-	display: block;
+  background-color: #ededed;
+  padding: 30px 8%;
+  display: block;
 }
 
+/* line 201, scss/styles.scss */
 .container {
-	margin: 10px 10px;
-	height: 350px;
-	width: 330px;
-
-	float: left;
-	position: relative;
-	display: table;
-
-	z-index: 1;
+  margin: 10px 10px;
+  height: 350px;
+  width: 330px;
+  float: left;
+  position: relative;
+  display: table;
+  z-index: 1;
 }
 
+/* line 213, scss/styles.scss */
 .data {
-	display: inline;
+  display: inline;
+  font-family: "Akkurat-Light";
 }
 
+/* line 218, scss/styles.scss */
 .content {
-	display: table-cell;
-	vertical-align: middle;
+  display: table-cell;
+  vertical-align: middle;
 }
 
+/* line 223, scss/styles.scss */
 .text {
-	margin: 0 auto;
-	width: 80%;
-	z-index: 1;
+  margin: 0 auto;
+  width: 80%;
+  z-index: 1;
+}
+/* line 228, scss/styles.scss */
+.text a {
+  text-decoration: underline;
 }
 
-img.horizontal {
-	width: 90%;
-	opacity: .35;
-	
-	-webkit-transition: all .4s linear;
-    -moz-transition: all .4s linear;
-    -o-transition: all .4s linear;
-    -ms-transition: all .4s linear;
-    transition: all .4s linear;
-}
-
-img.vertical {
-	height: 80%;
-	opacity: .35;
-
-	-webkit-transition: all .4s linear;
-    -moz-transition: all .4s linear;
-    -o-transition: all .4s linear;
-    -ms-transition: all .4s linear;
-    transition: all .4s linear;
-}
-
-.container:hover img.vertical{
-	opacity: .2;
-
-	-webkit-filter: blur(2px);
-	-moz-filter: blur(2px);
-	-o-filter: blur(2px);
-	-ms-filter: blur(2px);
-	filter: blur(2px);
-}
-
-.container:hover img.horizontal{
-	opacity: .2;
-
-	-webkit-filter: blur(2px);
-	-moz-filter: blur(2px);
-	-o-filter: blur(2px);
-	-ms-filter: blur(2px);
-	filter: blur(2px);
-}
-
-
+/* line 233, scss/styles.scss */
 article img {
-	margin: auto;
-	position: absolute;	
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-
-	z-index: -1;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
 }
 
+/* line 244, scss/styles.scss */
+img.horizontal {
+  width: 90%;
+  opacity: .35;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
 
-/*--------- POST ---------*/
+/* line 252, scss/styles.scss */
+img.vertical {
+  height: 80%;
+  opacity: .35;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
 
+/* line 262, scss/styles.scss */
+.container:hover img.vertical, .container:hover img.horizontal {
+  opacity: .2;
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  filter: blur(2px);
+}
+
+/*--------- BLOG POST ---------*/
+/* line 275, scss/styles.scss */
 .post {
-	width: 50%;
-	float: left;
+  width: 50%;
+  float: left;
 }
 
+/* line 280, scss/styles.scss */
 aside {
-	width: 40%;
-	float: right;
+  width: 40%;
+  float: right;
 }
 
+/* line 285, scss/styles.scss */
 aside p {
-	font-family: "Akkurat-LightItalic";
-	font-weight: 400;
-	text-align: center;
-	font-size: 1.4em;
-	line-height: 1.5em;
-	margin: 0 auto;
-	color: #333;
-
-	max-width: 80%;
+  max-width: 80%;
+  margin: 0 auto;
+  color: #333333;
+  font-family: "Akkurat-LightItalic";
+  font-weight: 400;
+  font-size: 1.4em;
+  text-align: center;
+  line-height: 1.5em;
 }
 
+/* line 301, scss/styles.scss */
 figure {
-	width: 100%;
-	display: block;
-	margin: 0 auto;
-
-	position: relative;
-	text-align: center;
-
-	margin: 50px 0;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  margin: 50px 0;
 }
-
-figcaption {
-	position: absolute;
-	bottom: -20px;
-	left: 0;
-	right: 0;
-	z-index: 100;
-
-	font-family: "Akkurat";
-	font-size: .8em;
-	text-align: center;
-	color: #ededed;
-	opacity: 0;
-
-
-	-webkit-transition: all .8s ease;
-    -moz-transition: all .8s ease;
-    -o-transition: all .8s ease;
-    -ms-transition: all .8s ease;
-    transition: all .8s ease;
-
-}
-
+/* line 311, scss/styles.scss */
 figure:hover figcaption {
-	opacity: 1;
-	bottom: 20px;
+  opacity: 1;
+  bottom: 20px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/* ------------ FONTS ------------- */
-
-@font-face {
-	font-family: "FontAwesome";
-	src: url('fonts/font-awesome/fonts/FontAwesome.otf');
-}
-
-@font-face {
-	font-family: "Akkurat";
-	src: url('fonts/Akkurat.otf');
-}
-
-@font-face {
-	font-family: "Akkurat-Bold";
-	src: url('fonts/Akkurat-Bold.otf');
-}
-
-
-@font-face {
-	font-family: "Akkurat-BoldItalic";
-	src: url('fonts/Akkurat-BoldItalic.otf');
-}
-
-@font-face {
-	font-family: "Akkurat-Italic";
-	src: url('fonts/Akkurat-Italic.otf');
-}
-
-@font-face {
-	font-family: "Akkurat-Light";
-	src: url('fonts/Akkurat-Light.otf');
-}
-
-@font-face {
-	font-family: "Akkurat-LightItalic";
-	src: url('fonts/Akkurat-LightItalic.otf');
+/* line 317, scss/styles.scss */
+figcaption {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  color: #ededed;
+  opacity: 0;
+  font-family: "Akkurat";
+  font-size: .8em;
+  text-align: center;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.8s;
+  -moz-transition-duration: 0.8s;
+  -o-transition-duration: 0.8s;
+  transition-duration: 0.8s;
 }

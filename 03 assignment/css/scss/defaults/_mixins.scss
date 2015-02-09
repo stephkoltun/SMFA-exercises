@@ -1,0 +1,9 @@
+@mixin nav-style {
+	padding: 1em 8%;
+	font-size: 1em;
+}
+
+@mixin link-style($color, $decoration) {
+  	color: $color;
+  	text-decoration: $decoration;
+}

@@ -1,7 +1,6 @@
 /*
 -----------------------------------------------------
-CSS file for IWD - 03 Assignment
-Media: desktop, iPad, iPhone (all horizontal)
+Main SCSS file for IWD - 03 Assignment
 
 Stephanie Koltun 
 
@@ -9,34 +8,328 @@ Stephanie Koltun
 */
 
 
-// Compass - might not use compass for now....we'll see
-// wanna right some mixins myself first
-@import "compass/css3/images";
-@import "compass/css3";
+/* Compass */
+@import "compass/css3/font-face";
+@import "compass/css3/filter";
+@import "compass/css3"; 
 
 
-// Normalize
-
-@import "defaults/_normalize.scss";
+/* Import partial files */
 
 // Mixins
 
-@import "defaults/_mixins.scss";
+@import "defaults/mixins.scss";
 
 // Variables
 
-@import "defaults/_variables.scss";
+@import "defaults/variables.scss";
 
 // Typography
 
-@import "defaults/_typography.scss"
+@import "defaults/typography.scss";
+
+// Helpers - delete if not used
+
+//@import "defaults/helpers.scss";
+
+
+body {
+	margin: 0 auto;
+}
+
+
+ul {
+	margin: 0;
+	list-style-type: none;
+}
+
+li {
+	padding-right: 1em;
+	display: inline;
+}
 
 
 
-// Base - maybe not needed - we'll see.....
 
-@import "defaults/_base.scss";
+/* ----------- NAVIGATION ----------- */
 
-// My stuff
+#mainnav {
+	@include nav-style;
 
-@import "_page.scss";
+	background-color: white;
+	font-family: "Akkurat";
+
+	a, a:visited {
+		@include link-style($color-main, none);
+	}
+
+	a:hover {
+		@include link-style($color-main, underline);
+	}
+}
+
+#submenu {
+	@include nav-style;
+
+	background-color: $color-accent;
+	font-family: "Akkurat-Light";
+	text-transform: lowercase;	
+
+	a, a:visited {
+		
+		@include link-style($color-light, none);
+
+		// transitions for links
+		@include transition-property(color);
+		@include transition-duration(.7s);
+	}
+
+	a:hover {
+		@include link-style($color-main, none);
+	}
+}
+
+
+#footer {
+	@include nav-style;
+
+	margin: 0;
+	background-color: white;
+	font-family: "Akkurat";
+
+	a, a:visited {
+		@include link-style($color-light, none);
+
+		// transitions for links
+		@include transition-property(color);
+		@include transition-duration(.7s);
+	}
+
+	a:hover {
+		@include link-style($color-main, none);
+	}
+}
+
+
+.nav-left {
+	margin: 0;
+	float: left;
+	display: inline;
+}
+
+.nav-right {
+	margin: 0;
+	float: right;
+	display: inline;
+}
+
+.nav-center {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.nav-center img {
+	width: 1.5em;
+}
+
+#current {
+	text-decoration: underline;
+}
+
+img.logo {
+	opacity: .3
+}
+
+img.logo:hover {
+	opacity: 1;
+}
+
+
+
+
+
+
+/*--------- SEARCH ---------*/
+
+
+form {
+	float: right;
+	margin: auto;
+}
+
+.search {
+	padding: 3px 8px;
+}
+
+.rounded {  
+	@include border-radius(12px);
+}
+
+input[type=text] {
+	font-family: "FontAwesome";
+	color: $color-light;
+	outline: none;
+
+	border:1px solid $color-light;
+	background-color: white;
+}
+
+input[type=text]:focus {
+	box-shadow: 0 0 3px $color-light;
+}
+
+
+
+
+
+/*--------- MAIN BLOG PAGE ---------*/
+
+.clear {
+	clear: both;
+	line-height: 0;
+}
+
+#blog {
+	background-color: $color-bkgd;
+	padding: 30px 8%;
+
+	display: block;
+}
+
+
+// Styling for each article element
+.container {
+	margin: 10px 10px;
+	height: 350px;
+	width: 330px;
+
+	float: left;
+	position: relative;
+	display: table;
+
+	z-index: 1;
+}
+
+.data {
+	display: inline;
+	font-family: "Akkurat-Light";
+}
+
+.content {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.text {
+	margin: 0 auto;
+	width: 80%;
+	z-index: 1;
+
+	a {
+		text-decoration: underline;
+	}
+}
+
+article img {
+	margin: auto;
+	position: absolute;	
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
+	z-index: -1;
+}
+
+img.horizontal {
+	width: 90%;
+	opacity: .35;
+
+	@include transition-property(all);
+	@include transition-duration(.4s);
+}
+
+img.vertical {
+	height: 80%;
+	opacity: .35;
+
+	@include transition-property(all);
+	@include transition-duration(.4s);
+}
+
+
+.container:hover {
+	img.vertical, img.horizontal{
+		opacity: .2;
+
+		@include filter(blur(2px));
+	}
+}
+
+
+
+
+
+/*--------- BLOG POST ---------*/
+
+.post {
+	width: 50%;
+	float: left;
+}
+
+aside {
+	width: 40%;
+	float: right;
+}
+
+aside p {
+
+	max-width: 80%;
+	margin: 0 auto;
+	color: $color-main;
+
+	font: {
+		family: "Akkurat-LightItalic";
+		weight: 400;
+		size: 1.4em;
+	}
+	text-align: center;
+	line-height: 1.5em;
+}
+
+
+figure {
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+
+	position: relative;
+	text-align: center;
+
+	margin: 50px 0;
+
+	&:hover figcaption {
+		opacity: 1;
+		bottom: 20px;
+	}
+}
+
+figcaption {
+	position: absolute;
+	bottom: -20px;
+	left: 0;
+	right: 0;
+	z-index: 100;
+
+	color: $color-bkgd;
+	opacity: 0;
+
+	font: {
+		family: "Akkurat";
+		size: .8em;
+	}
+	text-align: center;
+
+	@include transition-property(all);
+	@include transition-duration(.8s);
+}
