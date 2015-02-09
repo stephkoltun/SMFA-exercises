@@ -1,0 +1,42 @@
+/*
+-----------------------------------------------------
+CSS file for IWD - 03 Assignment
+Media: desktop, iPad, iPhone (all horizontal)
+
+Stephanie Koltun 
+
+-----------------------------------------------------
+*/
+
+
+// Compass - might not use compass for now....we'll see
+// wanna right some mixins myself first
+@import "compass/css3/images";
+@import "compass/css3";
+
+
+// Normalize
+
+@import "defaults/_normalize.scss";
+
+// Mixins
+
+@import "defaults/_mixins.scss";
+
+// Variables
+
+@import "defaults/_variables.scss";
+
+// Typography
+
+@import "defaults/_typography.scss"
+
+
+
+// Base - maybe not needed - we'll see.....
+
+@import "defaults/_base.scss";
+
+// My stuff
+
+@import "_page.scss";
