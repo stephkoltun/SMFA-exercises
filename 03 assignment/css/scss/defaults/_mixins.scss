@@ -1,9 +1,30 @@
 @mixin nav-style {
-	padding: 1em 8%;
+	padding: 1em 0;
 	font-size: 1em;
+	margin: 0 auto;
+}
+
+@mixin main-content {
+	padding: 30px 8%;
+	display: block;
+	margin: 0 auto;
+	//width for 3 article boxes on index page
+	max-width: 1050px;
 }
 
 @mixin link-style($color, $decoration) {
   	color: $color;
   	text-decoration: $decoration;
+}
+
+@mixin pull-quote {
+	color: $color-main;
+
+	font: {
+		family: "Akkurat-LightItalic";
+		weight: 400;
+		size: 1.4em;
+	}
+	text-align: center;
+	line-height: 1.5em;
 }

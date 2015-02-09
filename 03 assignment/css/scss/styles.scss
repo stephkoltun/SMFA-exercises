@@ -35,12 +35,15 @@ Stephanie Koltun
 
 body {
 	margin: 0 auto;
+	background-color: $color-bkgd;
 }
 
 
 ul {
-	margin: 0;
+	margin: 0 auto;
 	list-style-type: none;
+	padding: 0;
+	max-width: $max-width;
 }
 
 li {
@@ -90,7 +93,7 @@ li {
 }
 
 
-#footer {
+#footer-nav {
 	@include nav-style;
 
 	margin: 0;
@@ -166,7 +169,6 @@ form {
 }
 
 input[type=text] {
-	font-family: "FontAwesome";
 	color: $color-light;
 	outline: none;
 
@@ -189,11 +191,8 @@ input[type=text]:focus {
 	line-height: 0;
 }
 
-#blog {
-	background-color: $color-bkgd;
-	padding: 30px 8%;
-
-	display: block;
+#blog-index {
+	@include main-content;
 }
 
 
@@ -272,30 +271,36 @@ img.vertical {
 
 /*--------- BLOG POST ---------*/
 
-.post {
-	width: 50%;
-	float: left;
+#blog-post {
+	@include main-content;
 }
 
-aside {
+.post-content {
+	max-width: 570px;
+	width: 45%;
+	float: left;
+	padding: 0 50px;
+}
+
+.right-aside {
+	@include pull-quote;
 	width: 40%;
 	float: right;
-}
+	margin: 50px 0;
 
-aside p {
-
-	max-width: 80%;
-	margin: 0 auto;
-	color: $color-main;
-
-	font: {
-		family: "Akkurat-LightItalic";
-		weight: 400;
-		size: 1.4em;
+	p {
+		margin: 0 auto;
+		padding: 50px 0;
+		max-width: 80%;
 	}
-	text-align: center;
-	line-height: 1.5em;
 }
+
+.left-aside {
+	width: 5%;
+	float: left;
+	margin: 40px 0;
+}
+
 
 
 figure {
@@ -304,32 +309,34 @@ figure {
 	margin: 0 auto;
 
 	position: relative;
+	
 	text-align: center;
-
-	margin: 50px 0;
 
 	&:hover figcaption {
 		opacity: 1;
-		bottom: 20px;
+		bottom: -100px;
 	}
 }
 
 figcaption {
+
 	position: absolute;
-	bottom: -20px;
+	bottom: -150px;
 	left: 0;
 	right: 0;
 	z-index: 100;
 
-	color: $color-bkgd;
 	opacity: 0;
 
-	font: {
-		family: "Akkurat";
-		size: .8em;
-	}
-	text-align: center;
-
 	@include transition-property(all);
-	@include transition-duration(.8s);
+	@include transition-duration(.7s);
+
+	.caption {
+		color: $color-accent;
+		font: {
+			family: "Akkurat";
+			size: .6em;
+		}
+		text-align: center;
+	}
 }

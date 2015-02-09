@@ -43,22 +43,22 @@ Stephanie Koltun
   src: url('/stylesheets/fonts/fonts/font-awesome/fonts/FontAwesome.otf') format('opentype');
 }
 
-/* line 10, scss/defaults/_typography.scss */
+/* line 10, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 p {
   color: #333333;
   font-family: "Akkurat";
   font-size: .9em;
 }
-/* line 17, scss/defaults/_typography.scss */
+/* line 17, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 p a {
   text-decoration: none;
 }
-/* line 20, scss/defaults/_typography.scss */
+/* line 20, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 p a:link, p a:visited {
   color: #333333;
 }
 
-/* line 28, scss/defaults/_typography.scss */
+/* line 28, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 h1 {
   margin: 0 0;
   color: #333333;
@@ -66,17 +66,17 @@ h1 {
   font-weight: 400;
   font-size: 1.8em;
 }
-/* line 38, scss/defaults/_typography.scss */
+/* line 38, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 h1 a:link, h1 a:visited {
   text-decoration: underline;
   color: #333333;
 }
-/* line 43, scss/defaults/_typography.scss */
+/* line 43, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 h1 a:hover {
   text-decoration: none;
 }
 
-/* line 51, scss/defaults/_typography.scss */
+/* line 51, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 h2 {
   margin: 1em 0;
   padding-right: 1em;
@@ -87,7 +87,7 @@ h2 {
   font-weight: 400;
 }
 
-/* line 68, scss/defaults/_typography.scss */
+/* line 68, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 h3 {
   margin: 1em;
   color: #333333;
@@ -95,7 +95,7 @@ h3 {
   font-size: .8em;
   font-weight: 100;
 }
-/* line 79, scss/defaults/_typography.scss */
+/* line 79, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 h3 a:link, h3 a:visited {
   family: "Akkurat-LightItalic";
   text-decoration: none;
@@ -106,48 +106,53 @@ h3 a:link, h3 a:visited {
 /* line 36, scss/styles.scss */
 body {
   margin: 0 auto;
+  background-color: #ededed;
 }
 
-/* line 41, scss/styles.scss */
+/* line 42, scss/styles.scss */
 ul {
-  margin: 0;
+  margin: 0 auto;
   list-style-type: none;
+  padding: 0;
+  max-width: 1050px;
 }
 
-/* line 46, scss/styles.scss */
+/* line 49, scss/styles.scss */
 li {
   padding-right: 1em;
   display: inline;
 }
 
 /* ----------- NAVIGATION ----------- */
-/* line 56, scss/styles.scss */
+/* line 59, scss/styles.scss */
 #mainnav {
-  padding: 1em 8%;
+  padding: 1em 0;
   font-size: 1em;
+  margin: 0 auto;
   background-color: white;
   font-family: "Akkurat";
 }
-/* line 62, scss/styles.scss */
+/* line 65, scss/styles.scss */
 #mainnav a, #mainnav a:visited {
   color: #333333;
   text-decoration: none;
 }
-/* line 66, scss/styles.scss */
+/* line 69, scss/styles.scss */
 #mainnav a:hover {
   color: #333333;
   text-decoration: underline;
 }
 
-/* line 71, scss/styles.scss */
+/* line 74, scss/styles.scss */
 #submenu {
-  padding: 1em 8%;
+  padding: 1em 0;
   font-size: 1em;
+  margin: 0 auto;
   background-color: #f6f6f6;
   font-family: "Akkurat-Light";
   text-transform: lowercase;
 }
-/* line 78, scss/styles.scss */
+/* line 81, scss/styles.scss */
 #submenu a, #submenu a:visited {
   color: #b2b2b2;
   text-decoration: none;
@@ -160,22 +165,23 @@ li {
   -o-transition-duration: 0.7s;
   transition-duration: 0.7s;
 }
-/* line 87, scss/styles.scss */
+/* line 90, scss/styles.scss */
 #submenu a:hover {
   color: #333333;
   text-decoration: none;
 }
 
-/* line 93, scss/styles.scss */
-#footer {
-  padding: 1em 8%;
+/* line 96, scss/styles.scss */
+#footer-nav {
+  padding: 1em 0;
   font-size: 1em;
+  margin: 0 auto;
   margin: 0;
   background-color: white;
   font-family: "Akkurat";
 }
-/* line 100, scss/styles.scss */
-#footer a, #footer a:visited {
+/* line 103, scss/styles.scss */
+#footer-nav a, #footer-nav a:visited {
   color: #b2b2b2;
   text-decoration: none;
   -webkit-transition-property: color;
@@ -187,65 +193,65 @@ li {
   -o-transition-duration: 0.7s;
   transition-duration: 0.7s;
 }
-/* line 108, scss/styles.scss */
-#footer a:hover {
+/* line 111, scss/styles.scss */
+#footer-nav a:hover {
   color: #333333;
   text-decoration: none;
 }
 
-/* line 114, scss/styles.scss */
+/* line 117, scss/styles.scss */
 .nav-left {
   margin: 0;
   float: left;
   display: inline;
 }
 
-/* line 120, scss/styles.scss */
+/* line 123, scss/styles.scss */
 .nav-right {
   margin: 0;
   float: right;
   display: inline;
 }
 
-/* line 126, scss/styles.scss */
+/* line 129, scss/styles.scss */
 .nav-center {
   margin: 0 auto;
   text-align: center;
 }
 
-/* line 131, scss/styles.scss */
+/* line 134, scss/styles.scss */
 .nav-center img {
   width: 1.5em;
 }
 
-/* line 135, scss/styles.scss */
+/* line 138, scss/styles.scss */
 #current {
   text-decoration: underline;
 }
 
-/* line 139, scss/styles.scss */
+/* line 142, scss/styles.scss */
 img.logo {
   opacity: 0.3;
 }
 
-/* line 143, scss/styles.scss */
+/* line 146, scss/styles.scss */
 img.logo:hover {
   opacity: 1;
 }
 
 /*--------- SEARCH ---------*/
-/* line 155, scss/styles.scss */
+/* line 158, scss/styles.scss */
 form {
   float: right;
   margin: auto;
 }
 
-/* line 160, scss/styles.scss */
+/* line 163, scss/styles.scss */
 .search {
   padding: 3px 8px;
 }
 
-/* line 164, scss/styles.scss */
+/* line 167, scss/styles.scss */
 .rounded {
   -webkit-border-radius: 12px;
   -moz-border-radius: 12px;
@@ -254,35 +260,35 @@ form {
   border-radius: 12px;
 }
 
-/* line 168, scss/styles.scss */
+/* line 171, scss/styles.scss */
 input[type=text] {
-  font-family: "FontAwesome";
   color: #b2b2b2;
   outline: none;
   border: 1px solid #b2b2b2;
   background-color: white;
 }
 
-/* line 177, scss/styles.scss */
+/* line 179, scss/styles.scss */
 input[type=text]:focus {
   box-shadow: 0 0 3px #b2b2b2;
 }
 
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 187, scss/styles.scss */
+/* line 189, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;
 }
 
-/* line 192, scss/styles.scss */
-#blog {
-  background-color: #ededed;
+/* line 194, scss/styles.scss */
+#blog-index {
   padding: 30px 8%;
   display: block;
+  margin: 0 auto;
+  max-width: 1050px;
 }
 
-/* line 201, scss/styles.scss */
+/* line 200, scss/styles.scss */
 .container {
   margin: 10px 10px;
   height: 350px;
@@ -293,30 +299,30 @@ input[type=text]:focus {
   z-index: 1;
 }
 
-/* line 213, scss/styles.scss */
+/* line 212, scss/styles.scss */
 .data {
   display: inline;
   font-family: "Akkurat-Light";
 }
 
-/* line 218, scss/styles.scss */
+/* line 217, scss/styles.scss */
 .content {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* line 223, scss/styles.scss */
+/* line 222, scss/styles.scss */
 .text {
   margin: 0 auto;
   width: 80%;
   z-index: 1;
 }
-/* line 228, scss/styles.scss */
+/* line 227, scss/styles.scss */
 .text a {
   text-decoration: underline;
 }
 
-/* line 233, scss/styles.scss */
+/* line 232, scss/styles.scss */
 article img {
   margin: auto;
   position: absolute;
@@ -327,7 +333,7 @@ article img {
   z-index: -1;
 }
 
-/* line 244, scss/styles.scss */
+/* line 243, scss/styles.scss */
 img.horizontal {
   width: 90%;
   opacity: .35;
@@ -341,7 +347,7 @@ img.horizontal {
   transition-duration: 0.4s;
 }
 
-/* line 252, scss/styles.scss */
+/* line 251, scss/styles.scss */
 img.vertical {
   height: 80%;
   opacity: .35;
@@ -355,7 +361,7 @@ img.vertical {
   transition-duration: 0.4s;
 }
 
-/* line 262, scss/styles.scss */
+/* line 261, scss/styles.scss */
 .container:hover img.vertical, .container:hover img.horizontal {
   opacity: .2;
   -webkit-filter: blur(2px);
@@ -364,63 +370,83 @@ img.vertical {
 }
 
 /*--------- BLOG POST ---------*/
-/* line 275, scss/styles.scss */
-.post {
-  width: 50%;
-  float: left;
+/* line 274, scss/styles.scss */
+#blog-post {
+  padding: 30px 8%;
+  display: block;
+  margin: 0 auto;
+  max-width: 1050px;
 }
 
-/* line 280, scss/styles.scss */
-aside {
-  width: 40%;
-  float: right;
+/* line 278, scss/styles.scss */
+.post-content {
+  max-width: 570px;
+  width: 45%;
+  float: left;
+  padding: 0 50px;
 }
 
 /* line 285, scss/styles.scss */
-aside p {
-  max-width: 80%;
-  margin: 0 auto;
+.right-aside {
   color: #333333;
   font-family: "Akkurat-LightItalic";
   font-weight: 400;
   font-size: 1.4em;
   text-align: center;
   line-height: 1.5em;
+  width: 40%;
+  float: right;
+  margin: 50px 0;
+}
+/* line 291, scss/styles.scss */
+.right-aside p {
+  margin: 0 auto;
+  padding: 50px 0;
+  max-width: 80%;
 }
 
-/* line 301, scss/styles.scss */
+/* line 298, scss/styles.scss */
+.left-aside {
+  width: 5%;
+  float: left;
+  margin: 40px 0;
+}
+
+/* line 306, scss/styles.scss */
 figure {
   width: 100%;
   display: block;
   margin: 0 auto;
   position: relative;
   text-align: center;
-  margin: 50px 0;
 }
-/* line 311, scss/styles.scss */
+/* line 315, scss/styles.scss */
 figure:hover figcaption {
   opacity: 1;
-  bottom: 20px;
+  bottom: -100px;
 }
 
-/* line 317, scss/styles.scss */
+/* line 321, scss/styles.scss */
 figcaption {
   position: absolute;
-  bottom: -20px;
+  bottom: -150px;
   left: 0;
   right: 0;
   z-index: 100;
-  color: #ededed;
   opacity: 0;
-  font-family: "Akkurat";
-  font-size: .8em;
-  text-align: center;
   -webkit-transition-property: all;
   -moz-transition-property: all;
   -o-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 0.8s;
-  -moz-transition-duration: 0.8s;
-  -o-transition-duration: 0.8s;
-  transition-duration: 0.8s;
+  -webkit-transition-duration: 0.7s;
+  -moz-transition-duration: 0.7s;
+  -o-transition-duration: 0.7s;
+  transition-duration: 0.7s;
+}
+/* line 334, scss/styles.scss */
+figcaption .caption {
+  color: #f6f6f6;
+  font-family: "Akkurat";
+  font-size: .6em;
+  text-align: center;
 }
