@@ -2,20 +2,49 @@
 	padding: 1em 0;
 	font-size: 1em;
 	margin: 0 auto;
+
+	@media screen and (min-width: $width-small) {
+		font-size: .8em;
+	}
+
+	@media screen and (min-width: $width-medium) {
+		font-size: .9em;
+	}
+
+	@media screen and (min-width: $width-large) {
+		font-size: 1em;
+	}
+
 }
+
+
 
 @mixin main-content {
 	padding: 30px 8%;
 	display: block;
 	margin: 0 auto;
-	//width for 3 article boxes on index page
-	max-width: 1050px;
+
+	@media screen and (min-width: $width-small) {
+		max-width: $max-width-small;
+	}
+
+	@media screen and (min-width: $width-medium) {
+		max-width: $max-width-medium;
+	}
+
+	@media screen and (min-width: $width-large) {
+		max-width: $max-width-large;
+	}
 }
+
+
 
 @mixin link-style($color, $decoration) {
   	color: $color;
   	text-decoration: $decoration;
 }
+
+
 
 @mixin pull-quote {
 	color: $color-main;

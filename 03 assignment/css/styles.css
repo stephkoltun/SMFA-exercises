@@ -8,6 +8,7 @@ Stephanie Koltun
 */
 /* Compass */
 /* Import partial files */
+/* ----- MEDIA QUERIES ----- */
 @font-face {
   font-family: "Akkurat";
   src: url('/stylesheets/fonts/fonts/Akkurat.otf') format('opentype');
@@ -43,22 +44,22 @@ Stephanie Koltun
   src: url('/stylesheets/fonts/fonts/font-awesome/fonts/FontAwesome.otf') format('opentype');
 }
 
-/* line 10, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 10, scss/defaults/_typography.scss */
 p {
   color: #333333;
   font-family: "Akkurat";
   font-size: .9em;
 }
-/* line 17, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 17, scss/defaults/_typography.scss */
 p a {
   text-decoration: none;
 }
-/* line 20, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 20, scss/defaults/_typography.scss */
 p a:link, p a:visited {
   color: #333333;
 }
 
-/* line 28, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 28, scss/defaults/_typography.scss */
 h1 {
   margin: 0 0;
   color: #333333;
@@ -66,17 +67,17 @@ h1 {
   font-weight: 400;
   font-size: 1.8em;
 }
-/* line 38, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 38, scss/defaults/_typography.scss */
 h1 a:link, h1 a:visited {
   text-decoration: underline;
   color: #333333;
 }
-/* line 43, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 43, scss/defaults/_typography.scss */
 h1 a:hover {
   text-decoration: none;
 }
 
-/* line 51, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 51, scss/defaults/_typography.scss */
 h2 {
   margin: 1em 0;
   padding-right: 1em;
@@ -87,7 +88,7 @@ h2 {
   font-weight: 400;
 }
 
-/* line 68, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 68, scss/defaults/_typography.scss */
 h3 {
   margin: 1em;
   color: #333333;
@@ -95,7 +96,7 @@ h3 {
   font-size: .8em;
   font-weight: 100;
 }
-/* line 79, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 79, scss/defaults/_typography.scss */
 h3 a:link, h3 a:visited {
   family: "Akkurat-LightItalic";
   text-decoration: none;
@@ -103,28 +104,45 @@ h3 a:link, h3 a:visited {
   color: #333333;
 }
 
-/* line 36, scss/styles.scss */
+/* line 29, scss/styles.scss */
 body {
   margin: 0 auto;
   background-color: #ededed;
 }
 
-/* line 42, scss/styles.scss */
+/* line 35, scss/styles.scss */
 ul {
   margin: 0 auto;
   list-style-type: none;
   padding: 0;
-  max-width: 1050px;
+}
+@media screen and (min-width: 600px) {
+  /* line 35, scss/styles.scss */
+  ul {
+    max-width: 500px;
+  }
+}
+@media screen and (min-width: 800px) {
+  /* line 35, scss/styles.scss */
+  ul {
+    max-width: 700px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 35, scss/styles.scss */
+  ul {
+    max-width: 1050px;
+  }
 }
 
-/* line 49, scss/styles.scss */
+/* line 53, scss/styles.scss */
 li {
   padding-right: 1em;
   display: inline;
 }
 
 /* ----------- NAVIGATION ----------- */
-/* line 59, scss/styles.scss */
+/* line 63, scss/styles.scss */
 #mainnav {
   padding: 1em 0;
   font-size: 1em;
@@ -132,18 +150,36 @@ li {
   background-color: white;
   font-family: "Akkurat";
 }
-/* line 65, scss/styles.scss */
+@media screen and (min-width: 600px) {
+  /* line 63, scss/styles.scss */
+  #mainnav {
+    font-size: .8em;
+  }
+}
+@media screen and (min-width: 800px) {
+  /* line 63, scss/styles.scss */
+  #mainnav {
+    font-size: .9em;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 63, scss/styles.scss */
+  #mainnav {
+    font-size: 1em;
+  }
+}
+/* line 69, scss/styles.scss */
 #mainnav a, #mainnav a:visited {
   color: #333333;
   text-decoration: none;
 }
-/* line 69, scss/styles.scss */
+/* line 73, scss/styles.scss */
 #mainnav a:hover {
   color: #333333;
   text-decoration: underline;
 }
 
-/* line 74, scss/styles.scss */
+/* line 78, scss/styles.scss */
 #submenu {
   padding: 1em 0;
   font-size: 1em;
@@ -152,7 +188,25 @@ li {
   font-family: "Akkurat-Light";
   text-transform: lowercase;
 }
-/* line 81, scss/styles.scss */
+@media screen and (min-width: 600px) {
+  /* line 78, scss/styles.scss */
+  #submenu {
+    font-size: .8em;
+  }
+}
+@media screen and (min-width: 800px) {
+  /* line 78, scss/styles.scss */
+  #submenu {
+    font-size: .9em;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 78, scss/styles.scss */
+  #submenu {
+    font-size: 1em;
+  }
+}
+/* line 85, scss/styles.scss */
 #submenu a, #submenu a:visited {
   color: #b2b2b2;
   text-decoration: none;
@@ -165,13 +219,19 @@ li {
   -o-transition-duration: 0.7s;
   transition-duration: 0.7s;
 }
-/* line 90, scss/styles.scss */
+/* line 94, scss/styles.scss */
 #submenu a:hover {
   color: #333333;
   text-decoration: none;
 }
+@media screen and (min-width: 600px) {
+  /* line 78, scss/styles.scss */
+  #submenu {
+    display: none;
+  }
+}
 
-/* line 96, scss/styles.scss */
+/* line 105, scss/styles.scss */
 #footer-nav {
   padding: 1em 0;
   font-size: 1em;
@@ -180,7 +240,25 @@ li {
   background-color: white;
   font-family: "Akkurat";
 }
-/* line 103, scss/styles.scss */
+@media screen and (min-width: 600px) {
+  /* line 105, scss/styles.scss */
+  #footer-nav {
+    font-size: .8em;
+  }
+}
+@media screen and (min-width: 800px) {
+  /* line 105, scss/styles.scss */
+  #footer-nav {
+    font-size: .9em;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 105, scss/styles.scss */
+  #footer-nav {
+    font-size: 1em;
+  }
+}
+/* line 112, scss/styles.scss */
 #footer-nav a, #footer-nav a:visited {
   color: #b2b2b2;
   text-decoration: none;
@@ -193,65 +271,110 @@ li {
   -o-transition-duration: 0.7s;
   transition-duration: 0.7s;
 }
-/* line 111, scss/styles.scss */
+/* line 120, scss/styles.scss */
 #footer-nav a:hover {
   color: #333333;
   text-decoration: none;
 }
 
-/* line 117, scss/styles.scss */
+/* line 126, scss/styles.scss */
 .nav-left {
   margin: 0;
   float: left;
   display: inline;
 }
 
-/* line 123, scss/styles.scss */
+/* line 132, scss/styles.scss */
 .nav-right {
   margin: 0;
   float: right;
   display: inline;
 }
 
-/* line 129, scss/styles.scss */
+/* line 138, scss/styles.scss */
 .nav-center {
   margin: 0 auto;
   text-align: center;
 }
 
-/* line 134, scss/styles.scss */
+/* line 143, scss/styles.scss */
 .nav-center img {
   width: 1.5em;
 }
 
-/* line 138, scss/styles.scss */
+/* line 147, scss/styles.scss */
 #current {
   text-decoration: underline;
 }
 
-/* line 142, scss/styles.scss */
+/* line 151, scss/styles.scss */
 img.logo {
   opacity: 0.3;
 }
 
-/* line 146, scss/styles.scss */
+/* line 155, scss/styles.scss */
 img.logo:hover {
   opacity: 1;
 }
 
 /*--------- SEARCH ---------*/
-/* line 158, scss/styles.scss */
+/* line 167, scss/styles.scss */
 form {
   float: right;
   margin: auto;
 }
-
-/* line 163, scss/styles.scss */
-.search {
-  padding: 3px 8px;
+@media screen and (min-width: 600px) {
+  /* line 167, scss/styles.scss */
+  form {
+    display: none;
+  }
+}
+@media screen and (min-width: 800px) {
+  /* line 167, scss/styles.scss */
+  form {
+    display: block;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 167, scss/styles.scss */
+  form {
+    display: block;
+  }
 }
 
-/* line 167, scss/styles.scss */
+@media screen and (min-width: 600px) {
+  /* line 185, scss/styles.scss */
+  .search-icon {
+    display: inline-block;
+  }
+}
+@media screen and (min-width: 800px) {
+  /* line 185, scss/styles.scss */
+  .search-icon {
+    display: none;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 185, scss/styles.scss */
+  .search-icon {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  /* line 200, scss/styles.scss */
+  .search {
+    padding: 2px 6px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 200, scss/styles.scss */
+  .search {
+    padding: 3px 8px;
+  }
+}
+
+/* line 211, scss/styles.scss */
 .rounded {
   -webkit-border-radius: 12px;
   -moz-border-radius: 12px;
@@ -260,7 +383,7 @@ form {
   border-radius: 12px;
 }
 
-/* line 171, scss/styles.scss */
+/* line 215, scss/styles.scss */
 input[type=text] {
   color: #b2b2b2;
   outline: none;
@@ -268,27 +391,44 @@ input[type=text] {
   background-color: white;
 }
 
-/* line 179, scss/styles.scss */
+/* line 223, scss/styles.scss */
 input[type=text]:focus {
   box-shadow: 0 0 3px #b2b2b2;
 }
 
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 189, scss/styles.scss */
+/* line 233, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;
 }
 
-/* line 194, scss/styles.scss */
+/* line 238, scss/styles.scss */
 #blog-index {
   padding: 30px 8%;
   display: block;
   margin: 0 auto;
-  max-width: 1050px;
+}
+@media screen and (min-width: 600px) {
+  /* line 238, scss/styles.scss */
+  #blog-index {
+    max-width: 500px;
+  }
+}
+@media screen and (min-width: 800px) {
+  /* line 238, scss/styles.scss */
+  #blog-index {
+    max-width: 700px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 238, scss/styles.scss */
+  #blog-index {
+    max-width: 1050px;
+  }
 }
 
-/* line 200, scss/styles.scss */
+/* line 244, scss/styles.scss */
 .container {
   margin: 10px 10px;
   height: 350px;
@@ -299,30 +439,30 @@ input[type=text]:focus {
   z-index: 1;
 }
 
-/* line 212, scss/styles.scss */
+/* line 256, scss/styles.scss */
 .data {
   display: inline;
   font-family: "Akkurat-Light";
 }
 
-/* line 217, scss/styles.scss */
+/* line 261, scss/styles.scss */
 .content {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* line 222, scss/styles.scss */
+/* line 266, scss/styles.scss */
 .text {
   margin: 0 auto;
   width: 80%;
   z-index: 1;
 }
-/* line 227, scss/styles.scss */
+/* line 271, scss/styles.scss */
 .text a {
   text-decoration: underline;
 }
 
-/* line 232, scss/styles.scss */
+/* line 276, scss/styles.scss */
 article img {
   margin: auto;
   position: absolute;
@@ -333,7 +473,7 @@ article img {
   z-index: -1;
 }
 
-/* line 243, scss/styles.scss */
+/* line 287, scss/styles.scss */
 img.horizontal {
   width: 90%;
   opacity: .35;
@@ -347,7 +487,7 @@ img.horizontal {
   transition-duration: 0.4s;
 }
 
-/* line 251, scss/styles.scss */
+/* line 295, scss/styles.scss */
 img.vertical {
   height: 80%;
   opacity: .35;
@@ -361,7 +501,7 @@ img.vertical {
   transition-duration: 0.4s;
 }
 
-/* line 261, scss/styles.scss */
+/* line 305, scss/styles.scss */
 .container:hover img.vertical, .container:hover img.horizontal {
   opacity: .2;
   -webkit-filter: blur(2px);
@@ -370,15 +510,32 @@ img.vertical {
 }
 
 /*--------- BLOG POST ---------*/
-/* line 274, scss/styles.scss */
+/* line 318, scss/styles.scss */
 #blog-post {
   padding: 30px 8%;
   display: block;
   margin: 0 auto;
-  max-width: 1050px;
+}
+@media screen and (min-width: 600px) {
+  /* line 318, scss/styles.scss */
+  #blog-post {
+    max-width: 500px;
+  }
+}
+@media screen and (min-width: 800px) {
+  /* line 318, scss/styles.scss */
+  #blog-post {
+    max-width: 700px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 318, scss/styles.scss */
+  #blog-post {
+    max-width: 1050px;
+  }
 }
 
-/* line 278, scss/styles.scss */
+/* line 322, scss/styles.scss */
 .post-content {
   max-width: 570px;
   width: 45%;
@@ -386,7 +543,7 @@ img.vertical {
   padding: 0 50px;
 }
 
-/* line 285, scss/styles.scss */
+/* line 329, scss/styles.scss */
 .right-aside {
   color: #333333;
   font-family: "Akkurat-LightItalic";
@@ -398,21 +555,21 @@ img.vertical {
   float: right;
   margin: 50px 0;
 }
-/* line 291, scss/styles.scss */
+/* line 335, scss/styles.scss */
 .right-aside p {
   margin: 0 auto;
-  padding: 50px 0;
+  padding: 80px 0;
   max-width: 80%;
 }
 
-/* line 298, scss/styles.scss */
+/* line 342, scss/styles.scss */
 .left-aside {
   width: 5%;
   float: left;
   margin: 40px 0;
 }
 
-/* line 306, scss/styles.scss */
+/* line 350, scss/styles.scss */
 figure {
   width: 100%;
   display: block;
@@ -420,16 +577,16 @@ figure {
   position: relative;
   text-align: center;
 }
-/* line 315, scss/styles.scss */
+/* line 359, scss/styles.scss */
 figure:hover figcaption {
   opacity: 1;
-  bottom: -100px;
+  bottom: -140px;
 }
 
-/* line 321, scss/styles.scss */
+/* line 365, scss/styles.scss */
 figcaption {
   position: absolute;
-  bottom: -150px;
+  bottom: -180px;
   left: 0;
   right: 0;
   z-index: 100;
@@ -443,7 +600,7 @@ figcaption {
   -o-transition-duration: 0.7s;
   transition-duration: 0.7s;
 }
-/* line 334, scss/styles.scss */
+/* line 378, scss/styles.scss */
 figcaption .caption {
   color: #f6f6f6;
   font-family: "Akkurat";

@@ -17,19 +17,12 @@ Stephanie Koltun
 /* Import partial files */
 
 // Mixins
-
 @import "defaults/mixins.scss";
-
 // Variables
-
 @import "defaults/variables.scss";
-
 // Typography
-
 @import "defaults/typography.scss";
-
 // Helpers - delete if not used
-
 //@import "defaults/helpers.scss";
 
 
@@ -43,7 +36,18 @@ ul {
 	margin: 0 auto;
 	list-style-type: none;
 	padding: 0;
-	max-width: $max-width;
+	
+	@media screen and (min-width: $width-small) {
+		max-width: $max-width-small;
+	}
+
+	@media screen and (min-width: $width-medium) {
+		max-width: $max-width-medium;
+	}
+
+	@media screen and (min-width: $width-large) {
+		max-width: $max-width-large;
+	}
 }
 
 li {
@@ -89,6 +93,11 @@ li {
 
 	a:hover {
 		@include link-style($color-main, none);
+	}
+
+	//hide submenu with filters on iPhone
+	@media screen and (min-width: $width-small) {
+		display: none;
 	}
 }
 
@@ -158,10 +167,45 @@ img.logo:hover {
 form {
 	float: right;
 	margin: auto;
+
+	//use search form for iPad and desktop
+	@media screen and (min-width: $width-small) {
+		display: none;
+	}
+
+	@media screen and (min-width: $width-medium) {
+		display: block;
+	}
+
+	@media screen and (min-width: $width-large) {
+		display: block;
+	}
+}
+
+.search-icon {
+	//use search icon instead of form on iPhone
+	@media screen and (min-width: $width-small) {
+		display: inline-block;
+	}
+
+	@media screen and (min-width: $width-medium) {
+		display: none;
+	}
+
+	@media screen and (min-width: $width-large) {
+		display: none;
+	}
 }
 
 .search {
-	padding: 3px 8px;
+	@media screen and (min-width: $width-medium) {
+		padding: 2px 6px;
+	}
+
+	@media screen and (min-width: $width-large) {
+		padding: 3px 8px;
+	}
+	
 }
 
 .rounded {  
@@ -290,7 +334,7 @@ img.vertical {
 
 	p {
 		margin: 0 auto;
-		padding: 50px 0;
+		padding: 80px 0;
 		max-width: 80%;
 	}
 }
@@ -314,14 +358,14 @@ figure {
 
 	&:hover figcaption {
 		opacity: 1;
-		bottom: -100px;
+		bottom: -140px;
 	}
 }
 
 figcaption {
 
 	position: absolute;
-	bottom: -150px;
+	bottom: -180px;
 	left: 0;
 	right: 0;
 	z-index: 100;

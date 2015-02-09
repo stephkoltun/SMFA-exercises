@@ -3,4 +3,17 @@ $color-light: #b2b2b2; // light grey
 $color-bkgd: #ededed;// body background 
 $color-accent: #f6f6f6; // submenu background
 
-$max-width: 1050px;
+
+$max-width-large: 1050px;
+$max-width-medium: 700px;
+$max-width-small: 500px;
+
+
+/* ----- MEDIA QUERIES ----- */
+
+//iPhone horizontal
+$width-small:  600px;
+//iPad horizontal
+$width-medium: 800px;
+//desktop
+$width-large:  1200px;
