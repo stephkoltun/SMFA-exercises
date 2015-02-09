@@ -1,0 +1,428 @@
+/* {
+	border-style: solid;
+	border-color: red;
+	border width: 1px;
+}*/
+
+body {
+	margin: 0 auto;
+}
+
+p {
+	font-family: "Akkurat";
+	font-size: .9em;
+	color: #333;
+}
+
+p a:link, p a:visited {
+	color: #333;
+}
+
+h1 {
+	font-family: "Akkurat-Light";
+	font-weight: 400;
+	font-size: 1.8em;
+	margin: 0 0;
+	color: #333;
+}
+
+h1 a:link, h1 a:visited {
+	text-decoration: underline;
+	color: #333;
+}
+
+h1 a:hover {
+	text-decoration: none;
+}
+
+
+h2 {
+	font-family: "Akkurat";
+	font-size: .8em;
+	color: #333;
+
+	margin: 1em 0;
+
+	padding-right: 1em;
+	float: left;
+}
+
+h3 {
+	font-family: "Akkurat-LightItalic";
+	font-size: .8em;
+	color: #333;
+
+	margin: 1em;
+
+}
+
+h3 a:link, h3 a:visited {
+	text-decoration: none;
+	color: #333;
+}
+
+
+
+/* ----------- NAVIGATION ----------- */
+
+#mainnav, #submenu, #footer {
+	padding: 1em 8%;
+	font-size: 1em;
+}
+
+#mainnav li > a:link, #mainnav li > a:visited {
+	text-decoration: none;
+	color: #333;
+
+	-webkit-transition: all .5s ease .1s; 
+    -moz-transition: all .5s ease .1s;
+    -o-transition: all .5s ease .1s;
+    -ms-transition: all .5s ease .1s;
+    transition: all .5s ease .1s;
+}
+
+#mainnav {
+	background-color: white;
+	font-family: "Akkurat";
+	color: #333;
+}
+
+#mainnav li > a:hover {
+	letter-spacing: 2px;
+}
+
+#submenu {
+	background-color: #f6f6f6;
+	font-family: "Akkurat-Light";
+	text-transform: lowercase;
+}
+
+#submenu li > a:link, #submenu li > a:visited {
+	text-decoration: none;
+	color: lightgrey;
+
+	-webkit-transition: color .7s ease;
+    -moz-transition: color .7s ease;
+    -o-transition: color .7s ease;
+    -ms-transition: color .7s ease;
+    transition: color s ease;
+}
+
+#submenu li > a:hover {
+	color: #333;
+}
+
+
+#footer {
+	margin: 0;
+	background-color: white;
+	font-family: "Akkurat";
+	color: #b2b2b2;
+}
+
+#footer a:link, #footer a:visited {
+	color: #b2b2b2;
+	text-decoration: none;
+}
+
+#footer a:hover {
+	color: #333;
+}
+
+.nav-left {
+	margin: 0;
+	float: left;
+	display: inline;
+}
+
+.nav-right {
+	margin: 0;
+	float: right;
+	display: inline;
+}
+
+.nav-center {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.nav-center img {
+	width: 1.5em;
+}
+
+#current {
+	text-decoration: underline;
+}
+
+img.logo {
+	opacity: .3
+}
+
+img.logo:hover {
+	opacity: 1;
+}
+
+
+ul {
+	margin: 0;
+	list-style-type: none;
+}
+
+li {
+	padding-right: 1em;
+	display: inline;
+}
+
+
+
+
+
+
+
+
+
+/*--------- SEARCH ---------*/
+
+
+form {
+	float: right;
+	margin: auto;
+}
+
+.search {
+	padding: 3px 8px;
+}
+
+.rounded {  
+	-webkit-border-radius:12px; 
+	-moz-border-radius:12px;
+	-o-border-radius:12px; 
+	-ms-border-radius:12px; 
+	border-radius:12px;
+}
+
+input[type=text]{
+	font-family: FontAwesome;
+	color:#bcbcbc;
+	outline: none;
+
+	border:1px solid #d0d0d0;
+	background-color:white;
+}
+
+input[type=text]:focus {
+	box-shadow: 0 0 5px #d0d0d0;
+}
+
+
+
+
+
+
+/*--------- BLOG ---------*/
+
+.clear {
+	clear: both;
+	line-height: 0;
+}
+
+#blog {
+	background-color: #ededed;
+	padding: 30px 8%;
+
+	display: block;
+}
+
+.container {
+	margin: 10px 10px;
+	height: 350px;
+	width: 330px;
+
+	float: left;
+	position: relative;
+	display: table;
+
+	z-index: 1;
+}
+
+.data {
+	display: inline;
+}
+
+.content {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.text {
+	margin: 0 auto;
+	width: 80%;
+	z-index: 1;
+}
+
+img.horizontal {
+	width: 90%;
+	opacity: .35;
+	
+	-webkit-transition: all .4s linear;
+    -moz-transition: all .4s linear;
+    -o-transition: all .4s linear;
+    -ms-transition: all .4s linear;
+    transition: all .4s linear;
+}
+
+img.vertical {
+	height: 80%;
+	opacity: .35;
+
+	-webkit-transition: all .4s linear;
+    -moz-transition: all .4s linear;
+    -o-transition: all .4s linear;
+    -ms-transition: all .4s linear;
+    transition: all .4s linear;
+}
+
+.container:hover img.vertical{
+	opacity: .2;
+
+	-webkit-filter: blur(2px);
+	-moz-filter: blur(2px);
+	-o-filter: blur(2px);
+	-ms-filter: blur(2px);
+	filter: blur(2px);
+}
+
+.container:hover img.horizontal{
+	opacity: .2;
+
+	-webkit-filter: blur(2px);
+	-moz-filter: blur(2px);
+	-o-filter: blur(2px);
+	-ms-filter: blur(2px);
+	filter: blur(2px);
+}
+
+
+article img {
+	margin: auto;
+	position: absolute;	
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
+	z-index: -1;
+}
+
+
+/*--------- POST ---------*/
+
+.post {
+	width: 50%;
+	float: left;
+}
+
+aside {
+	width: 40%;
+	float: right;
+}
+
+aside p {
+	font-family: "Akkurat-LightItalic";
+	font-weight: 400;
+	text-align: center;
+	font-size: 1.4em;
+	line-height: 1.5em;
+	margin: 0 auto;
+	color: #333;
+
+	max-width: 80%;
+}
+
+figure {
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+
+	position: relative;
+	text-align: center;
+
+	margin: 50px 0;
+}
+
+figcaption {
+	position: absolute;
+	bottom: -20px;
+	left: 0;
+	right: 0;
+	z-index: 100;
+
+	font-family: "Akkurat";
+	font-size: .8em;
+	text-align: center;
+	color: #ededed;
+	opacity: 0;
+
+
+	-webkit-transition: all .8s ease;
+    -moz-transition: all .8s ease;
+    -o-transition: all .8s ease;
+    -ms-transition: all .8s ease;
+    transition: all .8s ease;
+
+}
+
+figure:hover figcaption {
+	opacity: 1;
+	bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------ FONTS ------------- */
+
+@font-face {
+	font-family: "FontAwesome";
+	src: url('fonts/font-awesome/fonts/FontAwesome.otf');
+}
+
+@font-face {
+	font-family: "Akkurat";
+	src: url('fonts/Akkurat.otf');
+}
+
+@font-face {
+	font-family: "Akkurat-Bold";
+	src: url('fonts/Akkurat-Bold.otf');
+}
+
+
+@font-face {
+	font-family: "Akkurat-BoldItalic";
+	src: url('fonts/Akkurat-BoldItalic.otf');
+}
+
+@font-face {
+	font-family: "Akkurat-Italic";
+	src: url('fonts/Akkurat-Italic.otf');
+}
+
+@font-face {
+	font-family: "Akkurat-Light";
+	src: url('fonts/Akkurat-Light.otf');
+}
+
+@font-face {
+	font-family: "Akkurat-LightItalic";
+	src: url('fonts/Akkurat-LightItalic.otf');
+}
