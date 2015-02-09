@@ -49,6 +49,7 @@ h1 {
 
 // typical h2 styles
 h2 {
+	display: inline;
 	margin: 1em 0;
 	padding-right: 1em;
 	float: left;
@@ -66,7 +67,7 @@ h2 {
 
 // typical h3 styles
 h3 {
-	margin: 1em;
+	margin: 1em 0;
 	color: $color-main;
 	
 	font: {

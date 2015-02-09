@@ -25,6 +25,9 @@ Stephanie Koltun
 // Helpers - delete if not used
 //@import "defaults/helpers.scss";
 
+/* {
+	border: 1px solid red;
+}*/
 
 body {
 	margin: 0 auto;
@@ -251,6 +254,11 @@ input[type=text]:focus {
 	display: table;
 
 	z-index: 1;
+
+	@media screen and (min-width: $width-small) {
+		width: 480px;
+		height: 260px;
+	}
 }
 
 .data {
@@ -271,6 +279,13 @@ input[type=text]:focus {
 	a {
 		text-decoration: underline;
 	}
+
+	@media screen and (min-width: $width-small) {
+		position: relative;
+		left: 120px;
+		width: 75%;
+		margin: 0;
+	}
 }
 
 article img {
@@ -279,7 +294,6 @@ article img {
 	top: 0;
 	left: 0;
 	bottom: 0;
-	right: 0;
 
 	z-index: -1;
 }
@@ -290,6 +304,10 @@ img.horizontal {
 
 	@include transition-property(all);
 	@include transition-duration(.4s);
+
+	@media screen and (min-width: $width-small) {
+		width: 60%;
+	}
 }
 
 img.vertical {

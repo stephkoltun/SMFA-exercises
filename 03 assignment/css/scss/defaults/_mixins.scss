@@ -26,6 +26,7 @@
 
 	@media screen and (min-width: $width-small) {
 		max-width: $max-width-small;
+		padding: 0;
 	}
 
 	@media screen and (min-width: $width-medium) {
