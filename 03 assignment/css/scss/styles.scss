@@ -345,6 +345,11 @@ img.vertical {
 	width: 45%;
 	float: left;
 	padding: 0 50px;
+
+	@media screen and (max-width: $width-small) {
+		max-width: $max-width-small;
+		width: 100%;
+	}
 }
 
 .right-aside {
@@ -358,12 +363,34 @@ img.vertical {
 		padding: 80px 0;
 		max-width: 80%;
 	}
+
+	@media screen and (max-width: $width-small) {
+		float: none;
+	}
 }
 
 .left-aside {
 	width: 5%;
 	float: left;
 	margin: 40px 0;
+
+	@media screen and (max-width: $width-small) {
+		display: none;
+	}
+}
+
+.mobile-data {
+	@media screen and (min-width: $width-large) {
+		display: none;
+	}
+
+	@media screen and (max-width: $width-medium) {
+		display: none;
+	}
+
+	@media screen and (max-width: $width-small) {
+		display: inline-block;
+	}
 }
 
 

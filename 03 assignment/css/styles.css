@@ -44,22 +44,22 @@ Stephanie Koltun
   src: url('/stylesheets/fonts/fonts/font-awesome/fonts/FontAwesome.otf') format('opentype');
 }
 
-/* line 10, scss/defaults/_typography.scss */
+/* line 10, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 p {
   color: #333333;
   font-family: "Akkurat";
   font-size: .9em;
 }
-/* line 17, scss/defaults/_typography.scss */
+/* line 17, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 p a {
   text-decoration: none;
 }
-/* line 20, scss/defaults/_typography.scss */
+/* line 20, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 p a:link, p a:visited {
   color: #333333;
 }
 
-/* line 28, scss/defaults/_typography.scss */
+/* line 28, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 h1 {
   margin: 0 0;
   color: #333333;
@@ -67,17 +67,17 @@ h1 {
   font-weight: 400;
   font-size: 1.8em;
 }
-/* line 38, scss/defaults/_typography.scss */
+/* line 38, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 h1 a:link, h1 a:visited {
   text-decoration: underline;
   color: #333333;
 }
-/* line 43, scss/defaults/_typography.scss */
+/* line 43, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 h1 a:hover {
   text-decoration: none;
 }
 
-/* line 51, scss/defaults/_typography.scss */
+/* line 51, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 h2 {
   display: inline;
   margin: 1em 0;
@@ -89,7 +89,7 @@ h2 {
   font-weight: 400;
 }
 
-/* line 69, scss/defaults/_typography.scss */
+/* line 69, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 h3 {
   margin: 1em 0;
   color: #333333;
@@ -97,7 +97,7 @@ h3 {
   font-size: .8em;
   font-weight: 100;
 }
-/* line 80, scss/defaults/_typography.scss */
+/* line 80, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 h3 a:link, h3 a:visited {
   family: "Akkurat-LightItalic";
   text-decoration: none;
@@ -419,18 +419,6 @@ input[type=text]:focus {
     padding: 0;
   }
 }
-@media screen and (min-width: 900px) {
-  /* line 242, scss/styles.scss */
-  #blog-index {
-    max-width: 700px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  /* line 242, scss/styles.scss */
-  #blog-index {
-    max-width: 1050px;
-  }
-}
 
 /* line 248, scss/styles.scss */
 .container {
@@ -549,18 +537,6 @@ img.vertical {
     padding: 0;
   }
 }
-@media screen and (min-width: 900px) {
-  /* line 339, scss/styles.scss */
-  #blog-post {
-    max-width: 700px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  /* line 339, scss/styles.scss */
-  #blog-post {
-    max-width: 1050px;
-  }
-}
 
 /* line 343, scss/styles.scss */
 .post-content {
@@ -569,8 +545,15 @@ img.vertical {
   float: left;
   padding: 0 50px;
 }
+@media screen and (max-width: 600px) {
+  /* line 343, scss/styles.scss */
+  .post-content {
+    max-width: 480px;
+    width: 100%;
+  }
+}
 
-/* line 350, scss/styles.scss */
+/* line 355, scss/styles.scss */
 .right-aside {
   color: #333333;
   font-family: "Akkurat-LightItalic";
@@ -582,21 +565,52 @@ img.vertical {
   float: right;
   margin: 50px 0;
 }
-/* line 356, scss/styles.scss */
+/* line 361, scss/styles.scss */
 .right-aside p {
   margin: 0 auto;
   padding: 80px 0;
   max-width: 80%;
 }
+@media screen and (max-width: 600px) {
+  /* line 355, scss/styles.scss */
+  .right-aside {
+    float: none;
+  }
+}
 
-/* line 363, scss/styles.scss */
+/* line 372, scss/styles.scss */
 .left-aside {
   width: 5%;
   float: left;
   margin: 40px 0;
 }
+@media screen and (max-width: 600px) {
+  /* line 372, scss/styles.scss */
+  .left-aside {
+    display: none;
+  }
+}
 
-/* line 371, scss/styles.scss */
+@media screen and (min-width: 1200px) {
+  /* line 382, scss/styles.scss */
+  .mobile-data {
+    display: none;
+  }
+}
+@media screen and (max-width: 900px) {
+  /* line 382, scss/styles.scss */
+  .mobile-data {
+    display: none;
+  }
+}
+@media screen and (max-width: 600px) {
+  /* line 382, scss/styles.scss */
+  .mobile-data {
+    display: inline-block;
+  }
+}
+
+/* line 398, scss/styles.scss */
 figure {
   width: 100%;
   display: block;
@@ -604,13 +618,13 @@ figure {
   position: relative;
   text-align: center;
 }
-/* line 380, scss/styles.scss */
+/* line 407, scss/styles.scss */
 figure:hover figcaption {
   opacity: 1;
   bottom: -140px;
 }
 
-/* line 386, scss/styles.scss */
+/* line 413, scss/styles.scss */
 figcaption {
   position: absolute;
   bottom: -180px;
@@ -627,7 +641,7 @@ figcaption {
   -o-transition-duration: 0.7s;
   transition-duration: 0.7s;
 }
-/* line 399, scss/styles.scss */
+/* line 426, scss/styles.scss */
 figcaption .caption {
   color: #f6f6f6;
   font-family: "Akkurat";
