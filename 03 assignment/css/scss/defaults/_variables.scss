@@ -6,14 +6,14 @@ $color-accent: #f6f6f6; // submenu background
 
 $max-width-large: 1050px;
 $max-width-medium: 700px;
-$max-width-small: 570px;
+$max-width-small: 550px;
 
 
 /* ----- MEDIA QUERIES ----- */
 
-//iPhone horizontal
+//iPhone horizontal - anything below this
 $width-small:  800px;
-//iPad horizontal
-$width-medium: 1100px;
+//iPad horizontal - anything above this
+$width-medium: 820px;
 //desktop
-$width-large:  1500px;
+$width-large:  1100px;

@@ -172,11 +172,6 @@ form {
 	margin: auto;
 
 	//use search form for iPad and desktop
-
-	@media screen and (min-width: $width-large) {
-		display: block;
-	}
-
 	@media screen and (min-width: $width-medium) {
 		display: block;
 	}
@@ -188,10 +183,6 @@ form {
 
 .search-icon {
 	//use search icon instead of form on iPhone
-	@media screen and (min-width: $width-large) {
-		display: none;
-	}	
-
 	@media screen and (min-width: $width-medium) {
 		display: none;
 	}
@@ -241,8 +232,15 @@ input[type=text]:focus {
 
 #blog-index {
 	@include main-content;
-}
 
+	@media screen and (min-width: $width-medium) {
+		max-width: $max-width-medium;
+	}
+
+	@media screen and (min-width: $width-large) {
+		max-width: $max-width-large;
+	}
+}
 
 // Styling for each article element
 .container {
@@ -257,7 +255,7 @@ input[type=text]:focus {
 	z-index: 1;
 
 	@media screen and (max-width: $width-small) {
-		width: 480px;
+		width: 470px;
 		height: 260px;
 		margin: 20px auto;
 		float: center;
@@ -286,7 +284,7 @@ input[type=text]:focus {
 	@media screen and (max-width: $width-small) {
 		position: relative;
 		left: 120px;
-		width: 75%;
+		max-width: 70%;
 		margin: 0;
 	}
 }
@@ -326,78 +324,93 @@ img.vertical {
 
 
 
+
+
 /*--------- BLOG POST ---------*/
 
 #blog-post {
 	@include main-content;
+
+	@media screen and (max-width: $width-small) {
+		max-width: $max-width-small;
+	}
+
+	@media screen and (min-width: $width-medium) {
+		max-width: $max-width-medium;
+	}
+
+
+	@media screen and (min-width: $width-large) {
+		max-width: $max-width-large;
+	}
 }
 
 .post-content {
-	padding: 0 60px;
+	
 	margin: 0 auto;
 
 	@media screen and (max-width: $width-small) {
 		max-width: $max-width-small;
-		padding-top: 50px;
 		float: center;
+		padding: 0;
+	}
+
+	@media screen and (min-width: $width-medium) {
+		max-width: 570px;
+		width: 55%;
+		float: left;
+		padding-left: 0;
 	}
 
 	@media screen and (min-width: $width-large) {
 		max-width: 570px;
 		width: 45%;
 		float: left;
+		padding: 0 45px;
 	}
 }
 
-.right-aside {
-	@include pull-quote;
-	width: 40%;
-	float: right;
-	margin: 50px 0;
 
-	p {
-		margin: 0 auto;
-		padding: 80px 0;
-		max-width: 80%;
-	}
-
-	@media screen and (max-width: $width-small) {
-		display: none;
-	}
-}
 
 .left-aside {
 	width: 5%;
 	float: left;
-	margin: 40px 0;
+	margin: 58px 0;
 
+	// left aside only used for screen
 	@media screen and (max-width: $width-small) {
 		display: none;
+	}
+
+	@media screen and (min-width: $width-medium) {
+		display: none;
+	}
+
+	@media screen and (min-width: $width-large) {
+		display: block;
 	}
 }
 
 .mobile-data {
+	// inline date and category for tablet, phone
 	@media screen and (min-width: $width-large) {
 		display: none;
 	}
 
 	@media screen and (max-width: $width-medium) {
-		display: none;
+		display: block;
 	}
 
 	@media screen and (max-width: $width-small) {
-		display: inline-block;
+		display: block;
 	}
 }
 
 .mobile-pull {
 	@include pull-quote;
 	padding: 20px 20px;
-	@media screen and (min-width: $width-large) {
-		display: none;
-	}
 
-	@media screen and (max-width: $width-medium) {
+	@media screen and (min-width: $width-medium) {
 		display: none;
 	}
 
@@ -408,27 +421,47 @@ img.vertical {
 
 
 
+.right-aside {
+	@include pull-quote;
+	width: 35%;
+	float: right;
+	margin: 50px 0;
+
+	p {
+		margin: 0 auto;
+		padding: 40px 0;
+		max-width: 85%;
+	}
+
+	img {
+		width: 100%;
+	}
+
+	@media screen and (max-width: $width-small) {
+		display: none;
+	}
+
+	@media screen and (min-width: $width-medium) {
+		margin: 0;
+	}
+}
 
 // figure only used for screen and tablet
 figure {
-	width: 100%;
 	display: block;
 	margin: 0 auto;
-
 	position: relative;
-	
-	text-align: center;
 
 	&:hover figcaption {
 		opacity: 1;
-		bottom: -140px;
+		bottom: 10px;
 	}
 }
 
 figcaption {
 
 	position: absolute;
-	bottom: -180px;
+	bottom: -50px;
 	left: 0;
 	right: 0;
 	z-index: 100;
@@ -448,6 +481,7 @@ figcaption {
 	}
 }
 
+
 .mobile-img {
 	img {
 		display: block;
@@ -466,11 +500,7 @@ figcaption {
 		text-align: center;
 	}
 
-	@media screen and (min-width: $width-large) {
-		display: none;
-	}
-
-	@media screen and (max-width: $width-medium) {
+	@media screen and (min-width: $width-medium) {
 		display: none;
 	}
 

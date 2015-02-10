@@ -23,6 +23,7 @@ p {
 	}
 
 	@media screen and (max-width: $width-small) {
+		font-size: .8em;
 		line-height: 1.5em;
 	}
 }
@@ -47,6 +48,10 @@ h1 {
 		&:hover {
 			text-decoration: none;
 		}
+	}
+
+	@media screen and (max-width: $width-small) {
+		font-size: 1.5em;
 	}
 }
 

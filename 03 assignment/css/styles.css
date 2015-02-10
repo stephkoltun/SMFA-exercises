@@ -44,28 +44,29 @@ Stephanie Koltun
   src: url('/stylesheets/fonts/fonts/font-awesome/fonts/FontAwesome.otf') format('opentype');
 }
 
-/* line 10, scss/defaults/_typography.scss */
+/* line 10, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 p {
   color: #333333;
   font-family: "Akkurat";
   font-size: .9em;
 }
-/* line 17, scss/defaults/_typography.scss */
+/* line 17, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 p a {
   text-decoration: none;
 }
-/* line 20, scss/defaults/_typography.scss */
+/* line 20, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 p a:link, p a:visited {
   color: #333333;
 }
 @media screen and (max-width: 800px) {
-  /* line 10, scss/defaults/_typography.scss */
+  /* line 10, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
   p {
+    font-size: .8em;
     line-height: 1.5em;
   }
 }
 
-/* line 32, scss/defaults/_typography.scss */
+/* line 33, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 h1 {
   margin: 0 0;
   color: #333333;
@@ -73,17 +74,23 @@ h1 {
   font-weight: 400;
   font-size: 1.8em;
 }
-/* line 42, scss/defaults/_typography.scss */
+/* line 43, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 h1 a:link, h1 a:visited {
   text-decoration: underline;
   color: #333333;
 }
-/* line 47, scss/defaults/_typography.scss */
+/* line 48, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 h1 a:hover {
   text-decoration: none;
 }
+@media screen and (max-width: 800px) {
+  /* line 33, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+  h1 {
+    font-size: 1.5em;
+  }
+}
 
-/* line 55, scss/defaults/_typography.scss */
+/* line 60, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 h2 {
   display: inline;
   margin: 1em 0 0 0;
@@ -95,7 +102,7 @@ h2 {
   font-weight: 400;
 }
 
-/* line 73, scss/defaults/_typography.scss */
+/* line 78, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 h3 {
   display: inline;
   margin: 1em 0 0 0;
@@ -106,7 +113,7 @@ h3 {
   font-size: .8em;
   font-weight: 100;
 }
-/* line 87, scss/defaults/_typography.scss */
+/* line 92, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
 h3 a:link, h3 a:visited {
   family: "Akkurat-LightItalic";
   text-decoration: none;
@@ -132,16 +139,16 @@ ul {
 @media screen and (max-width: 800px) {
   /* line 38, scss/styles.scss */
   ul {
-    max-width: 570px;
+    max-width: 550px;
   }
 }
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 820px) {
   /* line 38, scss/styles.scss */
   ul {
     max-width: 700px;
   }
 }
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 1100px) {
   /* line 38, scss/styles.scss */
   ul {
     max-width: 1050px;
@@ -157,27 +164,28 @@ li {
 /* ----------- NAVIGATION ----------- */
 /* line 66, scss/styles.scss */
 #mainnav {
-  padding: 15px 60px;
-  font-size: 1em;
   margin: 0 auto;
   background-color: white;
   font-family: "Akkurat";
 }
-@media screen and (min-width: 800px) {
+@media screen and (max-width: 800px) {
   /* line 66, scss/styles.scss */
   #mainnav {
     font-size: .8em;
+    padding: 10px 60px;
+  }
+}
+@media screen and (min-width: 820px) {
+  /* line 66, scss/styles.scss */
+  #mainnav {
+    font-size: .9em;
+    padding: 12px 60px;
   }
 }
 @media screen and (min-width: 1100px) {
   /* line 66, scss/styles.scss */
   #mainnav {
-    font-size: .9em;
-  }
-}
-@media screen and (min-width: 1500px) {
-  /* line 66, scss/styles.scss */
-  #mainnav {
+    padding: 15px 60px;
     font-size: 1em;
   }
 }
@@ -194,28 +202,29 @@ li {
 
 /* line 81, scss/styles.scss */
 #submenu {
-  padding: 15px 60px;
-  font-size: 1em;
   margin: 0 auto;
   background-color: #f6f6f6;
   font-family: "Akkurat-Light";
   text-transform: lowercase;
 }
-@media screen and (min-width: 800px) {
+@media screen and (max-width: 800px) {
   /* line 81, scss/styles.scss */
   #submenu {
     font-size: .8em;
+    padding: 10px 60px;
+  }
+}
+@media screen and (min-width: 820px) {
+  /* line 81, scss/styles.scss */
+  #submenu {
+    font-size: .9em;
+    padding: 12px 60px;
   }
 }
 @media screen and (min-width: 1100px) {
   /* line 81, scss/styles.scss */
   #submenu {
-    font-size: .9em;
-  }
-}
-@media screen and (min-width: 1500px) {
-  /* line 81, scss/styles.scss */
-  #submenu {
+    padding: 15px 60px;
     font-size: 1em;
   }
 }
@@ -246,28 +255,29 @@ li {
 
 /* line 108, scss/styles.scss */
 #footer-nav {
-  padding: 15px 60px;
-  font-size: 1em;
   margin: 0 auto;
   margin: 0;
   background-color: white;
   font-family: "Akkurat";
 }
-@media screen and (min-width: 800px) {
+@media screen and (max-width: 800px) {
   /* line 108, scss/styles.scss */
   #footer-nav {
     font-size: .8em;
+    padding: 10px 60px;
+  }
+}
+@media screen and (min-width: 820px) {
+  /* line 108, scss/styles.scss */
+  #footer-nav {
+    font-size: .9em;
+    padding: 12px 60px;
   }
 }
 @media screen and (min-width: 1100px) {
   /* line 108, scss/styles.scss */
   #footer-nav {
-    font-size: .9em;
-  }
-}
-@media screen and (min-width: 1500px) {
-  /* line 108, scss/styles.scss */
-  #footer-nav {
+    padding: 15px 60px;
     font-size: 1em;
   }
 }
@@ -336,13 +346,7 @@ form {
   float: right;
   margin: auto;
 }
-@media screen and (min-width: 1500px) {
-  /* line 170, scss/styles.scss */
-  form {
-    display: block;
-  }
-}
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 820px) {
   /* line 170, scss/styles.scss */
   form {
     display: block;
@@ -355,39 +359,33 @@ form {
   }
 }
 
-@media screen and (min-width: 1500px) {
-  /* line 189, scss/styles.scss */
-  .search-icon {
-    display: none;
-  }
-}
-@media screen and (min-width: 1100px) {
-  /* line 189, scss/styles.scss */
+@media screen and (min-width: 820px) {
+  /* line 184, scss/styles.scss */
   .search-icon {
     display: none;
   }
 }
 @media screen and (max-width: 800px) {
-  /* line 189, scss/styles.scss */
+  /* line 184, scss/styles.scss */
   .search-icon {
     display: inline-block;
   }
 }
 
-@media screen and (min-width: 1100px) {
-  /* line 204, scss/styles.scss */
+@media screen and (min-width: 820px) {
+  /* line 195, scss/styles.scss */
   .search {
     padding: 2px 6px;
   }
 }
-@media screen and (min-width: 1500px) {
-  /* line 204, scss/styles.scss */
+@media screen and (min-width: 1100px) {
+  /* line 195, scss/styles.scss */
   .search {
     padding: 3px 8px;
   }
 }
 
-/* line 215, scss/styles.scss */
+/* line 206, scss/styles.scss */
 .rounded {
   -webkit-border-radius: 12px;
   -moz-border-radius: 12px;
@@ -396,7 +394,7 @@ form {
   border-radius: 12px;
 }
 
-/* line 219, scss/styles.scss */
+/* line 210, scss/styles.scss */
 input[type=text] {
   color: #b2b2b2;
   outline: none;
@@ -404,32 +402,44 @@ input[type=text] {
   background-color: white;
 }
 
-/* line 227, scss/styles.scss */
+/* line 218, scss/styles.scss */
 input[type=text]:focus {
   box-shadow: 0 0 3px #b2b2b2;
 }
 
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 237, scss/styles.scss */
+/* line 228, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;
 }
 
-/* line 242, scss/styles.scss */
+/* line 233, scss/styles.scss */
 #blog-index {
   padding: 30px 60px;
   display: block;
   margin: 0 auto;
 }
 @media screen and (max-width: 800px) {
-  /* line 242, scss/styles.scss */
+  /* line 233, scss/styles.scss */
   #blog-index {
-    padding: 0;
+    padding: 25 60px;
+  }
+}
+@media screen and (min-width: 820px) {
+  /* line 233, scss/styles.scss */
+  #blog-index {
+    max-width: 700px;
+  }
+}
+@media screen and (min-width: 1100px) {
+  /* line 233, scss/styles.scss */
+  #blog-index {
+    max-width: 1050px;
   }
 }
 
-/* line 248, scss/styles.scss */
+/* line 246, scss/styles.scss */
 .container {
   margin: 10px 10px;
   height: 350px;
@@ -440,54 +450,50 @@ input[type=text]:focus {
   z-index: 1;
 }
 @media screen and (max-width: 800px) {
-  /* line 248, scss/styles.scss */
+  /* line 246, scss/styles.scss */
   .container {
-    width: 480px;
+    width: 470px;
     height: 260px;
     margin: 20px auto;
     float: center;
   }
 }
 
-/* line 267, scss/styles.scss */
+/* line 265, scss/styles.scss */
 .data {
   display: block;
   font-family: "Akkurat-Light";
 }
 
-/* line 272, scss/styles.scss */
+/* line 270, scss/styles.scss */
 .content {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* line 277, scss/styles.scss */
+/* line 275, scss/styles.scss */
 .text {
   margin: 0 auto;
   width: 80%;
   z-index: 1;
 }
-/* line 282, scss/styles.scss */
+/* line 280, scss/styles.scss */
 .text a {
   text-decoration: underline;
 }
 @media screen and (max-width: 800px) {
-  /* line 277, scss/styles.scss */
+  /* line 275, scss/styles.scss */
   .text {
     position: relative;
     left: 120px;
-    width: 75%;
+    max-width: 70%;
     margin: 0;
   }
 }
 
-/* line 294, scss/styles.scss */
+/* line 292, scss/styles.scss */
 img.horizontal {
   margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
   z-index: -1;
   width: 90%;
   opacity: .35;
@@ -501,19 +507,44 @@ img.horizontal {
   transition-duration: 0.4s;
 }
 @media screen and (max-width: 800px) {
-  /* line 294, scss/styles.scss */
+  /* line 292, scss/styles.scss */
+  img.horizontal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+}
+@media screen and (min-width: 820px) {
+  /* line 292, scss/styles.scss */
+  img.horizontal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+@media screen and (min-width: 1100px) {
+  /* line 292, scss/styles.scss */
+  img.horizontal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+@media screen and (max-width: 800px) {
+  /* line 292, scss/styles.scss */
   img.horizontal {
     width: 60%;
   }
 }
 
-/* line 307, scss/styles.scss */
+/* line 305, scss/styles.scss */
 img.vertical {
   margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
   z-index: -1;
   height: 80%;
   opacity: .35;
@@ -526,8 +557,37 @@ img.vertical {
   -o-transition-duration: 0.4s;
   transition-duration: 0.4s;
 }
+@media screen and (max-width: 800px) {
+  /* line 305, scss/styles.scss */
+  img.vertical {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+}
+@media screen and (min-width: 820px) {
+  /* line 305, scss/styles.scss */
+  img.vertical {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+@media screen and (min-width: 1100px) {
+  /* line 305, scss/styles.scss */
+  img.vertical {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
 
-/* line 318, scss/styles.scss */
+/* line 316, scss/styles.scss */
 .container:hover img.vertical, .container:hover img.horizontal {
   opacity: .2;
   -webkit-filter: blur(2px);
@@ -545,90 +605,104 @@ img.vertical {
 @media screen and (max-width: 800px) {
   /* line 331, scss/styles.scss */
   #blog-post {
-    padding: 0;
+    padding: 25 60px;
+  }
+}
+@media screen and (max-width: 800px) {
+  /* line 331, scss/styles.scss */
+  #blog-post {
+    max-width: 550px;
+  }
+}
+@media screen and (min-width: 820px) {
+  /* line 331, scss/styles.scss */
+  #blog-post {
+    max-width: 700px;
+  }
+}
+@media screen and (min-width: 1100px) {
+  /* line 331, scss/styles.scss */
+  #blog-post {
+    max-width: 1050px;
   }
 }
 
-/* line 335, scss/styles.scss */
+/* line 348, scss/styles.scss */
 .post-content {
-  padding: 0 60px;
   margin: 0 auto;
 }
 @media screen and (max-width: 800px) {
-  /* line 335, scss/styles.scss */
+  /* line 348, scss/styles.scss */
   .post-content {
-    max-width: 570px;
-    padding-top: 50px;
+    max-width: 550px;
     float: center;
+    padding: 0;
   }
 }
-@media screen and (min-width: 1500px) {
-  /* line 335, scss/styles.scss */
+@media screen and (min-width: 820px) {
+  /* line 348, scss/styles.scss */
+  .post-content {
+    max-width: 570px;
+    width: 55%;
+    float: left;
+    padding-left: 0;
+  }
+}
+@media screen and (min-width: 1100px) {
+  /* line 348, scss/styles.scss */
   .post-content {
     max-width: 570px;
     width: 45%;
     float: left;
+    padding: 0 45px;
   }
 }
 
-/* line 352, scss/styles.scss */
-.right-aside {
-  color: #333333;
-  font-family: "Akkurat-Light";
-  font-weight: 400;
-  font-size: 1.4em;
-  text-align: center;
-  line-height: 1.5em;
-  width: 40%;
-  float: right;
-  margin: 50px 0;
-}
-/* line 358, scss/styles.scss */
-.right-aside p {
-  margin: 0 auto;
-  padding: 80px 0;
-  max-width: 80%;
-}
-@media screen and (max-width: 800px) {
-  /* line 352, scss/styles.scss */
-  .right-aside {
-    display: none;
-  }
-}
-
-/* line 369, scss/styles.scss */
+/* line 375, scss/styles.scss */
 .left-aside {
   width: 5%;
   float: left;
-  margin: 40px 0;
+  margin: 58px 0;
 }
 @media screen and (max-width: 800px) {
-  /* line 369, scss/styles.scss */
+  /* line 375, scss/styles.scss */
   .left-aside {
     display: none;
   }
 }
+@media screen and (min-width: 820px) {
+  /* line 375, scss/styles.scss */
+  .left-aside {
+    display: none;
+  }
+}
+@media screen and (min-width: 1100px) {
+  /* line 375, scss/styles.scss */
+  .left-aside {
+    display: block;
+  }
+}
 
-@media screen and (min-width: 1500px) {
-  /* line 379, scss/styles.scss */
+@media screen and (min-width: 1100px) {
+  /* line 394, scss/styles.scss */
   .mobile-data {
     display: none;
   }
 }
-@media screen and (max-width: 1100px) {
-  /* line 379, scss/styles.scss */
+@media screen and (max-width: 820px) {
+  /* line 394, scss/styles.scss */
   .mobile-data {
-    display: none;
+    display: block;
   }
 }
 @media screen and (max-width: 800px) {
-  /* line 379, scss/styles.scss */
+  /* line 394, scss/styles.scss */
   .mobile-data {
-    display: inline-block;
+    display: block;
   }
 }
 
-/* line 393, scss/styles.scss */
+/* line 409, scss/styles.scss */
 .mobile-pull {
   color: #333333;
   font-family: "Akkurat-Light";
@@ -638,43 +712,94 @@ img.vertical {
   line-height: 1.5em;
   padding: 20px 20px;
 }
-@media screen and (min-width: 1500px) {
-  /* line 393, scss/styles.scss */
+@media screen and (min-width: 820px) {
+  /* line 409, scss/styles.scss */
   .mobile-pull {
-    display: none;
+    font-size: 1.3em;
   }
 }
-@media screen and (max-width: 1100px) {
-  /* line 393, scss/styles.scss */
+@media screen and (min-width: 800px) {
+  /* line 409, scss/styles.scss */
+  .mobile-pull {
+    font-size: 1.2em;
+  }
+}
+@media screen and (min-width: 820px) {
+  /* line 409, scss/styles.scss */
   .mobile-pull {
     display: none;
   }
 }
 @media screen and (max-width: 800px) {
-  /* line 393, scss/styles.scss */
+  /* line 409, scss/styles.scss */
   .mobile-pull {
     display: block;
   }
 }
 
-/* line 413, scss/styles.scss */
-figure {
+/* line 424, scss/styles.scss */
+.right-aside {
+  color: #333333;
+  font-family: "Akkurat-Light";
+  font-weight: 400;
+  font-size: 1.4em;
+  text-align: center;
+  line-height: 1.5em;
+  width: 35%;
+  float: right;
+  margin: 50px 0;
+}
+@media screen and (min-width: 820px) {
+  /* line 424, scss/styles.scss */
+  .right-aside {
+    font-size: 1.3em;
+  }
+}
+@media screen and (min-width: 800px) {
+  /* line 424, scss/styles.scss */
+  .right-aside {
+    font-size: 1.2em;
+  }
+}
+/* line 430, scss/styles.scss */
+.right-aside p {
+  margin: 0 auto;
+  padding: 40px 0;
+  max-width: 85%;
+}
+/* line 436, scss/styles.scss */
+.right-aside img {
   width: 100%;
+}
+@media screen and (max-width: 800px) {
+  /* line 424, scss/styles.scss */
+  .right-aside {
+    display: none;
+  }
+}
+@media screen and (min-width: 820px) {
+  /* line 424, scss/styles.scss */
+  .right-aside {
+    margin: 0;
+  }
+}
+
+/* line 450, scss/styles.scss */
+figure {
   display: block;
   margin: 0 auto;
   position: relative;
-  text-align: center;
 }
-/* line 422, scss/styles.scss */
+/* line 455, scss/styles.scss */
 figure:hover figcaption {
   opacity: 1;
-  bottom: -140px;
+  bottom: 10px;
 }
 
-/* line 428, scss/styles.scss */
+/* line 461, scss/styles.scss */
 figcaption {
   position: absolute;
-  bottom: -180px;
+  bottom: -50px;
   left: 0;
   right: 0;
   z-index: 100;
@@ -688,7 +813,7 @@ figcaption {
   -o-transition-duration: 0.7s;
   transition-duration: 0.7s;
 }
-/* line 441, scss/styles.scss */
+/* line 474, scss/styles.scss */
 figcaption .caption {
   color: #f6f6f6;
   font-family: "Akkurat";
@@ -696,13 +821,13 @@ figcaption .caption {
   text-align: center;
 }
 
-/* line 452, scss/styles.scss */
+/* line 486, scss/styles.scss */
 .mobile-img img {
   display: block;
   padding: 30px 0 15px 0;
   margin: 0 auto;
 }
-/* line 458, scss/styles.scss */
+/* line 492, scss/styles.scss */
 .mobile-img span {
   display: block;
   padding-bottom: 30px;
@@ -711,20 +836,14 @@ figcaption .caption {
   font-size: .7em;
   text-align: center;
 }
-@media screen and (min-width: 1500px) {
-  /* line 451, scss/styles.scss */
-  .mobile-img {
-    display: none;
-  }
-}
-@media screen and (max-width: 1100px) {
-  /* line 451, scss/styles.scss */
+@media screen and (min-width: 820px) {
+  /* line 485, scss/styles.scss */
   .mobile-img {
     display: none;
   }
 }
 @media screen and (max-width: 800px) {
-  /* line 451, scss/styles.scss */
+  /* line 485, scss/styles.scss */
   .mobile-img {
     display: block;
   }
