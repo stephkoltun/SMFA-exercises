@@ -44,22 +44,28 @@ Stephanie Koltun
   src: url('/stylesheets/fonts/fonts/font-awesome/fonts/FontAwesome.otf') format('opentype');
 }
 
-/* line 10, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 10, scss/defaults/_typography.scss */
 p {
   color: #333333;
   font-family: "Akkurat";
   font-size: .9em;
 }
-/* line 17, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 17, scss/defaults/_typography.scss */
 p a {
   text-decoration: none;
 }
-/* line 20, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 20, scss/defaults/_typography.scss */
 p a:link, p a:visited {
   color: #333333;
 }
+@media screen and (max-width: 800px) {
+  /* line 10, scss/defaults/_typography.scss */
+  p {
+    line-height: 1.5em;
+  }
+}
 
-/* line 28, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 32, scss/defaults/_typography.scss */
 h1 {
   margin: 0 0;
   color: #333333;
@@ -67,20 +73,20 @@ h1 {
   font-weight: 400;
   font-size: 1.8em;
 }
-/* line 38, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 42, scss/defaults/_typography.scss */
 h1 a:link, h1 a:visited {
   text-decoration: underline;
   color: #333333;
 }
-/* line 43, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 47, scss/defaults/_typography.scss */
 h1 a:hover {
   text-decoration: none;
 }
 
-/* line 51, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 55, scss/defaults/_typography.scss */
 h2 {
   display: inline;
-  margin: 1em 0;
+  margin: 1em 0 0 0;
   padding-right: 1em;
   float: left;
   color: #333333;
@@ -89,15 +95,18 @@ h2 {
   font-weight: 400;
 }
 
-/* line 69, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 73, scss/defaults/_typography.scss */
 h3 {
-  margin: 1em 0;
+  display: inline;
+  margin: 1em 0 0 0;
+  padding-right: 1em;
+  float: left;
   color: #333333;
   font-family: "Akkurat-Light";
   font-size: .8em;
   font-weight: 100;
 }
-/* line 80, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 87, scss/defaults/_typography.scss */
 h3 a:link, h3 a:visited {
   family: "Akkurat-LightItalic";
   text-decoration: none;
@@ -120,19 +129,19 @@ ul {
   list-style-type: none;
   padding: 0;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   /* line 38, scss/styles.scss */
   ul {
-    max-width: 480px;
+    max-width: 570px;
   }
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1100px) {
   /* line 38, scss/styles.scss */
   ul {
     max-width: 700px;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1500px) {
   /* line 38, scss/styles.scss */
   ul {
     max-width: 1050px;
@@ -148,25 +157,25 @@ li {
 /* ----------- NAVIGATION ----------- */
 /* line 66, scss/styles.scss */
 #mainnav {
-  padding: 1em 0;
+  padding: 15px 60px;
   font-size: 1em;
   margin: 0 auto;
   background-color: white;
   font-family: "Akkurat";
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 800px) {
   /* line 66, scss/styles.scss */
   #mainnav {
     font-size: .8em;
   }
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1100px) {
   /* line 66, scss/styles.scss */
   #mainnav {
     font-size: .9em;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1500px) {
   /* line 66, scss/styles.scss */
   #mainnav {
     font-size: 1em;
@@ -185,26 +194,26 @@ li {
 
 /* line 81, scss/styles.scss */
 #submenu {
-  padding: 1em 0;
+  padding: 15px 60px;
   font-size: 1em;
   margin: 0 auto;
   background-color: #f6f6f6;
   font-family: "Akkurat-Light";
   text-transform: lowercase;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 800px) {
   /* line 81, scss/styles.scss */
   #submenu {
     font-size: .8em;
   }
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1100px) {
   /* line 81, scss/styles.scss */
   #submenu {
     font-size: .9em;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1500px) {
   /* line 81, scss/styles.scss */
   #submenu {
     font-size: 1em;
@@ -228,7 +237,7 @@ li {
   color: #333333;
   text-decoration: none;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   /* line 81, scss/styles.scss */
   #submenu {
     display: none;
@@ -237,26 +246,26 @@ li {
 
 /* line 108, scss/styles.scss */
 #footer-nav {
-  padding: 1em 0;
+  padding: 15px 60px;
   font-size: 1em;
   margin: 0 auto;
   margin: 0;
   background-color: white;
   font-family: "Akkurat";
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 800px) {
   /* line 108, scss/styles.scss */
   #footer-nav {
     font-size: .8em;
   }
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1100px) {
   /* line 108, scss/styles.scss */
   #footer-nav {
     font-size: .9em;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1500px) {
   /* line 108, scss/styles.scss */
   #footer-nav {
     font-size: 1em;
@@ -327,51 +336,51 @@ form {
   float: right;
   margin: auto;
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1500px) {
   /* line 170, scss/styles.scss */
   form {
     display: block;
   }
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1100px) {
   /* line 170, scss/styles.scss */
   form {
     display: block;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   /* line 170, scss/styles.scss */
   form {
     display: none;
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1500px) {
   /* line 189, scss/styles.scss */
   .search-icon {
     display: none;
   }
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1100px) {
   /* line 189, scss/styles.scss */
   .search-icon {
     display: none;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   /* line 189, scss/styles.scss */
   .search-icon {
     display: inline-block;
   }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1100px) {
   /* line 204, scss/styles.scss */
   .search {
     padding: 2px 6px;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1500px) {
   /* line 204, scss/styles.scss */
   .search {
     padding: 3px 8px;
@@ -409,11 +418,11 @@ input[type=text]:focus {
 
 /* line 242, scss/styles.scss */
 #blog-index {
-  padding: 30px 8%;
+  padding: 30px 60px;
   display: block;
   margin: 0 auto;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   /* line 242, scss/styles.scss */
   #blog-index {
     padding: 0;
@@ -430,7 +439,7 @@ input[type=text]:focus {
   display: table;
   z-index: 1;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   /* line 248, scss/styles.scss */
   .container {
     width: 480px;
@@ -442,7 +451,7 @@ input[type=text]:focus {
 
 /* line 267, scss/styles.scss */
 .data {
-  display: inline;
+  display: block;
   font-family: "Akkurat-Light";
 }
 
@@ -462,7 +471,7 @@ input[type=text]:focus {
 .text a {
   text-decoration: underline;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   /* line 277, scss/styles.scss */
   .text {
     position: relative;
@@ -473,17 +482,13 @@ input[type=text]:focus {
 }
 
 /* line 294, scss/styles.scss */
-article img {
+img.horizontal {
   margin: auto;
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   z-index: -1;
-}
-
-/* line 304, scss/styles.scss */
-img.horizontal {
   width: 90%;
   opacity: .35;
   -webkit-transition-property: all;
@@ -495,15 +500,21 @@ img.horizontal {
   -o-transition-duration: 0.4s;
   transition-duration: 0.4s;
 }
-@media screen and (max-width: 600px) {
-  /* line 304, scss/styles.scss */
+@media screen and (max-width: 800px) {
+  /* line 294, scss/styles.scss */
   img.horizontal {
     width: 60%;
   }
 }
 
-/* line 316, scss/styles.scss */
+/* line 307, scss/styles.scss */
 img.vertical {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
   height: 80%;
   opacity: .35;
   -webkit-transition-property: all;
@@ -516,7 +527,7 @@ img.vertical {
   transition-duration: 0.4s;
 }
 
-/* line 326, scss/styles.scss */
+/* line 318, scss/styles.scss */
 .container:hover img.vertical, .container:hover img.horizontal {
   opacity: .2;
   -webkit-filter: blur(2px);
@@ -525,38 +536,45 @@ img.vertical {
 }
 
 /*--------- BLOG POST ---------*/
-/* line 339, scss/styles.scss */
+/* line 331, scss/styles.scss */
 #blog-post {
-  padding: 30px 8%;
+  padding: 30px 60px;
   display: block;
   margin: 0 auto;
 }
-@media screen and (max-width: 600px) {
-  /* line 339, scss/styles.scss */
+@media screen and (max-width: 800px) {
+  /* line 331, scss/styles.scss */
   #blog-post {
     padding: 0;
   }
 }
 
-/* line 343, scss/styles.scss */
+/* line 335, scss/styles.scss */
 .post-content {
-  max-width: 570px;
-  width: 45%;
-  float: left;
-  padding: 0 50px;
+  padding: 0 60px;
+  margin: 0 auto;
 }
-@media screen and (max-width: 600px) {
-  /* line 343, scss/styles.scss */
+@media screen and (max-width: 800px) {
+  /* line 335, scss/styles.scss */
   .post-content {
-    max-width: 480px;
-    width: 100%;
+    max-width: 570px;
+    padding-top: 50px;
+    float: center;
+  }
+}
+@media screen and (min-width: 1500px) {
+  /* line 335, scss/styles.scss */
+  .post-content {
+    max-width: 570px;
+    width: 45%;
+    float: left;
   }
 }
 
-/* line 355, scss/styles.scss */
+/* line 352, scss/styles.scss */
 .right-aside {
   color: #333333;
-  font-family: "Akkurat-LightItalic";
+  font-family: "Akkurat-Light";
   font-weight: 400;
   font-size: 1.4em;
   text-align: center;
@@ -565,52 +583,81 @@ img.vertical {
   float: right;
   margin: 50px 0;
 }
-/* line 361, scss/styles.scss */
+/* line 358, scss/styles.scss */
 .right-aside p {
   margin: 0 auto;
   padding: 80px 0;
   max-width: 80%;
 }
-@media screen and (max-width: 600px) {
-  /* line 355, scss/styles.scss */
+@media screen and (max-width: 800px) {
+  /* line 352, scss/styles.scss */
   .right-aside {
-    float: none;
+    display: none;
   }
 }
 
-/* line 372, scss/styles.scss */
+/* line 369, scss/styles.scss */
 .left-aside {
   width: 5%;
   float: left;
   margin: 40px 0;
 }
-@media screen and (max-width: 600px) {
-  /* line 372, scss/styles.scss */
+@media screen and (max-width: 800px) {
+  /* line 369, scss/styles.scss */
   .left-aside {
     display: none;
   }
 }
 
-@media screen and (min-width: 1200px) {
-  /* line 382, scss/styles.scss */
+@media screen and (min-width: 1500px) {
+  /* line 379, scss/styles.scss */
   .mobile-data {
     display: none;
   }
 }
-@media screen and (max-width: 900px) {
-  /* line 382, scss/styles.scss */
+@media screen and (max-width: 1100px) {
+  /* line 379, scss/styles.scss */
   .mobile-data {
     display: none;
   }
 }
-@media screen and (max-width: 600px) {
-  /* line 382, scss/styles.scss */
+@media screen and (max-width: 800px) {
+  /* line 379, scss/styles.scss */
   .mobile-data {
     display: inline-block;
   }
 }
 
-/* line 398, scss/styles.scss */
+/* line 393, scss/styles.scss */
+.mobile-pull {
+  color: #333333;
+  font-family: "Akkurat-Light";
+  font-weight: 400;
+  font-size: 1.4em;
+  text-align: center;
+  line-height: 1.5em;
+  padding: 20px 20px;
+}
+@media screen and (min-width: 1500px) {
+  /* line 393, scss/styles.scss */
+  .mobile-pull {
+    display: none;
+  }
+}
+@media screen and (max-width: 1100px) {
+  /* line 393, scss/styles.scss */
+  .mobile-pull {
+    display: none;
+  }
+}
+@media screen and (max-width: 800px) {
+  /* line 393, scss/styles.scss */
+  .mobile-pull {
+    display: block;
+  }
+}
+
+/* line 413, scss/styles.scss */
 figure {
   width: 100%;
   display: block;
@@ -618,13 +665,13 @@ figure {
   position: relative;
   text-align: center;
 }
-/* line 407, scss/styles.scss */
+/* line 422, scss/styles.scss */
 figure:hover figcaption {
   opacity: 1;
   bottom: -140px;
 }
 
-/* line 413, scss/styles.scss */
+/* line 428, scss/styles.scss */
 figcaption {
   position: absolute;
   bottom: -180px;
@@ -641,10 +688,44 @@ figcaption {
   -o-transition-duration: 0.7s;
   transition-duration: 0.7s;
 }
-/* line 426, scss/styles.scss */
+/* line 441, scss/styles.scss */
 figcaption .caption {
   color: #f6f6f6;
   font-family: "Akkurat";
   font-size: .6em;
   text-align: center;
+}
+
+/* line 452, scss/styles.scss */
+.mobile-img img {
+  display: block;
+  padding: 30px 0 15px 0;
+  margin: 0 auto;
+}
+/* line 458, scss/styles.scss */
+.mobile-img span {
+  display: block;
+  padding-bottom: 30px;
+  color: #333333;
+  font-family: "Akkurat";
+  font-size: .7em;
+  text-align: center;
+}
+@media screen and (min-width: 1500px) {
+  /* line 451, scss/styles.scss */
+  .mobile-img {
+    display: none;
+  }
+}
+@media screen and (max-width: 1100px) {
+  /* line 451, scss/styles.scss */
+  .mobile-img {
+    display: none;
+  }
+}
+@media screen and (max-width: 800px) {
+  /* line 451, scss/styles.scss */
+  .mobile-img {
+    display: block;
+  }
 }

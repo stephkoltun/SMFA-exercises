@@ -1,5 +1,5 @@
 @mixin nav-style {
-	padding: 1em 0;
+	padding: 15px 60px;
 	font-size: 1em;
 	margin: 0 auto;
 
@@ -20,7 +20,7 @@
 
 
 @mixin main-content {
-	padding: 30px 8%;
+	padding: 30px 60px;
 	display: block;
 	margin: 0 auto;
 
@@ -45,12 +45,22 @@
 }
 
 
+@mixin index-img {
+	margin: auto;
+	position: absolute;	
+	top: 0;
+	left: 0;
+	bottom: 0;
+
+	z-index: -1;
+}
+
 
 @mixin pull-quote {
 	color: $color-main;
 
 	font: {
-		family: "Akkurat-LightItalic";
+		family: "Akkurat-Light";
 		weight: 400;
 		size: 1.4em;
 	}

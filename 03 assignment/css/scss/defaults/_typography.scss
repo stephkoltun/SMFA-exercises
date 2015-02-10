@@ -21,6 +21,10 @@ p {
 			color: $color-main;
 		}
 	}
+
+	@media screen and (max-width: $width-small) {
+		line-height: 1.5em;
+	}
 }
 
 
@@ -50,7 +54,7 @@ h1 {
 // typical h2 styles
 h2 {
 	display: inline;
-	margin: 1em 0;
+	margin: 1em 0 0 0;
 	padding-right: 1em;
 	float: left;
 
@@ -67,7 +71,10 @@ h2 {
 
 // typical h3 styles
 h3 {
-	margin: 1em 0;
+	display: inline;
+	margin: 1em 0 0 0;
+	padding-right: 1em;
+	float: left;
 	color: $color-main;
 	
 	font: {
