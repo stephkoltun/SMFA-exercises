@@ -3,7 +3,7 @@
 	font-size: 1em;
 	margin: 0 auto;
 
-	@media screen and (min-width: $width-small) {
+	@media screen and (max-width: $width-small) {
 		font-size: .8em;
 	}
 
@@ -20,13 +20,13 @@
 
 
 @mixin main-content {
-	padding: 30px 8%;
+	padding: 30px 50px;
 	display: block;
 	margin: 0 auto;
 
-	@media screen and (min-width: $width-small) {
+	@media screen and (max-width: $width-small) {
 		max-width: $max-width-small;
-		padding: 0;
+		width: 90%;
 	}
 
 	@media screen and (min-width: $width-medium) {
@@ -53,8 +53,6 @@
 	font: {
 		family: "Akkurat-LightItalic";
 		weight: 400;
-		size: 1.4em;
 	}
 	text-align: center;
-	line-height: 1.5em;
 }

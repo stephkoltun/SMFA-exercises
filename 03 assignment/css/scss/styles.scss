@@ -25,7 +25,7 @@ Stephanie Koltun
 // Helpers - delete if not used
 //@import "defaults/helpers.scss";
 
-/* {
+/*{
 	border: 1px solid red;
 }*/
 
@@ -38,18 +38,17 @@ body {
 ul {
 	margin: 0 auto;
 	list-style-type: none;
-	padding: 0;
-	
-	@media screen and (min-width: $width-small) {
-		max-width: $max-width-small;
+
+	@media screen and (max-width: $width-large) {
+		max-width: $max-width-large;
 	}
 
-	@media screen and (min-width: $width-medium) {
+	@media screen and (max-width: $width-medium) {
 		max-width: $max-width-medium;
 	}
 
-	@media screen and (min-width: $width-large) {
-		max-width: $max-width-large;
+	@media screen and (max-width: $width-small) {
+		max-width: $max-width-small;
 	}
 }
 
@@ -99,7 +98,7 @@ li {
 	}
 
 	//hide submenu with filters on iPhone
-	@media screen and (min-width: $width-small) {
+	@media screen and (max-width: $width-small) {
 		display: none;
 	}
 }
@@ -172,40 +171,40 @@ form {
 	margin: auto;
 
 	//use search form for iPad and desktop
-	@media screen and (min-width: $width-small) {
+	@media screen and (max-width: $width-small) {
 		display: none;
 	}
 
-	@media screen and (min-width: $width-medium) {
+	@media screen and (max-width: $width-medium) {
 		display: block;
 	}
 
-	@media screen and (min-width: $width-large) {
+	@media screen and (max-width: $width-large) {
 		display: block;
 	}
 }
 
 .search-icon {
 	//use search icon instead of form on iPhone
-	@media screen and (min-width: $width-small) {
+	@media screen and (max-width: $width-small) {
 		display: inline-block;
 	}
 
-	@media screen and (min-width: $width-medium) {
+	@media screen and (max-width: $width-medium) {
 		display: none;
 	}
 
-	@media screen and (min-width: $width-large) {
+	@media screen and (max-width: $width-large) {
 		display: none;
 	}
 }
 
 .search {
-	@media screen and (min-width: $width-medium) {
+	@media screen and (max-width: $width-medium) {
 		padding: 2px 6px;
 	}
 
-	@media screen and (min-width: $width-large) {
+	@media screen and (max-width: $width-large) {
 		padding: 3px 8px;
 	}
 	
@@ -255,7 +254,7 @@ input[type=text]:focus {
 
 	z-index: 1;
 
-	@media screen and (min-width: $width-small) {
+	@media screen and (max-width: $width-small) {
 		width: 480px;
 		height: 260px;
 	}
@@ -280,7 +279,7 @@ input[type=text]:focus {
 		text-decoration: underline;
 	}
 
-	@media screen and (min-width: $width-small) {
+	@media screen and (max-width: $width-small) {
 		position: relative;
 		left: 120px;
 		width: 75%;
@@ -305,7 +304,7 @@ img.horizontal {
 	@include transition-property(all);
 	@include transition-duration(.4s);
 
-	@media screen and (min-width: $width-small) {
+	@media screen and (max-width: $width-small) {
 		width: 60%;
 	}
 }
@@ -338,31 +337,76 @@ img.vertical {
 }
 
 .post-content {
+
 	max-width: 570px;
 	width: 45%;
 	float: left;
-	padding: 0 50px;
+	
+	@media screen and (max-width: $width-small) {
+		max-width: 100%;
+		width: 90%;
+		margin: 0 auto;
+		float: none;
+	}
 }
 
 .right-aside {
 	@include pull-quote;
-	width: 40%;
+
 	float: right;
+	width: 40%;
 	margin: 50px 0;
+
+	@media screen and (max-width: $width-small) {
+		float: none;
+		width: 100%;
+		margin: 30px 0;
+	}
+
+	
+
 
 	p {
 		margin: 0 auto;
-		padding: 80px 0;
 		max-width: 80%;
+
+		@media screen and (max-width: $width-small) {
+			padding: 50px 0;
+			font-size: .9em;
+			line-height: 1.2em;
+		}
+
+		@media screen and (max-width: $width-large) {
+			padding: 80px 0;
+			font-size: 1.4em;
+			line-height: 1.5em;
+		}
 	}
+
+	img {
+		width: 100%;
+	}
+
+	
 }
 
 .left-aside {
 	width: 5%;
 	float: left;
 	margin: 40px 0;
+
+	@media screen and (max-width: $width-small) {
+		display: none;
+	}
 }
 
+.mobile-data {
+	display: none;
+
+	@media screen and (max-width: $width-small) {
+		display: inline;
+	}
+}
 
 
 figure {

@@ -44,6 +44,14 @@ h1 {
 			text-decoration: none;
 		}
 	}
+
+	@media screen and (max-width: $width-small) {
+		font-size: 1.3em;
+	}
+
+	@media screen and (max-width: $width-medium) {
+		font-size: 1.6em;
+	}
 }
 
 
