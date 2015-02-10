@@ -24,8 +24,7 @@
 	display: block;
 	margin: 0 auto;
 
-	@media screen and (min-width: $width-small) {
-		max-width: $max-width-small;
+	@media screen and (max-width: $width-small) {
 		padding: 0;
 	}
 

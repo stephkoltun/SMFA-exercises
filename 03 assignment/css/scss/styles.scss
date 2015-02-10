@@ -40,7 +40,7 @@ ul {
 	list-style-type: none;
 	padding: 0;
 	
-	@media screen and (min-width: $width-small) {
+	@media screen and (max-width: $width-small) {
 		max-width: $max-width-small;
 	}
 
@@ -99,7 +99,7 @@ li {
 	}
 
 	//hide submenu with filters on iPhone
-	@media screen and (min-width: $width-small) {
+	@media screen and (max-width: $width-small) {
 		display: none;
 	}
 }
@@ -172,31 +172,32 @@ form {
 	margin: auto;
 
 	//use search form for iPad and desktop
-	@media screen and (min-width: $width-small) {
-		display: none;
+
+	@media screen and (min-width: $width-large) {
+		display: block;
 	}
 
 	@media screen and (min-width: $width-medium) {
 		display: block;
 	}
 
-	@media screen and (min-width: $width-large) {
-		display: block;
+	@media screen and (max-width: $width-small) {
+		display: none;
 	}
 }
 
 .search-icon {
 	//use search icon instead of form on iPhone
-	@media screen and (min-width: $width-small) {
-		display: inline-block;
-	}
+	@media screen and (min-width: $width-large) {
+		display: none;
+	}	
 
 	@media screen and (min-width: $width-medium) {
 		display: none;
 	}
 
-	@media screen and (min-width: $width-large) {
-		display: none;
+	@media screen and (max-width: $width-small) {
+		display: inline-block;
 	}
 }
 
@@ -255,9 +256,11 @@ input[type=text]:focus {
 
 	z-index: 1;
 
-	@media screen and (min-width: $width-small) {
+	@media screen and (max-width: $width-small) {
 		width: 480px;
 		height: 260px;
+		margin: 20px auto;
+		float: center;
 	}
 }
 
@@ -280,7 +283,7 @@ input[type=text]:focus {
 		text-decoration: underline;
 	}
 
-	@media screen and (min-width: $width-small) {
+	@media screen and (max-width: $width-small) {
 		position: relative;
 		left: 120px;
 		width: 75%;
@@ -305,7 +308,7 @@ img.horizontal {
 	@include transition-property(all);
 	@include transition-duration(.4s);
 
-	@media screen and (min-width: $width-small) {
+	@media screen and (max-width: $width-small) {
 		width: 60%;
 	}
 }
