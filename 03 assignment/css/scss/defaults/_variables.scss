@@ -3,17 +3,19 @@ $color-light: #b2b2b2; // light grey
 $color-bkgd: #ededed;// body background 
 $color-accent: #f6f6f6; // submenu background
 
-
+// will display three articles on the home page
 $max-width-large: 1050px;
+// will display two articles on the home page
 $max-width-medium: 700px;
+// ideal line length for single article
 $max-width-small: 550px;
 
 
 /* ----- MEDIA QUERIES ----- */
 
-//iPhone horizontal - anything below this
+//iPhone horizontal - use max-width
 $width-small:  800px;
-//iPad horizontal - anything above this
+//iPad horizontal - use min-width
 $width-medium: 820px;
-//desktop
+//desktop - use min-width
 $width-large:  1100px;
