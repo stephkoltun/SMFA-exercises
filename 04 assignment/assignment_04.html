@@ -198,8 +198,7 @@ If you have any questions, please send Saul a message through Slack (http://baiz
             the "Install" button next to it.
         </p>
 
-        <h2> Browser Info</h2>
-        <div id = "browserInfo"></div>
+        
         
         <!--
             LET US KNOW WHAT YOU THINK
@@ -290,13 +289,37 @@ If you have any questions, please send Saul a message through Slack (http://baiz
         replaceH3("Everything is awesome!");
 
 
-        // ----- TASK 09 ----- //
+        // ----- TASK 09 ----- used DOM manipulation rather than document.write in order to practice //
         var windowWidth = window.innerWidth;
         var windowHeight = window.innerHeight;
 
-        var browserInfo = document.getElementById("browserInfo");
-        //add window info to div
-        browserInfo.innerHTML += "<p> width: " + windowWidth + "</p><p> height: " + windowHeight + "</p>";
+        // create new element for window info
+        var newDiv = document.createElement("div")
+
+        // create new heading element and text
+        var newH2 = document.createElement("h2");
+        var windowHeading = document.createTextNode("Window Info");
+        newH2.appendChild(windowHeading);
+        
+
+        // width element
+        var widthEl = document.createElement("p");
+        var widthText = document.createTextNode("width: " + windowWidth + "px");
+        widthEl.appendChild(widthText);
+
+        // height element
+        var heightEl = document.createElement("p");
+        var heightText = document.createTextNode("height: " + windowHeight + "px");
+        heightEl.appendChild(heightText);
+
+        // add heading, width, height to info div
+        newDiv.appendChild(newH2);
+        newDiv.appendChild(widthEl);
+        newDiv.appendChild(heightEl);
+
+        // add info div to body
+        document.body.appendChild(newDiv);
+
 
 
         
