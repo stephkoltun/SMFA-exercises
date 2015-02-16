@@ -42,6 +42,10 @@ If you have any questions, please send Saul a message through Slack (http://baiz
         <title>GETTING STARTED WITH BRACKETS</title>
         <meta name="description" content="An interactive getting started guide for Brackets.">
         <!-- <link rel="stylesheet" href="main.css"> -->
+
+        
+
+        
     </head>
     <body>
         
@@ -52,8 +56,7 @@ If you have any questions, please send Saul a message through Slack (http://baiz
             MADE WITH <3 AND JAVASCRIPT
         -->
         
-        <p>Brackets has many users!</p>
-        </p>
+        <p id="users">Brackets has many users!</p>
         <p>
             Welcome to Brackets, a modern open-source code editor that understands web design. It's a lightweight, 
             yet powerful, code editor that blends visual tools into the editor so you get the right amount of help 
@@ -186,7 +189,7 @@ If you have any questions, please send Saul a message through Slack (http://baiz
         </samp>
         
         <h3 id="extension">Need something else? Try an extension!</h3>
-        <p>
+        <p id="fruit">
             In addition to all the goodness that's built into Brackets, our large and growing community of
             extension developers has built hundreds of extensions that add useful functionality. If there's
             something you need that Brackets doesn't offer, more than likely someone has built an extension for
@@ -194,16 +197,20 @@ If you have any questions, please send Saul a message through Slack (http://baiz
             Manager</strong> and click on the "Available" tab. When you find an extension you want, just click
             the "Install" button next to it.
         </p>
+
+        <h2> Browser Info</h2>
+        <div id = "browserInfo"></div>
         
         <!--
             LET US KNOW WHAT YOU THINK
         -->
-        <h2>Get involved</h2>
+        <h2 id ="actionCall">Get involved</h2>
         <p>
             Brackets is an open-source project. Web developers from around the world are contributing to build 
             a better code editor. Many more are building extensions that expand the capabilities of Brackets.
             Let us know what you think, share your ideas or contribute directly to the project.
         </p>
+        <div id="content"></div>
         <ul>
             <li><a href="http://brackets.io">Brackets.io</a></li>
             <li><a href="http://blog.brackets.io">Brackets Team Blog</a></li>
@@ -215,6 +222,94 @@ If you have any questions, please send Saul a message through Slack (http://baiz
             <li>Chat with Brackets developers on IRC in <a href="http://webchat.freenode.net/?channels=brackets&uio=d4">#brackets on Freenode</a></li>
         </ul>
         
+        <!-- ASSIGNMENT 04 -->
+        <script type="text/javascript">
+
+        // ----- TASK 01 ----- //
+        var el = document.getElementById("content");
+        el.innerHTML = "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tellus elit, tempor non maximus ultricies, scelerisque ut sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris felis urna, varius ut lobortis nec, elementum quis ipsum. Sed porta est nisi. Vivamus cursus porta tellus, venenatis varius tellus luctus a. Etiam non ligula orci. Morbi dolor nisi, vestibulum sed nulla et, vulputate interdum metus. Proin interdum lobortis placerat. Etiam posuere dictum massa non dignissim.</p>"
+
+
+        // ----- TASK 02 ----- //
+        var date = "today";
+        var heading = document.getElementById("actionCall");
+        heading.textContent += " " + date;
+
+
+        // ----- TASK 03 ----- //
+        // define number of users
+        var userNumber = (10000*10000)/5;
+        // get element with desired text 
+        var userStatement = document.getElementById("users");
+        // get value of text content
+        var userText = userStatement.textContent;
+        // update text content to replace "many" with number
+        userStatement.textContent = userText.replace("many", userNumber);
+
+
+        // ----- TASK 04 ----- //
+        var printText = document.getElementById("extension").textContent;
+        console.log(printText);
+
+
+        // ----- TASK 05 ----- //
+        var qvElement = document.getElementById("qv");
+        qvElement.textContent = "Quicker Viewer";
+
+
+        // ----- TASK 06 ----- //
+        var fruit = [
+            "banana",
+            "apples",
+            "kiwi",
+            "orange",
+            "melon",
+            "grapefruit",
+            "lemon"
+        ];
+
+        // get fruit element
+        var fruitEl = document.getElementById("fruit");
+        var fruitText = "<p>" + "I love " + fruit[1] + " and " + fruit[4] + ".</p>";
+        fruitEl.innerHTML += fruitText;
+
+
+        // ----- TASK 07 ----- //
+        function replaceH3(newText) {
+
+            // ----- TASK 08 ----- //
+            var newHeading = newText.toUpperCase();
+
+            var headings = document.getElementsByTagName("h3");
+            
+            for (var i = 0; i < headings.length; i++) {
+                headings[i].textContent = newHeading;
+            }
+        }
+
+        replaceH3("Everything is awesome!");
+
+
+        // ----- TASK 09 ----- //
+        var windowWidth = window.innerWidth;
+        var windowHeight = window.innerHeight;
+
+        var browserInfo = document.getElementById("browserInfo");
+        //add window info to div
+        browserInfo.innerHTML += "<p> width: " + windowWidth + "</p><p> height: " + windowHeight + "</p>";
+
+
+        
+        // ----- TASK 10 ----- //
+        
+
+
+
+// 10) Change the background color of the document. Hint: put the code above the </body> tag.
+// 11) Create a link that, when clicked, opens an alert dialogue box with the URL of the current webpage.
+// 12) Reusing code from exercise #6, create a function to output a random piece of fruit from the fruit array. This function must live in an external file. Hint: use the Math object.
+        </script>
+
     </body>
 </html>
 <!--
