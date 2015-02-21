@@ -43,6 +43,7 @@ If you have any questions, please send Saul a message through Slack (http://baiz
         <meta name="description" content="An interactive getting started guide for Brackets.">
         <!-- <link rel="stylesheet" href="main.css"> -->
 
+        <script type="text/javascript" src="script.js"></script>
         
 
         
@@ -300,7 +301,6 @@ If you have any questions, please send Saul a message through Slack (http://baiz
         var newH2 = document.createElement("h2");
         var windowHeading = document.createTextNode("Window Info");
         newH2.appendChild(windowHeading);
-        
 
         // width element
         var widthEl = document.createElement("p");
@@ -321,16 +321,33 @@ If you have any questions, please send Saul a message through Slack (http://baiz
         document.body.appendChild(newDiv);
 
 
-
         
-        // ----- TASK 10 ----- //
-        
+        // ----- TASK 10 ----- //        
+        document.body.style.backgroundColor = "salmon";
 
 
 
-// 10) Change the background color of the document. Hint: put the code above the </body> tag.
-// 11) Create a link that, when clicked, opens an alert dialogue box with the URL of the current webpage.
-// 12) Reusing code from exercise #6, create a function to output a random piece of fruit from the fruit array. This function must live in an external file. Hint: use the Math object.
+        // ----- TASK 11 ----- // 
+        var currentURL = window.location;
+
+        var linkEl = document.createElement("h2");
+        var linkText = document.createTextNode("Click me!");
+        linkEl.appendChild(linkText); // add text node to link element
+
+        document.body.appendChild(linkEl);
+
+        linkEl.onclick = alertURL; 
+
+        function alertURL() {
+            //alert dialogue with current URL
+            alert(currentURL);
+        }
+
+
+
+        // ----- TASK 12 ----- //
+        randomFruit(fruit); // pass array of fruit into function
+
         </script>
 
     </body>
