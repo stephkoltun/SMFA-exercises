@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>
+		JavaScript 2 | in-class demo
+	</title>
+
+	<style type="text/css">
+
+	.red {
+		background-color: red;
+	}
+
+	.blue {
+		background-color: blue;
+	}
+
+	</style>
+
+</head>
+<body>
+	<h1>JavaScript 2 | in-class demo</h1>
+
+	<p id = "para" class="blue">Stuff about words</p>
+
+
+	<script type="text/javascript">
+
+	function changeBackground() {
+		var ulNode = document.getElementById("para");
+		ulNode.setAttribute("class", "red")
+	}
+
+	var ulNode = document.getElementById("para");
+
+	ulNode.addEventListener("dblclick", changeBackground);
+
+	</script>
+
+</body>
+</html>
