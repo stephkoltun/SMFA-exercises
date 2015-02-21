@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>
+		JavaScript 2 | in-class demo
+	</title>
+
+</head>
+<body>
+	<h1>JavaScript 2 | in-class demo</h1>
+
+
+	<script>
+
+	var groceryList = [
+		"eggs",
+		"milk",
+		"apples",
+		"bread",
+		"yogurt",
+		"ice cream",
+		"carrots",
+		"beets",
+		"grapefruit",
+		"mushrooms",
+		"tomatoes"
+	];
+
+	document.write("You need to buy:<br>");
+
+	for ( i = 0; i < groceryList.length; i+= 2 ) {
+
+		document.write(groceryList[i] + "<br>");
+
+	}
+
+	document.write("<br>You do not need to buy:<br>");
+
+	for ( i = 1; i < groceryList.length; i+= 2 ) {
+
+		document.write(groceryList[i] + "<br>");
+
+	}
+
+	</script>
+
+</body>
+</html>
