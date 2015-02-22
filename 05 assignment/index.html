@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" href="../03 assignment/css/styles.css">
+		<link rel="stylesheet" href="../03 assignment/fonts/font-awesome/css/font-awesome.css">
+
+		<script type="text/javascript" src="script.js"></script>
+
+		<title>Blog - Sn&oslash;hetta</title>
+		<meta name="description" content="A blog documenting Sn&oslash;hetta's culture, recent happenings, process and innovations.">
+	</head>
+
+	<body>
+		<header>
+			<div id="mainnav">
+				<ul>
+					<div class ="nav-left">
+						<li>Sn&oslash;hetta: Blog</li>
+					</div> 
+					<div class="nav-right">
+						<li>
+							<form id = "searchform">
+								<span><input type="text" class="search rounded" name="search" size="15" placeholder="&#xf002; search"></span>
+							</form>
+						</li>
+						<li class="search-icon"><i class="fa fa-search fa-fw"></i></li>
+					</div>
+					<div class="nav-center">
+						<li><a href="http://snohetta.com"><img class="logo" src="images/snohetta.svg"></a></li>
+					</div>
+				</ul>
+			</div>
+		</header>
+
+		<section id="newsletter">
+
+			<h1>Sign up for our newsletter!</h1>
+
+			<div id="formcontent">
+
+				<form id="signup">
+					<fieldset class="formgroup">
+						First name:<br>
+						<input type="text" class="signupinput" name="firstname" size="59">
+						<br>
+						Last name:<br>
+						<input type="text" class="signupinput" name="lastname" size="59">
+						<br>
+						Email address:<br>
+						<input type="text" class="signupinput" name="email" size="59">
+						<br>
+					</fieldset>
+
+					<fieldset class="formgroup">
+						Username:<br>
+						<input type="text" class="signupinput" name="username" size="59">
+						Password:<br>
+						<input type="password" class="signupinput" name="password" size="59">
+						Password verifcation:<br>
+						<input type="password" class="signupinput" name="verification" size="59">
+					</fieldset>
+
+					<fieldset class="formgroup">
+						Favourite colour:<br>
+
+						<div id="blue">
+							<input type="radio" class="radio" name="colour" value="blue"><br>
+							<label for="blue">Blue</label><br>
+						</div>
+
+						<div id="teal">
+							<input type="radio" class="radio" name="colour" value="teal"><br>
+							<label for="teal">Teal</label><br>
+						</div>
+
+						<div id="aqua">
+							<input type="radio" class="radio" name="colour" value="aqua"><br>
+							<label for="aqua">Aqua</label<br>
+						</div>
+
+						<div id="green">
+							<input type="radio" class="radio" name="colour" value="green"><br>
+							<label for="green">Green</label><br>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+
+			<br class="clear"/>
+			
+		</section>
+
+		<footer>
+			<div id="footer-nav">
+				<ul>
+					<div class="nav-left">
+						<li><a href="http://snohetta.com">Sn&oslash;hetta</a></li>
+					</div>
+					<div class="nav-right"> 
+						<li><a href="https://www.facebook.com/snohetta"><i class="fa fa-facebook fa-fw"></i></a></li>
+						<li><a href="http://instagram.com/snohetta"><i class="fa fa-instagram fa-fw"></i></a></li>
+						<li><a href="http://www.behance.net/snohettadesign"><i class="fa fa-behance fa-fw"></i></a></li>
+						<li><a href="https://twitter.com/snohetta"><i class="fa fa-twitter fa-fw"></i></a></li>
+						<li><a href="http://www.linkedin.com/company/snohetta"><i class="fa fa-linkedin fa-fw"></i></a></li>
+					</div>
+					<div class="nav-center">
+						<li><a href="http://snohetta.com"><img class="logo" src="images/snohetta.svg"></a></li>
+					</div>	
+				</ul>
+			</div>
+		</footer>
+
+
+		<script type="text/javascript">
+			var linkEl = document.createElement("h2");
+			var linkText = document.createTextNode("Click me!");
+			linkEl.appendChild(linkText); // add text node to link element
+
+			document.body.appendChild(linkEl);
+
+			linkEl.onclick = checkForm; 
+		</script>
+
+	</body>
+
+</html>
+

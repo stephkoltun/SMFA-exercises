@@ -12,7 +12,6 @@ Stephanie Koltun
 @import "compass/css3/font-face";
 @import "compass/css3/filter";
 @import "compass/css3"; 
-@import "bourbon/bourbon";
 
 
 /* Import partial files */
@@ -163,12 +162,101 @@ img.logo:hover {
 
 
 
+#newsletter {
+	@include main-content;
+
+	h1 {
+		text-align: center;
+		padding-bottom: 30px;
+	}
+}
+
+#formcontent {
+	@include border-radius(25px);
+	background-color: $color-accent;
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 30px;
+  
+	color: $color-light;
+  	font-family: "Akkurat";
+  	font-size: .8em;
+
+  	input[type=text] {
+	  color: #b2b2b2;
+	  outline: none;
+	  border: 0px;
+	  background-color: white;
+	}
+	
+	input[type=password] {
+	  color: #b2b2b2;
+	  outline: none;
+	  border: 0px;
+	  background-color: white;
+	}
+
+	input[type=text]:focus {
+	  box-shadow: 0 0 5px #b2b2b2;
+	}
+	
+	input[type=radio] {
+	  margin: 10px 35px;
+	}
+}
+
+
+.formgroup {
+  padding: 0 0 24px 0;
+  border: 0px;
+  margin: 0;
+}
+
+.signupinput {
+  padding: 5px;
+  height: 14px;
+  margin: 3px 0 12px 0;
+}
+
+#blue {
+	@include colorbox;
+	background-color: #0f9fb4;
+}
+
+#teal {
+	@include colorbox;
+	background-color: #ff9c5f;
+}
+
+#aqua {
+	@include colorbox;
+	background-color: #806288;
+}
+
+#green {
+	@include colorbox;
+	background-color: #78c3ae;
+}
+
+
+label {
+  color: white;
+}
+
+.error {
+  color: red;
+  font-family: "Akkurat";
+  font-size: .6em;
+}
+
+
+
 
 
 /*--------- SEARCH ---------*/
 
 
-form {
+#searchform {
 	float: right;
 	margin: auto;
 
@@ -179,6 +267,18 @@ form {
 
 	@media screen and (max-width: $width-small) {
 		display: none;
+	}
+
+	input[type=text] {
+		color: $color-light;
+		outline: none;
+
+		border:1px solid $color-light;
+		background-color: white;
+	}
+
+	input[type=text]:focus {
+		box-shadow: 0 0 3px $color-light;
 	}
 }
 
@@ -206,18 +306,6 @@ form {
 
 .rounded {  
 	@include border-radius(12px);
-}
-
-input[type=text] {
-	color: $color-light;
-	outline: none;
-
-	border:1px solid $color-light;
-	background-color: white;
-}
-
-input[type=text]:focus {
-	box-shadow: 0 0 3px $color-light;
 }
 
 
