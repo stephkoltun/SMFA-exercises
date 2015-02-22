@@ -181,24 +181,6 @@ img.logo:hover {
 	color: $color-light;
   	font-family: "Akkurat";
   	font-size: .8em;
-
-  	input[type=text] {
-	  color: #b2b2b2;
-	  outline: none;
-	  border: 0px;
-	  background-color: white;
-	}
-	
-	input[type=password] {
-	  color: #b2b2b2;
-	  outline: none;
-	  border: 0px;
-	  background-color: white;
-	}
-
-	input[type=text]:focus {
-	  box-shadow: 0 0 5px #b2b2b2;
-	}
 	
 	input[type=radio] {
 	  margin: 10px 35px;
@@ -213,10 +195,48 @@ img.logo:hover {
 }
 
 .signupinput {
-  padding: 5px;
-  height: 14px;
-  margin: 3px 0 12px 0;
+	@include inputfield;
+
+	border: 1px solid $color-accent;
+	color: $color-light;
+	background-color: white;
+
+	&:hover {
+		box-shadow: 0 0 5px $color-light;
+		border: 1px solid $color-accent;
+	}
+
+	&:focus {
+		border: 1px solid $color-light;
+		box-shadow: none;
+	}
 }
+
+.errorfield {
+	@include inputfield;
+
+	border: 1px solid $color-error;
+	color: $color-light;
+	background-color: white;
+
+	&:hover {
+		box-shadow: 0 0 5px $color-error;
+		border: 1px solid $color-error;
+	}
+
+	&:focus {
+		border: 1px solid $color-error;
+		box-shadow: none;
+	}
+}
+
+.errormsg {
+	color: $color-error;
+	font-family: "Akkurat-Light";
+	font-size: .9em;
+	margin: 4px 0;
+}
+
 
 #blue {
 	@include colorbox;
@@ -239,15 +259,11 @@ img.logo:hover {
 }
 
 
-label {
+.colorLabel {
   color: white;
 }
 
-.error {
-  color: red;
-  font-family: "Akkurat";
-  font-size: .6em;
-}
+
 
 
 
