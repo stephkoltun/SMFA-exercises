@@ -340,25 +340,26 @@ img.logo:hover {
   opacity: 1;
 }
 
-/* line 165, scss/styles.scss */
+/* ----------- ASSIGNMENT 05: SIGN UP FORM ----------- */
+/* line 167, scss/styles.scss */
 #newsletter {
   padding: 30px 60px;
   display: block;
   margin: 0 auto;
 }
 @media screen and (max-width: 800px) {
-  /* line 165, scss/styles.scss */
+  /* line 167, scss/styles.scss */
   #newsletter {
     padding: 25 60px;
   }
 }
-/* line 168, scss/styles.scss */
+/* line 170, scss/styles.scss */
 #newsletter h1 {
   text-align: center;
   padding-bottom: 30px;
 }
 
-/* line 174, scss/styles.scss */
+/* line 176, scss/styles.scss */
 #formcontent {
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
@@ -373,63 +374,169 @@ img.logo:hover {
   font-family: "Akkurat";
   font-size: .8em;
 }
-/* line 185, scss/styles.scss */
-#formcontent input[type=radio] {
-  margin: 10px 35px;
+
+/* line 189, scss/styles.scss */
+input[type=radio] {
+  display: none;
 }
 
-/* line 191, scss/styles.scss */
+/* line 193, scss/styles.scss */
+#blue {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  padding-left: 25px;
+  margin-right: 15px;
+  font-size: 13px;
+  color: #0f9fb4;
+}
+/* line 197, scss/styles.scss */
+#blue:before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  background-color: #0f9fb4;
+}
+
+/* line 204, scss/styles.scss */
+#orange {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  padding-left: 25px;
+  margin-right: 15px;
+  font-size: 13px;
+  color: #ff9c5f;
+}
+/* line 208, scss/styles.scss */
+#orange:before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  background-color: #ff9c5f;
+}
+
+/* line 214, scss/styles.scss */
+#purple {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  padding-left: 25px;
+  margin-right: 15px;
+  font-size: 13px;
+  color: #806288;
+}
+/* line 218, scss/styles.scss */
+#purple:before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  background-color: #806288;
+}
+
+/* line 224, scss/styles.scss */
+#green {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  padding-left: 25px;
+  margin-right: 15px;
+  font-size: 13px;
+  color: #78c3ae;
+}
+/* line 228, scss/styles.scss */
+#green:before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  background-color: #78c3ae;
+}
+
+/* line 234, scss/styles.scss */
+input[type=radio]:checked + label:before {
+  /* content: '\2022';  
+  color: white;  
+  font-family: "Akkurat";
+  font-size: 8px;  
+  text-align: center;  
+  line-height: 10px; */
+  background-color: black;
+}
+
+/* line 250, scss/styles.scss */
 .formgroup {
   padding: 0 0 24px 0;
   border: 0px;
   margin: 0;
 }
 
-/* line 197, scss/styles.scss */
+/* line 256, scss/styles.scss */
 .signupinput {
   padding: 5px;
   height: 14px;
   margin: 3px 0 12px 0;
   outline: none;
   border: 1px solid #f6f6f6;
-  border: 1px solid #f6f6f6;
   color: #b2b2b2;
   background-color: white;
 }
-/* line 204, scss/styles.scss */
+/* line 263, scss/styles.scss */
 .signupinput:hover {
   box-shadow: 0 0 5px #b2b2b2;
   border: 1px solid #f6f6f6;
 }
-/* line 209, scss/styles.scss */
+/* line 268, scss/styles.scss */
 .signupinput:focus {
   border: 1px solid #b2b2b2;
   box-shadow: none;
 }
 
-/* line 215, scss/styles.scss */
+/* line 274, scss/styles.scss */
 .errorfield {
   padding: 5px;
   height: 14px;
   margin: 3px 0 12px 0;
   outline: none;
-  border: 1px solid #f6f6f6;
   border: 1px solid #ff606e;
   color: #b2b2b2;
   background-color: white;
 }
-/* line 222, scss/styles.scss */
+/* line 281, scss/styles.scss */
 .errorfield:hover {
   box-shadow: 0 0 5px #ff606e;
   border: 1px solid #ff606e;
 }
-/* line 227, scss/styles.scss */
+/* line 286, scss/styles.scss */
 .errorfield:focus {
   border: 1px solid #ff606e;
   box-shadow: none;
 }
 
-/* line 233, scss/styles.scss */
+/* line 292, scss/styles.scss */
 .errormsg {
   color: #ff606e;
   font-family: "Akkurat-Light";
@@ -437,104 +544,63 @@ img.logo:hover {
   margin: 4px 0;
 }
 
-/* line 241, scss/styles.scss */
-#blue {
-  width: 82px;
-  height: 50px;
-  margin: 10px 18px 0 0;
-  float: left;
-  background-color: #0f9fb4;
-}
-
-/* line 246, scss/styles.scss */
-#teal {
-  width: 82px;
-  height: 50px;
-  margin: 10px 18px 0 0;
-  float: left;
-  background-color: #ff9c5f;
-}
-
-/* line 251, scss/styles.scss */
-#aqua {
-  width: 82px;
-  height: 50px;
-  margin: 10px 18px 0 0;
-  float: left;
-  background-color: #806288;
-}
-
-/* line 256, scss/styles.scss */
-#green {
-  width: 82px;
-  height: 50px;
-  margin: 10px 18px 0 0;
-  float: left;
-  background-color: #78c3ae;
-}
-
-/* line 262, scss/styles.scss */
-.colorLabel {
-  color: white;
-}
-
 /*--------- SEARCH ---------*/
-/* line 275, scss/styles.scss */
+/* line 311, scss/styles.scss */
 #searchform {
   float: right;
   margin: auto;
 }
 @media screen and (min-width: 820px) {
-  /* line 275, scss/styles.scss */
+  /* line 311, scss/styles.scss */
   #searchform {
     display: block;
   }
 }
 @media screen and (max-width: 800px) {
-  /* line 275, scss/styles.scss */
+  /* line 311, scss/styles.scss */
   #searchform {
     display: none;
   }
 }
-/* line 288, scss/styles.scss */
+/* line 324, scss/styles.scss */
 #searchform input[type=text] {
   color: #b2b2b2;
   outline: none;
   border: 1px solid #b2b2b2;
   background-color: white;
 }
-/* line 296, scss/styles.scss */
+/* line 332, scss/styles.scss */
 #searchform input[type=text]:focus {
   box-shadow: 0 0 3px #b2b2b2;
 }
 
 @media screen and (min-width: 820px) {
-  /* line 301, scss/styles.scss */
+  /* line 337, scss/styles.scss */
   .search-icon {
     display: none;
   }
 }
 @media screen and (max-width: 800px) {
-  /* line 301, scss/styles.scss */
+  /* line 337, scss/styles.scss */
   .search-icon {
     display: inline-block;
   }
 }
 
 @media screen and (min-width: 820px) {
-  /* line 312, scss/styles.scss */
+  /* line 348, scss/styles.scss */
   .search {
     padding: 2px 6px;
   }
 }
 @media screen and (min-width: 1100px) {
-  /* line 312, scss/styles.scss */
+  /* line 348, scss/styles.scss */
   .search {
     padding: 3px 8px;
   }
 }
 
-/* line 323, scss/styles.scss */
+/* line 359, scss/styles.scss */
 .rounded {
   -webkit-border-radius: 12px;
   -moz-border-radius: 12px;
@@ -544,38 +610,38 @@ img.logo:hover {
 }
 
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 333, scss/styles.scss */
+/* line 369, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;
 }
 
-/* line 338, scss/styles.scss */
+/* line 374, scss/styles.scss */
 #blog-index {
   padding: 30px 60px;
   display: block;
   margin: 0 auto;
 }
 @media screen and (max-width: 800px) {
-  /* line 338, scss/styles.scss */
+  /* line 374, scss/styles.scss */
   #blog-index {
     padding: 25 60px;
   }
 }
 @media screen and (min-width: 820px) {
-  /* line 338, scss/styles.scss */
+  /* line 374, scss/styles.scss */
   #blog-index {
     max-width: 700px;
   }
 }
 @media screen and (min-width: 1100px) {
-  /* line 338, scss/styles.scss */
+  /* line 374, scss/styles.scss */
   #blog-index {
     max-width: 1050px;
   }
 }
 
-/* line 351, scss/styles.scss */
+/* line 387, scss/styles.scss */
 .container {
   margin: 10px 10px;
   height: 350px;
@@ -586,7 +652,7 @@ img.logo:hover {
   z-index: 1;
 }
 @media screen and (max-width: 800px) {
-  /* line 351, scss/styles.scss */
+  /* line 387, scss/styles.scss */
   .container {
     width: 470px;
     height: 260px;
@@ -595,30 +661,30 @@ img.logo:hover {
   }
 }
 
-/* line 370, scss/styles.scss */
+/* line 406, scss/styles.scss */
 .data {
   display: block;
   font-family: "Akkurat-Light";
 }
 
-/* line 375, scss/styles.scss */
+/* line 411, scss/styles.scss */
 .content {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* line 380, scss/styles.scss */
+/* line 416, scss/styles.scss */
 .text {
   margin: 0 auto;
   width: 80%;
   z-index: 1;
 }
-/* line 385, scss/styles.scss */
+/* line 421, scss/styles.scss */
 .text a {
   text-decoration: underline;
 }
 @media screen and (max-width: 800px) {
-  /* line 380, scss/styles.scss */
+  /* line 416, scss/styles.scss */
   .text {
     position: relative;
     left: 120px;
@@ -627,7 +693,7 @@ img.logo:hover {
   }
 }
 
-/* line 397, scss/styles.scss */
+/* line 433, scss/styles.scss */
 img.horizontal {
   margin: auto;
   z-index: -1;
@@ -643,7 +709,7 @@ img.horizontal {
   transition-duration: 0.4s;
 }
 @media screen and (max-width: 800px) {
-  /* line 397, scss/styles.scss */
+  /* line 433, scss/styles.scss */
   img.horizontal {
     position: absolute;
     top: 0;
@@ -652,7 +718,7 @@ img.horizontal {
   }
 }
 @media screen and (min-width: 820px) {
-  /* line 397, scss/styles.scss */
+  /* line 433, scss/styles.scss */
   img.horizontal {
     position: absolute;
     top: 0;
@@ -662,7 +728,7 @@ img.horizontal {
   }
 }
 @media screen and (min-width: 1100px) {
-  /* line 397, scss/styles.scss */
+  /* line 433, scss/styles.scss */
   img.horizontal {
     position: absolute;
     top: 0;
@@ -672,13 +738,13 @@ img.horizontal {
   }
 }
 @media screen and (max-width: 800px) {
-  /* line 397, scss/styles.scss */
+  /* line 433, scss/styles.scss */
   img.horizontal {
     width: 60%;
   }
 }
 
-/* line 410, scss/styles.scss */
+/* line 446, scss/styles.scss */
 img.vertical {
   margin: auto;
   z-index: -1;
@@ -694,7 +760,7 @@ img.vertical {
   transition-duration: 0.4s;
 }
 @media screen and (max-width: 800px) {
-  /* line 410, scss/styles.scss */
+  /* line 446, scss/styles.scss */
   img.vertical {
     position: absolute;
     top: 0;
@@ -703,7 +769,7 @@ img.vertical {
   }
 }
 @media screen and (min-width: 820px) {
-  /* line 410, scss/styles.scss */
+  /* line 446, scss/styles.scss */
   img.vertical {
     position: absolute;
     top: 0;
@@ -713,7 +779,7 @@ img.vertical {
   }
 }
 @media screen and (min-width: 1100px) {
-  /* line 410, scss/styles.scss */
+  /* line 446, scss/styles.scss */
   img.vertical {
     position: absolute;
     top: 0;
@@ -723,7 +789,7 @@ img.vertical {
   }
 }
 
-/* line 421, scss/styles.scss */
+/* line 457, scss/styles.scss */
 .container:hover img.vertical, .container:hover img.horizontal {
   opacity: .2;
   -webkit-filter: blur(2px);
@@ -732,43 +798,43 @@ img.vertical {
 }
 
 /*--------- BLOG POST ---------*/
-/* line 436, scss/styles.scss */
+/* line 472, scss/styles.scss */
 #blog-post {
   padding: 30px 60px;
   display: block;
   margin: 0 auto;
 }
 @media screen and (max-width: 800px) {
-  /* line 436, scss/styles.scss */
+  /* line 472, scss/styles.scss */
   #blog-post {
     padding: 25 60px;
   }
 }
 @media screen and (max-width: 800px) {
-  /* line 436, scss/styles.scss */
+  /* line 472, scss/styles.scss */
   #blog-post {
     max-width: 550px;
   }
 }
 @media screen and (min-width: 820px) {
-  /* line 436, scss/styles.scss */
+  /* line 472, scss/styles.scss */
   #blog-post {
     max-width: 700px;
   }
 }
 @media screen and (min-width: 1100px) {
-  /* line 436, scss/styles.scss */
+  /* line 472, scss/styles.scss */
   #blog-post {
     max-width: 1050px;
   }
 }
 
-/* line 453, scss/styles.scss */
+/* line 489, scss/styles.scss */
 .post-content {
   margin: 0 auto;
 }
 @media screen and (max-width: 800px) {
-  /* line 453, scss/styles.scss */
+  /* line 489, scss/styles.scss */
   .post-content {
     max-width: 550px;
     float: center;
@@ -776,7 +842,7 @@ img.vertical {
   }
 }
 @media screen and (min-width: 820px) {
-  /* line 453, scss/styles.scss */
+  /* line 489, scss/styles.scss */
   .post-content {
     max-width: 570px;
     width: 55%;
@@ -785,7 +851,7 @@ img.vertical {
   }
 }
 @media screen and (min-width: 1100px) {
-  /* line 453, scss/styles.scss */
+  /* line 489, scss/styles.scss */
   .post-content {
     max-width: 570px;
     width: 45%;
@@ -794,51 +860,51 @@ img.vertical {
   }
 }
 
-/* line 480, scss/styles.scss */
+/* line 516, scss/styles.scss */
 .left-aside {
   width: 5%;
   float: left;
   margin: 58px 0;
 }
 @media screen and (max-width: 800px) {
-  /* line 480, scss/styles.scss */
+  /* line 516, scss/styles.scss */
   .left-aside {
     display: none;
   }
 }
 @media screen and (min-width: 820px) {
-  /* line 480, scss/styles.scss */
+  /* line 516, scss/styles.scss */
   .left-aside {
     display: none;
   }
 }
 @media screen and (min-width: 1100px) {
-  /* line 480, scss/styles.scss */
+  /* line 516, scss/styles.scss */
   .left-aside {
     display: block;
   }
 }
 
 @media screen and (min-width: 1100px) {
-  /* line 499, scss/styles.scss */
+  /* line 535, scss/styles.scss */
   .mobile-data {
     display: none;
   }
 }
 @media screen and (max-width: 820px) {
-  /* line 499, scss/styles.scss */
+  /* line 535, scss/styles.scss */
   .mobile-data {
     display: block;
   }
 }
 @media screen and (max-width: 800px) {
-  /* line 499, scss/styles.scss */
+  /* line 535, scss/styles.scss */
   .mobile-data {
     display: block;
   }
 }
 
-/* line 514, scss/styles.scss */
+/* line 550, scss/styles.scss */
 .mobile-pull {
   color: #333333;
   font-family: "Akkurat-Light";
@@ -849,31 +915,31 @@ img.vertical {
   padding: 20px 20px;
 }
 @media screen and (min-width: 820px) {
-  /* line 514, scss/styles.scss */
+  /* line 550, scss/styles.scss */
   .mobile-pull {
     font-size: 1.3em;
   }
 }
 @media screen and (min-width: 800px) {
-  /* line 514, scss/styles.scss */
+  /* line 550, scss/styles.scss */
   .mobile-pull {
     font-size: 1.2em;
   }
 }
 @media screen and (min-width: 820px) {
-  /* line 514, scss/styles.scss */
+  /* line 550, scss/styles.scss */
   .mobile-pull {
     display: none;
   }
 }
 @media screen and (max-width: 800px) {
-  /* line 514, scss/styles.scss */
+  /* line 550, scss/styles.scss */
   .mobile-pull {
     display: block;
   }
 }
 
-/* line 529, scss/styles.scss */
+/* line 565, scss/styles.scss */
 .right-aside {
   color: #333333;
   font-family: "Akkurat-Light";
@@ -886,53 +952,53 @@ img.vertical {
   margin: 50px 0;
 }
 @media screen and (min-width: 820px) {
-  /* line 529, scss/styles.scss */
+  /* line 565, scss/styles.scss */
   .right-aside {
     font-size: 1.3em;
   }
 }
 @media screen and (min-width: 800px) {
-  /* line 529, scss/styles.scss */
+  /* line 565, scss/styles.scss */
   .right-aside {
     font-size: 1.2em;
   }
 }
-/* line 535, scss/styles.scss */
+/* line 571, scss/styles.scss */
 .right-aside p {
   margin: 0 auto;
   padding: 40px 0;
   max-width: 85%;
 }
-/* line 541, scss/styles.scss */
+/* line 577, scss/styles.scss */
 .right-aside img {
   width: 100%;
 }
 @media screen and (max-width: 800px) {
-  /* line 529, scss/styles.scss */
+  /* line 565, scss/styles.scss */
   .right-aside {
     display: none;
   }
 }
 @media screen and (min-width: 820px) {
-  /* line 529, scss/styles.scss */
+  /* line 565, scss/styles.scss */
   .right-aside {
     margin: 0;
   }
 }
 
-/* line 555, scss/styles.scss */
+/* line 591, scss/styles.scss */
 figure {
   display: block;
   margin: 0 auto;
   position: relative;
 }
-/* line 560, scss/styles.scss */
+/* line 596, scss/styles.scss */
 figure:hover figcaption {
   opacity: 1;
   bottom: 10px;
 }
 
-/* line 566, scss/styles.scss */
+/* line 602, scss/styles.scss */
 figcaption {
   position: absolute;
   bottom: -50px;
@@ -949,7 +1015,7 @@ figcaption {
   -o-transition-duration: 0.7s;
   transition-duration: 0.7s;
 }
-/* line 579, scss/styles.scss */
+/* line 615, scss/styles.scss */
 figcaption .caption {
   color: #f6f6f6;
   font-family: "Akkurat";
@@ -957,13 +1023,13 @@ figcaption .caption {
   text-align: center;
 }
 
-/* line 591, scss/styles.scss */
+/* line 627, scss/styles.scss */
 .mobile-img img {
   display: block;
   padding: 30px 0 15px 0;
   margin: 0 auto;
 }
-/* line 597, scss/styles.scss */
+/* line 633, scss/styles.scss */
 .mobile-img span {
   display: block;
   padding-bottom: 30px;
@@ -973,13 +1039,13 @@ figcaption .caption {
   text-align: center;
 }
 @media screen and (min-width: 820px) {
-  /* line 590, scss/styles.scss */
+  /* line 626, scss/styles.scss */
   .mobile-img {
     display: none;
   }
 }
 @media screen and (max-width: 800px) {
-  /* line 590, scss/styles.scss */
+  /* line 626, scss/styles.scss */
   .mobile-img {
     display: block;
   }

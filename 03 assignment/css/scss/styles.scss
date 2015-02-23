@@ -161,6 +161,8 @@ img.logo:hover {
 
 
 
+/* ----------- ASSIGNMENT 05: SIGN UP FORM ----------- */
+
 
 #newsletter {
 	@include main-content;
@@ -181,11 +183,68 @@ img.logo:hover {
 	color: $color-light;
   	font-family: "Akkurat";
   	font-size: .8em;
-	
-	input[type=radio] {
-	  margin: 10px 35px;
+}
+
+//hide default radio button to allow custom styling
+input[type=radio] {
+	display: none;
+}
+
+#blue {
+	@include colorLabel;
+    color: $color-1;
+
+    &:before {
+    	@include colorButton;
+    	background-color: $color-1; 
 	}
 }
+
+
+#orange {
+	@include colorLabel;
+    color: $color-2;
+
+    &:before {
+    	@include colorButton;
+    	background-color: $color-2; 
+	}
+}
+
+#purple {
+	@include colorLabel;
+    color: $color-3;
+
+    &:before {
+    	@include colorButton;
+    	background-color: $color-3; 
+	}
+}
+
+#green {
+	@include colorLabel;
+    color: $color-4;
+
+    &:before {
+    	@include colorButton;
+    	background-color: $color-4; 
+	}
+}
+
+input[type=radio]:checked + label:before {  
+    /* content: '\2022';  
+    color: white;  
+    font-family: "Akkurat";
+    font-size: 8px;  
+    text-align: center;  
+    line-height: 10px; */ 
+
+    background-color: black; 
+
+} 
+
+
+
 
 
 .formgroup {
@@ -238,30 +297,7 @@ img.logo:hover {
 }
 
 
-#blue {
-	@include colorbox;
-	background-color: #0f9fb4;
-}
 
-#teal {
-	@include colorbox;
-	background-color: #ff9c5f;
-}
-
-#aqua {
-	@include colorbox;
-	background-color: #806288;
-}
-
-#green {
-	@include colorbox;
-	background-color: #78c3ae;
-}
-
-
-.colorLabel {
-  color: white;
-}
 
 
 
