@@ -185,19 +185,19 @@ img.logo:hover {
   	font-size: .8em;
 }
 
-//hide default radio button to allow custom styling
-input[type=radio] {
-	display: none;
-}
+// hide default radio button to allow custom styling
+// input[type=radio] {
+// 	display: none;
+// }
 
 #blue {
 	@include colorLabel;
     color: $color-1;
 
-    &:before {
+    /* &:before {
     	@include colorButton;
     	background-color: $color-1; 
-	}
+	} */
 }
 
 
@@ -205,43 +205,53 @@ input[type=radio] {
 	@include colorLabel;
     color: $color-2;
 
-    &:before {
+    /* &:before {
     	@include colorButton;
     	background-color: $color-2; 
-	}
+	} */
 }
 
 #purple {
 	@include colorLabel;
     color: $color-3;
 
-    &:before {
+    /* &:before {
     	@include colorButton;
     	background-color: $color-3; 
-	}
+	} */
 }
 
 #green {
 	@include colorLabel;
     color: $color-4;
 
-    &:before {
+    /* &:before {
     	@include colorButton;
     	background-color: $color-4; 
-	}
+	} */
 }
 
-input[type=radio]:checked + label:before {  
-    /* content: '\2022';  
+#formValues {
+	margin: 15px 0 0 0;
+}
+
+.formText {
+	padding: 5px 0;
+	color: $color-light;
+}
+
+
+/* input[type=radio]:checked + label:before {  
+    content: '\2022';  
     color: white;  
     font-family: "Akkurat";
     font-size: 8px;  
     text-align: center;  
-    line-height: 10px; */ 
+    line-height: 10px; 
 
     background-color: black; 
 
-} 
+}  */
 
 
 
