@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" href="../03 assignment/css/styles.css">
+		<link rel="stylesheet" href="../03 assignment/fonts/font-awesome/css/font-awesome.min.css">
+
+
+
+		
+
+		<title>Subscribe - Sn&oslash;hetta</title>
+		<meta name="description" content="A blog documenting Sn&oslash;hetta's culture, recent happenings, process and innovations.">
+	</head>
+
+	<body>
+		<header>
+			<div id="mainnav">
+				<ul>
+					<div class ="nav-left">
+						<li>Sn&oslash;hetta: Blog</li>
+					</div> 
+					<div class="nav-right">
+						<li>
+							<form id = "searchform">
+								<span><input type="text" class="search rounded" name="search" size="15" placeholder="&#xf002; search"></span>
+							</form>
+						</li>
+						<li class="search-icon"><i class="fa fa-search fa-fw"></i></li>
+					</div>
+					<div class="nav-center">
+						<li><a href="http://snohetta.com"><img class="logo" src="images/snohetta.svg"></a></li>
+					</div>
+				</ul>
+			</div>
+		</header>
+
+		<section id="newsletter">
+
+			<h1>Sign up for our newsletter!</h1>
+
+			<div id="formcontent">
+
+				<form id="signup">
+					<fieldset class="formgroup" id="nameInfo">
+						<label for="firstname">First name:</label><br>
+						<input type="text" class="signupinput" id="firstname" name="firstname" size="59">
+						<br>
+						<label for="lastname">Last name:</label><br>
+						<input type="text" class="signupinput" name="lastname" size="59">
+						<br>
+						<label for="email">Email address:</label><br>
+						<input type="text" class="signupinput" name="email" size="59">
+						<br>
+					</fieldset>
+
+					<fieldset class="formgroup" id="userInfo">
+						<label for="username">Username:</label><br>
+						<input type="text" class="signupinput" name="username" size="59">
+						<label for="password">Password (include at least 1 number):</label><br>
+						<input type="password" class="signupinput" name="password" size="59">
+						<label for="passwordconfirm">Re-type your password:</label><br>
+						<input type="password" class="signupinput" name="passwordconfirm" size="59">
+					</fieldset>
+
+					<fieldset class="formgroup" id="pickColor">
+						Favourite color:<br>
+
+						<div>
+							<input type="radio" name="color" value="blue">
+							<label for="blue" id="blue">Blue</label><br>
+						</div>
+
+						<div>
+							<input type="radio" name="color" value="orange">
+							<label for="orange" id="orange">Orange</label><br>
+						</div>
+
+						<div>
+							<input type="radio" name="color" value="purple">
+							<label for="purple" id="purple">Purple</label<br>
+						</div>
+
+						<div>
+							<input type="radio"  name="color" value="green">
+							<label for="green" id="green">Green</label><br>
+						</div>
+					</fieldset>
+
+					<input type="button" id="submit" value="Submit" onClick="validate()"/>
+					<input type="reset" class="button" id="reset" value="Reset" onClick="this.form.reset()">
+				</form>
+			</div>
+
+			<br class="clear"/>
+			
+		</section>
+
+		<footer>
+			<div id="footer-nav">
+				<ul>
+					<div class="nav-left">
+						<li><a href="http://snohetta.com">Sn&oslash;hetta</a></li>
+					</div>
+					<div class="nav-right"> 
+						<li><a href="https://www.facebook.com/snohetta"><i class="fa fa-facebook fa-fw"></i></a></li>
+						<li><a href="http://instagram.com/snohetta"><i class="fa fa-instagram fa-fw"></i></a></li>
+						<li><a href="http://www.behance.net/snohettadesign"><i class="fa fa-behance fa-fw"></i></a></li>
+						<li><a href="https://twitter.com/snohetta"><i class="fa fa-twitter fa-fw"></i></a></li>
+						<li><a href="http://www.linkedin.com/company/snohetta"><i class="fa fa-linkedin fa-fw"></i></a></li>
+					</div>
+					<div class="nav-center">
+						<li><a href="http://snohetta.com"><img class="logo" src="images/snohetta.svg"></a></li>
+					</div>	
+				</ul>
+			</div>
+		</footer>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</body>
+
+</html>
+

@@ -44,29 +44,29 @@ Stephanie Koltun
   src: url('/stylesheets/fonts/fonts/font-awesome/fonts/FontAwesome.otf') format('opentype');
 }
 
-/* line 10, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 10, scss/defaults/_typography.scss */
 p {
   color: #333333;
   font-family: "Akkurat";
   font-size: .9em;
 }
-/* line 17, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 17, scss/defaults/_typography.scss */
 p a {
   text-decoration: none;
 }
-/* line 20, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 20, scss/defaults/_typography.scss */
 p a:link, p a:visited {
   color: #333333;
 }
 @media screen and (max-width: 800px) {
-  /* line 10, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+  /* line 10, scss/defaults/_typography.scss */
   p {
     font-size: .8em;
     line-height: 1.5em;
   }
 }
 
-/* line 33, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 33, scss/defaults/_typography.scss */
 h1 {
   margin: 0 0;
   color: #333333;
@@ -74,23 +74,23 @@ h1 {
   font-weight: 400;
   font-size: 1.8em;
 }
-/* line 43, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 43, scss/defaults/_typography.scss */
 h1 a:link, h1 a:visited {
   text-decoration: underline;
   color: #333333;
 }
-/* line 48, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 48, scss/defaults/_typography.scss */
 h1 a:hover {
   text-decoration: none;
 }
 @media screen and (max-width: 800px) {
-  /* line 33, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+  /* line 33, scss/defaults/_typography.scss */
   h1 {
     font-size: 1.5em;
   }
 }
 
-/* line 60, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 60, scss/defaults/_typography.scss */
 h2 {
   display: inline;
   margin: 1em 0 0 0;
@@ -102,7 +102,7 @@ h2 {
   font-weight: 400;
 }
 
-/* line 78, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 78, scss/defaults/_typography.scss */
 h3 {
   display: inline;
   margin: 1em 0 0 0;
@@ -113,7 +113,7 @@ h3 {
   font-size: .8em;
   font-weight: 100;
 }
-/* line 92, /Users/stephaniekoltun/GitHub/homework-koltun/03 assignment/css/scss/defaults/_typography.scss */
+/* line 92, scss/defaults/_typography.scss */
 h3 a:link, h3 a:visited {
   family: "Akkurat-LightItalic";
   text-decoration: none;
@@ -340,7 +340,7 @@ img.logo:hover {
   opacity: 1;
 }
 
-/* ----------- ASSIGNMENT 05: SIGN UP FORM ----------- */
+/* ----------- ASSIGNMENT 05/06: SIGN UP FORM ----------- */
 /* line 167, scss/styles.scss */
 #newsletter {
   padding: 30px 60px;
