@@ -8,50 +8,34 @@ function checkLength(input, length) {
 	}
 };
 
-
-
-/*
-
-
-function pickColor(e) {
-	// Change background color of form
-	if (color1.checked) {
-		//alert("you picked blue!");
-		document.body.style.backgroundColor = "#0f9fb4";
-	}
-
-	if (color2.checked) {
-		//alert("you picked blue!");
-		document.body.style.backgroundColor = "#ff9c5f";
-	}
-
-	if (color3.checked) {
-		//alert("you picked blue!");
-		document.body.style.backgroundColor = "#806288";
-	}
-
-	if (color4.checked) {
-		//alert("you picked blue!");
-		document.body.style.backgroundColor = "#78c3ae";
-	}
+//remove any leading and trailing blank space
+function trim (str) {
+	return str.replace(/^\s+|\s+$/g, '');
 }
 
 
+function addError (label, errorId, msg, inputfield) {
+	var errorMsg = "<span class='errormsg' id=" + errorId + "> * " + msg + "</span>";
+	// add error message after label for input field
+	label.after(errorMsg);
+
+	// change classes of input field so that error styling is used
+	$(inputfield).addClass("errorfield");
+	$(inputfield).removeClass("signupinput");
+}
 
 
+function removeError (errorId, inputfield) {
+	// remove error message
+	var errorIdValue = 'span#' + errorId;
+	$(errorIdValue).remove();
 
-var color1 = signUpForm.elements[6];
-color1.addEventListener('change', pickColor, false);
+	// change back to default input field styling
+	$(inputfield).addClass("signupinput");
+	$(inputfield).removeClass("errorfield");
+}
 
-var color2 = signUpForm.elements[7];
-color2.addEventListener('change', pickColor, false);
 
-var color3 = signUpForm.elements[8];
-color3.addEventListener('change', pickColor, false);
-
-var color4 = signUpForm.elements[9];
-color4.addEventListener('change', pickColor, false);
-*/
 
 
 
@@ -64,7 +48,6 @@ signUpForm.addEventListener('submit', validate);
 // validate form inputs
 function validate() {
 
-
 	// ----- FIRST NAME ----- //
 	
 	var firstNameInput = signUpForm.elements["firstname"];
@@ -72,27 +55,16 @@ function validate() {
 
 	// if the check length function returns false, add error message and change styling
 	if (! validFirstName) {
-
 		// set variables for the label and error message to be added
 		var $firstNameLabel = $('label[for="firstname"]');
-		var nameErrorMsg = "<span class='errormsg' id='firstnameerror'>* must be at least 2 characters long</span>";
-
-		// add error message after label for first name
-		$firstNameLabel.after(nameErrorMsg);
-
-		// jquery methods to change classes of input field so that error styling is used
-		$(firstNameInput).addClass("errorfield");
-		$(firstNameInput).removeClass("signupinput");
+		//call error styling function
+		addError($firstNameLabel, 'firstnameerror', "must be at least 2 characters long", firstNameInput);
 	}
+
 	// check if first name had previously been incorrect (signified by errorfield class) but is now correct 	
-	else if ( validFirstName && ($(firstNameInput).attr('class') == "errorfield") ) {
-
-		// change back to default input field styling
-		$(firstNameInput).addClass("signupinput");
-		$(firstNameInput).removeClass("errorfield");
-
-		// remove error message
-		$('span#firstnameerror').remove();
+	if ( validFirstName && ($(firstNameInput).attr('class') == "errorfield") ) {
+		//call remove error function
+		removeError('firstnameerror', firstNameInput);
 	}
 
 
@@ -106,27 +78,16 @@ function validate() {
 
 	// if the check length function returns false, add error message and change styling
 	if (! validLastName) {
-
 		// set variables for the label and error message to be added
 		var $lastNameLabel = $('label[for="lastname"]');
-		var nameErrorMsg = "<span class='errormsg' id='lastnameerror'>* must be at least 2 characters long</span>";
-
-		// add error message after label for last name
-		$lastNameLabel.after(nameErrorMsg);
-
-		// jquery methods to change classes of input field so that error styling is used
-		$(lastNameInput).addClass("errorfield");
-		$(lastNameInput).removeClass("signupinput");	
+		//call error styling function
+		addError($lastNameLabel, 'lastnameerror', "must be at least 2 characters long", lastNameInput);	
 	} 
+
 	// check if last name had previously been incorrect (signified by errorfield class) but is now correct 	
-	else if ( validLastName && ($(lastNameInput).attr('class') == "errorfield") ) {
-
-		// change back to default input field styling
-		$(lastNameInput).addClass("signupinput");
-		$(lastNameInput).removeClass("errorfield");
-
-		// remove error message
-		$('span#lastnameerror').remove();
+	if ( validLastName && ($(lastNameInput).attr('class') == "errorfield") ) {
+		//call remove error function
+		removeError('lastnameerror', lastNameInput);
 	}
 
 
@@ -136,30 +97,18 @@ function validate() {
 	// ----- EMAIL ----- //
 
 	var emailInput = signUpForm.elements["email"];
-
 	var validEmail = /[^@]+@[^@]+/.test(emailInput.value);
 	if (! validEmail) {
 
 		var $emailLabel = $('label[for="email"]');
-		var emailErrorMsg = "<span class='errormsg' id='emailerror'>* email address is not valid</span>";
-
-		// add error message after label for first name
-		$emailLabel.after(emailErrorMsg);
-
-		// jquery methods to change classes of input field so that error styling is used
-		$(emailInput).addClass("errorfield");
-		$(emailInput).removeClass("signupinput");
-
+		//call error styling function
+		addError($emailLabel, 'emailerror', "must be a valid email address", emailInput);	
 	} 
+
 	// check if email had previously been incorrect (signified by errorfield class) but is now correct 	
-	else if ( validEmail && ($(emailInput).attr('class') == "errorfield") ) {
-
-		// change back to default input field styling
-		$(emailInput).addClass("signupinput");
-		$(emailInput).removeClass("errorfield");
-
-		// remove error message
-		$('span#emailerror').remove();
+	if ( validEmail && ($(emailInput).attr('class') == "errorfield") ) {
+		//call remove error function
+		removeError('emaileerror', emailInput);
 	}
 
 
@@ -176,26 +125,14 @@ function validate() {
 
 		// set variables for the label and error message to be added
 		var $usernameLabel = $('label[for="username"]');
-		var usernameErrorMsg = "<span class='errormsg' id='usernameerror'>* must be at least 8 characters long</span>";
-
-		// add error message after label for last name
-		$usernameLabel.after(usernameErrorMsg);
-
-		// jquery methods to change classes of input field so that error styling is used
-		$(usernameInput).addClass("errorfield");
-		$(usernameInput).removeClass("signupinput");
+		//call error styling function
+		addError($usernameLabel, 'usernameerror', "must be at least 8 characters long", usernameInput);
 	} 
 	// check if username had previously been incorrect (signified by errorfield class) but is now correct 	
 	else if ( validUsername && ($(usernameInput).attr('class') == "errorfield") ) {
-
-		// change back to default input field styling
-		$(usernameInput).addClass("signupinput");
-		$(usernameInput).removeClass("errorfield");
-
-		// remove error message
-		$('span#usernameerror').remove();
+		//call remove error function
+		removeError('usernameeerror', usernameInput);
 	}
-
 
 
 
@@ -209,34 +146,30 @@ function validate() {
 
 		// set variables for the label and error message to be added
 		var $passwordLabel = $('label[for="password"]');
-		var passwordErrorMsg = "<span class='errormsg' id='passworderror'>* must be greater than 8 characters long and contain a number</span>";
-
-		// add error message after label for password
-		$passwordLabel.after(passwordErrorMsg);
-
-		// jquery methods to change classes of input field so that error styling is used
-		$(passwordInput).addClass("errorfield");
-		$(passwordInput).removeClass("signupinput");
+		//call error styling function
+		addError($passwordLabel, 'passworderror', "must be at least 8 characters long and contain a number", passwordInput);
+	}
+	// check if username had previously been incorrect (signified by errorfield class) but is now correct 
+	else if ( validPassword && ($(passwordInput).attr('class') == "errorfield") ) {
+		//call remove error function
+		removeError('passwordeerror', passwordInput);
 	}
 
 
 
 	// ----- PASSWORD MATCH ----- //
 	var passwordConfirm = signUpForm.elements["passwordconfirm"];
+	var passwordMatch = (passwordConfirm.value == passwordInput.value);
 
-	if (passwordConfirm.value != passwordInput.value) {
+	if (! passwordMatch) {
 		// set variables for the label and error message to be added
 		var $passwordConfirmLabel = $('label[for="passwordconfirm"]');
-		var passwordConfirmErrorMsg = "<span class='errormsg' id='matcherror'>* passwords must match</span>";
-
-		// add error message after label for password match
-		$passwordConfirmLabel.after(passwordConfirmErrorMsg);
-
-		// jquery methods to change classes of input field so that error styling is used
-		$(passwordConfirm).addClass("errorfield");
-		$(passwordConfirm).removeClass("signupinput");
+		//call error styling function
+		addError($passwordConfirmLabel, 'matcherror', "passwords must match", passwordConfirm);
+	} else if ( passwordMatch && ($(passwordConfirm).attr('class') == "errorfield") ) {
+		//call remove error function
+		removeError('matcheerror', passwordConfirm);
 	}
-
 
 
 	// ----- COLOR PICKER ----- //
@@ -245,43 +178,32 @@ function validate() {
 		$('body').css('backgroundColor','#0f9fb4');
 	}
 
-
 	var $orange = $('input[value="orange"]');
 	if ($orange.is(':checked')) {
 		$('body').css('backgroundColor', '#ff9c5f');
 	}
-
 
 	var $purple = $('input[value="purple"]');
 	if ($purple.is(':checked')) {
 		$('body').css('backgroundColor', '#806288');
 	}
 
-
 	var $green = $('input[value="green"]');
 	if ($green.is(':checked')) {
 		$('body').css('backgroundColor', '#78c3ae');
 	}
-	
+
+
+	// how to do I print the form only if there are no errors?
+	printForm();
+
 }
 
 
 
 
 
-
-
-
-
-
-
-
-/*function submitForm() {
-
-//check if fields are empty
-
-//print values to screen
-
+function printForm() {
 	// object containing form, to which we'll add the form values	
 	var formContent = document.getElementById("formcontent");
 	
@@ -339,9 +261,8 @@ function validate() {
 	formValues.appendChild(passwordPara);
 
 
-
 	formContent.appendChild(formValues);
-}*/
+}
 
 
 
