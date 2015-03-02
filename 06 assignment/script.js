@@ -13,35 +13,6 @@ function checkLength(input, length) {
 /*
 
 
-
-
-function checkPassword(e) {
-	var target = e.target || e.srcElement;
-	// Verify password is greater than 8 characters and contains a number
-	var validPassword = /[0-9]/.test(target.value);
-	if ((target.value.length <= 8) && (!validPassword)) {
-		password.setAttribute("class","errorfield");
-		displayError("Your password must be greater than 8 characters and contain a number.", userFieldset, 7, "passworderror");
-	} else {
-		password.setAttribute("class","signupinput"); // default grey border
-		removeErrorMessage("userInfo", "passworderror");
-	}
-}
-
-
-// Check that passwords are the same
-function matchPassword(e) {
-	var target = e.target || e.srcElement;
-	var passwordValue = signUpForm.elements["password"].value;
-	if (target != passwordValue) {
-		passwordConfirm.setAttribute("class","errorfield");
-		displayError("Your passwords do not match.", userFieldset, 11, "matcherror");
-	} else {
-		passwordConfirm.setAttribute("class","signupinput"); // default grey border
-		removeErrorMessage("userInfo", "matcherror");
-	}
-}
-
 function pickColor(e) {
 	// Change background color of form
 	if (color1.checked) {
@@ -68,17 +39,6 @@ function pickColor(e) {
 
 
 
-//add listener to check username length after focusing out
-var userName = signUpForm.elements["username"];
-userName.addEventListener('focusout', checkUsername, false);
-
-//add listener to check password length after focusing out
-var password = signUpForm.elements["password"];
-password.addEventListener('focusout', checkPassword, false);
-
-//add listener to check password match after focusing out
-var passwordConfirm = signUpForm.elements["passwordconfirm"];
-passwordConfirm.addEventListener('focusout', matchPassword, false);
 
 var color1 = signUpForm.elements[6];
 color1.addEventListener('change', pickColor, false);
@@ -104,6 +64,7 @@ signUpForm.addEventListener('submit', validate);
 // validate form inputs
 function validate() {
 
+
 	// ----- FIRST NAME ----- //
 	
 	var firstNameInput = signUpForm.elements["firstname"];
@@ -114,7 +75,7 @@ function validate() {
 
 		// set variables for the label and error message to be added
 		var $firstNameLabel = $('label[for="firstname"]');
-		var nameErrorMsg = "<span class='errormsg'>* must be at least 2 characters long</span>";
+		var nameErrorMsg = "<span class='errormsg' id='firstnameerror'>* must be at least 2 characters long</span>";
 
 		// add error message after label for first name
 		$firstNameLabel.after(nameErrorMsg);
@@ -123,6 +84,19 @@ function validate() {
 		$(firstNameInput).addClass("errorfield");
 		$(firstNameInput).removeClass("signupinput");
 	}
+	// check if first name had previously been incorrect (signified by errorfield class) but is now correct 	
+	else if ( validFirstName && ($(firstNameInput).attr('class') == "errorfield") ) {
+
+		// change back to default input field styling
+		$(firstNameInput).addClass("signupinput");
+		$(firstNameInput).removeClass("errorfield");
+
+		// remove error message
+		$('span#firstnameerror').remove();
+	}
+
+
+
 
 
 	// ----- LAST NAME ----- //
@@ -135,15 +109,28 @@ function validate() {
 
 		// set variables for the label and error message to be added
 		var $lastNameLabel = $('label[for="lastname"]');
-		var nameErrorMsg = "<span class='errormsg'>* must be at least 2 characters long</span>";
+		var nameErrorMsg = "<span class='errormsg' id='lastnameerror'>* must be at least 2 characters long</span>";
 
 		// add error message after label for last name
 		$lastNameLabel.after(nameErrorMsg);
 
 		// jquery methods to change classes of input field so that error styling is used
 		$(lastNameInput).addClass("errorfield");
-		$(lastNameInput).removeClass("signupinput");
+		$(lastNameInput).removeClass("signupinput");	
+	} 
+	// check if last name had previously been incorrect (signified by errorfield class) but is now correct 	
+	else if ( validLastName && ($(lastNameInput).attr('class') == "errorfield") ) {
+
+		// change back to default input field styling
+		$(lastNameInput).addClass("signupinput");
+		$(lastNameInput).removeClass("errorfield");
+
+		// remove error message
+		$('span#lastnameerror').remove();
 	}
+
+
+
 
 
 	// ----- EMAIL ----- //
@@ -163,8 +150,9 @@ function validate() {
 		$(emailInput).addClass("errorfield");
 		$(emailInput).removeClass("signupinput");
 
+	} 
 	// check if email had previously been incorrect (signified by errorfield class) but is now correct 	
-	} else if ( validEmail && ($(emailInput).attr('class') == "errorfield") ) {
+	else if ( validEmail && ($(emailInput).attr('class') == "errorfield") ) {
 
 		// change back to default input field styling
 		$(emailInput).addClass("signupinput");
@@ -173,6 +161,8 @@ function validate() {
 		// remove error message
 		$('span#emailerror').remove();
 	}
+
+
 
 
 
@@ -186,7 +176,7 @@ function validate() {
 
 		// set variables for the label and error message to be added
 		var $usernameLabel = $('label[for="username"]');
-		var usernameErrorMsg = "<span class='errormsg'>* must be at least 8 characters long</span>";
+		var usernameErrorMsg = "<span class='errormsg' id='usernameerror'>* must be at least 8 characters long</span>";
 
 		// add error message after label for last name
 		$usernameLabel.after(usernameErrorMsg);
@@ -194,9 +184,85 @@ function validate() {
 		// jquery methods to change classes of input field so that error styling is used
 		$(usernameInput).addClass("errorfield");
 		$(usernameInput).removeClass("signupinput");
+	} 
+	// check if username had previously been incorrect (signified by errorfield class) but is now correct 	
+	else if ( validUsername && ($(usernameInput).attr('class') == "errorfield") ) {
+
+		// change back to default input field styling
+		$(usernameInput).addClass("signupinput");
+		$(usernameInput).removeClass("errorfield");
+
+		// remove error message
+		$('span#usernameerror').remove();
+	}
+
+
+
+
+	// ----- PASSWORD ----- //
+
+	var passwordInput = signUpForm.elements["password"];
+	var validPassword = /[0-9]/.test(passwordInput.value);
+	var validPasswordLength = checkLength(passwordInput, 8);
+
+	if ((! validPassword) || (! validPasswordLength)) {
+
+		// set variables for the label and error message to be added
+		var $passwordLabel = $('label[for="password"]');
+		var passwordErrorMsg = "<span class='errormsg' id='passworderror'>* must be greater than 8 characters long and contain a number</span>";
+
+		// add error message after label for password
+		$passwordLabel.after(passwordErrorMsg);
+
+		// jquery methods to change classes of input field so that error styling is used
+		$(passwordInput).addClass("errorfield");
+		$(passwordInput).removeClass("signupinput");
+	}
+
+
+
+	// ----- PASSWORD MATCH ----- //
+	var passwordConfirm = signUpForm.elements["passwordconfirm"];
+
+	if (passwordConfirm.value != passwordInput.value) {
+		// set variables for the label and error message to be added
+		var $passwordConfirmLabel = $('label[for="passwordconfirm"]');
+		var passwordConfirmErrorMsg = "<span class='errormsg' id='matcherror'>* passwords must match</span>";
+
+		// add error message after label for password match
+		$passwordConfirmLabel.after(passwordConfirmErrorMsg);
+
+		// jquery methods to change classes of input field so that error styling is used
+		$(passwordConfirm).addClass("errorfield");
+		$(passwordConfirm).removeClass("signupinput");
+	}
+
+
+
+	// ----- COLOR PICKER ----- //
+	var $blue = $('input[value="blue"]');
+	if ($blue.is(':checked')) {
+		$('body').css('backgroundColor','#0f9fb4');
+	}
+
+
+	var $orange = $('input[value="orange"]');
+	if ($orange.is(':checked')) {
+		$('body').css('backgroundColor', '#ff9c5f');
+	}
+
+
+	var $purple = $('input[value="purple"]');
+	if ($purple.is(':checked')) {
+		$('body').css('backgroundColor', '#806288');
+	}
+
+
+	var $green = $('input[value="green"]');
+	if ($green.is(':checked')) {
+		$('body').css('backgroundColor', '#78c3ae');
 	}
 	
-
 }
 
 
