@@ -1,17 +1,32 @@
+// --- GLOBAL VARIABLES --- //
+var firstNameInput = $('#firstname');
+var lastNameInput = $('#lastname');
+var emailInput = $('#email');
+var usernameInput = $('#username');
+var passwordInput = $('#password');
+var passwordConfirm = $('#passwordconfirm');
+
+
+
+// Add event to submit button. When form is submitted, validate function runs
+
+$('#signup').on('submit', function() {
+	event.preventDefault();
+	console.log("Form has been submitted");
+	validate();
+});
+
+
+
+
 // function to check length of form input
 function checkLength(input, length) {
-
-	if (input.value.length <= length) {
+	if (input.val.length <= length) {
 		return false
 	} else {
 		return true
 	}
 };
-
-//remove any leading and trailing blank space
-function trim (str) {
-	return str.replace(/^\s+|\s+$/g, '');
-}
 
 
 function addError (label, errorId, msg, inputfield) {
@@ -41,16 +56,10 @@ function removeError (errorId, inputfield) {
 
 
 
-var signUpForm = document.forms["signup"];
-signUpForm.addEventListener('submit', validate);
-
-
 // validate form inputs
 function validate() {
 
 	// ----- FIRST NAME ----- //
-	
-	var firstNameInput = signUpForm.elements["firstname"];
 	var validFirstName = checkLength(firstNameInput, 2);
 
 	// if the check length function returns false, add error message and change styling
@@ -69,11 +78,7 @@ function validate() {
 
 
 
-
-
 	// ----- LAST NAME ----- //
-
-	var lastNameInput = signUpForm.elements["lastname"];
 	var validLastName = checkLength(lastNameInput, 2);
 
 	// if the check length function returns false, add error message and change styling
@@ -92,11 +97,8 @@ function validate() {
 
 
 
-
-
 	// ----- EMAIL ----- //
 
-	var emailInput = signUpForm.elements["email"];
 	var validEmail = /[^@]+@[^@]+/.test(emailInput.value);
 	if (! validEmail) {
 
@@ -117,7 +119,6 @@ function validate() {
 
 	// ----- USERNAME ----- //
 
-	var usernameInput = signUpForm.elements["username"];
 	var validUsername = checkLength(usernameInput, 7);
 
 	// if the check length function returns false, add error message and change styling
@@ -138,7 +139,6 @@ function validate() {
 
 	// ----- PASSWORD ----- //
 
-	var passwordInput = signUpForm.elements["password"];
 	var validPassword = /[0-9]/.test(passwordInput.value);
 	var validPasswordLength = checkLength(passwordInput, 8);
 
@@ -158,7 +158,6 @@ function validate() {
 
 
 	// ----- PASSWORD MATCH ----- //
-	var passwordConfirm = signUpForm.elements["passwordconfirm"];
 	var passwordMatch = (passwordConfirm.value == passwordInput.value);
 
 	if (! passwordMatch) {
@@ -202,66 +201,38 @@ function validate() {
 
 
 
+// still have to write form in jquery
 
 function printForm() {
 	// object containing form, to which we'll add the form values	
-	var formContent = document.getElementById("formcontent");
-	
-	//assign variable for sign up form object
-	var signUpForm = document.forms["signup"];
-
-	//assign variables for each fieldset
-	var nameFieldset = document.getElementById("nameInfo");
-	var userFieldset = document.getElementById("userInfo");
-	var colorFieldset = document.getElementById("pickColor");
-
-	//assign variables to each element in the form
-	var firstName = signUpForm.elements["firstname"].value;
-	trimmedFirstName = trim(firstName); 
-
-	var lastName = signUpForm.elements["lastname"].value;
-	trimmedLastName = trim(lastName);
-
-	var email = signUpForm.elements["email"].value;
-	trimmedEmail = trim(email);
-
-	var userName = signUpForm.elements["username"].value;
-	trimmedUserName = trim(userName);
-
-	var password = signUpForm.elements["password"].value;
-
+	var $formContent = $('#formcontent');
 
 	//create new div to add the form values into
 	var formValues = document.createElement("div");
-	formValues.setAttribute("id","formValues");
+	$(formValues).attr("id","formValues");
+	
+
+	//assign variables to each element in the form
+	
+	firstNameValue = $(firstNameInput).val(); 
+
+	lastNameValue = $(lastNameInput).val();
+
+	emailValue = $(emailInput).val();
+
+	usernameValue = $(usernameInput).val();
+
+	passwordValue = $(passwordInput).val();
 
 
-	var namePara = document.createElement("div");
-	namePara.setAttribute("class","formText");
-	var nameText = document.createTextNode("Name: " + trimmedFirstName + " " + trimmedLastName);
-	namePara.appendChild(nameText);
-	formValues.appendChild(namePara);
+	
 
-	var emailPara = document.createElement("div");
-	emailPara.setAttribute("class","formText");
-	var emailText = document.createTextNode("Email: " + trimmedEmail);
-	emailPara.appendChild(emailText);
-	formValues.appendChild(emailPara);
+	$(formValues).append("<p class='formText'>Name: " + firstNameValue + " " + lastNameValue + "</p>");
+	$(formValues).append("<p class='formText'>Email: " + emailValue + "</p>");
+	$(formValues).append("<p class='formText'>Username: " + usernameValue + "</p>");
+	$(formValues).append("<p class='formText'>Password: " + passwordValue + "</p>");
 
-	var userPara = document.createElement("div");
-	userPara.setAttribute("class","formText");
-	var userText = document.createTextNode("Username: " + trimmedUserName);
-	userPara.appendChild(userText);
-	formValues.appendChild(userPara);
-
-	var passwordPara = document.createElement("div");
-	passwordPara.setAttribute("class","formText");
-	var passwordText = document.createTextNode("Password: " + password);
-	passwordPara.appendChild(passwordText);
-	formValues.appendChild(passwordPara);
-
-
-	formContent.appendChild(formValues);
+	$formContent.append(formValues);
 }
 
 
