@@ -1,0 +1,122 @@
+@mixin nav-style {
+	margin: 0 auto;
+
+	@media screen and (max-width: $width-small) {
+		font-size: .8em;
+		padding: 10px 60px;
+	}
+
+	@media screen and (min-width: $width-medium) {
+		font-size: .9em;
+		padding: 12px 60px;
+	}
+
+	@media screen and (min-width: $width-large) {
+		padding: 15px 60px;
+		font-size: 1em;
+	}
+}
+
+
+
+@mixin main-content {
+	padding: 30px 60px;
+	display: block;
+	margin: 0 auto;
+
+	@media screen and (max-width: $width-small) {
+		padding: 25 60px;
+	}
+}
+
+
+@mixin link-style($color, $decoration) {
+  	color: $color;
+  	text-decoration: $decoration;
+}
+
+
+
+@mixin inputfield {
+	padding: 5px;
+	height: 14px;
+	margin: 3px 0 12px 0;
+	outline: none;
+}
+
+@mixin colorLabel {
+	display: inline-block;  
+    //cursor: pointer;  
+    //position: relative;  
+    padding: 8px 0 0 5px;  
+    //margin-right: 15px;  
+    font-size: 13px;
+}
+
+@mixin colorButton {
+	content: "";  
+    display: inline-block;  
+  
+    width: 16px;  
+    height: 16px;
+    border-radius: 50%;  
+  
+    margin-right: 10px;  
+    position: absolute;  
+    left: 0;  
+    bottom: 1px;  
+}
+
+
+
+
+
+
+@mixin index-img {
+	margin: auto;
+	z-index: -1;
+
+	@media screen and (max-width: $width-small) {
+		position: absolute;	
+		top: 0;
+		left: 0;
+		bottom: 0;
+	}
+
+	@media screen and (min-width: $width-medium) {
+		position: absolute;	
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	@media screen and (min-width: $width-large) {
+		position: absolute;	
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+}
+
+
+@mixin pull-quote {
+	color: $color-main;
+
+	font: {
+		family: "Akkurat-Light";
+		weight: 400;
+		size: 1.4em;
+	}
+	text-align: center;
+	line-height: 1.5em;
+
+	@media screen and (min-width: $width-medium) {
+		font-size: 1.3em;
+	}
+
+	@media screen and (min-width: $width-small) {
+		font-size: 1.2em;
+	}
+}

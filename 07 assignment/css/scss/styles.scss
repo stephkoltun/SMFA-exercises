@@ -1,0 +1,662 @@
+/*
+-----------------------------------------------------
+Main SCSS file for IWD - 03 Assignment
+
+Stephanie Koltun 
+
+-----------------------------------------------------
+*/
+
+
+/* Compass */
+@import "compass/css3/font-face";
+@import "compass/css3/filter";
+@import "compass/css3"; 
+
+
+/* Import partial files */
+
+// Mixins
+@import "defaults/mixins.scss";
+// Variables
+@import "defaults/variables.scss";
+// Typography
+@import "defaults/typography.scss";
+// Helpers - delete if not used
+//@import "defaults/helpers.scss";
+
+/* {
+	border: 1px solid red;
+}*/
+
+body {
+	margin: 0 auto;
+	background-color: $color-bkgd;
+}
+
+
+ul {
+	margin: 0 auto;
+	list-style-type: none;
+	padding: 0;
+	
+	@media screen and (max-width: $width-small) {
+		max-width: $max-width-small;
+	}
+
+	@media screen and (min-width: $width-medium) {
+		max-width: $max-width-medium;
+	}
+
+	@media screen and (min-width: $width-large) {
+		max-width: $max-width-large;
+	}
+}
+
+li {
+	padding-right: 1em;
+	display: inline;
+}
+
+
+
+
+/* ----------- NAVIGATION ----------- */
+
+#mainnav {
+	@include nav-style;
+
+	background-color: white;
+	font-family: "Akkurat";
+
+	a, a:visited {
+		@include link-style($color-main, none);
+	}
+
+	a:hover {
+		@include link-style($color-main, underline);
+	}
+}
+
+#submenu {
+	@include nav-style;
+
+	background-color: $color-accent;
+	font-family: "Akkurat-Light";
+	text-transform: lowercase;	
+
+	a, a:visited {
+		
+		@include link-style($color-light, none);
+
+		// transitions for links
+		@include transition-property(color);
+		@include transition-duration(.7s);
+	}
+
+	a:hover {
+		@include link-style($color-main, none);
+	}
+
+	//hide submenu with filters on iPhone
+	@media screen and (max-width: $width-small) {
+		display: none;
+	}
+}
+
+
+#footer-nav {
+	@include nav-style;
+
+	margin: 0;
+	background-color: white;
+	font-family: "Akkurat";
+
+	a, a:visited {
+		@include link-style($color-light, none);
+
+		// transitions for links
+		@include transition-property(color);
+		@include transition-duration(.7s);
+	}
+
+	a:hover {
+		@include link-style($color-main, none);
+	}
+}
+
+
+.nav-left {
+	margin: 0;
+	float: left;
+	display: inline;
+}
+
+.nav-right {
+	margin: 0;
+	float: right;
+	display: inline;
+}
+
+.nav-center {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.nav-center img {
+	width: 1.5em;
+}
+
+#current {
+	text-decoration: underline;
+}
+
+img.logo {
+	opacity: .3
+}
+
+img.logo:hover {
+	opacity: 1;
+}
+
+
+
+/* ----------- ASSIGNMENT 05/06: SIGN UP FORM ----------- */
+
+
+#newsletter {
+	@include main-content;
+
+	h1 {
+		text-align: center;
+		padding-bottom: 30px;
+	}
+}
+
+#formcontent {
+	@include border-radius(25px);
+	background-color: $color-accent;
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 30px;
+  
+	color: $color-light;
+  	font-family: "Akkurat";
+  	font-size: .8em;
+}
+
+// hide default radio button to allow custom styling
+// input[type=radio] {
+// 	display: none;
+// }
+
+#blue {
+	@include colorLabel;
+    color: $color-1;
+
+    /* &:before {
+    	@include colorButton;
+    	background-color: $color-1; 
+	} */
+}
+
+
+#orange {
+	@include colorLabel;
+    color: $color-2;
+
+    /* &:before {
+    	@include colorButton;
+    	background-color: $color-2; 
+	} */
+}
+
+#purple {
+	@include colorLabel;
+    color: $color-3;
+
+    /* &:before {
+    	@include colorButton;
+    	background-color: $color-3; 
+	} */
+}
+
+#green {
+	@include colorLabel;
+    color: $color-4;
+
+    /* &:before {
+    	@include colorButton;
+    	background-color: $color-4; 
+	} */
+}
+
+#formValues {
+	margin: 15px 0 0 0;
+}
+
+.formText {
+	padding: 5px 0;
+	margin: 0;
+	color: $color-light;
+}
+
+
+/* input[type=radio]:checked + label:before {  
+    content: '\2022';  
+    color: white;  
+    font-family: "Akkurat";
+    font-size: 8px;  
+    text-align: center;  
+    line-height: 10px; 
+
+    background-color: black; 
+
+}  */
+
+
+
+
+
+.formgroup {
+  padding: 0 0 24px 0;
+  border: 0px;
+  margin: 0;
+}
+
+.signupinput {
+	@include inputfield;
+
+	border: 1px solid $color-accent;
+	color: $color-light;
+	background-color: white;
+
+	&:hover {
+		box-shadow: 0 0 5px $color-light;
+		border: 1px solid $color-accent;
+	}
+
+	&:focus {
+		border: 1px solid $color-light;
+		box-shadow: none;
+	}
+}
+
+.errorfield {
+	@include inputfield;
+
+	border: 1px solid $color-error;
+	color: $color-light;
+	background-color: white;
+
+	&:hover {
+		box-shadow: 0 0 5px $color-error;
+		border: 1px solid $color-error;
+	}
+
+	&:focus {
+		border: 1px solid $color-error;
+		box-shadow: none;
+	}
+}
+
+.errormsg {
+	color: $color-error;
+	font-family: "Akkurat-Light";
+	font-size: .9em;
+	margin: 4px 0;
+}
+
+
+
+
+
+
+
+
+
+
+/*--------- SEARCH ---------*/
+
+
+#searchform {
+	float: right;
+	margin: auto;
+
+	//use search form for iPad and desktop
+	@media screen and (min-width: $width-medium) {
+		display: block;
+	}
+
+	@media screen and (max-width: $width-small) {
+		display: none;
+	}
+
+	input[type=text] {
+		color: $color-light;
+		outline: none;
+
+		border:1px solid $color-light;
+		background-color: white;
+	}
+
+	input[type=text]:focus {
+		box-shadow: 0 0 3px $color-light;
+	}
+}
+
+.search-icon {
+	//use search icon instead of form on iPhone
+	@media screen and (min-width: $width-medium) {
+		display: none;
+	}
+
+	@media screen and (max-width: $width-small) {
+		display: inline-block;
+	}
+}
+
+.search {
+	@media screen and (min-width: $width-medium) {
+		padding: 2px 6px;
+	}
+
+	@media screen and (min-width: $width-large) {
+		padding: 3px 8px;
+	}
+	
+}
+
+.rounded {  
+	@include border-radius(12px);
+}
+
+
+
+
+
+/*--------- MAIN BLOG PAGE ---------*/
+
+.clear {
+	clear: both;
+	line-height: 0;
+}
+
+#blog-index {
+	@include main-content;
+
+	@media screen and (min-width: $width-medium) {
+		max-width: $max-width-medium;
+	}
+
+	@media screen and (min-width: $width-large) {
+		max-width: $max-width-large;
+	}
+}
+
+// Styling for each article element
+.container {
+	margin: 10px 10px;
+	height: 350px;
+	width: 330px;
+
+	float: left;
+	position: relative;
+	display: table;
+
+	z-index: 1;
+
+	@media screen and (max-width: $width-small) {
+		width: 470px;
+		height: 260px;
+		margin: 20px auto;
+		float: center;
+	}
+}
+
+.data {
+	display: block;
+	font-family: "Akkurat-Light";
+}
+
+.content {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.text {
+	margin: 0 auto;
+	width: 80%;
+	z-index: 1;
+
+	a {
+		text-decoration: underline;
+	}
+
+	@media screen and (max-width: $width-small) {
+		position: relative;
+		left: 120px;
+		max-width: 70%;
+		margin: 0;
+	}
+}
+
+img.horizontal {
+	@include index-img;
+	width: 90%;
+	opacity: .35;
+
+	@include transition-property(all);
+	@include transition-duration(.4s);
+
+	@media screen and (max-width: $width-small) {
+		width: 60%;
+	}
+}
+
+img.vertical {
+	@include index-img;
+	height: 80%;
+	opacity: .35;
+
+	@include transition-property(all);
+	@include transition-duration(.4s);
+}
+
+
+.container:hover {
+	img.vertical, img.horizontal{
+		opacity: .2;
+
+		@include filter(blur(2px));
+	}
+}
+
+
+
+
+
+
+
+/*--------- BLOG POST ---------*/
+
+#blog-post {
+	@include main-content;
+
+	@media screen and (max-width: $width-small) {
+		max-width: $max-width-small;
+	}
+
+	@media screen and (min-width: $width-medium) {
+		max-width: $max-width-medium;
+	}
+
+
+	@media screen and (min-width: $width-large) {
+		max-width: $max-width-large;
+	}
+}
+
+.post-content {
+	
+	margin: 0 auto;
+
+	@media screen and (max-width: $width-small) {
+		max-width: $max-width-small;
+		float: center;
+		padding: 0;
+	}
+
+	@media screen and (min-width: $width-medium) {
+		max-width: 570px;
+		width: 55%;
+		float: left;
+		padding-left: 0;
+	}
+
+	@media screen and (min-width: $width-large) {
+		max-width: 570px;
+		width: 45%;
+		float: left;
+		padding: 0 45px;
+	}
+}
+
+
+
+.left-aside {
+	width: 5%;
+	float: left;
+	margin: 58px 0;
+
+	// left aside only used for screen
+	@media screen and (max-width: $width-small) {
+		display: none;
+	}
+
+	@media screen and (min-width: $width-medium) {
+		display: none;
+	}
+
+	@media screen and (min-width: $width-large) {
+		display: block;
+	}
+}
+
+.mobile-data {
+	// inline date and category for tablet, phone
+	@media screen and (min-width: $width-large) {
+		display: none;
+	}
+
+	@media screen and (max-width: $width-medium) {
+		display: block;
+	}
+
+	@media screen and (max-width: $width-small) {
+		display: block;
+	}
+}
+
+.mobile-pull {
+	@include pull-quote;
+	padding: 20px 20px;
+
+	@media screen and (min-width: $width-medium) {
+		display: none;
+	}
+
+	@media screen and (max-width: $width-small) {
+		display: block;
+	}
+}
+
+
+
+.right-aside {
+	@include pull-quote;
+	width: 35%;
+	float: right;
+	margin: 50px 0;
+
+	p {
+		margin: 0 auto;
+		padding: 40px 0;
+		max-width: 85%;
+	}
+
+	img {
+		width: 100%;
+	}
+
+	@media screen and (max-width: $width-small) {
+		display: none;
+	}
+
+	@media screen and (min-width: $width-medium) {
+		margin: 0;
+	}
+}
+
+// figure only used for screen and tablet
+figure {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+
+	&:hover figcaption {
+		opacity: 1;
+		bottom: 10px;
+	}
+}
+
+figcaption {
+
+	position: absolute;
+	bottom: -50px;
+	left: 0;
+	right: 0;
+	z-index: 100;
+
+	opacity: 0;
+
+	@include transition-property(all);
+	@include transition-duration(.7s);
+
+	.caption {
+		color: $color-accent;
+		font: {
+			family: "Akkurat";
+			size: .6em;
+		}
+		text-align: center;
+	}
+}
+
+
+.mobile-img {
+	img {
+		display: block;
+		padding: 30px 0 15px 0;
+		margin: 0 auto;
+	}
+
+	span {
+		display: block;
+		padding-bottom: 30px;
+		color: $color-main;
+		font: {
+			family: "Akkurat";
+			size: .7em;
+		}
+		text-align: center;
+	}
+
+	@media screen and (min-width: $width-medium) {
+		display: none;
+	}
+
+	@media screen and (max-width: $width-small) {
+		display: block;
+	}
+}
