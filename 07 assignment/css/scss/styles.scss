@@ -53,11 +53,6 @@ ul {
 	}
 }
 
-li {
-	padding-right: 1em;
-	display: inline;
-}
-
 
 
 
@@ -76,9 +71,38 @@ li {
 	a:hover {
 		@include link-style($color-main, underline);
 	}
+
+	li {
+	padding-right: 1em;
+	display: inline;
+	}
 }
 
-#submenu {
+#submenu-mobile {
+	@include nav-style;
+
+	background-color: $color-accent;
+	font-family: "Akkurat-Light";
+	text-transform: lowercase;	
+	text-align: center;
+	display: block;
+
+	a, a:visited {
+		
+		@include link-style($color-light, none);
+
+		// transitions for links
+		@include transition-property(color);
+		@include transition-duration(.7s);
+	}
+
+	a:hover {
+		@include link-style($color-main, none);
+	}
+}
+
+
+#submenu-screen {
 	@include nav-style;
 
 	background-color: $color-accent;
@@ -101,6 +125,11 @@ li {
 	//hide submenu with filters on iPhone
 	@media screen and (max-width: $width-small) {
 		display: none;
+	}
+
+	li {
+	padding-right: 1em;
+	display: inline;
 	}
 }
 
@@ -158,6 +187,19 @@ img.logo {
 img.logo:hover {
 	opacity: 1;
 }
+
+.shifter-enabled .shifter-navigation {
+	background-color: $color-accent;
+	z-index: 100;
+	width: 100%;
+
+}
+
+.shifter-enabled .shifter-handle {
+	display: inline;
+}
+
+
 
 
 

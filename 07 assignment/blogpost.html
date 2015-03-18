@@ -1,48 +1,56 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<link rel="stylesheet" href="css/styles.css">
 		<link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
 		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script src="js/jquery.fs.shifter.js"></script>
 		<link rel="stylesheet" href="js/jquery.fs.shifter.css" rel="stylesheet">
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<link rel="stylesheet" href="css/styles.css">
 
 		<title>Blog - Sn&oslash;hetta</title>
 		<meta name="description" content="A blog documenting Sn&oslash;hetta's culture, recent happenings, process and innovations.">
 	</head>
 
-	<body>
-		<header>
-			<div id="mainnav">
-				<ul>
-					<div class ="nav-left">
-						<li><a href="index.html">Sn&oslash;hetta: Blog</a></li>
-					</div> 
-					<div class="nav-right">
-						
-						<li class="search-icon"><i class="fa fa-search fa-fw"></i></li>
-					</div>
-					<div class="nav-center">
-						<li><a href="http://snohetta.com"><img class="logo" src="images/snohetta.svg"></a></li>
-					</div>
-				</ul>
-			</div>
 
-			<div id="submenu">
-				<ul>
-					<li><a href="">Concept</a></li>
-					<li><a href="">Construction</a></li>
-					<li><a href="">Culture</a></li>
-					<li><a href="">Events</a></li>
-					<li><a href="">In-progress</a></li>
-					<li><a href="">Making</a></li>
-					<li><a href="">Office</a></li>
-					<li><a href="">Research</a></li>
-				</ul>
+	<body>
+	<div id="mainnav">
+		<ul>
+			<div class ="nav-left">
+				<li><a href="index.html">Sn&oslash;hetta: Blog</a></li>
+			</div> 
+			<div class="nav-right">
+				<li><i class="fa fa-search fa-fw"></i></li>
+				<li class="shifter-handle"></li>
 			</div>
+			<div class="nav-center">
+				<li><a href="http://snohetta.com"><img class="logo" src="images/snohetta.svg"></a></li>
+			</div>
+		</ul>
+	</div>
+
+	<div class="shifter">
+		<div class="shifter-page">
+		
+		<!-- Page Content -->
+
+		<header>
+		<div id="submenu-screen">
+			<ul>
+				<li><a href="">Concept</a></li>
+				<li><a href="">Construction</a></li>
+				<li><a href="">Culture</a></li>
+				<li><a href="">Events</a></li>
+				<li><a href="">In-progress</a></li>
+				<li><a href="">Making</a></li>
+				<li><a href="">Office</a></li>
+				<li><a href="">Research</a></li>
+			</ul>
+		</div>	
 		</header>
+
+
 
 		<section id="blog-post">
 
@@ -109,6 +117,34 @@
 				</ul>
 			</div>
 		</footer>
+
+		
+
+		<nav class="shifter-navigation">
+		<!-- Mobile Navigation for filtering -->
+			<div id="submenu-mobile">
+				<ul>
+					<li><a href="">Concept</a></li>
+					<li><a href="">Construction</a></li>
+					<li><a href="">Culture</a></li>
+					<li><a href="">Events</a></li>
+					<li><a href="">In-progress</a></li>
+					<li><a href="">Making</a></li>
+					<li><a href="">Office</a></li>
+					<li><a href="">Research</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		</div> <!--End of shifter page -->
+
+		<!--Call mobile nav shifter plugin-->
+		<script type="text/javascript">
+			$.shifter({
+				maxWidth: "800px"
+			});
+		</script>
+	
 	</body>
 
 </html>
