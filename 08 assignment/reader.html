@@ -75,7 +75,12 @@ $('#rss_reader').on( 'submit', function (event) {
 					$('#feed_content').append('<div class="item"></div');
 
 					var $title = $(this).find('title').text();
-					$('#feed_content').append('<p>' + $title + '</p>');
+					var $link = $(this).find('guid').text();
+					var $pubDate = $(this).find('pubDate').text();
+					// var $author = $(this).find('dc:creator').text();
+					// console.log($author);
+
+					$('#feed_content').append('<h1><a href="' + $link + '">' + $title + '</a></h1><h2>' + $pubDate + '</h2>');
 
 					/*var item_title = getNodeValue(items[i], 'title');
 					var link = getNodeValue(items[i], 'guid');
