@@ -1,12 +1,13 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Ajax RSS Feed Reader | Assignment 8</title>
-<style>
-body { font-family: Helvetica; }
-</style>
+	<meta charset="UTF-8">
+	<title>Ajax RSS Feed Reader | Assignment 8</title>
+	<style>
+		body { font-family: Helvetica; }
+	</style>
 </head>
+
 <body>
 <h2>Ajax RSS Feed Reader</h2>
 <form id="rss_reader" name="form1" method="post">
@@ -26,9 +27,6 @@ body { font-family: Helvetica; }
 <hr />
 
 
-<div id="feed_content">
-	<p> Feed will go here. </p>
-</div>
 <!--
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Feed content will appear here visually on the page.
@@ -44,115 +42,82 @@ Feed content will appear here visually on the page.
 $('#rss_reader').on( 'submit', function (event) {
 	event.preventDefault() ; // don't actually submit the form
 
-	console.log("hit submit!")
+	console.log("You hit submit!")
 
-	// feed source
+	// get selected feed value
 	var $source = $('#source').val();
-	console.log($source);
 
-	var $numberOfPosts;
 
+	// get number of posts to be displayed
+	var numberOfPosts;
 	if ($('input[value="5"]').is(':checked')) {
-		$numberOfPosts = 5;
+		numberOfPosts = 5;
 	} else if ($('input[value="10"]').is(':checked')) {
-		$numberOfPosts = 10;
+		numberOfPosts = 10;
 	} else if ($('input[value="20"]').is(':checked')) {
-		$numberOfPosts = 20;
+		numberOfPosts = 20;
+	}
+
+	// check is summaries are to be shown
+	var summaries;
+	if ($('#include_summaries').is(':checked')) {
+		summaries = true;
+	} else {
+		summaries = false;
 	}
 
 
 
-	if ($source != null) {
+	// check if a feed source is selected
+	if ($('#source').val() == "") {
+		alert("Uh oh! You must select a feed to display.");	
+	} else {
+		console.log($('#source').val());
+		displayFeed($source, numberOfPosts, summaries);
+	}
 
-		loadFeed($source, $numberOfPosts);
-	} 
 
 
 
 
-
-
-	function loadFeed(feedURL, posts) {
+	// function to display feed
+	function displayFeed(feedURL, posts, displaySummaries) {
 
 		$.ajax({
 			type: "GET",
 			url: 'feeds/' + feedURL, 
 			dataType: "xml",
 			displayPosts: posts,
+			showSummaries: displaySummaries,
 
 			success: parseFeed
 		});
 
 
 		function parseFeed ( xml ) {
-			// need to figure out how to only display certain number of posts
-			console.log(this.displayPosts);
 
+			// add container for feed to be displayed in
+			$('body').append('<section id="feed_content"></section>');
+
+			// loop through and display the specified number of posts
 			for (var i = 2; i < (this.displayPosts+2); i++) {
-
-				var test = $(xml).find('item').eq(i).text();
-				console.log(test)
-
-				//var printTest = $(xml).find('item').eq(i).text() {
 
 				var $title = $(xml).find('title').eq(i).text();
 				var $link = $(xml).find('guid').eq(i).text();
 				var $pubDate = $(xml).find('pubDate').eq(i).text();
 
-			$('#feed_content').append('<div class="item"><h1><a href="' + $link + '">' + $title + '</a></h1><h2>' + $pubDate + '</h2></div>');
-			//})
+				var $summary = $(xml).find('description').eq(i).text();
 
-
+				if (this.showSummaries) {
+					$('#feed_content').append('<div class="item"><h1><a href="' + $link + '">' + $title + '</a></h1><h2>' + $pubDate + '</h2><p>' + $summary + '</p></div>');
+				} else {
+					$('#feed_content').append('<div class="item"><h1><a href="' + $link + '">' + $title + '</a></h1><h2>' + $pubDate + '</h2><p>' + '</p></div>');
+				}
 			}
-
-			/*$(xml).find('item').each(function() {
-
-
-			var $title = $(this).find('title').eq(i).text();
-			var $link = $(this).find('guid').eq(i).text();
-			var $pubDate = $(this).find('pubDate').eq(i).text();
-			// var $author = $(this).find('dc:creator').text();
-			// console.log($author);
-
-			$('#feed_content').append('<div class="item"><h1><a href="' + $link + '">' + $title + '</a></h1><h2>' + $pubDate + '</h2></div>');
-			})*/
 		}
-
-
-
 		console.log('completed AJAX request.');
 	}
-
-
-
-	// add more code here!
-	// --
-	// general application flow:
-	// grab the values from the form
-	// make sure the feed source isn't empty!
-	// then load the correct file (which is the value of the source pull-down menu field)
-	// parse the file, and add the appropriate fields from the feed to the HTML document.
-
-	/*
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	NOTE: you need to be running a web server to make this work!
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-	Forget how to start the web server on your computer? Have no fear and read on!
-
-	1) Open the command prompt (Terminal on Mac, DOS prompt on Windows, xterm or equivalent on Linux).
-	2) Change to the folder that you want to be the document root, like so (without the dollar sign):
-	    $ cd [drag folder here] {Return}
-	3) Issue the following command (without the dollar sign):
-	    $ python -m SimpleHTTPServer {Return}
-	4) In a web browser, go to http://localhost:8000/
-
-	To stop the web server, in the command prompt window press Control+C. 
-
-	*/
-
-}) ;
+});
 
 </script>
 
