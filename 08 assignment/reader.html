@@ -46,47 +46,55 @@ $('#rss_reader').on( 'submit', function (event) {
 
 	console.log("hit submit!")
 
-	var xhr = new XMLHttpRequest();
-	xhr.onload = function() {
-		if (xhr.status === 200) {
-			var response = xhr.responseXML;
-			//get each of the items in the feed
-			var items = response.getElementsByTagName('item');
 
-			for (var i = 0; i < items.length; i++) {
-				var container, item_title, pubDate, link, creator;
-				container = document.createElement('div');
-				container.className = 'item';
 
-				item_title = document.createElement('p');
-				link = document.createElement('a');
-				link.setAttribute('href', getNodeValue(items[i], 'guid'));
-				link.appendChild(document.createTextNode(getNodeValue(items[i], 'title')));
-				item_title.appendChild(link);
 
+
+
+	// function loadFeed(feedURL, posts, summary) {
+
+		$.ajax({
+			type: "GET",
+			url: 'feeds/US.xml', 
+			dataType: "xml",
+
+			success: parseFeed
+		});
+
+
+		function parseFeed ( xml ) {
+				//var feed_response = response;
+				//get each of the items in the feed
+				/*var items = $('item')response.getElementsByTagName('item');
+
+
+				for (var i = 0; i < items.length; i++) {*/
+
+				$(xml).find('item').each(function() {
+
+					$('#feed_content').append('<div class="item"></div');
+
+					var $title = $(this).find('title').text();
+					$('#feed_content').append('<p>' + $title + '</p>');
+
+					/*var item_title = getNodeValue(items[i], 'title');
+					var link = getNodeValue(items[i], 'guid');
+					var pubDate = getNodeValue(items[i], 'pubDate');
+					//var author = getNodeValue(items[i], 'dc:creator');
+
+					$('#feed_content').append('<div class="item"><p><a href="' + link + '">' + item_title + '</a></p><p>' + pubDate + '</p></div>');
 				
-				container.appendChild(item_title);
 
-				pubDate = document.createElement('p');
-				pubDate.appendChild(document.createTextNode(getNodeValue(items[i], 'pubDate')));
-				container.appendChild(pubDate);
-
-				
-
-				document.getElementById('feed_content').appendChild(container);
-			}
-
-			function getNodeValue(obj, tag) {
-				return obj.getElementsByTagName(tag)[0].firstChild.nodeValue;
-			}
+				function getNodeValue(obj, tag) {
+					return obj.getElementsByTagName(tag)[0].firstChild.nodeValue;
+				}}*/
+				})
 		}
-	};
-	xhr.open('GET', 'feeds/US.xml', true);
-	xhr.send(null);
 
 
 
-	console.log('completed AJAX request.');
+		console.log('completed AJAX request.');
+	// }
 
 
 
