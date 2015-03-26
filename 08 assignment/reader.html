@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax RSS Feed Reader | Assignment 8</title>
+<style>
+body { font-family: Helvetica; }
+</style>
+</head>
+<body>
+<h2>Ajax RSS Feed Reader</h2>
+<form id="rss_reader" name="form1" method="post">
+  <p>
+  <label for="source">Select feed:</label>
+  <select name="source" id="source">
+  <option value=""></option>
+  <option value="HomePage.xml">NYTimes homepage</option>
+  <option value="US.xml">United Stated</option>
+  <option value="NYRegion.xml">New York Region</option>
+  </select>
+  </p>
+  <p>Number to display: <input type="radio" name="display_number" value="5" checked /> 5 <input type="radio" name="display_number" value="10" /> 10 <input type="radio" name="display_number" value="20" /> 20</p>
+  <p><label for="include_summaries">Include summaries?</label> <input type="checkbox" id="include_summaries" value="true" /> </p>
+<input type="submit" name="submit" id="submit" value="Show feed!" />
+</form>
+<hr />
+
+
+<div id="feed_content">
+	<p> Feed will go here. </p>
+</div>
+<!--
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Feed content will appear here visually on the page.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+
+<!-- jQuery library via Google CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
+
+<!-- YOUR JAVASCRIPT GOES HERE -->
+<script type="text/javascript">
+
+$('#rss_reader').on( 'submit', function (event) {
+	event.preventDefault() ; // don't actually submit the form
+
+	console.log("hit submit!")
+
+	var xhr = new XMLHttpRequest();
+	xhr.onload = function() {
+		if (xhr.status === 200) {
+			var response = xhr.responseXML;
+			//get each of the items in the feed
+			var items = response.getElementsByTagName('item');
+
+			for (var i = 0; i < items.length; i++) {
+				var container, item_title, pubDate, link, creator;
+				container = document.createElement('div');
+				container.className = 'item';
+
+				item_title = document.createElement('p');
+				link = document.createElement('a');
+				link.setAttribute('href', getNodeValue(items[i], 'guid'));
+				link.appendChild(document.createTextNode(getNodeValue(items[i], 'title')));
+				item_title.appendChild(link);
+
+				
+				container.appendChild(item_title);
+
+				pubDate = document.createElement('p');
+				pubDate.appendChild(document.createTextNode(getNodeValue(items[i], 'pubDate')));
+				container.appendChild(pubDate);
+
+				
+
+				document.getElementById('feed_content').appendChild(container);
+			}
+
+			function getNodeValue(obj, tag) {
+				return obj.getElementsByTagName(tag)[0].firstChild.nodeValue;
+			}
+		}
+	};
+	xhr.open('GET', 'feeds/US.xml', true);
+	xhr.send(null);
+
+
+
+	console.log('completed AJAX request.');
+
+
+
+	// add more code here!
+	// --
+	// general application flow:
+	// grab the values from the form
+	// make sure the feed source isn't empty!
+	// then load the correct file (which is the value of the source pull-down menu field)
+	// parse the file, and add the appropriate fields from the feed to the HTML document.
+
+	/*
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	NOTE: you need to be running a web server to make this work!
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+	Forget how to start the web server on your computer? Have no fear and read on!
+
+	1) Open the command prompt (Terminal on Mac, DOS prompt on Windows, xterm or equivalent on Linux).
+	2) Change to the folder that you want to be the document root, like so (without the dollar sign):
+	    $ cd [drag folder here] {Return}
+	3) Issue the following command (without the dollar sign):
+	    $ python -m SimpleHTTPServer {Return}
+	4) In a web browser, go to http://localhost:8000/
+
+	To stop the web server, in the command prompt window press Control+C. 
+
+	*/
+
+}) ;
+
+</script>
+
+</body>
+</html>
