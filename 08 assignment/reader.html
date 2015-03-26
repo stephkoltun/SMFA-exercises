@@ -46,60 +46,82 @@ $('#rss_reader').on( 'submit', function (event) {
 
 	console.log("hit submit!")
 
+	// feed source
+	var $source = $('#source').val();
+	console.log($source);
+
+	var $numberOfPosts;
+
+	if ($('input[value="5"]').is(':checked')) {
+		$numberOfPosts = 5;
+	} else if ($('input[value="10"]').is(':checked')) {
+		$numberOfPosts = 10;
+	} else if ($('input[value="20"]').is(':checked')) {
+		$numberOfPosts = 20;
+	}
+
+
+
+	if ($source != null) {
+
+		loadFeed($source, $numberOfPosts);
+	} 
 
 
 
 
 
-	// function loadFeed(feedURL, posts, summary) {
+
+	function loadFeed(feedURL, posts) {
 
 		$.ajax({
 			type: "GET",
-			url: 'feeds/US.xml', 
+			url: 'feeds/' + feedURL, 
 			dataType: "xml",
+			displayPosts: posts,
 
 			success: parseFeed
 		});
 
 
 		function parseFeed ( xml ) {
-				//var feed_response = response;
-				//get each of the items in the feed
-				/*var items = $('item')response.getElementsByTagName('item');
+			// need to figure out how to only display certain number of posts
+			console.log(this.displayPosts);
+
+			for (var i = 2; i < (this.displayPosts+2); i++) {
+
+				var test = $(xml).find('item').eq(i).text();
+				console.log(test)
+
+				//var printTest = $(xml).find('item').eq(i).text() {
+
+				var $title = $(xml).find('title').eq(i).text();
+				var $link = $(xml).find('guid').eq(i).text();
+				var $pubDate = $(xml).find('pubDate').eq(i).text();
+
+			$('#feed_content').append('<div class="item"><h1><a href="' + $link + '">' + $title + '</a></h1><h2>' + $pubDate + '</h2></div>');
+			//})
 
 
-				for (var i = 0; i < items.length; i++) {*/
+			}
 
-				$(xml).find('item').each(function() {
+			/*$(xml).find('item').each(function() {
 
-					$('#feed_content').append('<div class="item"></div');
 
-					var $title = $(this).find('title').text();
-					var $link = $(this).find('guid').text();
-					var $pubDate = $(this).find('pubDate').text();
-					// var $author = $(this).find('dc:creator').text();
-					// console.log($author);
+			var $title = $(this).find('title').eq(i).text();
+			var $link = $(this).find('guid').eq(i).text();
+			var $pubDate = $(this).find('pubDate').eq(i).text();
+			// var $author = $(this).find('dc:creator').text();
+			// console.log($author);
 
-					$('#feed_content').append('<h1><a href="' + $link + '">' + $title + '</a></h1><h2>' + $pubDate + '</h2>');
-
-					/*var item_title = getNodeValue(items[i], 'title');
-					var link = getNodeValue(items[i], 'guid');
-					var pubDate = getNodeValue(items[i], 'pubDate');
-					//var author = getNodeValue(items[i], 'dc:creator');
-
-					$('#feed_content').append('<div class="item"><p><a href="' + link + '">' + item_title + '</a></p><p>' + pubDate + '</p></div>');
-				
-
-				function getNodeValue(obj, tag) {
-					return obj.getElementsByTagName(tag)[0].firstChild.nodeValue;
-				}}*/
-				})
+			$('#feed_content').append('<div class="item"><h1><a href="' + $link + '">' + $title + '</a></h1><h2>' + $pubDate + '</h2></div>');
+			})*/
 		}
 
 
 
 		console.log('completed AJAX request.');
-	// }
+	}
 
 
 
