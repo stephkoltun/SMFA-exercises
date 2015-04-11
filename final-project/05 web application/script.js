@@ -6,14 +6,16 @@ var allObjectsDataset = [];
 
 //Random Selection of Objects
 var objectsIDList = [
-			"18700327","18700329","18700427","18700463","18700465","18700487","18702279","18702283","18702573","18705893","18707303","35520811","35520817","51497205","51497673","52027699","68862903","18702819","18729905","18732835","18732295","68862901","35520793"];
+			"18707303", "18700327","18700329","18700427","18700463","18700465","18700487","18702279","18702283","18702573","18705893","18707303","35520811","35520817","51497205","51497673","52027699","68862903","18702819","18729905","18732835","18732295","68862901","35520793"];
 
 //run after function with callback function and length of object array
 var done = after(makeGraph, objectsIDList.length);
 
 for (i = 0; i < objectsIDList.length; i++) {
+
+	(function (i) {
 	//get info about a specific object method - returns JSON
-	var url ='https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.objects.getInfo&access_token=' + token + '&object_id=' + objectsIDList[i];
+	var url ='https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.objects.getInfo&access_token=' + token + '&object_id=' + objectsIDList[i] +"&extras=exhibitions";
 
 	// create an javascript obj for each object instance in collection
 	var objData = { 
@@ -22,6 +24,7 @@ for (i = 0; i < objectsIDList.length; i++) {
 		objYearEnd: "tempDate", 
 		//objDate: "tempDate",
 		objAcquired: "tempDate",
+		objExhibits: "tempExhibit"
 	};
 
 	//AJAX request
@@ -36,6 +39,7 @@ for (i = 0; i < objectsIDList.length; i++) {
 		objData.objYearStart = obj.year_start;	//year object was started
 		//objData.objDate = obj.date.substring(0,4);
 		objData.objAcquired = obj.year_acquired;	//year object acquired
+		objData.objExhibits = obj.exhibitions[0];
 
 		allObjectsDataset.push(objData); // add object to full dataset
 
@@ -49,6 +53,7 @@ for (i = 0; i < objectsIDList.length; i++) {
 		var $msg = "<h3>" + objTitle + "</h3><br><p>Created in " + objYearStart + " - " + objYearEnd + "<br>Acquired in " + objAcquired + "<br>Creation Lifespan: " + creationAge + "<br>Acquision Lifespan: " + acquisitionAge;
 		$('#test').after($msg);*/
 	}); //End AJAX request
+})(i);
 }
 
 
