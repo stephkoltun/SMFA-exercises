@@ -1,10 +1,10 @@
-@include font-face("Akkurat", font-files('fonts/Akkurat.otf'));
-@include font-face("Akkurat-Italic", font-files('fonts/Akkurat-Italic.otf'));
-@include font-face("Akkurat-Bold", font-files('fonts/Akkurat-Bold.otf'));
-@include font-face("Akkurat-BoldItalic", font-files('fonts/Akkurat-BoldItalic.otf'));
-@include font-face("Akkurat-Light", font-files('fonts/Akkurat-Light.otf'));
-@include font-face("Akkurat-LightItalic", font-files('fonts/Akkurat-LightItalic.otf'));
-@include font-face("FontAwesome", font-files('fonts/font-awesome/fonts/FontAwesome.otf'));
+@include font-face("Akkurat", font-files('/fonts/Akkurat.otf'));
+@include font-face("Akkurat-Italic", font-files('/fonts/Akkurat-Italic.otf'));
+@include font-face("Akkurat-Bold", font-files('/fonts/Akkurat-Bold.otf'));
+@include font-face("Akkurat-BoldItalic", font-files('/fonts/Akkurat-BoldItalic.otf'));
+@include font-face("Akkurat-Light", font-files('/fonts/Akkurat-Light.otf'));
+@include font-face("Akkurat-LightItalic", font-files('/fonts/Akkurat-LightItalic.otf'));
+@include font-face("FontAwesome", font-files('/fonts/font-awesome/fonts/FontAwesome.otf'));
 
 // typical paragraph styles
 p {

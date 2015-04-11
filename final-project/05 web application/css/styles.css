@@ -11,37 +11,37 @@ Stephanie Koltun
 /* ----- MEDIA QUERIES ----- */
 @font-face {
   font-family: "Akkurat";
-  src: url('/stylesheets/fonts/fonts/Akkurat.otf') format('opentype');
+  src: url(/fonts/Akkurat.otf) format('opentype');
 }
 
 @font-face {
   font-family: "Akkurat-Italic";
-  src: url('/stylesheets/fonts/fonts/Akkurat-Italic.otf') format('opentype');
+  src: url(/fonts/Akkurat-Italic.otf) format('opentype');
 }
 
 @font-face {
   font-family: "Akkurat-Bold";
-  src: url('/stylesheets/fonts/fonts/Akkurat-Bold.otf') format('opentype');
+  src: url(/fonts/Akkurat-Bold.otf) format('opentype');
 }
 
 @font-face {
   font-family: "Akkurat-BoldItalic";
-  src: url('/stylesheets/fonts/fonts/Akkurat-BoldItalic.otf') format('opentype');
+  src: url(/fonts/Akkurat-BoldItalic.otf) format('opentype');
 }
 
 @font-face {
   font-family: "Akkurat-Light";
-  src: url('/stylesheets/fonts/fonts/Akkurat-Light.otf') format('opentype');
+  src: url(/fonts/Akkurat-Light.otf) format('opentype');
 }
 
 @font-face {
   font-family: "Akkurat-LightItalic";
-  src: url('/stylesheets/fonts/fonts/Akkurat-LightItalic.otf') format('opentype');
+  src: url(/fonts/Akkurat-LightItalic.otf) format('opentype');
 }
 
 @font-face {
   font-family: "FontAwesome";
-  src: url('/stylesheets/fonts/fonts/font-awesome/fonts/FontAwesome.otf') format('opentype');
+  src: url(/fonts/font-awesome/fonts/FontAwesome.otf) format('opentype');
 }
 
 /* line 10, scss/defaults/_typography.scss */
@@ -114,55 +114,55 @@ h3 a:link, h3 a:visited {
 /* {
 	border: 1px solid red;
 }*/
-/* line 32, scss/styles.scss */
+/* line 31, scss/styles.scss */
 html, body, header {
   height: 100%;
 }
 
-/* line 36, scss/styles.scss */
+/* line 35, scss/styles.scss */
 header {
   max-width: 130px;
   float: left;
 }
 
-/* line 41, scss/styles.scss */
+/* line 40, scss/styles.scss */
 body {
   margin: 0 auto;
   background-color: white;
 }
 
-/* line 47, scss/styles.scss */
+/* line 46, scss/styles.scss */
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 53, scss/styles.scss */
+/* line 52, scss/styles.scss */
 li {
   padding-right: 1em;
 }
 
 /* ----------- NAVIGATION ----------- */
-/* line 62, scss/styles.scss */
+/* line 61, scss/styles.scss */
 #nav-bar {
   margin: 0 auto;
   padding: 15px 30px;
   background-color: #ededed;
   font-family: "Akkurat";
 }
-/* line 68, scss/styles.scss */
+/* line 67, scss/styles.scss */
 #nav-bar a, #nav-bar a:visited {
   color: #333333;
   text-decoration: none;
 }
-/* line 72, scss/styles.scss */
+/* line 71, scss/styles.scss */
 #nav-bar a:hover {
   color: #333333;
   text-decoration: underline;
 }
 
-/* line 78, scss/styles.scss */
+/* line 77, scss/styles.scss */
 #key {
   margin-bottom: 50px;
 }
@@ -197,14 +197,14 @@ li {
 #key a:link, #key a:visited {
   color: #333333;
 }
-/* line 80, scss/styles.scss */
+/* line 79, scss/styles.scss */
 #key li {
   color: #333333;
   font-family: "Akkurat-LightItalic";
   font-size: .7em;
   padding: 3px 0 3px 10px;
 }
-/* line 89, scss/styles.scss */
+/* line 88, scss/styles.scss */
 #key i {
   color: #333333;
   padding-right: 13px;
@@ -241,25 +241,25 @@ li {
 #modes a:link, #modes a:visited, #sort a:link, #sort a:visited, #arrange a:link, #arrange a:visited, #group a:link, #group a:visited {
   color: #333333;
 }
-/* line 98, scss/styles.scss */
+/* line 97, scss/styles.scss */
 #modes li, #sort li, #arrange li, #group li {
   color: #b2b2b2;
   font-family: "Akkurat-Light";
   font-size: .7em;
 }
-/* line 106, scss/styles.scss */
+/* line 105, scss/styles.scss */
 #modes i, #sort i, #arrange i, #group i {
   color: #b2b2b2;
   padding-left: 6px;
 }
 
-/* line 121, scss/styles.scss */
+/* line 120, scss/styles.scss */
 #visualization {
   height: 100%;
 }
 
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 128, scss/styles.scss */
+/* line 127, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;
