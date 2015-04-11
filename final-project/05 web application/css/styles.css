@@ -111,12 +111,6 @@ h3 a:link, h3 a:visited {
   color: #333333;
 }
 
-/* line 91, scss/defaults/_typography.scss */
-i {
-  color: #b2b2b2;
-  display: inline;
-}
-
 /* {
 	border: 1px solid red;
 }*/
@@ -183,21 +177,23 @@ li {
 /* line 17, scss/defaults/_mixins.scss */
 #key h2 {
   color: #b2b2b2;
-  font-family: "Akkurat-LightItalic";
+  font-family: "Akkurat-Italic";
   font-size: .7em;
-  margin-bottom: 3px;
+  font-weight: 100;
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
-/* line 27, scss/defaults/_mixins.scss */
+/* line 29, scss/defaults/_mixins.scss */
 #key p {
   color: #333333;
   font-family: "Akkurat-Light";
   font-size: .7em;
 }
-/* line 35, scss/defaults/_mixins.scss */
+/* line 37, scss/defaults/_mixins.scss */
 #key a {
   text-decoration: none;
 }
-/* line 38, scss/defaults/_mixins.scss */
+/* line 40, scss/defaults/_mixins.scss */
 #key a:link, #key a:visited {
   color: #333333;
 }
@@ -225,21 +221,23 @@ li {
 /* line 17, scss/defaults/_mixins.scss */
 #modes h2, #sort h2, #arrange h2, #group h2 {
   color: #b2b2b2;
-  font-family: "Akkurat-LightItalic";
+  font-family: "Akkurat-Italic";
   font-size: .7em;
-  margin-bottom: 3px;
+  font-weight: 100;
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
-/* line 27, scss/defaults/_mixins.scss */
+/* line 29, scss/defaults/_mixins.scss */
 #modes p, #sort p, #arrange p, #group p {
   color: #333333;
   font-family: "Akkurat-Light";
   font-size: .7em;
 }
-/* line 35, scss/defaults/_mixins.scss */
+/* line 37, scss/defaults/_mixins.scss */
 #modes a, #sort a, #arrange a, #group a {
   text-decoration: none;
 }
-/* line 38, scss/defaults/_mixins.scss */
+/* line 40, scss/defaults/_mixins.scss */
 #modes a:link, #modes a:visited, #sort a:link, #sort a:visited, #arrange a:link, #arrange a:visited, #group a:link, #group a:visited {
   color: #333333;
 }
