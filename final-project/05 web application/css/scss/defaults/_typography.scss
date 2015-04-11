@@ -1,0 +1,99 @@
+@include font-face("Akkurat", font-files('fonts/Akkurat.otf'));
+@include font-face("Akkurat-Italic", font-files('fonts/Akkurat-Italic.otf'));
+@include font-face("Akkurat-Bold", font-files('fonts/Akkurat-Bold.otf'));
+@include font-face("Akkurat-BoldItalic", font-files('fonts/Akkurat-BoldItalic.otf'));
+@include font-face("Akkurat-Light", font-files('fonts/Akkurat-Light.otf'));
+@include font-face("Akkurat-LightItalic", font-files('fonts/Akkurat-LightItalic.otf'));
+@include font-face("FontAwesome", font-files('fonts/font-awesome/fonts/FontAwesome.otf'));
+
+// typical paragraph styles
+p {
+	color: $color-main;
+	font: {
+		family: "Akkurat-Light";
+		size: .8em;
+	}
+	
+	a {
+		text-decoration: none;
+
+		&:link, &:visited {
+			color: $color-main;
+		}
+	}
+}
+
+
+// typical h1 styles
+h1 {
+	margin: 10px 0 20px 0;
+	color: $color-main;
+	font: {
+		family: "Akkurat-Bold";
+		weight: 400;
+		size: 1.4em;
+	}
+	line-height: 1.2;
+	text-transform: uppercase;
+
+	a {
+		&:link, &:visited {
+			text-decoration: underline;
+			color: $color-main;
+		}
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+
+/* // typical h2 styles
+h2 {
+	color: $color-main;
+	text-transform: uppercase;
+	margin: 0;
+
+	font: {
+		family: "Akkurat";
+		size: .7em;
+		weight: 100;
+	}
+}
+ */
+
+
+// typical h3 styles
+h3 {
+	display: inline;
+	margin: 1em 0 0 0;
+	padding-right: 1em;
+	float: left;
+	color: $color-main;
+	
+	font: {
+		family: "Akkurat-Light";
+		size: .8em;
+		weight: 100;
+	}
+
+	a {
+		&:link, &:visited {
+			family: "Akkurat-LightItalic";
+			text-decoration: none;
+			weight: 400;
+			color: $color-main;
+		}
+	}
+}
+
+i {
+	color: $color-light;
+	display: inline;
+}
+
+
+
+
+

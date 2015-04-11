@@ -1,0 +1,268 @@
+/*
+-----------------------------------------------------
+Main SCSS file for IWD - 03 Assignment
+
+Stephanie Koltun 
+
+-----------------------------------------------------
+*/
+/* Compass */
+/* Import partial files */
+/* ----- MEDIA QUERIES ----- */
+@font-face {
+  font-family: "Akkurat";
+  src: url('/stylesheets/fonts/fonts/Akkurat.otf') format('opentype');
+}
+
+@font-face {
+  font-family: "Akkurat-Italic";
+  src: url('/stylesheets/fonts/fonts/Akkurat-Italic.otf') format('opentype');
+}
+
+@font-face {
+  font-family: "Akkurat-Bold";
+  src: url('/stylesheets/fonts/fonts/Akkurat-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: "Akkurat-BoldItalic";
+  src: url('/stylesheets/fonts/fonts/Akkurat-BoldItalic.otf') format('opentype');
+}
+
+@font-face {
+  font-family: "Akkurat-Light";
+  src: url('/stylesheets/fonts/fonts/Akkurat-Light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: "Akkurat-LightItalic";
+  src: url('/stylesheets/fonts/fonts/Akkurat-LightItalic.otf') format('opentype');
+}
+
+@font-face {
+  font-family: "FontAwesome";
+  src: url('/stylesheets/fonts/fonts/font-awesome/fonts/FontAwesome.otf') format('opentype');
+}
+
+/* line 10, scss/defaults/_typography.scss */
+p {
+  color: #333333;
+  font-family: "Akkurat-Light";
+  font-size: .8em;
+}
+/* line 17, scss/defaults/_typography.scss */
+p a {
+  text-decoration: none;
+}
+/* line 20, scss/defaults/_typography.scss */
+p a:link, p a:visited {
+  color: #333333;
+}
+
+/* line 28, scss/defaults/_typography.scss */
+h1 {
+  margin: 10px 0 20px 0;
+  color: #333333;
+  font-family: "Akkurat-Bold";
+  font-weight: 400;
+  font-size: 1.4em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+/* line 40, scss/defaults/_typography.scss */
+h1 a:link, h1 a:visited {
+  text-decoration: underline;
+  color: #333333;
+}
+/* line 45, scss/defaults/_typography.scss */
+h1 a:hover {
+  text-decoration: none;
+}
+
+/* // typical h2 styles
+h2 {
+	color: $color-main;
+	text-transform: uppercase;
+	margin: 0;
+
+	font: {
+		family: "Akkurat";
+		size: .7em;
+		weight: 100;
+	}
+}
+ */
+/* line 68, scss/defaults/_typography.scss */
+h3 {
+  display: inline;
+  margin: 1em 0 0 0;
+  padding-right: 1em;
+  float: left;
+  color: #333333;
+  font-family: "Akkurat-Light";
+  font-size: .8em;
+  font-weight: 100;
+}
+/* line 82, scss/defaults/_typography.scss */
+h3 a:link, h3 a:visited {
+  family: "Akkurat-LightItalic";
+  text-decoration: none;
+  weight: 400;
+  color: #333333;
+}
+
+/* line 91, scss/defaults/_typography.scss */
+i {
+  color: #b2b2b2;
+  display: inline;
+}
+
+/* {
+	border: 1px solid red;
+}*/
+/* line 32, scss/styles.scss */
+html, body, header {
+  height: 100%;
+}
+
+/* line 36, scss/styles.scss */
+header {
+  max-width: 130px;
+  float: left;
+}
+
+/* line 41, scss/styles.scss */
+body {
+  margin: 0 auto;
+  background-color: white;
+}
+
+/* line 47, scss/styles.scss */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 53, scss/styles.scss */
+li {
+  padding-right: 1em;
+}
+
+/* ----------- NAVIGATION ----------- */
+/* line 62, scss/styles.scss */
+#nav-bar {
+  margin: 0 auto;
+  padding: 15px 30px;
+  background-color: #ededed;
+  font-family: "Akkurat";
+}
+/* line 68, scss/styles.scss */
+#nav-bar a, #nav-bar a:visited {
+  color: #333333;
+  text-decoration: none;
+}
+/* line 72, scss/styles.scss */
+#nav-bar a:hover {
+  color: #333333;
+  text-decoration: underline;
+}
+
+/* line 78, scss/styles.scss */
+#key {
+  margin-bottom: 50px;
+}
+/* line 7, scss/defaults/_mixins.scss */
+#key h1 {
+  color: #333333;
+  font-family: "Akkurat";
+  font-text-transform: uppercase;
+  font-size: .8em;
+  margin: 0;
+}
+/* line 17, scss/defaults/_mixins.scss */
+#key h2 {
+  color: #b2b2b2;
+  font-family: "Akkurat-LightItalic";
+  font-size: .7em;
+  margin-bottom: 3px;
+}
+/* line 27, scss/defaults/_mixins.scss */
+#key p {
+  color: #333333;
+  font-family: "Akkurat-Light";
+  font-size: .7em;
+}
+/* line 35, scss/defaults/_mixins.scss */
+#key a {
+  text-decoration: none;
+}
+/* line 38, scss/defaults/_mixins.scss */
+#key a:link, #key a:visited {
+  color: #333333;
+}
+/* line 80, scss/styles.scss */
+#key li {
+  color: #333333;
+  font-family: "Akkurat-LightItalic";
+  font-size: .7em;
+  padding: 3px 0 3px 10px;
+}
+/* line 89, scss/styles.scss */
+#key i {
+  color: #333333;
+  padding-right: 13px;
+}
+
+/* line 7, scss/defaults/_mixins.scss */
+#modes h1, #sort h1, #arrange h1, #group h1 {
+  color: #333333;
+  font-family: "Akkurat";
+  font-text-transform: uppercase;
+  font-size: .8em;
+  margin: 0;
+}
+/* line 17, scss/defaults/_mixins.scss */
+#modes h2, #sort h2, #arrange h2, #group h2 {
+  color: #b2b2b2;
+  font-family: "Akkurat-LightItalic";
+  font-size: .7em;
+  margin-bottom: 3px;
+}
+/* line 27, scss/defaults/_mixins.scss */
+#modes p, #sort p, #arrange p, #group p {
+  color: #333333;
+  font-family: "Akkurat-Light";
+  font-size: .7em;
+}
+/* line 35, scss/defaults/_mixins.scss */
+#modes a, #sort a, #arrange a, #group a {
+  text-decoration: none;
+}
+/* line 38, scss/defaults/_mixins.scss */
+#modes a:link, #modes a:visited, #sort a:link, #sort a:visited, #arrange a:link, #arrange a:visited, #group a:link, #group a:visited {
+  color: #333333;
+}
+/* line 98, scss/styles.scss */
+#modes li, #sort li, #arrange li, #group li {
+  color: #b2b2b2;
+  font-family: "Akkurat-Light";
+  font-size: .7em;
+}
+/* line 106, scss/styles.scss */
+#modes i, #sort i, #arrange i, #group i {
+  color: #b2b2b2;
+  padding-left: 6px;
+}
+
+/* line 121, scss/styles.scss */
+#visualization {
+  height: 100%;
+}
+
+/*--------- MAIN BLOG PAGE ---------*/
+/* line 128, scss/styles.scss */
+.clear {
+  clear: both;
+  line-height: 0;
+}

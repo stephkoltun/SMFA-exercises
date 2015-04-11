@@ -1,0 +1,131 @@
+/*
+-----------------------------------------------------
+Main SCSS file for IWD - 03 Assignment
+
+Stephanie Koltun 
+
+-----------------------------------------------------
+*/
+
+
+/* Compass */
+@import "compass/css3/font-face";
+@import "compass/css3/filter";
+@import "compass/css3"; 
+
+
+/* Import partial files */
+
+// Mixins
+@import "defaults/mixins.scss";
+// Variables
+@import "defaults/variables.scss";
+// Typography
+@import "defaults/typography.scss";
+// Helpers - delete if not used
+//@import "defaults/helpers.scss";
+
+/* {
+	border: 1px solid red;
+}*/
+
+html, body, header {
+	height: 100%;
+}
+
+header {
+	max-width: 130px;
+	float: left;
+}
+
+body {
+	margin: 0 auto;
+	background-color: white;
+}
+
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	padding-right: 1em;
+}
+
+
+
+
+/* ----------- NAVIGATION ----------- */
+
+#nav-bar {
+	@include nav-style;
+
+	background-color: $color-bkgd;
+	font-family: "Akkurat";
+
+	a, a:visited {
+		@include link-style($color-main, none);
+	}
+
+	a:hover {
+		@include link-style($color-main, underline);
+	}
+}
+
+
+#key {
+	@include key-text;
+	li {
+		color: $color-main;
+		font: {
+			family: "Akkurat-LightItalic";
+			size: .7em;
+		}
+		padding: 3px 0 3px 10px;
+	}
+
+	i {
+		color: $color-main;
+		padding-right: 13px;
+	}
+	margin-bottom: 50px;
+}
+
+#modes, #sort, #arrange, #group {
+	@include key-text;
+	li {
+		color: $color-light;
+		font: {
+			family: "Akkurat-Light";
+			size: .7em;
+		}
+	}
+
+	i {
+		color: $color-light;
+		padding-left: 6px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+#visualization {
+	height: 100%;
+}
+
+
+/*--------- MAIN BLOG PAGE ---------*/
+
+.clear {
+	clear: both;
+	line-height: 0;
+}

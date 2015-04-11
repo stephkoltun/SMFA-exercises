@@ -1,0 +1,49 @@
+@mixin nav-style {
+	margin: 0 auto;
+	padding: 15px 30px;
+}
+
+@mixin key-text {
+	h1 {
+		color: $color-main;
+		font: {
+			family: "Akkurat";
+			text-transform: uppercase;
+			size: .8em;
+		}
+		margin: 0;
+	}
+
+	h2 {
+		color: $color-light;
+		font: {
+			family: "Akkurat-LightItalic";
+			size: .7em;
+		}
+		margin-bottom: 3px;
+
+	}
+
+	p {
+		color: $color-main;
+		font: {
+			family: "Akkurat-Light";
+			size: .7em;
+		}
+	}
+	
+	a {
+		text-decoration: none;
+
+		&:link, &:visited {
+			color: $color-main;
+		}
+	}
+}
+
+@mixin link-style($color, $decoration) {
+  	color: $color;
+  	text-decoration: $decoration;
+}
+
+
