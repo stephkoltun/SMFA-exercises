@@ -6,7 +6,7 @@ var allObjectsDataset = [];
 
 //Random Selection of Objects
 var objectsIDList = [
-			"18707303", "18700327","18700329","18700427","18700463","18700465","18700487","18702279","18702283","18702573","18705893","18707303","35520811","35520817","51497205","51497673","52027699","68862903","18702819","18729905","18732835","18732295","68862901","35520793"];
+			"18707303","51497205","18732835","18732295","18690599","18678409","18648915","18635729","18643637","18475233","18615581","18638635","18697321","18621779","18498241","18801131","18698907"];
 
 //run after function with callback function and length of object array
 var done = after(makeGraph, objectsIDList.length);
@@ -14,46 +14,41 @@ var done = after(makeGraph, objectsIDList.length);
 for (i = 0; i < objectsIDList.length; i++) {
 
 	(function (i) {
-	//get info about a specific object method - returns JSON
-	var url ='https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.objects.getInfo&access_token=' + token + '&object_id=' + objectsIDList[i] +"&extras=exhibitions";
+		//get info about a specific object method - returns JSON
+		var url ='https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.objects.getInfo&access_token=' + token + '&object_id=' + objectsIDList[i] +"&extras=exhibitions";
 
-	// create an javascript obj for each object instance in collection
-	var objData = { 
-		objTitle: "tempTitle",
-		objYearStart:"tempDate", 
-		objYearEnd: "tempDate", 
-		//objDate: "tempDate",
-		objAcquired: "tempDate",
-		objExhibits: "tempExhibit"
-	};
+		// create an javascript obj for each object instance in collection
+		var objData = { 
+			objTitle: "tempobjTitle",
+			yearStart:"tempDate", 
+			yearEnd: "tempDate", 
+			//objDate: "tempDate",
+			yearAcquired: "tempDate",
+			objExhibits: "tempExhibit"
+		};
 
-	//AJAX request
-	var request = $.get(url, function( response ) {
-		var objResponse = response; // variable to hold the response
-		var obj = objResponse.object;
+		//AJAX request
+		var request = $.get(url, function( response ) {
+			var objResponse = response; // variable to hold the response
+			var obj = objResponse.object;
 
-		//console.log("Processing " + obj.title);
+			//console.log("Processing " + obj.objTitle);
 
-		objData.objTitle = obj.title;	
-		objData.objYearEnd = obj.year_end;	//year object was finished
-		objData.objYearStart = obj.year_start;	//year object was started
-		//objData.objDate = obj.date.substring(0,4);
-		objData.objAcquired = obj.year_acquired;	//year object acquired
-		objData.objExhibits = obj.exhibitions[0];
+			objData.objTitle = obj.title;	
+			objData.yearEnd = obj.year_end;	//year object was finished
+			objData.yearStart = obj.year_start;	//year object was started
+			//objData.objDate = obj.date;
+			objData.yearAcquired = obj.year_acquired;	//year object acquired
+			objData.objExhibits = obj.exhibitions[0];
+			//var creationAge = yearEnd - yearStart;
+			//var acquisitionAge = yearAcquired - yearStart;
 
-		allObjectsDataset.push(objData); // add object to full dataset
+			allObjectsDataset.push(objData); // add object to full dataset
 
-		// invoke done function to see if all objects have been processed
-		done();
-
-		//var creationAge = objYearEnd - objYearStart;
-		//var acquisitionAge = objAcquired - objYearStart;
-		
-		/*//var $msg = "<p>" + objTitle + ", created in " + objDate + ", was aquired by the Cooper Hewitt in " + objAcquired + ".</p>";
-		var $msg = "<h3>" + objTitle + "</h3><br><p>Created in " + objYearStart + " - " + objYearEnd + "<br>Acquired in " + objAcquired + "<br>Creation Lifespan: " + creationAge + "<br>Acquision Lifespan: " + acquisitionAge;
-		$('#test').after($msg);*/
-	}); //End AJAX request
-})(i);
+			// invoke done function to see if all objects have been processed
+			done();
+		}); //End AJAX request
+	})(i);
 }
 
 
