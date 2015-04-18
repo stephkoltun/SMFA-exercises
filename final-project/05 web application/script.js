@@ -5,8 +5,7 @@ var token = "2907bb23a319de02d7174829a85eef94";
 var allObjectsDataset = [];
 
 //Random Selection of Objects
-var objectsIDList = [
-			"18707303","51497205","18732835","18732295","18690599","18678409","18648915","18635729","18643637","18475233","18615581","18638635","18697321","18621779","18498241","18801131","18698907"];
+var objectsIDList = ["18556803","18669933","18189629","18562505","18345093","18670531","18503555","18670541","18804487","18475233","18384975","18710753","18343489","18431555","18189989","18386953","18189975","18630157","18622391","18384901","18464763","18464327","18638635","18801131","18488149","18630151","18631419","18631613","18710395","18407005","18643095","18480039","18706745","18648931","18479937","18397501","18704669","18636979","18612303","18624533","18678409","18451439","18397505","18447273","18646479","18635729","18644885","18684087","18649073","18490433","18398361","18407425","18637731","18638099","18637605","18388547","18643059","18653089","18617493","18451445","18444283","18400935","18410569"];
 
 //run after function with callback function and length of object array
 var done = after(makeGraph, objectsIDList.length);
@@ -22,26 +21,46 @@ for (i = 0; i < objectsIDList.length; i++) {
 			objTitle: "tempobjTitle",
 			yearStart:"tempDate", 
 			yearEnd: "tempDate", 
-			//objDate: "tempDate",
+			lifespan: "tempLife",
 			yearAcquired: "tempDate",
-			objExhibits: "tempExhibit"
+			hasBeenExhibited: "false",
+			exhibitEnd: "null",
+			exhibitStart: "null"
 		};
+
+		console.log("Processing objects");
 
 		//AJAX request
 		var request = $.get(url, function( response ) {
 			var objResponse = response; // variable to hold the response
 			var obj = objResponse.object;
 
-			//console.log("Processing " + obj.objTitle);
-
 			objData.objTitle = obj.title;	
 			objData.yearEnd = obj.year_end;	//year object was finished
 			objData.yearStart = obj.year_start;	//year object was started
-			//objData.objDate = obj.date;
 			objData.yearAcquired = obj.year_acquired;	//year object acquired
-			objData.objExhibits = obj.exhibitions[0];
-			//var creationAge = yearEnd - yearStart;
-			//var acquisitionAge = yearAcquired - yearStart;
+			//var creationAge = objData.yearEnd - objData.yearStart;
+			//var acquisitionAge = objData.yearAcquired - objData.yearStart;
+
+			// object has been exhibited
+			if (obj.exhibitions.length != 0) {
+
+				objData.exhibitStart = obj.exhibitions[0].date_start.substring(0,4);
+
+				if (obj.exhibitions[0].is_active == 1) {
+					objData.exhibitEnd = 2015;
+				} else {
+					objData.exhibitEnd = obj.exhibitions[0].date_end.substring(0,4);
+				}
+
+				hasBeenExhibited = "true";
+				objData.lifespan = objData.exhibitEnd - objData.yearStart;
+
+			// object has never been exhibited
+			} else if (obj.exhibitions.length == 0){
+				objData.lifespan = objData.yearAcquired - objData.yearStart;
+			}
+
 
 			allObjectsDataset.push(objData); // add object to full dataset
 
