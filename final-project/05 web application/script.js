@@ -72,18 +72,42 @@ for (i = 0; i < objectsIDList.length; i++) {
 
 
 function makeGraph() {
-	var width = 800;
-	var height = 600;
-	var padding = 55;
+	var margin = {top: 30, right: 20, bottom: 30, left: 50},
+    	width = 600 - margin.left - margin.right,
+    	height = 270 - margin.top - margin.bottom;
+
+
+
+	var data = allObjectsDataset; //global variable
+	console.log(data);
+
+
+	// Parse the date
+	var parseYear = d3.time.format("%Y")
+
+	// Set the ranges
+	var x = d3.time.scale().range([0, width]);
+	var y = d3.scale.linear().range([height,0]);
+
+	// Define the axes
+	var xAxis = d3.svg.axis().scale(x)
+		.orient("bottom").ticks(20);
+	var yAxis = d3.svg.axis().scale(y)
+		.orient("left").ticks(10);
+
 
 	// create SVG
 	var svg = d3.select("#graph")
 				.append("svg")
-				.attr("width", width)
-				.attr("height", height);
+				.attr("width", width + margin.left + margin.right)
+				.attr("height", height + margin.top + margin.bottom)
+				.append("g")
+				.attr("transform",
+					"translate(" + margin.left + "," + margin.top + ")");
 
-	var data = allObjectsDataset; //global variable
-	console.log(data);
+
+
+
 }
 
 // check if all data has been looped through and returned from API
