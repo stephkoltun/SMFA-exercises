@@ -5,7 +5,126 @@ var token = "2907bb23a319de02d7174829a85eef94";
 var allObjectsDataset = [];
 
 //Random Selection of Objects
-var objectsIDList = ["18189975","18648931","18498241"];
+var objectsIDList = [18556803,
+18669933,
+18189629,
+18562505,
+18345093,
+18670531,
+18503555,
+18670541,
+18804487,
+18475233,
+18384975,
+18710753,
+18343489,
+18431555,
+18189989,
+18386953,
+18189975,
+18630157,
+18622391,
+18384901,
+18464763,
+18464327,
+18638635,
+18801131,
+18488149,
+18630151,
+18631419,
+18631613,
+18710395,
+18407005,
+18643095,
+18480039,
+18706745,
+18648931,
+18479937,
+18397501,
+18704669,
+18636979,
+18612303,
+18624533,
+18678409,
+18451439,
+18397505,
+18447273,
+18646479,
+18635729,
+18644885,
+18684087,
+18649073,
+18490433,
+18398361,
+18407425,
+18637731,
+18638099,
+18637605,
+18388547,
+18643059,
+18653089,
+18617493,
+18451445,
+18444283,
+18400935,
+18410569,
+18636321,
+18420439,
+18636407,
+18430869,
+18478757,
+18648915,
+18621871,
+18617539,
+18710419,
+18732757,
+18615581,
+18618197,
+18637287,
+18498241,
+18498103,
+18632197,
+18637367,
+18643637,
+18732295,
+68243989,
+18805581,
+18621779,
+18733539,
+18705525,
+18705523,
+18639709,
+18733541,
+18638839,
+18647243,
+18712511,
+18756025,
+18655795,
+18690599,
+18713685,
+18710261,
+18714235,
+68267959,
+18707305,
+18700467,
+18707303,
+18701169,
+18714667,
+18710577,
+18705947,
+18710253,
+18710251,
+18729965,
+18732835,
+18731347,
+68515679,
+18716171,
+18731063,
+18757383,
+18731245,
+18788349,
+68268333,
+51497205];
 
 //run after function with callback function and length of object array
 var done = after(makeGraph, objectsIDList.length);
@@ -57,7 +176,6 @@ for (i = 0; i < objectsIDList.length; i++) {
 				} else {
 					objData.exhibitEnd = obj.exhibitions[0].date_end.substring(0,4);
 				}
-
 				
 				objData.lifespan = objData.exhibitEnd - objData.yearStart;
 
@@ -66,8 +184,11 @@ for (i = 0; i < objectsIDList.length; i++) {
 				objData.lifespan = objData.yearAcquired - objData.yearStart;
 			}
 
+			if (objData.yearStart != null && obj.exhibitions.length != 0) {
+				allObjectsDataset.push(objData); // add object to full dataset
+			}
 
-			allObjectsDataset.push(objData); // add object to full dataset
+			
 
 			// invoke done function to see if all objects have been processed
 			done();
@@ -91,8 +212,8 @@ function makeGraph() {
 
 	// Parse the date
 	var format = d3.time.format("%Y"),
-		mindate = format.parse("1900"),
-		maxdate = format.parse("2000");
+		mindate = format.parse("1800"),
+		maxdate = format.parse("2050");
 
 
 
@@ -117,11 +238,19 @@ function makeGraph() {
 	var xYearStart = function(d) { return format.parse((d.yearStart).toString());}, // convert number year to string, and format for d3
 	    xYearStartMap = function(d) { return x(xYearStart(d));}; // data -> display
 
-	var xYearEnd = function(d) { return format(new Date(d.yearEnd));}, // data -> value
+	var xYearEnd = function(d) { return format.parse((d.End).toString());}, // data -> value
 	    xYearEndMap = function(d) { return x(xYearEnd(d));}; // data -> display
 
 	var xYearAcquired = function(d) { return format.parse(d.yearAcquired);},
 		xYearAcquiredMap = function(d) { return x(xYearAcquired(d));}; // data -> display
+
+		//check if exhibition dates are numbers or strings
+	var xExhibitEnd = function(d) { if (isNaN(d.exhibitEnd)) {
+				return format.parse(d.exhibitEnd);
+			} else {
+				return format.parse((d.exhibitEnd).toString());
+			}},
+		xExhibitEndMap = function(d) { return x(xExhibitEnd(d));}; // data -> display
 
 
 
@@ -170,7 +299,7 @@ function makeGraph() {
 		.attr("class","lines") // set class for CSS styling
 		.attr("x1", xYearStartMap)
 		.attr("y1", function (d,i) { return (height - (i*3));})
-		.attr("x2", xYearAcquiredMap)
+		.attr("x2", xExhibitEndMap)
 		.attr("y2", function (d,i) { return (height - (i*3));})
 		.style("stroke", "black");
 
