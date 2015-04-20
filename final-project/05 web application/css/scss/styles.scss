@@ -113,13 +113,106 @@ li {
 
 
 
-
-
-
-
-#visualization {
-	height: 100%;
+/*--------- GRAPH ---------*/
+//MARKERS
+.lines {
+	stroke-width: 1px;
+	stroke-dasharray: 1px , 1px;
+	stroke-linecap: butt;
+	stroke-opacity: 0.4;
+	stroke: black;
 }
+
+.created {
+	stroke: teal;
+	stroke-width: 3px;
+	stroke-opacity: 1;
+	stroke-linecap: square;
+}
+
+.exhibited {
+	stroke: purple;
+	stroke-width: 3px;
+	stroke-opacity: 1;
+	stroke-linecap: square;
+}
+
+.acquired {
+	fill: orange;
+}
+
+
+//LABELS
+.axis text {
+    font-family: Helvetica,sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+
+}
+
+.axis line {
+    fill: none;
+    stroke: darkgrey;
+    stroke-width: 3px;
+    shape-rendering: crispEdges;
+}
+
+.axis path, .subaxis path {
+	display: none;
+}
+
+.subaxis text {
+	display: none;
+}
+
+.subaxis line {
+    fill: none;
+    stroke: lightgrey;
+    stroke-width: 1.5px;
+    shape-rendering: crispEdges;
+}
+
+
+//TEMP STYLING FOR BUTTONS
+button {
+	@include key-text;
+	border: none;
+	background-color: $color-bkgd;
+	padding: 0;
+	margin: 0;
+	cursor: default;
+
+	color: $color-light;
+	font: {
+		family: "Akkurat-Light";
+		size: 1em;
+	}
+
+	:hover, :active, :focus {
+		color: $color-main;
+  		font: {
+			family: "Akkurat";
+			size: 1em;
+		}
+  		cursor: pointer;
+ 	}
+}
+
+  
+button:hover, 
+button:active,
+button:focus{
+  color: $color-main;
+  font: {
+		family: "Akkurat";
+		size: 1em;
+	}
+  cursor: pointer;
+ }
+
+
+
+
 
 
 /*--------- MAIN BLOG PAGE ---------*/
