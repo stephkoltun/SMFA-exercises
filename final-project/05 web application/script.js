@@ -287,20 +287,23 @@ function makeGraph() {
 
     d3.selectAll("g").on("mouseover", function(d) {
 
-    	//fade all markers
-    	d3.selectAll('.acquired, .created, .exhibited, .lines')
+    	//fade all objects
+    	d3.selectAll('.object')
     	.transition()
+    	.duration(250)
     	.style('opacity','0.3');
 
-    	//don't fade selected object markers
-    	d3.select(this).selectAll('.created, .exhibited, .lines')
+    	//don't fade selected object
+    	d3.select(this).selectAll('.object')
     	.transition()
-    		.style('opacity','1');
+    	.duration(250)
+    	.style('opacity','1');
 
     	//background highlight for selected object
     	d3.select(this).selectAll('.obj-trigger')
-    		.transition()
-    		.style("stroke-opacity","1.0");
+    	.transition()
+    	.duration(250)
+    	.style("stroke-opacity","1.0");
 
 
 
@@ -311,7 +314,7 @@ function makeGraph() {
     	var selectedYearExhibited = d.exhibitStart; // year to compare with
     	
 
-    	// filter object selection to match mouseover object years
+    	/*// filter object selection to match mouseover object years
     	d3.selectAll('.acquired').filter(function(d) {
     		return d.yearAcquired == selectedYearAcquired;
     	})
@@ -327,6 +330,25 @@ function makeGraph() {
 		d3.selectAll('.exhibited').filter(function(d) {
     		return d.exhibitStart == selectedYearExhibited;
     	})
+			.transition()
+			.style('opacity','1');*/
+
+
+		d3.selectAll('.object').filter(function(d) {
+			return d.yearAcquired == selectedYearAcquired;
+		})
+			.transition()
+			.style('opacity','1');
+
+		d3.selectAll('.object').filter(function(d) {
+			return d.yearStart == selectedYearStarted;
+		})
+			.transition()
+			.style('opacity','1');
+
+		d3.selectAll('.object').filter(function(d) {
+			return d.exhibitStart == selectedYearExhibited;
+		})
 			.transition()
 			.style('opacity','1');
 
@@ -399,13 +421,15 @@ function makeGraph() {
 
 
     d3.selectAll("g").on("mouseout", function(d) {
-		d3.selectAll('.acquired, .created, .exhibited, .lines')
+		d3.selectAll('.object')
 		.transition()
+		.duration(250)
     	.style('opacity','1');
 
     	d3.select(this).selectAll('.obj-trigger')
     	.transition()
-    		.style("stroke-opacity","0.0");
+    	.duration(250)
+    	.style("stroke-opacity","0.0");
 
     	d3.select(this).selectAll(".tooltip").remove();
 
