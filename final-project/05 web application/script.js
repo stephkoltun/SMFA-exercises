@@ -50,7 +50,7 @@ for (i = 0; i < objectsIDList.length; i++) {
 			exhibitStart: "null"
 		};
 
-		console.log("Processing objects");
+		//console.log("Processing objects");
 
 		//AJAX request
 		var request = $.get(url, function( response ) {
@@ -157,16 +157,11 @@ function makeGraph() {
 	/* ------ MAKE THE GRAPH ------ */
 
 
-	console.log("Set up SVG");
-
 	// create SVG
 	var svg = d3.select("#graph")
 				.append("svg")
 				.attr("width", width + margin.left + margin.right)
 				.attr("height", height + margin.top*2 + margin.bottom);
-
-
-	console.log("Add axes");
 
 	//Created AXES
 	svg.append("g")
@@ -297,12 +292,10 @@ function makeGraph() {
     	.transition()
     	.style('opacity','0.3');
 
-
     	//don't fade selected object markers
-    	d3.select(this).selectAll('.acquired, .created, .exhibited, .lines')
+    	d3.select(this).selectAll('.created, .exhibited, .lines')
     	.transition()
     		.style('opacity','1');
-
 
     	//background highlight for selected object
     	d3.select(this).selectAll('.obj-trigger')
@@ -310,7 +303,41 @@ function makeGraph() {
     		.style("stroke-opacity","1.0");
 
 
-    	// YEAR LABELS
+
+    	// set up variables for the moused-over data
+    	var selectedObject = d3.select(this).data();
+    	var selectedYearAcquired = d.yearAcquired; // year to compare with
+    	var selectedYearStarted = d.yearStart; // year to compare with
+    	var selectedYearExhibited = d.exhibitStart; // year to compare with
+    	
+
+    	// filter object selection to match mouseover object years
+    	d3.selectAll('.acquired').filter(function(d) {
+    		return d.yearAcquired == selectedYearAcquired;
+    	})
+			.transition()
+			.style('opacity','1');
+
+		d3.selectAll('.created').filter(function(d) {
+    		return d.yearStart == selectedYearStarted;
+    	})
+			.transition()
+			.style('opacity','1');
+
+		d3.selectAll('.exhibited').filter(function(d) {
+    		return d.exhibitStart == selectedYearExhibited;
+    	})
+			.transition()
+			.style('opacity','1');
+
+
+
+
+
+
+
+
+    	// YEAR LABELS //
     	var currentObject = d3.select(this);
 
     	//Created Marker Positions
@@ -318,7 +345,6 @@ function makeGraph() {
     	var xPositionEnd = parseFloat(d3.select(this).selectAll('.created').attr("x2"));
     	var xPositionMiddle = (xPositionStart + (xPositionEnd-xPositionStart))
     	var yPositionCreated = parseFloat(d3.select(this).selectAll('.created').attr("y1")) - 8;
-
 
     	// if created spans single year
     	if (xPositionStart === xPositionEnd) {
@@ -328,7 +354,6 @@ function makeGraph() {
     		.attr("y", yPositionCreated)
     		.text(d.yearStart);
     	}
-
 		// if created spans less than 5 years
     	else if ((d.yearEnd - d.yearStart) <= 5) {
     		currentObject.append("text")
@@ -337,7 +362,6 @@ function makeGraph() {
 	    		.attr("y", yPositionCreated)
 	    		.text(d.yearStart + " - " + d.yearEnd);
     	}
-
     	// if created spans more than 5 years
     	if ((d.yearEnd - d.yearStart) > 5) {
     		currentObject.append("text")
@@ -353,7 +377,6 @@ function makeGraph() {
 	    		.text(d.yearEnd);
     	}
 
-
     	//Acquired Marker Positions
     	var xPositionAcquired = parseFloat(d3.select(this).selectAll('g > circle').attr("cx"));
     	var yPositionAcquired = parseFloat(d3.select(this).selectAll('g > circle').attr("cy")) - 8;
@@ -366,6 +389,9 @@ function makeGraph() {
 	    		.attr("y", yPositionAcquired)
 	    		.text(d.yearAcquired);
     	}
+
+
+    	
 
 
 
