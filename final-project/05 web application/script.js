@@ -31,6 +31,12 @@ for (i = 0; i < objectsIDList.length; i++) {
 		//get info about a specific object method - returns JSON
 		var url ='https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.objects.getInfo&access_token=' + token + '&object_id=' + objectsIDList[i] +"&extras=exhibitions";
 
+
+		//I THINK I CAN REWRITE THIS WITHOUT MAKING A NEW OBJECT.
+		//JUST USE A BUNCH OF IF STATEMENTS TO CHECK YEAR DATA
+		//ONLY ADD COMPLETE OBJECTS TO SET.
+		//MAY HELP DECREASE PROCESSING TIME
+
 		// create an javascript obj for each object instance in collection
 		var objData = { 
 			key: i,
@@ -86,8 +92,8 @@ for (i = 0; i < objectsIDList.length; i++) {
 
 function makeGraph() {
 	var margin = {top: 30, right: 20, bottom: 30, left: 50},
-    	width = 1200 - margin.left - margin.right,
-    	height = 800 - margin.top - margin.bottom;
+    	width = 1000 - margin.left - margin.right,
+    	height = 650 - margin.top - margin.bottom;
 
 
 	//var data = allObjectsDataset; //global variable
