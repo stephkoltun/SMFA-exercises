@@ -226,7 +226,7 @@ function makeGraph() {
 		.attr("class","acquired")
 		.attr("cx", xYearAcquiredMap)
 		.attr("cy", "0")
-		.attr("r","2px");
+		.attr("r","2.5px");
 
 	
 
@@ -244,7 +244,7 @@ function makeGraph() {
 			.transition()
 			.duration(1000)
 	    	.attr("transform", function(d,i) { 
-	    		return "translate(" + margin.left + "," + (y(i)+margin.top) + ")";
+	    		return "translate(" + margin.left + "," + (y(i*1.15)+margin.top) + ")";
 	    	});
     	});
 
@@ -257,7 +257,7 @@ function makeGraph() {
 			.transition()
 			.duration(1000)
 	    	.attr("transform", function(d,i) { 
-	    		return "translate(" + margin.left + "," + (y(i)+margin.top) + ")";
+	    		return "translate(" + margin.left + "," + (y(i*1.15)+margin.top) + ")";
 	    	});
     	});
 
@@ -270,11 +270,11 @@ function makeGraph() {
 			.transition()
 			.duration(1000)
 	    	.attr("transform", function(d,i) { 
-	    		return "translate(" + margin.left + "," + (y(i)+margin.top) + ")";
+	    		return "translate(" + margin.left + "," + (y(i*1.15)+margin.top) + ")";
 	    	});
     	});
 
-	var resortLifespan = d3.select("#sortLifespan")
+/*	var resortLifespan = d3.select("#sortLifespan")
 		.on("click", function() {
 			console.log("resorting by object's lifespan");
 			objects.sort(function(a, b) {
@@ -285,7 +285,7 @@ function makeGraph() {
 	    	.attr("transform", function(d,i) { 
 	    		return "translate(" + margin.left + "," + (y(i)+margin.top) + ")";
 	    	});
-    	});
+    	});*/
 
 
     /* ------ MOUSEOVER EVENTS FOR SELECTED OBJECT ------ */
@@ -295,38 +295,41 @@ function makeGraph() {
     	//fade all markers
     	d3.selectAll('.acquired')
     	.transition()
-    	.style('opacity','0.5');
+    	.style('opacity','0.3');
 
     	d3.selectAll('.created')
     	.transition()
-    	.style('opacity','0.5');
+    	.style('opacity','0.3');
 
     	d3.selectAll('.exhibited')
     	.transition()
-    	.style('opacity','0.5');
+    	.style('opacity','0.3');
 
     	d3.selectAll('.lines')
     	.transition()
-    	.style('opacity','0.5');
+    	.style('opacity','0.3');
 
     	//don't fade selected object markers
     	d3.select(this).selectAll('.acquired')
-    		.transition()
+    	.transition()
     		.style('opacity','1');
 
     	d3.select(this).selectAll('.exhibited')
-    		.transition()
+    	.transition()
     		.style('opacity','1');
 
     	d3.select(this).selectAll('.created')
-    		.transition()
+    	.transition()
+    		.style('opacity','1');
+
+    	d3.select(this).selectAll('.lines')
+    	.transition()
     		.style('opacity','1');
 
     	//background highlight for selected object
     	d3.select(this).selectAll('.obj-trigger')
     		.transition()
-    		.duration(100)
-    		.style("opacity","1.0");
+    		.style("stroke-opacity","1.0");
 
 
     	// YEAR LABELS
@@ -335,20 +338,41 @@ function makeGraph() {
     	//Created Start
     	var xPositionStart = parseFloat(d3.select(this).selectAll('.created').attr("x1"));
     	var xPositionEnd = parseFloat(d3.select(this).selectAll('.created').attr("x2"));
-    	var yPositionCreated = parseFloat(d3.select(this).selectAll('.created').attr("y1")) - 5;
+    	var xPositionMiddle = (xPositionStart + (xPositionEnd-xPositionStart))
+    	var yPositionCreated = parseFloat(d3.select(this).selectAll('.created').attr("y1")) - 8;
 
-    	currentObject.append("text")
+
+    	// if created spans single year
+    	if (xPositionStart === xPositionEnd) {
+    		currentObject.append("text")
+    		.attr("class", "tooltip")
+    		.attr("x", xPositionStart)
+    		.attr("y", yPositionCreated)
+    		.text(d.yearStart);
+    	}
+
+		// if created spans less than 5 years
+    	else if ((xPositionEnd - xPositionStart) <= 5) {
+    		currentObject.append("text")
+	    		.attr("class", "tooltip")
+	    		.attr("x", xPositionMid)
+	    		.attr("y", yPositionCreated)
+	    		.text(d.yearStart + " - " + d.yearEnd);
+    	}
+
+    	// if created spans more than 5 years
+    	else ((xPositionEnd - xPositionStart) <= 5) {
+    		currentObject.append("text")
     		.attr("class", "tooltip")
     		.attr("x", xPositionStart)
     		.attr("y", yPositionCreated)
     		.text(d.yearStart);
 
-    	if (xPositionStart != xPositionEnd) {
     		currentObject.append("text")
-	    		.attr("class", "tooltip")
-	    		.attr("x", xPositionEnd)
-	    		.attr("y", yPositionCreated)
-	    		.text(d.yearEnd);
+    		.attr("class", "tooltip")
+    		.attr("x", xPositionEnd)
+    		.attr("y", yPositionCreated)
+    		.text(d.yearEnd);
     	}
 
 
@@ -361,15 +385,12 @@ function makeGraph() {
     		.attr("x", xPositionAcquired)
     		.attr("y", yPositionAcquired)
     		.text(d.yearAcquired);
-
-
-
-    });
+    }); //end mouse over
 
 
     d3.selectAll("g").on("mouseout", function(d) {
 		d3.selectAll('.acquired')
-    	.transition()
+		.transition()
     	.style('opacity','1');
 
     	d3.selectAll('.created')
@@ -385,29 +406,14 @@ function makeGraph() {
     	.style('opacity','1');
 
     	d3.select(this).selectAll('.obj-trigger')
-    		.transition()
-    		.duration(100)
-    		.style("opacity","0.0");
+    	.transition()
+    		.style("stroke-opacity","0.0");
 
     	d3.select(this).selectAll(".tooltip").remove();
 
 
     });
 
-
-    /*// add grey bar to selected object
-    d3.selectAll(".obj-trigger").on("mouseover", function(d) {
-    	d3.select(this)
-    	.transition()
-    	.duration(250)
-    	.style("stroke","rgb(240,240,240)");
-    })
-    d3.selectAll(".obj-trigger").on("mouseout", function(d) {
-    	d3.select(this)
-    	.transition()
-    	.duration(250)
-    	.style("stroke","rgb(255,255,255)");
-    });*/
 
 
 

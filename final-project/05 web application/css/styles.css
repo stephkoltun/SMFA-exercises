@@ -282,7 +282,7 @@ li {
 /* line 140, scss/styles.scss */
 .created {
   stroke: teal;
-  stroke-width: 3px;
+  stroke-width: 4px;
   stroke-opacity: 1;
   stroke-linecap: square;
 }
@@ -290,24 +290,26 @@ li {
 /* line 147, scss/styles.scss */
 .exhibited {
   stroke: purple;
-  stroke-width: 3px;
+  stroke-width: 4px;
   stroke-opacity: 1;
   stroke-linecap: square;
 }
 
 /* line 154, scss/styles.scss */
 .acquired {
-  fill: orange;
+  stroke: orange;
+  stroke-width: 1px;
+  fill: white;
 }
 
-/* line 160, scss/styles.scss */
+/* line 162, scss/styles.scss */
 .axis text {
   font-family: Helvetica,sans-serif;
   font-size: 10px;
   font-weight: 400;
 }
 
-/* line 167, scss/styles.scss */
+/* line 169, scss/styles.scss */
 .axis line {
   fill: none;
   stroke: darkgrey;
@@ -315,17 +317,17 @@ li {
   shape-rendering: crispEdges;
 }
 
-/* line 174, scss/styles.scss */
+/* line 176, scss/styles.scss */
 .axis path, .subaxis path {
   display: none;
 }
 
-/* line 178, scss/styles.scss */
+/* line 180, scss/styles.scss */
 .subaxis text {
   display: none;
 }
 
-/* line 182, scss/styles.scss */
+/* line 184, scss/styles.scss */
 .subaxis line {
   fill: none;
   stroke: lightgrey;
@@ -333,7 +335,7 @@ li {
   shape-rendering: crispEdges;
 }
 
-/* line 189, scss/styles.scss */
+/* line 191, scss/styles.scss */
 .tooltip {
   text-anchor: middle;
   font-family: sans-serif;
@@ -341,7 +343,7 @@ li {
   fill: black;
 }
 
-/* line 198, scss/styles.scss */
+/* line 200, scss/styles.scss */
 button {
   border: none;
   background-color: #ededed;
@@ -383,7 +385,7 @@ button a {
 button a:link, button a:visited {
   color: #333333;
 }
-/* line 212, scss/styles.scss */
+/* line 214, scss/styles.scss */
 button :hover, button :active, button :focus {
   color: #333333;
   font-family: "Akkurat";
@@ -391,7 +393,7 @@ button :hover, button :active, button :focus {
   cursor: pointer;
 }
 
-/* line 225, scss/styles.scss */
+/* line 227, scss/styles.scss */
 button:hover,
 button:active,
 button:focus {
@@ -402,7 +404,7 @@ button:focus {
 }
 
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 241, scss/styles.scss */
+/* line 243, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;

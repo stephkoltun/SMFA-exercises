@@ -139,20 +139,22 @@ li {
 
 .created {
 	stroke: teal;
-	stroke-width: 3px;
+	stroke-width: 4px;
 	stroke-opacity: 1;
 	stroke-linecap: square;
 }
 
 .exhibited {
 	stroke: purple;
-	stroke-width: 3px;
+	stroke-width: 4px;
 	stroke-opacity: 1;
 	stroke-linecap: square;
 }
 
 .acquired {
-	fill: orange;
+	stroke: orange;
+	stroke-width: 1px;
+	fill: white;
 }
 
 
