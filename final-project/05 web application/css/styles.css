@@ -302,14 +302,24 @@ li {
   fill: white;
 }
 
-/* line 162, scss/styles.scss */
+/* line 160, scss/styles.scss */
+.acquiredLine {
+  stroke: orange;
+}
+
+/* line 164, scss/styles.scss */
+#exhibitedLine {
+  stroke: purple;
+}
+
+/* line 170, scss/styles.scss */
 .axis text {
   font-family: Helvetica,sans-serif;
   font-size: 10px;
   font-weight: 400;
 }
 
-/* line 169, scss/styles.scss */
+/* line 177, scss/styles.scss */
 .axis line {
   fill: none;
   stroke: darkgrey;
@@ -317,17 +327,17 @@ li {
   shape-rendering: crispEdges;
 }
 
-/* line 176, scss/styles.scss */
+/* line 184, scss/styles.scss */
 .axis path, .subaxis path {
   display: none;
 }
 
-/* line 180, scss/styles.scss */
+/* line 188, scss/styles.scss */
 .subaxis text {
   display: none;
 }
 
-/* line 184, scss/styles.scss */
+/* line 192, scss/styles.scss */
 .subaxis line {
   fill: none;
   stroke: lightgrey;
@@ -335,7 +345,7 @@ li {
   shape-rendering: crispEdges;
 }
 
-/* line 191, scss/styles.scss */
+/* line 199, scss/styles.scss */
 .tooltip {
   text-anchor: middle;
   font-family: sans-serif;
@@ -343,7 +353,7 @@ li {
   fill: black;
 }
 
-/* line 200, scss/styles.scss */
+/* line 208, scss/styles.scss */
 button {
   border: none;
   background-color: #ededed;
@@ -385,7 +395,7 @@ button a {
 button a:link, button a:visited {
   color: #333333;
 }
-/* line 214, scss/styles.scss */
+/* line 222, scss/styles.scss */
 button :hover, button :active, button :focus {
   color: #333333;
   font-family: "Akkurat";
@@ -393,7 +403,7 @@ button :hover, button :active, button :focus {
   cursor: pointer;
 }
 
-/* line 227, scss/styles.scss */
+/* line 235, scss/styles.scss */
 button:hover,
 button:active,
 button:focus {
@@ -404,7 +414,7 @@ button:focus {
 }
 
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 243, scss/styles.scss */
+/* line 251, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;
