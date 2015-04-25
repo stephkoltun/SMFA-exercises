@@ -44,22 +44,22 @@ Stephanie Koltun
   src: url(/fonts/font-awesome/fonts/FontAwesome.otf) format('opentype');
 }
 
-/* line 10, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_typography.scss */
+/* line 10, scss/defaults/_typography.scss */
 p {
   color: #333333;
   font-family: "Akkurat-Light";
   font-size: .8em;
 }
-/* line 17, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_typography.scss */
+/* line 17, scss/defaults/_typography.scss */
 p a {
   text-decoration: none;
 }
-/* line 20, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_typography.scss */
+/* line 20, scss/defaults/_typography.scss */
 p a:link, p a:visited {
   color: #333333;
 }
 
-/* line 28, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_typography.scss */
+/* line 28, scss/defaults/_typography.scss */
 h1 {
   margin: 10px 0 20px 0;
   color: #333333;
@@ -69,12 +69,12 @@ h1 {
   line-height: 1.2;
   text-transform: uppercase;
 }
-/* line 40, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_typography.scss */
+/* line 40, scss/defaults/_typography.scss */
 h1 a:link, h1 a:visited {
   text-decoration: underline;
   color: #333333;
 }
-/* line 45, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_typography.scss */
+/* line 45, scss/defaults/_typography.scss */
 h1 a:hover {
   text-decoration: none;
 }
@@ -92,7 +92,7 @@ h2 {
 	}
 }
  */
-/* line 68, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_typography.scss */
+/* line 68, scss/defaults/_typography.scss */
 h3 {
   display: inline;
   margin: 1em 0 0 0;
@@ -103,7 +103,7 @@ h3 {
   font-size: .8em;
   font-weight: 100;
 }
-/* line 82, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_typography.scss */
+/* line 82, scss/defaults/_typography.scss */
 h3 a:link, h3 a:visited {
   family: "Akkurat-LightItalic";
   text-decoration: none;
@@ -115,7 +115,7 @@ h3 a:link, h3 a:visited {
 	border: 1px solid red;
 }*/
 /* line 31, scss/styles.scss */
-html, body, header {
+html, body {
   height: 100%;
 }
 
@@ -123,50 +123,51 @@ html, body, header {
 header {
   max-width: 130px;
   float: left;
+  height: 1300px;
 }
 
-/* line 40, scss/styles.scss */
+/* line 41, scss/styles.scss */
 body {
   margin: 0 auto;
   background-color: white;
 }
 
-/* line 46, scss/styles.scss */
+/* line 47, scss/styles.scss */
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 52, scss/styles.scss */
+/* line 53, scss/styles.scss */
 li {
   padding-right: 1em;
 }
 
 /* ----------- NAVIGATION ----------- */
-/* line 61, scss/styles.scss */
+/* line 62, scss/styles.scss */
 #nav-bar {
   margin: 0 auto;
   padding: 15px 30px;
   background-color: #ededed;
   font-family: "Akkurat";
 }
-/* line 67, scss/styles.scss */
+/* line 68, scss/styles.scss */
 #nav-bar a, #nav-bar a:visited {
   color: #333333;
   text-decoration: none;
 }
-/* line 71, scss/styles.scss */
+/* line 72, scss/styles.scss */
 #nav-bar a:hover {
   color: #333333;
   text-decoration: underline;
 }
 
-/* line 77, scss/styles.scss */
+/* line 78, scss/styles.scss */
 #key {
   margin-bottom: 50px;
 }
-/* line 7, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_mixins.scss */
+/* line 7, scss/defaults/_mixins.scss */
 #key h1 {
   color: #333333;
   font-family: "Akkurat";
@@ -174,7 +175,7 @@ li {
   font-size: .8em;
   margin: 0;
 }
-/* line 17, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_mixins.scss */
+/* line 17, scss/defaults/_mixins.scss */
 #key h2 {
   color: #b2b2b2;
   font-family: "Akkurat-Italic";
@@ -183,34 +184,34 @@ li {
   margin-top: 20px;
   margin-bottom: 5px;
 }
-/* line 29, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_mixins.scss */
+/* line 29, scss/defaults/_mixins.scss */
 #key p {
   color: #333333;
   font-family: "Akkurat-Light";
   font-size: .7em;
 }
-/* line 37, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_mixins.scss */
+/* line 37, scss/defaults/_mixins.scss */
 #key a {
   text-decoration: none;
 }
-/* line 40, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_mixins.scss */
+/* line 40, scss/defaults/_mixins.scss */
 #key a:link, #key a:visited {
   color: #333333;
 }
-/* line 79, scss/styles.scss */
+/* line 80, scss/styles.scss */
 #key li {
   color: #333333;
   font-family: "Akkurat-LightItalic";
   font-size: .7em;
   padding: 3px 0 3px 10px;
 }
-/* line 88, scss/styles.scss */
+/* line 89, scss/styles.scss */
 #key i {
   color: #333333;
   padding-right: 13px;
 }
 
-/* line 7, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_mixins.scss */
+/* line 7, scss/defaults/_mixins.scss */
 #modes h1, #sort h1, #arrange h1, #group h1 {
   color: #333333;
   font-family: "Akkurat";
@@ -218,7 +219,7 @@ li {
   font-size: .8em;
   margin: 0;
 }
-/* line 17, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_mixins.scss */
+/* line 17, scss/defaults/_mixins.scss */
 #modes h2, #sort h2, #arrange h2, #group h2 {
   color: #b2b2b2;
   font-family: "Akkurat-Italic";
@@ -227,34 +228,34 @@ li {
   margin-top: 20px;
   margin-bottom: 5px;
 }
-/* line 29, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_mixins.scss */
+/* line 29, scss/defaults/_mixins.scss */
 #modes p, #sort p, #arrange p, #group p {
   color: #333333;
   font-family: "Akkurat-Light";
   font-size: .7em;
 }
-/* line 37, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_mixins.scss */
+/* line 37, scss/defaults/_mixins.scss */
 #modes a, #sort a, #arrange a, #group a {
   text-decoration: none;
 }
-/* line 40, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_mixins.scss */
+/* line 40, scss/defaults/_mixins.scss */
 #modes a:link, #modes a:visited, #sort a:link, #sort a:visited, #arrange a:link, #arrange a:visited, #group a:link, #group a:visited {
   color: #333333;
 }
-/* line 97, scss/styles.scss */
+/* line 98, scss/styles.scss */
 #modes li, #sort li, #arrange li, #group li {
   color: #b2b2b2;
   font-family: "Akkurat-Light";
   font-size: .7em;
 }
-/* line 105, scss/styles.scss */
+/* line 106, scss/styles.scss */
 #modes i, #sort i, #arrange i, #group i {
   color: #b2b2b2;
   padding-left: 6px;
 }
 
 /*--------- GRAPH ---------*/
-/* line 118, scss/styles.scss */
+/* line 119, scss/styles.scss */
 .lines {
   stroke-width: 1px;
   stroke-dasharray: 1px , 1px;
@@ -263,7 +264,14 @@ li {
   stroke: black;
 }
 
-/* line 126, scss/styles.scss */
+/* line 127, scss/styles.scss */
+.obj-trigger {
+  stroke-width: 10px;
+  stroke-linecap: round;
+  stroke: white;
+}
+
+/* line 133, scss/styles.scss */
 .created {
   stroke: teal;
   stroke-width: 3px;
@@ -271,7 +279,7 @@ li {
   stroke-linecap: square;
 }
 
-/* line 133, scss/styles.scss */
+/* line 140, scss/styles.scss */
 .exhibited {
   stroke: purple;
   stroke-width: 3px;
@@ -279,19 +287,19 @@ li {
   stroke-linecap: square;
 }
 
-/* line 140, scss/styles.scss */
+/* line 147, scss/styles.scss */
 .acquired {
   fill: orange;
 }
 
-/* line 146, scss/styles.scss */
+/* line 153, scss/styles.scss */
 .axis text {
   font-family: Helvetica,sans-serif;
   font-size: 10px;
   font-weight: 400;
 }
 
-/* line 153, scss/styles.scss */
+/* line 160, scss/styles.scss */
 .axis line {
   fill: none;
   stroke: darkgrey;
@@ -299,17 +307,17 @@ li {
   shape-rendering: crispEdges;
 }
 
-/* line 160, scss/styles.scss */
+/* line 167, scss/styles.scss */
 .axis path, .subaxis path {
   display: none;
 }
 
-/* line 164, scss/styles.scss */
+/* line 171, scss/styles.scss */
 .subaxis text {
   display: none;
 }
 
-/* line 168, scss/styles.scss */
+/* line 175, scss/styles.scss */
 .subaxis line {
   fill: none;
   stroke: lightgrey;
@@ -317,7 +325,7 @@ li {
   shape-rendering: crispEdges;
 }
 
-/* line 177, scss/styles.scss */
+/* line 184, scss/styles.scss */
 button {
   border: none;
   background-color: #ededed;
@@ -328,7 +336,7 @@ button {
   font-family: "Akkurat-Light";
   font-size: 1em;
 }
-/* line 7, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_mixins.scss */
+/* line 7, scss/defaults/_mixins.scss */
 button h1 {
   color: #333333;
   font-family: "Akkurat";
@@ -336,7 +344,7 @@ button h1 {
   font-size: .8em;
   margin: 0;
 }
-/* line 17, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_mixins.scss */
+/* line 17, scss/defaults/_mixins.scss */
 button h2 {
   color: #b2b2b2;
   font-family: "Akkurat-Italic";
@@ -345,21 +353,21 @@ button h2 {
   margin-top: 20px;
   margin-bottom: 5px;
 }
-/* line 29, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_mixins.scss */
+/* line 29, scss/defaults/_mixins.scss */
 button p {
   color: #333333;
   font-family: "Akkurat-Light";
   font-size: .7em;
 }
-/* line 37, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_mixins.scss */
+/* line 37, scss/defaults/_mixins.scss */
 button a {
   text-decoration: none;
 }
-/* line 40, /Users/stephaniekoltun/GitHub/homework-koltun/final-project/05 web application/css/scss/defaults/_mixins.scss */
+/* line 40, scss/defaults/_mixins.scss */
 button a:link, button a:visited {
   color: #333333;
 }
-/* line 191, scss/styles.scss */
+/* line 198, scss/styles.scss */
 button :hover, button :active, button :focus {
   color: #333333;
   font-family: "Akkurat";
@@ -367,7 +375,7 @@ button :hover, button :active, button :focus {
   cursor: pointer;
 }
 
-/* line 204, scss/styles.scss */
+/* line 211, scss/styles.scss */
 button:hover,
 button:active,
 button:focus {
@@ -378,7 +386,7 @@ button:focus {
 }
 
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 220, scss/styles.scss */
+/* line 227, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;

@@ -90,27 +90,28 @@ for (i = 0; i < objectsIDList.length; i++) {
 }
 
 
+
+
+
+
+
 function makeGraph() {
+
+
+	/* ------ SET UP VARIABLES AND DATA FUNCTIONS ------ */
+
 	var margin = {top: 30, right: 20, bottom: 30, left: 50},
     	width = 1000 - margin.left - margin.right,
-    	height = 650 - margin.top - margin.bottom;
-
-
-	//var data = allObjectsDataset; //global variable
-	//console.log(data);
+    	height = 1000 - margin.top - margin.bottom,
+    	padding = allObjectsDataset.length * 1.35;
 
 	// Parse the date
 	var format = d3.time.format("%Y"),
 		mindate = format.parse("1880"),
 		maxdate = format.parse("2020");
 
-	/* 
-	 * value accessor - returns the value to encode for a given data object.
-	 * scale - maps value to a visual display encoding, such as a pixel position.
-	 * map function - maps from data value to display value
-	 * axis - sets up axis
-	 */
 
+	// Set up scale functions
 	var x = d3.time.scale()
 			.range([0, width]) // value -> display
 			.domain([mindate, maxdate]);
@@ -120,6 +121,7 @@ function makeGraph() {
 			.domain([0, allObjectsDataset.length]);
 
 
+	// Scale and map date value functions
 	// convert number year to string, and format for d3
 	var xYearStart = function(d) { return format.parse((d.yearStart).toString());}, 
 	    xYearStartMap = function(d) { return x(xYearStart(d));}; // data -> display
@@ -145,14 +147,14 @@ function makeGraph() {
 		xExhibitStartMap = function(d) { return x(xExhibitStart(d));}; // data -> display
 
 
-
-
-	
-
-	// AXES
+	// Define axes
 	var xAxis = d3.svg.axis().scale(x).orient("bottom").ticks(15).tickSize(-10);
 	var xSubAxis = d3.svg.axis().scale(x).orient("bottom").ticks(150).tickSize(-5);
-	//var yAxis = d3.svg.axis().scale(y).orient("left").ticks(50);
+
+
+
+
+	/* ------ MAKE THE GRAPH ------ */
 
 
 	console.log("Set up SVG");
@@ -178,28 +180,30 @@ function makeGraph() {
 
 	
 
-	/*svg.append("g")
-		.attr("class","axis")
-		.attr("transform", "translate(" + margin.right + "," + margin.bottom + ")")
-		.call(yAxis);*/
 
-
-
-	/* ------ OBJECTS AS BARS ------ */
-
-	// DEFINE GROUPS
+	// DEFINE GROUPS FOR EACH OBJECT
 	var objects = svg.selectAll("g.object") //select all <g> w/class "object" in <svg> (empty)
 		.data(allObjectsDataset) // join the selection to a data array
 		.enter() // create a selection for the data objects that didn't match elements (all)
 		.append("g") // add a new <g> for each data object
 		.attr("class","object") // set the <g>'s class to match selection criteria
 		.attr("transform", function(d,i) {
-				return "translate(" + margin.left + "," + (y(i)+margin.top) + ")";});
+				return "translate(" + margin.left + "," + (y(i*1.15)+margin.top) + ")";});
 
 	// ADD LINES AND CIRCLES within each object <g>, inherits data from <g>
+
+	// add "invisible" shape for mouseover trigger
+	var trigger = objects.append("line")
+		.attr("class","obj-trigger")
+		.attr("x1", xYearStartMap)
+		.attr("y1", "0")
+		.attr("x2", xExhibitEndMap)
+		.attr("y2", "0")
+		.attr('pointer-events', 'all');
+
 	var lines = objects.append("line") //overall connection line for each obj
 		.attr("class","lines") // set class for CSS styling
-		.attr("x1", xYearEndMap)
+		.attr("x1", xYearStartMap)
 		.attr("y1", "0")
 		.attr("x2", xExhibitEndMap)
 		.attr("y2", "0");
@@ -224,10 +228,13 @@ function makeGraph() {
 		.attr("cy", "0")
 		.attr("r","2px");
 
+	
 
 
 
-	/* ------ SORTING ------ */
+
+	/* ------ SORTING FUNCTIONS ------ */
+
 	var resortAcquire = d3.select("#sortAcquired")
 		.on("click", function() {
 			console.log("resorting by year acquired");
@@ -280,10 +287,32 @@ function makeGraph() {
 	    	});
     	});
 
+
+    /* ------ TOOL TIPS AND MOUSE EVENTS ------ */
+
+    d3.selectAll(".obj-trigger").on("mouseover", function(d) {
+    	d3.select(this)
+    	.transition()
+    	.duration(250)
+    	.style("stroke","rgb(240,240,240)");
+    })
+
+    d3.selectAll(".obj-trigger").on("mouseout", function(d) {
+    	d3.select(this)
+    	.transition()
+    	.duration(250)
+    	.style("stroke","rgb(255,255,255)");
+    })
+
+
+
+
 }; // end of graphing function
 
 
-// check if all data has been looped through and returned from API
+
+
+// AFTER LOOPING THROUGH ID LIST AND COMPLETING AJAX REQUESTS...
 // checks if counter is equal to the length of objects being looped through
 function after(callback, count){
 	var counter = 0;

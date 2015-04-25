@@ -28,13 +28,14 @@ Stephanie Koltun
 	border: 1px solid red;
 }*/
 
-html, body, header {
+html, body {
 	height: 100%;
 }
 
 header {
 	max-width: 130px;
 	float: left;
+	height: 1300px;
 }
 
 body {
@@ -121,6 +122,12 @@ li {
 	stroke-linecap: butt;
 	stroke-opacity: 0.4;
 	stroke: black;
+}
+
+.obj-trigger {
+	stroke-width: 10px;
+	stroke-linecap: round;
+	stroke: white;
 }
 
 .created {
