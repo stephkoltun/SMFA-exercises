@@ -310,18 +310,59 @@ function makeGraph() {
     	.style('opacity','0.5');
 
     	//don't fade selected object markers
-    	d3.select(this).selectAll('g > circle')
+    	d3.select(this).selectAll('.acquired')
     		.transition()
     		.style('opacity','1');
 
-    	d3.select(this).selectAll('g > line')
+    	d3.select(this).selectAll('.exhibited')
     		.transition()
     		.style('opacity','1');
 
+    	d3.select(this).selectAll('.created')
+    		.transition()
+    		.style('opacity','1');
+
+    	//background highlight for selected object
     	d3.select(this).selectAll('.obj-trigger')
     		.transition()
-    		.duration(250)
-    		.style("stroke","rgb(240,240,240)");
+    		.duration(100)
+    		.style("opacity","1.0");
+
+
+    	// YEAR LABELS
+    	var currentObject = d3.select(this);
+
+    	//Created Start
+    	var xPositionStart = parseFloat(d3.select(this).selectAll('.created').attr("x1"));
+    	var xPositionEnd = parseFloat(d3.select(this).selectAll('.created').attr("x2"));
+    	var yPositionCreated = parseFloat(d3.select(this).selectAll('.created').attr("y1")) - 5;
+
+    	currentObject.append("text")
+    		.attr("class", "tooltip")
+    		.attr("x", xPositionStart)
+    		.attr("y", yPositionCreated)
+    		.text(d.yearStart);
+
+    	if (xPositionStart != xPositionEnd) {
+    		currentObject.append("text")
+	    		.attr("class", "tooltip")
+	    		.attr("x", xPositionEnd)
+	    		.attr("y", yPositionCreated)
+	    		.text(d.yearEnd);
+    	}
+
+
+    	//Acquired
+    	var xPositionAcquired = parseFloat(d3.select(this).selectAll('g > circle').attr("cx"));
+    	var yPositionAcquired = parseFloat(d3.select(this).selectAll('g > circle').attr("cy")) - 5;
+
+    	currentObject.append("text")
+    		.attr("class", "tooltip")
+    		.attr("x", xPositionAcquired)
+    		.attr("y", yPositionAcquired)
+    		.text(d.yearAcquired);
+
+
 
     });
 
@@ -345,8 +386,10 @@ function makeGraph() {
 
     	d3.select(this).selectAll('.obj-trigger')
     		.transition()
-    		.duration(250)
-    		.style("stroke","rgb(255,255,255)");
+    		.duration(100)
+    		.style("opacity","0.0");
+
+    	d3.select(this).selectAll(".tooltip").remove();
 
 
     });

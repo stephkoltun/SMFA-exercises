@@ -265,7 +265,7 @@ li {
 /* line 125, scss/styles.scss */
 .lines {
   stroke-width: 1px;
-  stroke-dasharray: 1px , 1px;
+  stroke-dasharray: 1px , 1.5px;
   stroke-linecap: butt;
   stroke-opacity: 0.4;
   stroke: black;
@@ -275,10 +275,11 @@ li {
 .obj-trigger {
   stroke-width: 10px;
   stroke-linecap: round;
-  stroke: white;
+  stroke: #f0f0f0;
+  stroke-opacity: 0.0;
 }
 
-/* line 139, scss/styles.scss */
+/* line 140, scss/styles.scss */
 .created {
   stroke: teal;
   stroke-width: 3px;
@@ -286,7 +287,7 @@ li {
   stroke-linecap: square;
 }
 
-/* line 146, scss/styles.scss */
+/* line 147, scss/styles.scss */
 .exhibited {
   stroke: purple;
   stroke-width: 3px;
@@ -294,19 +295,19 @@ li {
   stroke-linecap: square;
 }
 
-/* line 153, scss/styles.scss */
+/* line 154, scss/styles.scss */
 .acquired {
   fill: orange;
 }
 
-/* line 159, scss/styles.scss */
+/* line 160, scss/styles.scss */
 .axis text {
   font-family: Helvetica,sans-serif;
   font-size: 10px;
   font-weight: 400;
 }
 
-/* line 166, scss/styles.scss */
+/* line 167, scss/styles.scss */
 .axis line {
   fill: none;
   stroke: darkgrey;
@@ -314,17 +315,17 @@ li {
   shape-rendering: crispEdges;
 }
 
-/* line 173, scss/styles.scss */
+/* line 174, scss/styles.scss */
 .axis path, .subaxis path {
   display: none;
 }
 
-/* line 177, scss/styles.scss */
+/* line 178, scss/styles.scss */
 .subaxis text {
   display: none;
 }
 
-/* line 181, scss/styles.scss */
+/* line 182, scss/styles.scss */
 .subaxis line {
   fill: none;
   stroke: lightgrey;
@@ -332,7 +333,15 @@ li {
   shape-rendering: crispEdges;
 }
 
-/* line 190, scss/styles.scss */
+/* line 189, scss/styles.scss */
+.tooltip {
+  text-anchor: middle;
+  font-family: sans-serif;
+  font-size: 8px;
+  fill: black;
+}
+
+/* line 198, scss/styles.scss */
 button {
   border: none;
   background-color: #ededed;
@@ -374,7 +383,7 @@ button a {
 button a:link, button a:visited {
   color: #333333;
 }
-/* line 204, scss/styles.scss */
+/* line 212, scss/styles.scss */
 button :hover, button :active, button :focus {
   color: #333333;
   font-family: "Akkurat";
@@ -382,7 +391,7 @@ button :hover, button :active, button :focus {
   cursor: pointer;
 }
 
-/* line 217, scss/styles.scss */
+/* line 225, scss/styles.scss */
 button:hover,
 button:active,
 button:focus {
@@ -393,7 +402,7 @@ button:focus {
 }
 
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 233, scss/styles.scss */
+/* line 241, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;
