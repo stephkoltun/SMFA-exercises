@@ -288,21 +288,83 @@ function makeGraph() {
     	});
 
 
-    /* ------ TOOL TIPS AND MOUSE EVENTS ------ */
+    /* ------ MOUSEOVER EVENTS FOR SELECTED OBJECT ------ */
 
+    d3.selectAll("g").on("mouseover", function(d) {
+
+    	//fade all markers
+    	d3.selectAll('.acquired')
+    	.transition()
+    	.style('opacity','0.5');
+
+    	d3.selectAll('.created')
+    	.transition()
+    	.style('opacity','0.5');
+
+    	d3.selectAll('.exhibited')
+    	.transition()
+    	.style('opacity','0.5');
+
+    	d3.selectAll('.lines')
+    	.transition()
+    	.style('opacity','0.5');
+
+    	//don't fade selected object markers
+    	d3.select(this).selectAll('g > circle')
+    		.transition()
+    		.style('opacity','1');
+
+    	d3.select(this).selectAll('g > line')
+    		.transition()
+    		.style('opacity','1');
+
+    	d3.select(this).selectAll('.obj-trigger')
+    		.transition()
+    		.duration(250)
+    		.style("stroke","rgb(240,240,240)");
+
+    });
+
+
+    d3.selectAll("g").on("mouseout", function(d) {
+		d3.selectAll('.acquired')
+    	.transition()
+    	.style('opacity','1');
+
+    	d3.selectAll('.created')
+    	.transition()
+    	.style('opacity','1');
+
+    	d3.selectAll('.exhibited')
+    	.transition()
+    	.style('opacity','1');
+
+    	d3.selectAll('.lines')
+    	.transition()
+    	.style('opacity','1');
+
+    	d3.select(this).selectAll('.obj-trigger')
+    		.transition()
+    		.duration(250)
+    		.style("stroke","rgb(255,255,255)");
+
+
+    });
+
+
+    /*// add grey bar to selected object
     d3.selectAll(".obj-trigger").on("mouseover", function(d) {
     	d3.select(this)
     	.transition()
     	.duration(250)
     	.style("stroke","rgb(240,240,240)");
     })
-
     d3.selectAll(".obj-trigger").on("mouseout", function(d) {
     	d3.select(this)
     	.transition()
     	.duration(250)
     	.style("stroke","rgb(255,255,255)");
-    })
+    });*/
 
 
 

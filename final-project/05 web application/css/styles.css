@@ -123,7 +123,7 @@ html, body {
 header {
   max-width: 130px;
   float: left;
-  height: 1300px;
+  height: 1000px;
 }
 
 /* line 41, scss/styles.scss */
@@ -203,9 +203,10 @@ li {
   color: #333333;
   font-family: "Akkurat-LightItalic";
   font-size: .7em;
-  padding: 3px 0 3px 10px;
+  padding: 0px 0px 3px 0px;
+  margin: 0;
 }
-/* line 89, scss/styles.scss */
+/* line 90, scss/styles.scss */
 #key i {
   color: #333333;
   padding-right: 13px;
@@ -242,20 +243,26 @@ li {
 #modes a:link, #modes a:visited, #sort a:link, #sort a:visited, #arrange a:link, #arrange a:visited, #group a:link, #group a:visited {
   color: #333333;
 }
-/* line 98, scss/styles.scss */
+/* line 99, scss/styles.scss */
 #modes li, #sort li, #arrange li, #group li {
   color: #b2b2b2;
   font-family: "Akkurat-Light";
   font-size: .7em;
 }
-/* line 106, scss/styles.scss */
+/* line 107, scss/styles.scss */
 #modes i, #sort i, #arrange i, #group i {
   color: #b2b2b2;
   padding-left: 6px;
 }
 
+/* line 113, scss/styles.scss */
+#legend {
+  padding: 0;
+  margin: 0;
+}
+
 /*--------- GRAPH ---------*/
-/* line 119, scss/styles.scss */
+/* line 125, scss/styles.scss */
 .lines {
   stroke-width: 1px;
   stroke-dasharray: 1px , 1px;
@@ -264,14 +271,14 @@ li {
   stroke: black;
 }
 
-/* line 127, scss/styles.scss */
+/* line 133, scss/styles.scss */
 .obj-trigger {
   stroke-width: 10px;
   stroke-linecap: round;
   stroke: white;
 }
 
-/* line 133, scss/styles.scss */
+/* line 139, scss/styles.scss */
 .created {
   stroke: teal;
   stroke-width: 3px;
@@ -279,7 +286,7 @@ li {
   stroke-linecap: square;
 }
 
-/* line 140, scss/styles.scss */
+/* line 146, scss/styles.scss */
 .exhibited {
   stroke: purple;
   stroke-width: 3px;
@@ -287,19 +294,19 @@ li {
   stroke-linecap: square;
 }
 
-/* line 147, scss/styles.scss */
+/* line 153, scss/styles.scss */
 .acquired {
   fill: orange;
 }
 
-/* line 153, scss/styles.scss */
+/* line 159, scss/styles.scss */
 .axis text {
   font-family: Helvetica,sans-serif;
   font-size: 10px;
   font-weight: 400;
 }
 
-/* line 160, scss/styles.scss */
+/* line 166, scss/styles.scss */
 .axis line {
   fill: none;
   stroke: darkgrey;
@@ -307,17 +314,17 @@ li {
   shape-rendering: crispEdges;
 }
 
-/* line 167, scss/styles.scss */
+/* line 173, scss/styles.scss */
 .axis path, .subaxis path {
   display: none;
 }
 
-/* line 171, scss/styles.scss */
+/* line 177, scss/styles.scss */
 .subaxis text {
   display: none;
 }
 
-/* line 175, scss/styles.scss */
+/* line 181, scss/styles.scss */
 .subaxis line {
   fill: none;
   stroke: lightgrey;
@@ -325,7 +332,7 @@ li {
   shape-rendering: crispEdges;
 }
 
-/* line 184, scss/styles.scss */
+/* line 190, scss/styles.scss */
 button {
   border: none;
   background-color: #ededed;
@@ -367,7 +374,7 @@ button a {
 button a:link, button a:visited {
   color: #333333;
 }
-/* line 198, scss/styles.scss */
+/* line 204, scss/styles.scss */
 button :hover, button :active, button :focus {
   color: #333333;
   font-family: "Akkurat";
@@ -375,7 +382,7 @@ button :hover, button :active, button :focus {
   cursor: pointer;
 }
 
-/* line 211, scss/styles.scss */
+/* line 217, scss/styles.scss */
 button:hover,
 button:active,
 button:focus {
@@ -386,7 +393,7 @@ button:focus {
 }
 
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 227, scss/styles.scss */
+/* line 233, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;
