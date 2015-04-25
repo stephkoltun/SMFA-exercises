@@ -293,38 +293,16 @@ function makeGraph() {
     d3.selectAll("g").on("mouseover", function(d) {
 
     	//fade all markers
-    	d3.selectAll('.acquired')
+    	d3.selectAll('.acquired, .created, .exhibited, .lines')
     	.transition()
     	.style('opacity','0.3');
 
-    	d3.selectAll('.created')
-    	.transition()
-    	.style('opacity','0.3');
-
-    	d3.selectAll('.exhibited')
-    	.transition()
-    	.style('opacity','0.3');
-
-    	d3.selectAll('.lines')
-    	.transition()
-    	.style('opacity','0.3');
 
     	//don't fade selected object markers
-    	d3.select(this).selectAll('.acquired')
+    	d3.select(this).selectAll('.acquired, .created, .exhibited, .lines')
     	.transition()
     		.style('opacity','1');
 
-    	d3.select(this).selectAll('.exhibited')
-    	.transition()
-    		.style('opacity','1');
-
-    	d3.select(this).selectAll('.created')
-    	.transition()
-    		.style('opacity','1');
-
-    	d3.select(this).selectAll('.lines')
-    	.transition()
-    		.style('opacity','1');
 
     	//background highlight for selected object
     	d3.select(this).selectAll('.obj-trigger')
@@ -335,7 +313,7 @@ function makeGraph() {
     	// YEAR LABELS
     	var currentObject = d3.select(this);
 
-    	//Created Start
+    	//Created Marker Positions
     	var xPositionStart = parseFloat(d3.select(this).selectAll('.created').attr("x1"));
     	var xPositionEnd = parseFloat(d3.select(this).selectAll('.created').attr("x2"));
     	var xPositionMiddle = (xPositionStart + (xPositionEnd-xPositionStart))
@@ -352,57 +330,51 @@ function makeGraph() {
     	}
 
 		// if created spans less than 5 years
-    	else if ((xPositionEnd - xPositionStart) <= 5) {
+    	else if ((d.yearEnd - d.yearStart) <= 5) {
     		currentObject.append("text")
 	    		.attr("class", "tooltip")
-	    		.attr("x", xPositionMid)
+	    		.attr("x", xPositionMiddle)
 	    		.attr("y", yPositionCreated)
 	    		.text(d.yearStart + " - " + d.yearEnd);
     	}
 
     	// if created spans more than 5 years
-    	else ((xPositionEnd - xPositionStart) <= 5) {
+    	if ((d.yearEnd - d.yearStart) > 5) {
     		currentObject.append("text")
-    		.attr("class", "tooltip")
-    		.attr("x", xPositionStart)
-    		.attr("y", yPositionCreated)
-    		.text(d.yearStart);
+	    		.attr("class", "tooltip")
+	    		.attr("x", xPositionStart)
+	    		.attr("y", yPositionCreated)
+	    		.text(d.yearStart);
 
-    		currentObject.append("text")
-    		.attr("class", "tooltip")
-    		.attr("x", xPositionEnd)
-    		.attr("y", yPositionCreated)
-    		.text(d.yearEnd);
+	    		currentObject.append("text")
+	    		.attr("class", "tooltip")
+	    		.attr("x", xPositionEnd)
+	    		.attr("y", yPositionCreated)
+	    		.text(d.yearEnd);
     	}
 
 
-    	//Acquired
+    	//Acquired Marker Positions
     	var xPositionAcquired = parseFloat(d3.select(this).selectAll('g > circle').attr("cx"));
-    	var yPositionAcquired = parseFloat(d3.select(this).selectAll('g > circle').attr("cy")) - 5;
+    	var yPositionAcquired = parseFloat(d3.select(this).selectAll('g > circle').attr("cy")) - 8;
 
-    	currentObject.append("text")
-    		.attr("class", "tooltip")
-    		.attr("x", xPositionAcquired)
-    		.attr("y", yPositionAcquired)
-    		.text(d.yearAcquired);
+    	// only show year if not already shown
+    	if (d.yearEnd != d.yearAcquired || d.yearStart != d.yearAcquired) {
+	    	currentObject.append("text")
+	    		.attr("class", "tooltip")
+	    		.attr("x", xPositionAcquired)
+	    		.attr("y", yPositionAcquired)
+	    		.text(d.yearAcquired);
+    	}
+
+
+
     }); //end mouse over
 
 
     d3.selectAll("g").on("mouseout", function(d) {
-		d3.selectAll('.acquired')
+		d3.selectAll('.acquired, .created, .exhibited, .lines')
 		.transition()
-    	.style('opacity','1');
-
-    	d3.selectAll('.created')
-    	.transition()
-    	.style('opacity','1');
-
-    	d3.selectAll('.exhibited')
-    	.transition()
-    	.style('opacity','1');
-
-    	d3.selectAll('.lines')
-    	.transition()
     	.style('opacity','1');
 
     	d3.select(this).selectAll('.obj-trigger')
