@@ -101,8 +101,8 @@ function makeGraph() {
 	/* ------ SET UP VARIABLES AND DATA FUNCTIONS ------ */
 
 	var margin = {top: 30, right: 20, bottom: 30, left: 50},
-    	width = 1000 - margin.left - margin.right,
-    	height = 1100 - margin.top - margin.bottom,
+    	width = $(window).width() - margin.left - margin.right - 210,
+    	height = 1600 - margin.top - margin.bottom,
     	padding = allObjectsDataset.length * 1.35;
 
 	// Parse the date
@@ -163,14 +163,19 @@ function makeGraph() {
 				.attr("width", width + margin.left + margin.right)
 				.attr("height", height + margin.top*2 + margin.bottom);
 
+	var svgAxes = d3.select("#graphAxes")
+				.append("svg")
+				.attr("width", width + margin.left + margin.right)
+				.attr("height", 200);
+
 	//Created AXES
-	svg.append("g")
+	svgAxes.append("g")
 		.attr("class","subaxis")
-		.attr("transform", "translate(" + margin.left + "," + (height+margin.bottom+margin.top) + ")")
+		.attr("transform", "translate(50,50)")
 		.call(xSubAxis);
-	svg.append("g")
+	svgAxes.append("g")
 		.attr("class","axis")
-		.attr("transform", "translate(" + margin.left + "," + (height+margin.bottom+margin.top) + ")")
+		.attr("transform", "translate(50,50)")
 		.call(xAxis);
 
 	

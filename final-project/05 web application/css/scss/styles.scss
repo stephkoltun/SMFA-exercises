@@ -34,9 +34,9 @@ html, body {
 }
 
 header {
-	max-width: 130px;
+	width: 130px;
 	float: left;
-	height: 1000px;
+	height: 100%;
 }
 
 body {
@@ -56,7 +56,19 @@ li {
 }
 
 
+#graph {
+	overflow:scroll;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 210px;
+}
 
+#graphAxes {
+	position: absolute;
+	top: 1000;
+	left: 210px;
+}
 
 /* ----------- NAVIGATION ----------- */
 
@@ -79,9 +91,9 @@ li {
 #key {
 	@include key-text;
 	li {
-		color: $color-main;
+		color: $color-light;
 		font: {
-			family: "Akkurat-LightItalic";
+			family: "Akkurat-Light";
 			size: .7em;
 		}
 		padding: 0px 0px 3px 0px;
@@ -107,7 +119,7 @@ li {
 
 	i {
 		color: $color-light;
-		padding-left: 6px;
+		padding-right: 6px;
 	}
 }
 

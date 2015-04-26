@@ -20,6 +20,11 @@ Stephanie Koltun
 }
 
 @font-face {
+  font-family: "Akkurat-Light";
+  src: url("/fonts/Akkurat-Light.otf");
+}
+
+@font-face {
   font-family: "Akkurat-LightItalic";
   src: url("/fonts/Akkurat-LightItalic.otf");
 }
@@ -35,26 +40,26 @@ Stephanie Koltun
 }
 
 @font-face {
-  font-family: "FontAwesomet";
+  font-family: "FontAwesome";
   src: url("/fonts/font-awesome/fonts/FontAwesome.otf");
 }
 
-/* line 37, scss/defaults/_typography.scss */
+/* line 42, scss/defaults/_typography.scss */
 p {
   color: #333333;
   font-family: "Akkurat-Light";
   font-size: .8em;
 }
-/* line 44, scss/defaults/_typography.scss */
+/* line 49, scss/defaults/_typography.scss */
 p a {
   text-decoration: none;
 }
-/* line 47, scss/defaults/_typography.scss */
+/* line 52, scss/defaults/_typography.scss */
 p a:link, p a:visited {
   color: #333333;
 }
 
-/* line 55, scss/defaults/_typography.scss */
+/* line 60, scss/defaults/_typography.scss */
 h1 {
   margin: 10px 0 20px 0;
   color: #333333;
@@ -64,12 +69,12 @@ h1 {
   line-height: 1.2;
   text-transform: uppercase;
 }
-/* line 67, scss/defaults/_typography.scss */
+/* line 72, scss/defaults/_typography.scss */
 h1 a:link, h1 a:visited {
   text-decoration: underline;
   color: #333333;
 }
-/* line 72, scss/defaults/_typography.scss */
+/* line 77, scss/defaults/_typography.scss */
 h1 a:hover {
   text-decoration: none;
 }
@@ -87,7 +92,7 @@ h2 {
 	}
 }
  */
-/* line 95, scss/defaults/_typography.scss */
+/* line 100, scss/defaults/_typography.scss */
 h3 {
   display: inline;
   margin: 1em 0 0 0;
@@ -98,7 +103,7 @@ h3 {
   font-size: .8em;
   font-weight: 100;
 }
-/* line 109, scss/defaults/_typography.scss */
+/* line 114, scss/defaults/_typography.scss */
 h3 a:link, h3 a:visited {
   family: "Akkurat-LightItalic";
   text-decoration: none;
@@ -116,9 +121,9 @@ html, body {
 
 /* line 36, scss/styles.scss */
 header {
-  max-width: 130px;
+  width: 130px;
   float: left;
-  height: 1000px;
+  height: 100%;
 }
 
 /* line 42, scss/styles.scss */
@@ -139,26 +144,42 @@ li {
   padding-right: 1em;
 }
 
+/* line 59, scss/styles.scss */
+#graph {
+  overflow: scroll;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 210px;
+}
+
+/* line 67, scss/styles.scss */
+#graphAxes {
+  position: absolute;
+  top: 1000;
+  left: 210px;
+}
+
 /* ----------- NAVIGATION ----------- */
-/* line 63, scss/styles.scss */
+/* line 75, scss/styles.scss */
 #nav-bar {
   margin: 0 auto;
   padding: 15px 30px;
   background-color: #ededed;
   font-family: "Akkurat";
 }
-/* line 69, scss/styles.scss */
+/* line 81, scss/styles.scss */
 #nav-bar a, #nav-bar a:visited {
   color: #333333;
   text-decoration: none;
 }
-/* line 73, scss/styles.scss */
+/* line 85, scss/styles.scss */
 #nav-bar a:hover {
   color: #333333;
   text-decoration: underline;
 }
 
-/* line 79, scss/styles.scss */
+/* line 91, scss/styles.scss */
 #key {
   margin-bottom: 50px;
 }
@@ -172,8 +193,8 @@ li {
 }
 /* line 17, scss/defaults/_mixins.scss */
 #key h2 {
-  color: #b2b2b2;
-  font-family: "Akkurat-Italic";
+  color: #333333;
+  font-family: "Akkurat";
   font-size: .7em;
   font-weight: 100;
   margin-top: 20px;
@@ -193,15 +214,15 @@ li {
 #key a:link, #key a:visited {
   color: #333333;
 }
-/* line 81, scss/styles.scss */
+/* line 93, scss/styles.scss */
 #key li {
-  color: #333333;
-  font-family: "Akkurat-LightItalic";
+  color: #ababab;
+  font-family: "Akkurat-Light";
   font-size: .7em;
   padding: 0px 0px 3px 0px;
   margin: 0;
 }
-/* line 91, scss/styles.scss */
+/* line 103, scss/styles.scss */
 #key i {
   color: #333333;
   padding-right: 13px;
@@ -217,8 +238,8 @@ li {
 }
 /* line 17, scss/defaults/_mixins.scss */
 #modes h2, #sort h2, #arrange h2, #group h2 {
-  color: #b2b2b2;
-  font-family: "Akkurat-Italic";
+  color: #333333;
+  font-family: "Akkurat";
   font-size: .7em;
   font-weight: 100;
   margin-top: 20px;
@@ -238,26 +259,26 @@ li {
 #modes a:link, #modes a:visited, #sort a:link, #sort a:visited, #arrange a:link, #arrange a:visited, #group a:link, #group a:visited {
   color: #333333;
 }
-/* line 100, scss/styles.scss */
+/* line 112, scss/styles.scss */
 #modes li, #sort li, #arrange li, #group li {
-  color: #b2b2b2;
+  color: #ababab;
   font-family: "Akkurat-Light";
   font-size: .7em;
 }
-/* line 108, scss/styles.scss */
+/* line 120, scss/styles.scss */
 #modes i, #sort i, #arrange i, #group i {
-  color: #b2b2b2;
-  padding-left: 6px;
+  color: #ababab;
+  padding-right: 6px;
 }
 
-/* line 114, scss/styles.scss */
+/* line 126, scss/styles.scss */
 #legend {
   padding: 0;
   margin: 0;
 }
 
 /*--------- GRAPH ---------*/
-/* line 126, scss/styles.scss */
+/* line 138, scss/styles.scss */
 .lines {
   stroke-width: 1px;
   stroke-dasharray: 1px , 1.5px;
@@ -266,7 +287,7 @@ li {
   stroke: black;
 }
 
-/* line 134, scss/styles.scss */
+/* line 146, scss/styles.scss */
 .obj-trigger {
   stroke-width: 10px;
   stroke-linecap: round;
@@ -274,7 +295,7 @@ li {
   stroke-opacity: 0.0;
 }
 
-/* line 141, scss/styles.scss */
+/* line 153, scss/styles.scss */
 .created {
   stroke: teal;
   stroke-width: 4px;
@@ -282,7 +303,7 @@ li {
   stroke-linecap: square;
 }
 
-/* line 148, scss/styles.scss */
+/* line 160, scss/styles.scss */
 .exhibited {
   stroke: purple;
   stroke-width: 4px;
@@ -290,31 +311,31 @@ li {
   stroke-linecap: square;
 }
 
-/* line 155, scss/styles.scss */
+/* line 167, scss/styles.scss */
 .acquired {
   stroke: orange;
   stroke-width: 1px;
   fill: white;
 }
 
-/* line 161, scss/styles.scss */
+/* line 173, scss/styles.scss */
 .acquiredLine {
   stroke: orange;
 }
 
-/* line 165, scss/styles.scss */
+/* line 177, scss/styles.scss */
 #exhibitedLine {
   stroke: purple;
 }
 
-/* line 171, scss/styles.scss */
+/* line 183, scss/styles.scss */
 .axis text {
   font-family: Helvetica,sans-serif;
   font-size: 10px;
   font-weight: 400;
 }
 
-/* line 178, scss/styles.scss */
+/* line 190, scss/styles.scss */
 .axis line {
   fill: none;
   stroke: darkgrey;
@@ -322,17 +343,17 @@ li {
   shape-rendering: crispEdges;
 }
 
-/* line 185, scss/styles.scss */
+/* line 197, scss/styles.scss */
 .axis path, .subaxis path {
   display: none;
 }
 
-/* line 189, scss/styles.scss */
+/* line 201, scss/styles.scss */
 .subaxis text {
   display: none;
 }
 
-/* line 193, scss/styles.scss */
+/* line 205, scss/styles.scss */
 .subaxis line {
   fill: none;
   stroke: lightgrey;
@@ -340,7 +361,7 @@ li {
   shape-rendering: crispEdges;
 }
 
-/* line 200, scss/styles.scss */
+/* line 212, scss/styles.scss */
 .tooltip {
   text-anchor: middle;
   font-family: sans-serif;
@@ -348,14 +369,14 @@ li {
   fill: black;
 }
 
-/* line 209, scss/styles.scss */
+/* line 221, scss/styles.scss */
 button {
   border: none;
   background-color: #ededed;
   padding: 0;
   margin: 0;
   cursor: default;
-  color: #b2b2b2;
+  color: #ababab;
   font-family: "Akkurat-Light";
   font-size: 1em;
 }
@@ -369,8 +390,8 @@ button h1 {
 }
 /* line 17, scss/defaults/_mixins.scss */
 button h2 {
-  color: #b2b2b2;
-  font-family: "Akkurat-Italic";
+  color: #333333;
+  font-family: "Akkurat";
   font-size: .7em;
   font-weight: 100;
   margin-top: 20px;
@@ -390,7 +411,7 @@ button a {
 button a:link, button a:visited {
   color: #333333;
 }
-/* line 223, scss/styles.scss */
+/* line 235, scss/styles.scss */
 button :hover, button :active, button :focus {
   color: #333333;
   font-family: "Akkurat";
@@ -398,7 +419,7 @@ button :hover, button :active, button :focus {
   cursor: pointer;
 }
 
-/* line 236, scss/styles.scss */
+/* line 248, scss/styles.scss */
 button:hover,
 button:active,
 button:focus {
@@ -409,7 +430,7 @@ button:focus {
 }
 
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 252, scss/styles.scss */
+/* line 264, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;
