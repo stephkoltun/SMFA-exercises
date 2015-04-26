@@ -331,6 +331,30 @@ function makeGraph() {
 
 
 
+    	// VARIABLES FOR THIS
+
+		var currentObject = d3.select(this);
+
+    	//Created Marker Positions
+    	var xPositionStart = parseFloat(d3.select(this).selectAll('.created').attr("x1"));
+    	var xPositionEnd = parseFloat(d3.select(this).selectAll('.created').attr("x2"));
+    	var xPositionMiddle = (xPositionStart + (xPositionEnd-xPositionStart))
+    	var yPositionCreated = parseFloat(d3.select(this).selectAll('.created').attr("y1"));
+
+    	//Acquired Marker Positions
+    	var xPositionAcquired = parseFloat(d3.select(this).selectAll('g > circle').attr("cx"));
+    	var yPositionAcquired = parseFloat(d3.select(this).selectAll('g > circle').attr("cy"));
+
+    	//Exhibited Marker Positions
+    	var xExhibitedStart = parseFloat(d3.select(this).selectAll('.exhibited').attr("x1"));
+    	var xExhibitedEnd = parseFloat(d3.select(this).selectAll('.exhibited').attr("x2"));
+    	var xExhibitedMiddle = (xExhibitedStart + (xExhibitedEnd-xExhibitedStart));
+    	var yPositionExhibited = parseFloat(d3.select(this).selectAll('.exhibited').attr("y1"));
+
+
+
+
+
     	//     HIGHLIGHT RELATED OBJECTS     //
 
     	// set up variables for the moused-over data
@@ -361,17 +385,32 @@ function makeGraph() {
 
 
 
+		var objsThatMatchAcquired = d3.selectAll('.object').filter(function(d) {
+			return d.yearAcquired == selectedYearAcquired;
+		}).each(function(d,i) {
+			var subSel = d3.select(this).select('g > circle').attr("cy");
+			svg.append("line")
+				.attr("class","acquiredLine")
+	    		.attr("x1", x(format.parse(selectedYearAcquired)))
+	    		.attr("y1", subSel)
+	    		.attr("x2", x(format.parse(selectedYearAcquired)))
+	    		.attr("y2", yPositionAcquired)
+	    		.attr("transform", function(d,i) { 
+	    		return "translate(" + margin.left + "," + margin.top + ")";
+	    	});
+		});
+
+    	
+
+    	
+
+
+
 
     	//     YEAR LABELS     //
 
-    	var currentObject = d3.select(this);
 
-    	//Created Marker Positions
-    	var xPositionStart = parseFloat(d3.select(this).selectAll('.created').attr("x1"));
-    	var xPositionEnd = parseFloat(d3.select(this).selectAll('.created').attr("x2"));
-    	var xPositionMiddle = (xPositionStart + (xPositionEnd-xPositionStart))
-    	var yPositionCreated = parseFloat(d3.select(this).selectAll('.created').attr("y1"));
-
+    	// CREATED
     	// if created spans single year
     	if (xPositionStart === xPositionEnd) {
     		currentObject.append("text")
@@ -403,10 +442,8 @@ function makeGraph() {
 	    		.text(d.yearEnd);
     	}
 
-    	//Acquired Marker Positions
-    	var xPositionAcquired = parseFloat(d3.select(this).selectAll('g > circle').attr("cx"));
-    	var yPositionAcquired = parseFloat(d3.select(this).selectAll('g > circle').attr("cy"));
-
+    	
+    	// ACQUIRED
     	// only show year if not already shown
     	if (d.yearEnd != d.yearAcquired || d.yearStart != d.yearAcquired) {
 	    	currentObject.append("text")
@@ -416,13 +453,8 @@ function makeGraph() {
 	    		.text(d.yearAcquired);
     	}
 
-
-    	//Exhibited Marker Positions
-    	var xExhibitedStart = parseFloat(d3.select(this).selectAll('.exhibited').attr("x1"));
-    	var xExhibitedEnd = parseFloat(d3.select(this).selectAll('.exhibited').attr("x2"));
-    	var xExhibitedMiddle = (xExhibitedStart + (xExhibitedEnd-xExhibitedStart));
-    	var yPositionExhibited = parseFloat(d3.select(this).selectAll('.exhibited').attr("y1"));
-
+    	
+    	// EXHIBITED
     	// if exhibit spans single year
     	if (xExhibitedStart === xExhibitedEnd) {
     		currentObject.append("text")
@@ -458,47 +490,16 @@ function makeGraph() {
 
 
 
-    	//var yPositionAcquired = parseFloat(d3.select(this).selectAll('g > circle').attr("cy"));
-
-    	
-    	/*var targetYPos = i;
-    	//yPositionAcquired
-    	/*.attr("transform", function(d,i) { 
-	    		return "translate(" + margin.left + "," + (y(i*1.15)+margin.top) + ")";
-	    	});*/
-
-		var objsThatMatchAcquired = d3.selectAll('.object').filter(function(d) {
-			return d.yearAcquired == selectedYearAcquired;
-		}).each(function(d,i) {
-			var subSel = d3.select(this).select('g > circle').attr("cy");
-			svg.append("line")
-				.attr("class","acquiredLine")
-	    		.attr("x1", x(format.parse(selectedYearAcquired)))
-	    		.attr("y1", subSel)
-	    		.attr("x2", x(format.parse(selectedYearAcquired)))
-	    		.attr("y2", yPositionAcquired)
-	    		.attr("transform", function(d,i) { 
-	    		return "translate(" + margin.left + "," + margin.top + ")";
-	    	});
-
-			console.log(subSel);
-		});
 
 
-
-
-
-
-
-
-
-
-
-
-
+		
 
 
     }); //end mouse over
+
+
+
+
 
 
     d3.selectAll("g").on("mouseout", function(d) {
@@ -514,10 +515,15 @@ function makeGraph() {
 
     	d3.select(this).selectAll(".tooltip").remove();
 
-    	d3.select("svg").selectAll(".acquiredLine").remove();
-
-
+    	d3.select("svg").selectAll(".acquiredLine")
+    	.attr("opacity","1")
+    	.transition()
+    	.duration(350)
+    	.attr("opacity","0")
+    	.remove();
     });
+
+
 
 
     // event listenered to bring back "about" page
