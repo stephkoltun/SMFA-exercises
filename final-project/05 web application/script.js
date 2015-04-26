@@ -102,7 +102,7 @@ function makeGraph() {
 
 	var margin = {top: 30, right: 20, bottom: 30, left: 50},
     	width = $(window).width() - margin.left - margin.right - 210,
-    	height = 1600 - margin.top - margin.bottom,
+    	height = 1700 - margin.top - margin.bottom,
     	padding = allObjectsDataset.length * 1.35;
 
 	// Parse the date
@@ -148,8 +148,8 @@ function makeGraph() {
 
 
 	// Define axes
-	var xAxis = d3.svg.axis().scale(x).orient("bottom").ticks(15).tickSize(-8);
-	var xSubAxis = d3.svg.axis().scale(x).orient("bottom").ticks(150).tickSize(-3);
+	var xAxis = d3.svg.axis().scale(x).orient("top").ticks(15).tickSize(8);
+	var xSubAxis = d3.svg.axis().scale(x).orient("top").ticks(150).tickSize(3);
 
 
 
@@ -165,9 +165,8 @@ function makeGraph() {
 
 	var svgAxes = d3.select("#graphAxes")
 				.append("svg")
-				.attr("id","svgAxes")
-				.attr("width", width)
-				.attr("height", 100);
+				.attr("width", width + margin.left + margin.right)
+				.attr("height", 70);
 
 	//Created AXES
 	svgAxes.append("g")
@@ -286,6 +285,7 @@ function makeGraph() {
 	    		return "translate(" + margin.left + "," + (y(i)+margin.top) + ")";
 	    	});
     	});*/
+
 
 
     /* ------ MOUSEOVER EVENTS FOR SELECTED OBJECT ------ */
@@ -442,8 +442,42 @@ function makeGraph() {
     	}
 
 
-    	
+    	//Exhibited Marker Positions
+    	var xExhibitedStart = parseFloat(d3.select(this).selectAll('.exhibited').attr("x1"));
+    	var xExhibitedEnd = parseFloat(d3.select(this).selectAll('.exhibited').attr("x2"));
+    	var xExhibitedMiddle = (xExhibitedStart + (xExhibitedEnd-xExhibitedStart));
+    	var yPositionExhibited = parseFloat(d3.select(this).selectAll('.exhibited').attr("y1")) - 8;
 
+    	// if exhibit spans single year
+    	if (xExhibitedStart === xExhibitedEnd) {
+    		currentObject.append("text")
+    		.attr("class", "tooltip")
+    		.attr("x", xExhibitedStart)
+    		.attr("y", yPositionExhibited)
+    		.text(d.exhibitStart);
+    	}
+		// if exhibit spans less than 5 years
+    	else if ((d.exhibitStart- d.exhibitEnd) <= 5) {
+    		currentObject.append("text")
+	    		.attr("class", "tooltip")
+	    		.attr("x", xExhibitedMiddle)
+	    		.attr("y", yPositionExhibited)
+	    		.text(d.exhibitStart + " - " + d.exhibitEnd);
+    	}
+    	// if exhibit spans more than 5 years
+    	if ((d.exhibitEnd - d.exhibitStart) > 5) {
+    		currentObject.append("text")
+	    		.attr("class", "tooltip")
+	    		.attr("x", xExhibitedStart)
+	    		.attr("y", yPositionExhibited)
+	    		.text(d.exhibitStart);
+
+	    		currentObject.append("text")
+	    		.attr("class", "tooltip")
+	    		.attr("x", xExhibitedEnd)
+	    		.attr("y", yPositionExhibited)
+	    		.text(d.exhibitEnd);
+    	}
 
 
     }); //end mouse over

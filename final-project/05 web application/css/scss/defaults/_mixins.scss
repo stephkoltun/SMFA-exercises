@@ -1,6 +1,6 @@
 @mixin nav-style {
 	margin: 0 auto;
-	padding: 15px 30px;
+	padding: 0px 30px;
 }
 
 @mixin key-text {
@@ -12,6 +12,7 @@
 			size: .8em;
 		}
 		margin: 0;
+		padding: 0;
 	}
 
 	h2 {
