@@ -56,6 +56,12 @@ li {
 }
 
 
+
+
+
+
+// POSITIONING THE GRAPH AND AXES
+
 #graph {
 	overflow:scroll;
 	height: 100%;
@@ -65,10 +71,55 @@ li {
 }
 
 #graphAxes {
-	position: absolute;
-	top: 1000;
+	position: relative;
+	height: 80px;
+	top: 550px;
 	left: 210px;
+	background-color: rgba(255,255,255,0.8);
 }
+
+#svgAxes svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+
+// GRAPH LABELS
+
+.axis text {
+    font-family: Helvetica,sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+
+}
+
+.axis line {
+    fill: none;
+    stroke: darkgrey;
+    stroke-width: 2px;
+    shape-rendering: crispEdges;
+}
+
+.axis path, .subaxis path {
+	display: none;
+}
+
+.subaxis text {
+	display: none;
+}
+
+.subaxis line {
+    fill: none;
+    stroke: lightgrey;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+}
+
+
+
+
+
 
 /* ----------- NAVIGATION ----------- */
 
@@ -179,35 +230,6 @@ li {
 }
 
 
-//LABELS
-.axis text {
-    font-family: Helvetica,sans-serif;
-    font-size: 10px;
-    font-weight: 400;
-
-}
-
-.axis line {
-    fill: none;
-    stroke: darkgrey;
-    stroke-width: 3px;
-    shape-rendering: crispEdges;
-}
-
-.axis path, .subaxis path {
-	display: none;
-}
-
-.subaxis text {
-	display: none;
-}
-
-.subaxis line {
-    fill: none;
-    stroke: lightgrey;
-    stroke-width: 1.5px;
-    shape-rendering: crispEdges;
-}
 
 .tooltip {
 	text-anchor: middle;

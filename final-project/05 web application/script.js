@@ -148,8 +148,8 @@ function makeGraph() {
 
 
 	// Define axes
-	var xAxis = d3.svg.axis().scale(x).orient("bottom").ticks(15).tickSize(-10);
-	var xSubAxis = d3.svg.axis().scale(x).orient("bottom").ticks(150).tickSize(-5);
+	var xAxis = d3.svg.axis().scale(x).orient("bottom").ticks(15).tickSize(-8);
+	var xSubAxis = d3.svg.axis().scale(x).orient("bottom").ticks(150).tickSize(-3);
 
 
 
@@ -165,17 +165,18 @@ function makeGraph() {
 
 	var svgAxes = d3.select("#graphAxes")
 				.append("svg")
-				.attr("width", width + margin.left + margin.right)
-				.attr("height", 200);
+				.attr("id","svgAxes")
+				.attr("width", width)
+				.attr("height", 100);
 
 	//Created AXES
 	svgAxes.append("g")
 		.attr("class","subaxis")
-		.attr("transform", "translate(50,50)")
+		.attr("transform", "translate(" + margin.left + ",40)")
 		.call(xSubAxis);
 	svgAxes.append("g")
 		.attr("class","axis")
-		.attr("transform", "translate(50,50)")
+		.attr("transform", "translate(" + margin.left + ",40)")
 		.call(xAxis);
 
 	
