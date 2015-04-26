@@ -188,7 +188,7 @@ function makeGraph() {
 		.append("g") // add a new <g> for each data object
 		.attr("class","object") // set the <g>'s class to match selection criteria
 		.attr("transform", function(d,i) {
-				return "translate(" + margin.left + "," + (y(i*1.15)+margin.top) + ")";});
+				return "translate(" + margin.left + "," + margin.top + ")";});
 
 	// ADD LINES AND CIRCLES within each object <g>, inherits data from <g>
 
@@ -196,35 +196,53 @@ function makeGraph() {
 	var trigger = objects.append("line")
 		.attr("class","obj-trigger")
 		.attr("x1", xYearStartMap)
-		.attr("y1", "0")
+		.attr("y1", function(d,i) {
+			return y(i);
+		})
 		.attr("x2", xExhibitEndMap)
-		.attr("y2", "0");
+		.attr("y2", function(d,i) {
+			return y(i);
+		});
 
 	var lines = objects.append("line") //overall connection line for each obj
 		.attr("class","lines") // set class for CSS styling
 		.attr("x1", xYearStartMap)
-		.attr("y1", "0")
+		.attr("y1", function(d,i) {
+			return y(i);
+		})
 		.attr("x2", xExhibitEndMap)
-		.attr("y2", "0");
+		.attr("y2", function(d,i) {
+			return y(i);
+		});
 
 	var createdMarker = objects.append("line") //years created
 		.attr("class","created") 
 		.attr("x1", xYearStartMap)
-		.attr("y1", "0")
+		.attr("y1", function(d,i) {
+			return y(i);
+		})
 		.attr("x2", xYearEndMap)
-		.attr("y2", "0");
+		.attr("y2", function(d,i) {
+			return y(i);
+		});
 
 	var exhibitedMarker = objects.append("line") //years exhibited
 		.attr("class","exhibited") 
 		.attr("x1", xExhibitStartMap)
-		.attr("y1", "0")
+		.attr("y1", function(d,i) {
+			return y(i);
+		})
 		.attr("x2", xExhibitEndMap)
-		.attr("y2", "0");
+		.attr("y2", function(d,i) {
+			return y(i);
+		});
 
 	var acquiredMarker = objects.append("circle") //year acquired
 		.attr("class","acquired")
 		.attr("cx", xYearAcquiredMap)
-		.attr("cy", "0")
+		.attr("cy", function(d,i) {
+			return y(i);
+		})
 		.attr("r","2.5px");
 
 	
@@ -243,7 +261,7 @@ function makeGraph() {
 			.transition()
 			.duration(1000)
 	    	.attr("transform", function(d,i) { 
-	    		return "translate(" + margin.left + "," + (y(i*1.15)+margin.top) + ")";
+	    		return "translate(" + margin.left + "," +margin.top + ")";
 	    	});
     	});
 
@@ -256,7 +274,7 @@ function makeGraph() {
 			.transition()
 			.duration(1000)
 	    	.attr("transform", function(d,i) { 
-	    		return "translate(" + margin.left + "," + (y(i*1.15)+margin.top) + ")";
+	    		return "translate(" + margin.left + "," + margin.top + ")";
 	    	});
     	});
 
@@ -269,7 +287,7 @@ function makeGraph() {
 			.transition()
 			.duration(1000)
 	    	.attr("transform", function(d,i) { 
-	    		return "translate(" + margin.left + "," + (y(i*1.15)+margin.top) + ")";
+	    		return "translate(" + margin.left + "," + margin.top + ")";
 	    	});
     	});
 
@@ -359,7 +377,7 @@ function makeGraph() {
     		currentObject.append("text")
     		.attr("class", "tooltip")
     		.attr("x", xPositionStart)
-    		.attr("y", yPositionCreated)
+    		.attr("y", yPositionCreated - 8)
     		.text(d.yearStart);
     	}
 		// if created spans less than 5 years
@@ -440,9 +458,57 @@ function makeGraph() {
 
 
 
+    	//var yPositionAcquired = parseFloat(d3.select(this).selectAll('g > circle').attr("cy"));
+
+    	
+    	/*var targetYPos = i;
+    	//yPositionAcquired
+    	/*.attr("transform", function(d,i) { 
+	    		return "translate(" + margin.left + "," + (y(i*1.15)+margin.top) + ")";
+	    	});*/
+
+		var objsThatMatchAcquired = d3.selectAll('.object').filter(function(d) {
+			return d.yearAcquired == selectedYearAcquired;
+		}).each(function(d,i) {
+			var subSel = d3.select(this).select('g > circle').attr("cy");
+			svg.append("line")
+				.attr("class","acquiredLine")
+	    		.attr("x1", x(format.parse(selectedYearAcquired)))
+	    		.attr("y1", subSel)
+	    		.attr("x2", x(format.parse(selectedYearAcquired)))
+	    		.attr("y2", yPositionAcquired)
+	    		.attr("transform", function(d,i) { 
+	    		return "translate(" + margin.left + "," + margin.top + ")";
+	    	});
+
+			console.log(subSel);
+		});
 
 
-		
+
+/*
+		console.log(yPositionAcquired);
+	    for (i=0; i < objsThatMatchAcquired.length; i++) {
+			
+			console.log(objsThatMatchAcquired[i]);
+
+			var selectionIs = objsThatMatchAcquired[i];
+			//console.log(selectionIs);
+
+			var test = d3.select(selectionIs).selectAll('g > circle').attr("cy");
+			console.log(test);
+
+	    	//var matchYPos = ('g > circle').attr("cy");
+	    	//console.log(matchYPos);
+
+	    	/*svg.append("line")
+	    		.attr("class","acquiredLine")
+	    		.attr("x1", x(format.parse(selectedYearAcquired)))
+	    		.attr("y1", matchYPos)
+	    		.attr("x2", x(format.parse(selectedYearAcquired)))
+	    		.attr("y2", yPositionAcquired);
+	    }
+*/
 
 
 
@@ -450,16 +516,18 @@ function makeGraph() {
 
 		//     DRAW LINES BETWEEN RELATED OBJECTS     //
 
-		var objsThatMatchAcquired = d3.selectAll('.object').filter(function(d) {
+/*		var objsThatMatchAcquired = d3.selectAll('.object').filter(function(d) {
 			return d.yearAcquired == selectedYearAcquired;
 		})
 		.append("line")
 		.attr("class","acquiredLine")
 		.attr("x1", x(format.parse(selectedYearAcquired)))
-		.attr("y1", function(d,i) { d.key; }) // Y position of matched object markers
+		.attr("y1", yPositionAcquired) // Y position of selected object marker
 		.attr("x2", x(format.parse(selectedYearAcquired)))
-		.attr("y2", "50"); // Y position of highlighted object marker
-
+		.attr("y2", function(d,i) {
+			return i*1.15;
+		});
+*/
 		/*.attr("transform", function(d,i) { 
 	    		return "translate(" + margin.left + "," + (y(i*1.15)+margin.top) + ")";
 	    	});*/
