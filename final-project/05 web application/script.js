@@ -442,6 +442,8 @@ function makeGraph() {
 
 
 
+		
+
 
 
 
@@ -454,11 +456,9 @@ function makeGraph() {
 		.append("line")
 		.attr("class","acquiredLine")
 		.attr("x1", x(format.parse(selectedYearAcquired)))
-		.attr("y1", yPositionAcquired) // Y position of selected object marker
+		.attr("y1", function(d,i) { d.key; }) // Y position of matched object markers
 		.attr("x2", x(format.parse(selectedYearAcquired)))
-		.attr("y2", function(d,i) {
-			return i*1.15;
-		});
+		.attr("y2", "50"); // Y position of highlighted object marker
 
 		/*.attr("transform", function(d,i) { 
 	    		return "translate(" + margin.left + "," + (y(i*1.15)+margin.top) + ")";
