@@ -314,7 +314,7 @@ function makeGraph() {
     	d3.selectAll('.object')
     	.transition()
     	.duration(250)
-    	.style('opacity','0.3');
+    	.style('opacity','0.2');
 
     	//don't fade selected object
     	d3.select(this).selectAll('.object')
@@ -501,8 +501,9 @@ function makeGraph() {
     	d3.select("svg").selectAll(".acquiredLine")
     		.style("opacity", "1")
     		.transition()
-    		.duration(500)
-    		.style("opacity", "0");
+    		.duration(300)
+    		.style("opacity", "0")
+    		.remove();
     });
 
 
