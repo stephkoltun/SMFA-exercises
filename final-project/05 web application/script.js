@@ -314,7 +314,7 @@ function makeGraph() {
     	d3.selectAll('.object')
     	.transition()
     	.duration(250)
-    	.style('opacity','0.3');
+    	.style('opacity','0.2');
 
     	//don't fade selected object
     	d3.select(this).selectAll('.object')
@@ -362,6 +362,28 @@ function makeGraph() {
 
 
 
+		//     DRAW LINES BETWEEN RELATED OBJECTS     //
+		var objsThatMatchAcquired = d3.selectAll('.object').filter(function(d) {
+			return d.yearAcquired == selectedYearAcquired;
+		}).each(function(d,i) {
+			var subSel = d3.select(this).select('g > circle').attr("cy");
+			svg.append("line")
+				.attr("class","acquiredLine")
+	    		.attr("x1", x(format.parse(selectedYearAcquired)))
+	    		.attr("y1", subSel)
+	    		.attr("x2", x(format.parse(selectedYearAcquired)))
+	    		.attr("y2", yPositionAcquired)
+	    		.attr("transform", function(d,i) { 
+	    		return "translate(" + margin.left + "," + margin.top + ")";
+	    	});
+		});
+
+
+
+
+
+
+
     	//     YEAR LABELS     //
 
     	var currentObject = d3.select(this);
@@ -376,7 +398,7 @@ function makeGraph() {
     	if (xPositionStart === xPositionEnd) {
     		currentObject.append("text")
     		.attr("class", "tooltip")
-    		.attr("x", xPositionStart)
+    		.attr("x", xPositionStart + 12)
     		.attr("y", yPositionCreated - 8)
     		.text(d.yearStart);
     	}
@@ -384,7 +406,7 @@ function makeGraph() {
     	else if ((d.yearEnd - d.yearStart) <= 5) {
     		currentObject.append("text")
 	    		.attr("class", "tooltip")
-	    		.attr("x", xPositionMiddle)
+	    		.attr("x", xPositionMiddle + 12)
 	    		.attr("y", yPositionCreated  - 8)
 	    		.text(d.yearStart + " - " + d.yearEnd);
     	}
@@ -392,13 +414,13 @@ function makeGraph() {
     	if ((d.yearEnd - d.yearStart) > 5) {
     		currentObject.append("text")
 	    		.attr("class", "tooltip")
-	    		.attr("x", xPositionStart)
+	    		.attr("x", xPositionStart + 12)
 	    		.attr("y", yPositionCreated  - 8)
 	    		.text(d.yearStart);
 
 	    		currentObject.append("text")
 	    		.attr("class", "tooltip")
-	    		.attr("x", xPositionEnd)
+	    		.attr("x", xPositionEnd + 12)
 	    		.attr("y", yPositionCreated  - 8)
 	    		.text(d.yearEnd);
     	}
@@ -411,7 +433,7 @@ function makeGraph() {
     	if (d.yearEnd != d.yearAcquired || d.yearStart != d.yearAcquired) {
 	    	currentObject.append("text")
 	    		.attr("class", "tooltip")
-	    		.attr("x", xPositionAcquired)
+	    		.attr("x", xPositionAcquired + 12)
 	    		.attr("y", yPositionAcquired  - 8)
 	    		.text(d.yearAcquired);
     	}
@@ -427,7 +449,7 @@ function makeGraph() {
     	if (xExhibitedStart === xExhibitedEnd) {
     		currentObject.append("text")
     		.attr("class", "tooltip")
-    		.attr("x", xExhibitedStart)
+    		.attr("x", xExhibitedStart + 12)
     		.attr("y", yPositionExhibited  - 8)
     		.text(d.exhibitStart);
     	}
@@ -435,7 +457,7 @@ function makeGraph() {
     	else if ((d.exhibitStart- d.exhibitEnd) <= 5) {
     		currentObject.append("text")
 	    		.attr("class", "tooltip")
-	    		.attr("x", xExhibitedMiddle)
+	    		.attr("x", xExhibitedMiddle + 12)
 	    		.attr("y", yPositionExhibited  - 8)
 	    		.text(d.exhibitStart + " - " + d.exhibitEnd);
     	}
@@ -443,94 +465,18 @@ function makeGraph() {
     	if ((d.exhibitEnd - d.exhibitStart) > 5) {
     		currentObject.append("text")
 	    		.attr("class", "tooltip")
-	    		.attr("x", xExhibitedStart)
+	    		.attr("x", xExhibitedStart + 12)
 	    		.attr("y", yPositionExhibited  - 8)
 	    		.text(d.exhibitStart);
 
 	    		currentObject.append("text")
 	    		.attr("class", "tooltip")
-	    		.attr("x", xExhibitedEnd)
+	    		.attr("x", xExhibitedEnd + 12)
 	    		.attr("y", yPositionExhibited  - 8)
 	    		.text(d.exhibitEnd);
-    	}
+    	};
 
 
-
-
-
-    	//var yPositionAcquired = parseFloat(d3.select(this).selectAll('g > circle').attr("cy"));
-
-    	
-    	/*var targetYPos = i;
-    	//yPositionAcquired
-    	/*.attr("transform", function(d,i) { 
-	    		return "translate(" + margin.left + "," + (y(i*1.15)+margin.top) + ")";
-	    	});*/
-
-		var objsThatMatchAcquired = d3.selectAll('.object').filter(function(d) {
-			return d.yearAcquired == selectedYearAcquired;
-		}).each(function(d,i) {
-			var subSel = d3.select(this).select('g > circle').attr("cy");
-			svg.append("line")
-				.attr("class","acquiredLine")
-	    		.attr("x1", x(format.parse(selectedYearAcquired)))
-	    		.attr("y1", subSel)
-	    		.attr("x2", x(format.parse(selectedYearAcquired)))
-	    		.attr("y2", yPositionAcquired)
-	    		.attr("transform", function(d,i) { 
-	    		return "translate(" + margin.left + "," + margin.top + ")";
-	    	});
-
-			console.log(subSel);
-		});
-
-
-
-/*
-		console.log(yPositionAcquired);
-	    for (i=0; i < objsThatMatchAcquired.length; i++) {
-			
-			console.log(objsThatMatchAcquired[i]);
-
-			var selectionIs = objsThatMatchAcquired[i];
-			//console.log(selectionIs);
-
-			var test = d3.select(selectionIs).selectAll('g > circle').attr("cy");
-			console.log(test);
-
-	    	//var matchYPos = ('g > circle').attr("cy");
-	    	//console.log(matchYPos);
-
-	    	/*svg.append("line")
-	    		.attr("class","acquiredLine")
-	    		.attr("x1", x(format.parse(selectedYearAcquired)))
-	    		.attr("y1", matchYPos)
-	    		.attr("x2", x(format.parse(selectedYearAcquired)))
-	    		.attr("y2", yPositionAcquired);
-	    }
-*/
-
-
-
-
-
-		//     DRAW LINES BETWEEN RELATED OBJECTS     //
-
-/*		var objsThatMatchAcquired = d3.selectAll('.object').filter(function(d) {
-			return d.yearAcquired == selectedYearAcquired;
-		})
-		.append("line")
-		.attr("class","acquiredLine")
-		.attr("x1", x(format.parse(selectedYearAcquired)))
-		.attr("y1", yPositionAcquired) // Y position of selected object marker
-		.attr("x2", x(format.parse(selectedYearAcquired)))
-		.attr("y2", function(d,i) {
-			return i*1.15;
-		});
-*/
-		/*.attr("transform", function(d,i) { 
-	    		return "translate(" + margin.left + "," + (y(i*1.15)+margin.top) + ")";
-	    	});*/
 
 
 
@@ -552,10 +498,12 @@ function makeGraph() {
 
     	d3.select(this).selectAll(".tooltip").remove();
 
-    	d3.select(".acquiredLine").remove();
-    	d3.select("#exhibitedLine").remove();
-
-
+    	d3.select("svg").selectAll(".acquiredLine")
+    		.style("opacity", "1")
+    		.transition()
+    		.duration(300)
+    		.style("opacity", "0")
+    		.remove();
     });
 
 
