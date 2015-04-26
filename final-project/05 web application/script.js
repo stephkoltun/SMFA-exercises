@@ -321,11 +321,12 @@ function makeGraph() {
     	var selectedYearExhibited = d.exhibitStart; // year to compare with
     	
     	// filter object selection to match mouseover object years
-		var objMatchYearAcquired = d3.selectAll('.object').filter(function(d) {
+		d3.selectAll('.object').filter(function(d) {
 			return d.yearAcquired == selectedYearAcquired;
 		})
 			.transition()
 			.style('opacity','1');
+
 
 		d3.selectAll('.object').filter(function(d) {
 			return d.yearStart == selectedYearStarted;
@@ -342,50 +343,6 @@ function makeGraph() {
 
 
 
-		//     DRAW LINES BETWEEN RELATED OBJECTS     //
-/*
-		objMatchYearAcquired.each(function(d, i) {
-
-			console.log(this);
-			//var yPosition = parseFloat(d3.select('circle').attr("cy"));
-			//console.log(yPosition);
-
-			svg.append("line") 
-			.attr("class","acquiredLine")
-			.attr("x1", x(format.parse(selectedYearAcquired)))
-			.attr("y1", yPosition)
-			.attr("x2", x(format.parse(selectedYearAcquired)))
-			.attr("y2", "0")
-			.attr("transform", "translate(" + margin.left + ", 0)");
-		});*/
-
-
-
-
-/*
-		svg.append("line") 
-		.attr("class","acquiredLine")
-		.attr("x1", x(format.parse(selectedYearAcquired)))
-		.attr("y1", "0")
-		.attr("x2", x(format.parse(selectedYearAcquired)))
-		.attr("y2", "1400")
-		.attr("transform", "translate(" + margin.left + ", 0)");*/
-
-
-		svg.append("line") 
-		.attr("id","exhibitedLine")
-		.attr("x1", x(format.parse(selectedYearExhibited)))
-		.attr("y1", "0")
-		.attr("x2", x(format.parse(selectedYearExhibited)))
-		.attr("y2", "1400")
-		.attr("transform", "translate(" + margin.left + ", 0)");
-
-
-
-
-
-
-
 
     	//     YEAR LABELS     //
 
@@ -395,7 +352,7 @@ function makeGraph() {
     	var xPositionStart = parseFloat(d3.select(this).selectAll('.created').attr("x1"));
     	var xPositionEnd = parseFloat(d3.select(this).selectAll('.created').attr("x2"));
     	var xPositionMiddle = (xPositionStart + (xPositionEnd-xPositionStart))
-    	var yPositionCreated = parseFloat(d3.select(this).selectAll('.created').attr("y1")) - 8;
+    	var yPositionCreated = parseFloat(d3.select(this).selectAll('.created').attr("y1"));
 
     	// if created spans single year
     	if (xPositionStart === xPositionEnd) {
@@ -410,7 +367,7 @@ function makeGraph() {
     		currentObject.append("text")
 	    		.attr("class", "tooltip")
 	    		.attr("x", xPositionMiddle)
-	    		.attr("y", yPositionCreated)
+	    		.attr("y", yPositionCreated  - 8)
 	    		.text(d.yearStart + " - " + d.yearEnd);
     	}
     	// if created spans more than 5 years
@@ -418,26 +375,26 @@ function makeGraph() {
     		currentObject.append("text")
 	    		.attr("class", "tooltip")
 	    		.attr("x", xPositionStart)
-	    		.attr("y", yPositionCreated)
+	    		.attr("y", yPositionCreated  - 8)
 	    		.text(d.yearStart);
 
 	    		currentObject.append("text")
 	    		.attr("class", "tooltip")
 	    		.attr("x", xPositionEnd)
-	    		.attr("y", yPositionCreated)
+	    		.attr("y", yPositionCreated  - 8)
 	    		.text(d.yearEnd);
     	}
 
     	//Acquired Marker Positions
     	var xPositionAcquired = parseFloat(d3.select(this).selectAll('g > circle').attr("cx"));
-    	var yPositionAcquired = parseFloat(d3.select(this).selectAll('g > circle').attr("cy")) - 8;
+    	var yPositionAcquired = parseFloat(d3.select(this).selectAll('g > circle').attr("cy"));
 
     	// only show year if not already shown
     	if (d.yearEnd != d.yearAcquired || d.yearStart != d.yearAcquired) {
 	    	currentObject.append("text")
 	    		.attr("class", "tooltip")
 	    		.attr("x", xPositionAcquired)
-	    		.attr("y", yPositionAcquired)
+	    		.attr("y", yPositionAcquired  - 8)
 	    		.text(d.yearAcquired);
     	}
 
@@ -446,14 +403,14 @@ function makeGraph() {
     	var xExhibitedStart = parseFloat(d3.select(this).selectAll('.exhibited').attr("x1"));
     	var xExhibitedEnd = parseFloat(d3.select(this).selectAll('.exhibited').attr("x2"));
     	var xExhibitedMiddle = (xExhibitedStart + (xExhibitedEnd-xExhibitedStart));
-    	var yPositionExhibited = parseFloat(d3.select(this).selectAll('.exhibited').attr("y1")) - 8;
+    	var yPositionExhibited = parseFloat(d3.select(this).selectAll('.exhibited').attr("y1"));
 
     	// if exhibit spans single year
     	if (xExhibitedStart === xExhibitedEnd) {
     		currentObject.append("text")
     		.attr("class", "tooltip")
     		.attr("x", xExhibitedStart)
-    		.attr("y", yPositionExhibited)
+    		.attr("y", yPositionExhibited  - 8)
     		.text(d.exhibitStart);
     	}
 		// if exhibit spans less than 5 years
@@ -461,7 +418,7 @@ function makeGraph() {
     		currentObject.append("text")
 	    		.attr("class", "tooltip")
 	    		.attr("x", xExhibitedMiddle)
-	    		.attr("y", yPositionExhibited)
+	    		.attr("y", yPositionExhibited  - 8)
 	    		.text(d.exhibitStart + " - " + d.exhibitEnd);
     	}
     	// if exhibit spans more than 5 years
@@ -469,15 +426,46 @@ function makeGraph() {
     		currentObject.append("text")
 	    		.attr("class", "tooltip")
 	    		.attr("x", xExhibitedStart)
-	    		.attr("y", yPositionExhibited)
+	    		.attr("y", yPositionExhibited  - 8)
 	    		.text(d.exhibitStart);
 
 	    		currentObject.append("text")
 	    		.attr("class", "tooltip")
 	    		.attr("x", xExhibitedEnd)
-	    		.attr("y", yPositionExhibited)
+	    		.attr("y", yPositionExhibited  - 8)
 	    		.text(d.exhibitEnd);
     	}
+
+
+
+
+
+
+
+
+
+
+
+		//     DRAW LINES BETWEEN RELATED OBJECTS     //
+
+		var objsThatMatchAcquired = d3.selectAll('.object').filter(function(d) {
+			return d.yearAcquired == selectedYearAcquired;
+		})
+		.append("line")
+		.attr("class","acquiredLine")
+		.attr("x1", x(format.parse(selectedYearAcquired)))
+		.attr("y1", yPositionAcquired) // Y position of selected object marker
+		.attr("x2", x(format.parse(selectedYearAcquired)))
+		.attr("y2", function(d,i) {
+			return i*1.15;
+		});
+
+		/*.attr("transform", function(d,i) { 
+	    		return "translate(" + margin.left + "," + (y(i*1.15)+margin.top) + ")";
+	    	});*/
+
+
+
 
 
     }); //end mouse over
@@ -496,14 +484,17 @@ function makeGraph() {
 
     	d3.select(this).selectAll(".tooltip").remove();
 
-    	//d3.select("#acquiredLine").remove();
+    	d3.select(".acquiredLine").remove();
     	d3.select("#exhibitedLine").remove();
 
 
     });
 
 
-
+    // event listenered to bring back "about" page
+    $("#projectTitle").click(function() {
+		$("#loader").fadeIn("slow");
+	});
 
 
 }; // end of graphing function
@@ -518,9 +509,19 @@ function after(callback, count){
 	return function(){
 		if(++counter === count) {
 			counter = 0;
+
+			removeLoader();
 			callback();
 		}
 	};
+}
+
+
+function removeLoader() {
+	$("button#loaded").fadeIn("slow");
+	$("button#loaded").click(function() {
+		$("#loader").fadeOut("slow");
+	});
 }
 
 

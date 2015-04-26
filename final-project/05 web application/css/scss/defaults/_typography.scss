@@ -59,7 +59,7 @@ p {
 // typical h1 styles
 h1 {
 	margin: 30px 0 30px 0;
-	color: $color-main;
+	color: white;
 	font: {
 		family: "Akkurat-Bold";
 		weight: 400;
@@ -67,6 +67,10 @@ h1 {
 	}
 	line-height: 1.2;
 	text-transform: uppercase;
+
+	:hover {
+		cursor: pointer;
+	}
 
 	a {
 		&:link, &:visited {
@@ -78,6 +82,7 @@ h1 {
 			text-decoration: none;
 		}
 	}
+
 }
 
 

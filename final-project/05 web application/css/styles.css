@@ -62,19 +62,23 @@ p a:link, p a:visited {
 /* line 60, scss/defaults/_typography.scss */
 h1 {
   margin: 30px 0 30px 0;
-  color: #333333;
+  color: white;
   font-family: "Akkurat-Bold";
   font-weight: 400;
   font-size: 1.4em;
   line-height: 1.2;
   text-transform: uppercase;
 }
-/* line 72, scss/defaults/_typography.scss */
+/* line 71, scss/defaults/_typography.scss */
+h1 :hover {
+  cursor: pointer;
+}
+/* line 76, scss/defaults/_typography.scss */
 h1 a:link, h1 a:visited {
   text-decoration: underline;
   color: #333333;
 }
-/* line 77, scss/defaults/_typography.scss */
+/* line 81, scss/defaults/_typography.scss */
 h1 a:hover {
   text-decoration: none;
 }
@@ -92,7 +96,7 @@ h2 {
 	}
 }
  */
-/* line 100, scss/defaults/_typography.scss */
+/* line 105, scss/defaults/_typography.scss */
 h3 {
   display: inline;
   margin: 1em 0 0 0;
@@ -103,7 +107,7 @@ h3 {
   font-size: .8em;
   font-weight: 100;
 }
-/* line 114, scss/defaults/_typography.scss */
+/* line 119, scss/defaults/_typography.scss */
 h3 a:link, h3 a:visited {
   family: "Akkurat-LightItalic";
   text-decoration: none;
@@ -144,6 +148,7 @@ li {
   padding-right: 1em;
 }
 
+/* ----------- POSITIONING THE SVGs ----------- */
 /* line 65, scss/styles.scss */
 #graph {
   overflow: scroll;
@@ -164,34 +169,36 @@ li {
   background-color: rgba(250, 250, 250, 0.85);
 }
 
-/* line 86, scss/styles.scss */
+/* ----------- SCROLL BARS ----------- */
+/* line 90, scss/styles.scss */
 ::-webkit-scrollbar {
   width: 5px;
   direction: rtl;
 }
 
-/* line 91, scss/styles.scss */
+/* line 95, scss/styles.scss */
 ::-webkit-scrollbar-track:vertical, ::-webkit-scrollbar-corner {
   background-color: #ededed;
 }
 
-/* line 95, scss/styles.scss */
+/* line 99, scss/styles.scss */
 ::-webkit-scrollbar-track:horizontal {
   background-color: rgba(250, 250, 250, 0.85);
 }
 
-/* line 99, scss/styles.scss */
+/* line 103, scss/styles.scss */
 ::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
 /* this will style the thumb, ignoring the track */
-/* line 103, scss/styles.scss */
+/* line 107, scss/styles.scss */
 ::-webkit-scrollbar-button {
   background-color: #7c2929;
 }
 
-/* line 110, scss/styles.scss */
+/* ----------- AXES ----------- */
+/* line 118, scss/styles.scss */
 .axis text {
   font-family: Akkurat,sans-serif;
   font-size: 10px;
@@ -199,7 +206,7 @@ li {
   y: -15;
 }
 
-/* line 118, scss/styles.scss */
+/* line 126, scss/styles.scss */
 .axis line {
   fill: none;
   stroke: darkgrey;
@@ -207,17 +214,17 @@ li {
   shape-rendering: crispEdges;
 }
 
-/* line 125, scss/styles.scss */
+/* line 133, scss/styles.scss */
 .axis path, .subaxis path {
   display: none;
 }
 
-/* line 129, scss/styles.scss */
+/* line 137, scss/styles.scss */
 .subaxis text {
   display: none;
 }
 
-/* line 133, scss/styles.scss */
+/* line 141, scss/styles.scss */
 .subaxis line {
   fill: none;
   stroke: lightgrey;
@@ -225,26 +232,132 @@ li {
   shape-rendering: crispEdges;
 }
 
+/* ----------- LOADING PAGE ----------- */
+/* line 156, scss/styles.scss */
+#loader {
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  background-color: #ff661b;
+  margin: 0 auto;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* line 169, scss/styles.scss */
+#loader h1 {
+  color: white;
+  font-family: "Akkurat-Bold";
+  font-weight: 400;
+  font-size: 4em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  margin: 50px 0 5px 0;
+}
+/* line 181, scss/styles.scss */
+#loader h2 {
+  color: white;
+  font-family: "Akkurat";
+  font-weight: 400;
+  font-size: 1.5em;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+}
+/* line 193, scss/styles.scss */
+#loader p {
+  color: #333333;
+  font-family: "Akkurat";
+  font-weight: 400;
+  font-size: 1.4em;
+  line-height: 1.5;
+}
+/* line 203, scss/styles.scss */
+#loader p#credit {
+  color: white;
+  font-family: "Akkurat";
+  font-weight: 400;
+  font-size: .8em;
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+/* line 218, scss/styles.scss */
+#loader a:link, #loader a:visited {
+  text-decoration: underline;
+  color: white;
+}
+/* line 223, scss/styles.scss */
+#loader a:hover {
+  text-decoration: none;
+}
+
+/* line 229, scss/styles.scss */
+#loadingWrapper {
+  width: 70%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* line 235, scss/styles.scss */
+button#loaded {
+  border: none;
+  background-color: #ff661b;
+  color: #e74c00;
+  padding: 0;
+  cursor: default;
+  width: 200px;
+  margin: 0 auto;
+  display: none;
+  opacity: 0.7;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.8s;
+  -moz-transition-duration: 0.8s;
+  -o-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+  font-family: "Akkurat-Bold";
+  font-size: 2em;
+}
+
+/* line 257, scss/styles.scss */
+button#loaded:hover, button#loaded:active, button#loaded:focus {
+  color: #333333;
+  opacity: 0.85;
+  cursor: pointer;
+}
+
 /* ----------- NAVIGATION ----------- */
-/* line 147, scss/styles.scss */
+/* line 275, scss/styles.scss */
+#projectTItle:hover {
+  cursor: pointer;
+}
+
+/* line 279, scss/styles.scss */
 #nav-bar {
   margin: 0 auto;
   padding: 0px 30px;
-  background-color: #ededed;
+  background-color: #ff7735;
   font-family: "Akkurat";
+  z-index: 1;
 }
-/* line 153, scss/styles.scss */
+/* line 285, scss/styles.scss */
 #nav-bar a, #nav-bar a:visited {
   color: #333333;
   text-decoration: none;
 }
-/* line 157, scss/styles.scss */
+/* line 289, scss/styles.scss */
 #nav-bar a:hover {
   color: #333333;
   text-decoration: underline;
 }
 
-/* line 163, scss/styles.scss */
+/* line 297, scss/styles.scss */
 #key {
   margin-bottom: 50px;
 }
@@ -255,9 +368,8 @@ li {
   font-text-transform: uppercase;
   font-size: .8em;
   margin: 0;
-  padding: 0;
 }
-/* line 18, scss/defaults/_mixins.scss */
+/* line 17, scss/defaults/_mixins.scss */
 #key h2 {
   color: #333333;
   font-family: "Akkurat";
@@ -266,31 +378,31 @@ li {
   margin-top: 20px;
   margin-bottom: 5px;
 }
-/* line 30, scss/defaults/_mixins.scss */
+/* line 29, scss/defaults/_mixins.scss */
 #key p {
   color: #333333;
   font-family: "Akkurat-Light";
   font-size: .7em;
 }
-/* line 38, scss/defaults/_mixins.scss */
+/* line 37, scss/defaults/_mixins.scss */
 #key a {
   text-decoration: none;
 }
-/* line 41, scss/defaults/_mixins.scss */
+/* line 40, scss/defaults/_mixins.scss */
 #key a:link, #key a:visited {
   color: #333333;
 }
-/* line 165, scss/styles.scss */
+/* line 299, scss/styles.scss */
 #key li {
-  color: #ababab;
+  color: white;
   font-family: "Akkurat-Light";
   font-size: .7em;
   padding: 0px 0px 3px 0px;
   margin: 0;
 }
-/* line 175, scss/styles.scss */
+/* line 309, scss/styles.scss */
 #key i {
-  color: #333333;
+  color: white;
   padding-right: 13px;
 }
 
@@ -301,9 +413,8 @@ li {
   font-text-transform: uppercase;
   font-size: .8em;
   margin: 0;
-  padding: 0;
 }
-/* line 18, scss/defaults/_mixins.scss */
+/* line 17, scss/defaults/_mixins.scss */
 #modes h2, #sort h2, #arrange h2, #group h2 {
   color: #333333;
   font-family: "Akkurat";
@@ -312,40 +423,40 @@ li {
   margin-top: 20px;
   margin-bottom: 5px;
 }
-/* line 30, scss/defaults/_mixins.scss */
+/* line 29, scss/defaults/_mixins.scss */
 #modes p, #sort p, #arrange p, #group p {
   color: #333333;
   font-family: "Akkurat-Light";
   font-size: .7em;
 }
-/* line 38, scss/defaults/_mixins.scss */
+/* line 37, scss/defaults/_mixins.scss */
 #modes a, #sort a, #arrange a, #group a {
   text-decoration: none;
 }
-/* line 41, scss/defaults/_mixins.scss */
+/* line 40, scss/defaults/_mixins.scss */
 #modes a:link, #modes a:visited, #sort a:link, #sort a:visited, #arrange a:link, #arrange a:visited, #group a:link, #group a:visited {
   color: #333333;
 }
-/* line 184, scss/styles.scss */
+/* line 318, scss/styles.scss */
 #modes li, #sort li, #arrange li, #group li {
-  color: #ababab;
+  color: white;
   font-family: "Akkurat-Light";
   font-size: .7em;
 }
-/* line 192, scss/styles.scss */
+/* line 326, scss/styles.scss */
 #modes i, #sort i, #arrange i, #group i {
-  color: #ababab;
+  color: white;
   padding-right: 6px;
 }
 
-/* line 198, scss/styles.scss */
+/* line 332, scss/styles.scss */
 #legend {
   padding: 0;
   margin: 0;
 }
 
 /*--------- GRAPH ---------*/
-/* line 210, scss/styles.scss */
+/* line 344, scss/styles.scss */
 .lines {
   stroke-width: 1px;
   stroke-dasharray: 1px , 1.5px;
@@ -354,7 +465,7 @@ li {
   stroke: black;
 }
 
-/* line 218, scss/styles.scss */
+/* line 352, scss/styles.scss */
 .obj-trigger {
   stroke-width: 10px;
   stroke-linecap: round;
@@ -362,7 +473,7 @@ li {
   stroke-opacity: 0.0;
 }
 
-/* line 225, scss/styles.scss */
+/* line 359, scss/styles.scss */
 .created {
   stroke: teal;
   stroke-width: 4px;
@@ -370,7 +481,7 @@ li {
   stroke-linecap: square;
 }
 
-/* line 232, scss/styles.scss */
+/* line 366, scss/styles.scss */
 .exhibited {
   stroke: purple;
   stroke-width: 4px;
@@ -378,53 +489,41 @@ li {
   stroke-linecap: square;
 }
 
-/* line 239, scss/styles.scss */
+/* line 373, scss/styles.scss */
 .acquired {
   stroke: orange;
   stroke-width: 1px;
   fill: white;
 }
 
-/* line 245, scss/styles.scss */
+/* line 379, scss/styles.scss */
 .acquiredLine {
   stroke: orange;
 }
 
-/* line 249, scss/styles.scss */
+/* line 383, scss/styles.scss */
 #exhibitedLine {
   stroke: purple;
 }
 
-/* line 255, scss/styles.scss */
+/* line 389, scss/styles.scss */
 .tooltip {
-  text-anchor: left;
+  text-anchor: middle;
   font-family: sans-serif;
   font-size: 8px;
   fill: black;
 }
 
-/* line 264, scss/styles.scss */
-button {
-  border: none;
-  background-color: #ededed;
-  padding: 0;
-  margin: 0;
-  cursor: default;
-  color: #ababab;
-  font-family: "Akkurat-Light";
-  font-size: 1em;
-}
 /* line 7, scss/defaults/_mixins.scss */
-button h1 {
+.resort h1 {
   color: #333333;
   font-family: "Akkurat";
   font-text-transform: uppercase;
   font-size: .8em;
   margin: 0;
-  padding: 0;
 }
-/* line 18, scss/defaults/_mixins.scss */
-button h2 {
+/* line 17, scss/defaults/_mixins.scss */
+.resort h2 {
   color: #333333;
   font-family: "Akkurat";
   font-size: .7em;
@@ -432,32 +531,33 @@ button h2 {
   margin-top: 20px;
   margin-bottom: 5px;
 }
-/* line 30, scss/defaults/_mixins.scss */
-button p {
+/* line 29, scss/defaults/_mixins.scss */
+.resort p {
   color: #333333;
   font-family: "Akkurat-Light";
   font-size: .7em;
 }
-/* line 38, scss/defaults/_mixins.scss */
-button a {
+/* line 37, scss/defaults/_mixins.scss */
+.resort a {
   text-decoration: none;
 }
-/* line 41, scss/defaults/_mixins.scss */
-button a:link, button a:visited {
+/* line 40, scss/defaults/_mixins.scss */
+.resort a:link, .resort a:visited {
   color: #333333;
 }
-/* line 278, scss/styles.scss */
-button :hover, button :active, button :focus {
-  color: #333333;
-  font-family: "Akkurat";
+/* line 401, scss/styles.scss */
+.resort button {
+  border: none;
+  background-color: #ff7735;
+  padding: 0;
+  margin: 0;
+  cursor: default;
+  color: white;
+  font-family: "Akkurat-Light";
   font-size: 1em;
-  cursor: pointer;
 }
-
-/* line 291, scss/styles.scss */
-button:hover,
-button:active,
-button:focus {
+/* line 415, scss/styles.scss */
+.resort button:hover, .resort button:active, .resort button:focus {
   color: #333333;
   font-family: "Akkurat";
   font-size: 1em;
@@ -465,7 +565,7 @@ button:focus {
 }
 
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 307, scss/styles.scss */
+/* line 433, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;
