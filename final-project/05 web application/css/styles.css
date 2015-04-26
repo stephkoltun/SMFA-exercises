@@ -563,3 +563,10 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   font-size: 1em;
   cursor: pointer;
 }
+
+/*--------- MAIN BLOG PAGE ---------*/
+/* line 433, scss/styles.scss */
+.clear {
+  clear: both;
+  line-height: 0;
+}
