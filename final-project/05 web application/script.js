@@ -196,53 +196,35 @@ function makeGraph() {
 	var trigger = objects.append("line")
 		.attr("class","obj-trigger")
 		.attr("x1", xYearStartMap)
-		.attr("y1", function(d,i){
-			return i;
-		})
+		.attr("y1", "0")
 		.attr("x2", xExhibitEndMap)
-		.attr("y2", function(d,i){
-			return i;
-		});
+		.attr("y2", "0");
 
 	var lines = objects.append("line") //overall connection line for each obj
 		.attr("class","lines") // set class for CSS styling
 		.attr("x1", xYearStartMap)
-		.attr("y1", function(d,i){
-			return i;
-		})
+		.attr("y1", "0")
 		.attr("x2", xExhibitEndMap)
-		.attr("y2", function(d,i){
-			return i;
-		});
+		.attr("y2", "0");
 
 	var createdMarker = objects.append("line") //years created
 		.attr("class","created") 
 		.attr("x1", xYearStartMap)
-		.attr("y1", function(d,i){
-			return i;
-		})
+		.attr("y1", "0")
 		.attr("x2", xYearEndMap)
-		.attr("y2", function(d,i){
-			return i;
-		});
+		.attr("y2", "0");
 
 	var exhibitedMarker = objects.append("line") //years exhibited
 		.attr("class","exhibited") 
 		.attr("x1", xExhibitStartMap)
-		.attr("y1", function(d,i){
-			return i;
-		})
+		.attr("y1", "0")
 		.attr("x2", xExhibitEndMap)
-		.attr("y2", function(d,i){
-			return i;
-		});
+		.attr("y2", "0");
 
 	var acquiredMarker = objects.append("circle") //year acquired
 		.attr("class","acquired")
 		.attr("cx", xYearAcquiredMap)
-		.attr("cy", function(d,i){
-			return i;
-		})
+		.attr("cy", "0")
 		.attr("r","2.5px");
 
 	
@@ -464,9 +446,7 @@ function makeGraph() {
 
 
 
-		/*//     DRAW LINES BETWEEN RELATED OBJECTS     //
-
-		var yPositionHelper = d.key;
+		//     DRAW LINES BETWEEN RELATED OBJECTS     //
 
 		var objsThatMatchAcquired = d3.selectAll('.object').filter(function(d) {
 			return d.yearAcquired == selectedYearAcquired;
@@ -474,14 +454,11 @@ function makeGraph() {
 		.append("line")
 		.attr("class","acquiredLine")
 		.attr("x1", x(format.parse(selectedYearAcquired)))
-		.attr("y1", function(d,i) { d.key; }) // Y position of matched object markers
+		.attr("y1", yPositionAcquired) // Y position of selected object marker
 		.attr("x2", x(format.parse(selectedYearAcquired)))
-		.attr("y2", "50") // Y position of highlighted object marker
-		.attr("transform", function(d,i) { 
-	    		return "translate(0," + (y(d.key*1.15)+margin.top) + ")";
-	    	});
-*/
-		//.attr("y2", yPositionAcquired);
+		.attr("y2", function(d,i) {
+			return i*1.15;
+		});
 
 		/*.attr("transform", function(d,i) { 
 	    		return "translate(" + margin.left + "," + (y(i*1.15)+margin.top) + ")";
