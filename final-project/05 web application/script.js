@@ -486,51 +486,13 @@ function makeGraph() {
 
 
 
-/*
-		console.log(yPositionAcquired);
-	    for (i=0; i < objsThatMatchAcquired.length; i++) {
-			
-			console.log(objsThatMatchAcquired[i]);
-
-			var selectionIs = objsThatMatchAcquired[i];
-			//console.log(selectionIs);
-
-			var test = d3.select(selectionIs).selectAll('g > circle').attr("cy");
-			console.log(test);
-
-	    	//var matchYPos = ('g > circle').attr("cy");
-	    	//console.log(matchYPos);
-
-	    	/*svg.append("line")
-	    		.attr("class","acquiredLine")
-	    		.attr("x1", x(format.parse(selectedYearAcquired)))
-	    		.attr("y1", matchYPos)
-	    		.attr("x2", x(format.parse(selectedYearAcquired)))
-	    		.attr("y2", yPositionAcquired);
-	    }
-*/
 
 
 
 
 
-		//     DRAW LINES BETWEEN RELATED OBJECTS     //
 
-/*		var objsThatMatchAcquired = d3.selectAll('.object').filter(function(d) {
-			return d.yearAcquired == selectedYearAcquired;
-		})
-		.append("line")
-		.attr("class","acquiredLine")
-		.attr("x1", x(format.parse(selectedYearAcquired)))
-		.attr("y1", yPositionAcquired) // Y position of selected object marker
-		.attr("x2", x(format.parse(selectedYearAcquired)))
-		.attr("y2", function(d,i) {
-			return i*1.15;
-		});
-*/
-		/*.attr("transform", function(d,i) { 
-	    		return "translate(" + margin.left + "," + (y(i*1.15)+margin.top) + ")";
-	    	});*/
+
 
 
 
@@ -552,8 +514,7 @@ function makeGraph() {
 
     	d3.select(this).selectAll(".tooltip").remove();
 
-    	d3.select(".acquiredLine").remove();
-    	d3.select("#exhibitedLine").remove();
+    	d3.select("svg").selectAll(".acquiredLine").remove();
 
 
     });
