@@ -102,7 +102,7 @@ function makeGraph() {
 
 	var margin = {top: 30, right: 20, bottom: 30, left: 50},
     	width = $(window).width() - margin.left - margin.right - 210,
-    	height = 1700 - margin.top - margin.bottom,
+    	height = 1900 - margin.top - margin.bottom,
     	padding = allObjectsDataset.length * 1.35;
 
 	// Parse the date
@@ -325,6 +325,7 @@ function makeGraph() {
     	//background highlight for selected object
     	d3.select(this).selectAll('.obj-trigger')
     	.transition()
+    	.delay(100)
     	.duration(250)
     	.style("stroke-opacity","1.0");
 
@@ -366,6 +367,22 @@ function makeGraph() {
 		d3.selectAll('.object').filter(function(d) {
 			return d.yearAcquired == selectedYearAcquired;
 		})
+			.each(function(d,i) {
+				var subSel = d3.select(this).select('g > circle').attr("cy");
+				svg.append("line")
+					.attr("class","acquiredLine")
+		    		.attr("x1", x(format.parse(selectedYearAcquired)))
+		    		.attr("y1", subSel)
+		    		.attr("x2", x(format.parse(selectedYearAcquired)))
+		    		.attr("y2", yPositionAcquired)
+		    		.attr("transform", function(d,i) { 
+		    		return "translate(" + margin.left + "," + margin.top + ")";
+		    		})
+		    		.style('opacity','0')
+		    		.transition()
+		    		.delay(100)
+		    		.style('opacity','1');
+			})
 			.transition()
 			.style('opacity','1');
 
@@ -373,6 +390,18 @@ function makeGraph() {
 		d3.selectAll('.object').filter(function(d) {
 			return d.yearStart == selectedYearStarted;
 		})
+			.each(function(d,i) {
+				var subSel = d3.select(this).select('.created').attr("y1");
+				svg.append("line")
+					.attr("class","createdLine")
+		    		.attr("x1", x(format.parse((selectedYearStarted).toString())))
+		    		.attr("y1", subSel)
+		    		.attr("x2", x(format.parse((selectedYearStarted).toString())))
+		    		.attr("y2", yPositionCreated)
+		    		.attr("transform", function(d,i) { 
+		    		return "translate(" + margin.left + "," + margin.top + ")";
+		    	});
+			})
 			.transition()
 			.style('opacity','1');
 
@@ -385,20 +414,7 @@ function makeGraph() {
 
 
 
-		var objsThatMatchAcquired = d3.selectAll('.object').filter(function(d) {
-			return d.yearAcquired == selectedYearAcquired;
-		}).each(function(d,i) {
-			var subSel = d3.select(this).select('g > circle').attr("cy");
-			svg.append("line")
-				.attr("class","acquiredLine")
-	    		.attr("x1", x(format.parse(selectedYearAcquired)))
-	    		.attr("y1", subSel)
-	    		.attr("x2", x(format.parse(selectedYearAcquired)))
-	    		.attr("y2", yPositionAcquired)
-	    		.attr("transform", function(d,i) { 
-	    		return "translate(" + margin.left + "," + margin.top + ")";
-	    	});
-		});
+		
 
     	
 
@@ -515,10 +531,10 @@ function makeGraph() {
 
     	d3.select(this).selectAll(".tooltip").remove();
 
-    	d3.select("svg").selectAll(".acquiredLine")
+    	d3.select("svg").selectAll(".acquiredLine , .createdLine")
     	.attr("opacity","1")
     	.transition()
-    	.duration(350)
+    	.duration(250)
     	.attr("opacity","0")
     	.remove();
     });

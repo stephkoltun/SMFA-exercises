@@ -363,32 +363,33 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 }
 /* line 7, scss/defaults/_mixins.scss */
 #key h1 {
-  color: #333333;
-  font-family: "Akkurat";
-  font-text-transform: uppercase;
+  color: white;
+  font-family: "Akkurat-Bold";
   font-size: .8em;
+  text-transform: uppercase;
   margin: 0;
 }
 /* line 17, scss/defaults/_mixins.scss */
 #key h2 {
-  color: #333333;
-  font-family: "Akkurat";
+  color: white;
+  font-family: "Akkurat-Bold";
   font-size: .7em;
   font-weight: 100;
+  text-transform: uppercase;
   margin-top: 20px;
   margin-bottom: 5px;
 }
-/* line 29, scss/defaults/_mixins.scss */
+/* line 30, scss/defaults/_mixins.scss */
 #key p {
-  color: #333333;
+  color: white;
   font-family: "Akkurat-Light";
   font-size: .7em;
 }
-/* line 37, scss/defaults/_mixins.scss */
+/* line 38, scss/defaults/_mixins.scss */
 #key a {
   text-decoration: none;
 }
-/* line 40, scss/defaults/_mixins.scss */
+/* line 41, scss/defaults/_mixins.scss */
 #key a:link, #key a:visited {
   color: #333333;
 }
@@ -408,32 +409,33 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 
 /* line 7, scss/defaults/_mixins.scss */
 #modes h1, #sort h1, #arrange h1, #group h1 {
-  color: #333333;
-  font-family: "Akkurat";
-  font-text-transform: uppercase;
+  color: white;
+  font-family: "Akkurat-Bold";
   font-size: .8em;
+  text-transform: uppercase;
   margin: 0;
 }
 /* line 17, scss/defaults/_mixins.scss */
 #modes h2, #sort h2, #arrange h2, #group h2 {
-  color: #333333;
-  font-family: "Akkurat";
+  color: white;
+  font-family: "Akkurat-Bold";
   font-size: .7em;
   font-weight: 100;
+  text-transform: uppercase;
   margin-top: 20px;
   margin-bottom: 5px;
 }
-/* line 29, scss/defaults/_mixins.scss */
+/* line 30, scss/defaults/_mixins.scss */
 #modes p, #sort p, #arrange p, #group p {
-  color: #333333;
+  color: white;
   font-family: "Akkurat-Light";
   font-size: .7em;
 }
-/* line 37, scss/defaults/_mixins.scss */
+/* line 38, scss/defaults/_mixins.scss */
 #modes a, #sort a, #arrange a, #group a {
   text-decoration: none;
 }
-/* line 40, scss/defaults/_mixins.scss */
+/* line 41, scss/defaults/_mixins.scss */
 #modes a:link, #modes a:visited, #sort a:link, #sort a:visited, #arrange a:link, #arrange a:visited, #group a:link, #group a:visited {
   color: #333333;
 }
@@ -502,8 +504,8 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 }
 
 /* line 383, scss/styles.scss */
-#exhibitedLine {
-  stroke: purple;
+.createdLine {
+  stroke: teal;
 }
 
 /* line 389, scss/styles.scss */
@@ -516,32 +518,33 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 
 /* line 7, scss/defaults/_mixins.scss */
 .resort h1 {
-  color: #333333;
-  font-family: "Akkurat";
-  font-text-transform: uppercase;
+  color: white;
+  font-family: "Akkurat-Bold";
   font-size: .8em;
+  text-transform: uppercase;
   margin: 0;
 }
 /* line 17, scss/defaults/_mixins.scss */
 .resort h2 {
-  color: #333333;
-  font-family: "Akkurat";
+  color: white;
+  font-family: "Akkurat-Bold";
   font-size: .7em;
   font-weight: 100;
+  text-transform: uppercase;
   margin-top: 20px;
   margin-bottom: 5px;
 }
-/* line 29, scss/defaults/_mixins.scss */
+/* line 30, scss/defaults/_mixins.scss */
 .resort p {
-  color: #333333;
+  color: white;
   font-family: "Akkurat-Light";
   font-size: .7em;
 }
-/* line 37, scss/defaults/_mixins.scss */
+/* line 38, scss/defaults/_mixins.scss */
 .resort a {
   text-decoration: none;
 }
-/* line 40, scss/defaults/_mixins.scss */
+/* line 41, scss/defaults/_mixins.scss */
 .resort a:link, .resort a:visited {
   color: #333333;
 }

@@ -5,29 +5,30 @@
 
 @mixin key-text {
 	h1 {
-		color: $color-main;
+		color: white;
 		font: {
-			family: "Akkurat";
-			text-transform: uppercase;
+			family: "Akkurat-Bold";
 			size: .8em;
 		}
+		text-transform: uppercase;
 		margin: 0;
 	}
 
 	h2 {
-		color: $color-main;
+		color: white;
 		font: {
-			family: "Akkurat";
+			family: "Akkurat-Bold";
 			size: .7em;
 			weight: 100;
 		}
+		text-transform: uppercase;
 		margin-top: 20px;
 		margin-bottom: 5px;
 
 	}
 
 	p {
-		color: $color-main;
+		color: white;
 		font: {
 			family: "Akkurat-Light";
 			size: .7em;
