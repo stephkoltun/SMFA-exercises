@@ -156,10 +156,7 @@ function makeGraph() {
 
 	/* ------ MAKE THE GRAPH ------ */
 
-	var key = function(d) {
-		return d.key;
-	};
-
+	
 
 	// create SVG
 	var svg = d3.select("#graph")
@@ -187,11 +184,11 @@ function makeGraph() {
 
 	// DEFINE GROUPS FOR EACH OBJECT
 	var objects = svg.selectAll("g.object") //select all <g> w/class "object" in <svg> (empty)
-		.data(allObjectsDataset, key) // join the selection to a data array
+		.data(allObjectsDataset, function(d) {return d.key}) // join the selection to a data array
 		.enter() // create a selection for the data objects that didn't match elements (all)
 		.append("g") // add a new <g> for each data object
 		.attr("class","object") // set the <g>'s class to match selection criteria
-		.attr("transform", function(d,i) {
+		.attr("transform", function() {
 				return "translate(" + margin.left + "," + margin.top + ")";});
 
 	// ADD LINES AND CIRCLES within each object <g>, inherits data from <g>
@@ -200,52 +197,52 @@ function makeGraph() {
 	var trigger = objects.append("line")
 		.attr("class","obj-trigger")
 		.attr("x1", xYearStartMap)
-		.attr("y1", function(d,i) {
-			return y(i);
+		.attr("y1", function(d, key) {
+			return y(key);
 		})
 		.attr("x2", xExhibitEndMap)
-		.attr("y2", function(d,i) {
-			return y(i);
+		.attr("y2", function(d, key) {
+			return y(key);
 		});
 
 	var lines = objects.append("line") //overall connection line for each obj
 		.attr("class","lines") // set class for CSS styling
 		.attr("x1", xYearStartMap)
-		.attr("y1", function(d,i) {
-			return y(i);
+		.attr("y1", function(d, key) {
+			return y(key);
 		})
 		.attr("x2", xExhibitEndMap)
-		.attr("y2", function(d,i) {
-			return y(i);
+		.attr("y2", function(d, key) {
+			return y(key);
 		});
 
 	var createdMarker = objects.append("line") //years created
 		.attr("class","created") 
 		.attr("x1", xYearStartMap)
-		.attr("y1", function(d,i) {
-			return y(i);
+		.attr("y1", function(d, key) {
+			return y(key);
 		})
 		.attr("x2", xYearEndMap)
-		.attr("y2", function(d,i) {
-			return y(i);
+		.attr("y2", function(d, key) {
+			return y(key);
 		});
 
 	var exhibitedMarker = objects.append("line") //years exhibited
 		.attr("class","exhibited") 
 		.attr("x1", xExhibitStartMap)
-		.attr("y1", function(d,i) {
-			return y(i);
+		.attr("y1", function(d, key) {
+			return y(key);
 		})
 		.attr("x2", xExhibitEndMap)
-		.attr("y2", function(d,i) {
-			return y(i);
+		.attr("y2", function(d, key) {
+			return y(key);
 		});
 
 	var acquiredMarker = objects.append("circle") //year acquired
 		.attr("class","acquired")
 		.attr("cx", xYearAcquiredMap)
-		.attr("cy", function(d,i) {
-			return y(i);
+		.attr("cy", function(d, key) {
+			return y(key);
 		})
 		.attr("r","2.5px");
 
@@ -320,12 +317,14 @@ function makeGraph() {
     	//fade all objects
     	d3.selectAll('.object')
     	.transition()
+    	.delay(100)
     	.duration(250)
     	.style('opacity','0.3');
 
     	//don't fade selected object
     	d3.select(this).selectAll('.object')
     	.transition()
+    	.delay(100)
     	.duration(250)
     	.style('opacity','1');
 
@@ -339,7 +338,7 @@ function makeGraph() {
 
 
 
-    	// VARIABLES FOR THIS
+    	// VARIABLES FOR "THIS" (the object currently hovered over)
 
 		var currentObject = d3.select(this);
 
@@ -375,23 +374,27 @@ function makeGraph() {
 			return d.yearAcquired == selectedYearAcquired;
 		})
 			.each(function(d,i) {
+				d3.select(this).select('.acquired')
+					.style('fill','orange');//change circle to filled
+
 				var subSel = d3.select(this).select('g > circle').attr("cy");
 				svg.append("line")
 					.attr("class","acquiredLine")
 		    		.attr("x1", x(format.parse(selectedYearAcquired)))
-		    		.attr("y1", subSel)
+		    		.attr("y1", subSel) // y pos of matched marker
 		    		.attr("x2", x(format.parse(selectedYearAcquired)))
-		    		.attr("y2", yPositionAcquired)
+		    		.attr("y2", yPositionAcquired) // y pos of highlighted marker
 		    		.attr("transform", function(d,i) { 
 		    		return "translate(" + margin.left + "," + margin.top + ")";
 		    		})
 		    		.style('opacity','0')
 		    		.transition()
 		    		.delay(100)
+		    		.duration(250)
 		    		.style('opacity','1');
 			})
 			.transition()
-			.style('opacity','1');
+			.style('opacity','1'); //matched objs stay solid
 
 
 		d3.selectAll('.object').filter(function(d) {
@@ -406,27 +409,45 @@ function makeGraph() {
 		    		.attr("x2", x(format.parse((selectedYearStarted).toString())))
 		    		.attr("y2", yPositionCreated)
 		    		.attr("transform", function(d,i) { 
-		    		return "translate(" + margin.left + "," + margin.top + ")";
-		    	});
+		    		return "translate(" + margin.left + "," + margin.top + ")"
+		    		})
+		    		.style('opacity','0')
+		    		.transition()
+		    		.delay(100)
+		    		.duration(250)
+		    		.style('opacity','1');
 			})
 			.transition()
-			.style('opacity','1');
+			.style('opacity','1'); //matched objs stay solid
 
 		d3.selectAll('.object').filter(function(d) {
 			return d.exhibitStart == selectedYearExhibited;
 		})
+			.each(function(d,i) {
+				var subSel = d3.select(this).select('.exhibited').attr("y1");
+				svg.append("line")
+					.attr("class","exhibitLine")
+					.attr("x1", x(format.parse((d.exhibitStart).toString())))
+					.attr("y1", subSel)
+					.attr("x2", x(format.parse((d.exhibitStart).toString())))
+					.attr("y2", yPositionExhibited)
+					.attr("transform", function(d,i) { 
+		    		return "translate(" + margin.left + "," + margin.top + ")";
+		    		})
+		    		.style('opacity','0')
+		    		.transition()
+		    		.delay(100)
+		    		.duration(250)
+		    		.style('opacity','1');
+			})
 			.transition()
-			.style('opacity','1');
-
+			.style('opacity','1'); //matched objs stay solid
 
 
 
 		
 
     	
-
-    	
-
 
 
 
@@ -438,7 +459,7 @@ function makeGraph() {
     	if (xPositionStart === xPositionEnd) {
     		currentObject.append("text")
     		.attr("class", "tooltip")
-    		.attr("x", xPositionStart)
+    		.attr("x", xPositionStart + 12)
     		.attr("y", yPositionCreated - 8)
     		.text(d.yearStart);
     	}
@@ -446,7 +467,7 @@ function makeGraph() {
     	else if ((d.yearEnd - d.yearStart) <= 5) {
     		currentObject.append("text")
 	    		.attr("class", "tooltip")
-	    		.attr("x", xPositionMiddle)
+	    		.attr("x", xPositionMiddle + 12)
 	    		.attr("y", yPositionCreated  - 8)
 	    		.text(d.yearStart + " - " + d.yearEnd);
     	}
@@ -454,7 +475,7 @@ function makeGraph() {
     	if ((d.yearEnd - d.yearStart) > 5) {
     		currentObject.append("text")
 	    		.attr("class", "tooltip")
-	    		.attr("x", xPositionStart)
+	    		.attr("x", xPositionStart +  12)
 	    		.attr("y", yPositionCreated  - 8)
 	    		.text(d.yearStart);
 
@@ -471,7 +492,7 @@ function makeGraph() {
     	if (d.yearEnd != d.yearAcquired || d.yearStart != d.yearAcquired) {
 	    	currentObject.append("text")
 	    		.attr("class", "tooltip")
-	    		.attr("x", xPositionAcquired)
+	    		.attr("x", xPositionAcquired + 12)
 	    		.attr("y", yPositionAcquired  - 8)
 	    		.text(d.yearAcquired);
     	}
@@ -482,7 +503,7 @@ function makeGraph() {
     	if (xExhibitedStart === xExhibitedEnd) {
     		currentObject.append("text")
     		.attr("class", "tooltip")
-    		.attr("x", xExhibitedStart)
+    		.attr("x", xExhibitedStart + 12)
     		.attr("y", yPositionExhibited  - 8)
     		.text(d.exhibitStart);
     	}
@@ -490,7 +511,7 @@ function makeGraph() {
     	else if ((d.exhibitStart- d.exhibitEnd) <= 5) {
     		currentObject.append("text")
 	    		.attr("class", "tooltip")
-	    		.attr("x", xExhibitedMiddle)
+	    		.attr("x", xExhibitedMiddle + 12)
 	    		.attr("y", yPositionExhibited  - 8)
 	    		.text(d.exhibitStart + " - " + d.exhibitEnd);
     	}
@@ -498,24 +519,17 @@ function makeGraph() {
     	if ((d.exhibitEnd - d.exhibitStart) > 5) {
     		currentObject.append("text")
 	    		.attr("class", "tooltip")
-	    		.attr("x", xExhibitedStart)
+	    		.attr("x", xExhibitedStart + 12)
 	    		.attr("y", yPositionExhibited  - 8)
 	    		.text(d.exhibitStart);
 
 	    		currentObject.append("text")
 	    		.attr("class", "tooltip")
-	    		.attr("x", xExhibitedEnd)
+	    		.attr("x", xExhibitedEnd + 12)
 	    		.attr("y", yPositionExhibited  - 8)
 	    		.text(d.exhibitEnd);
     	}
 
-
-
-
-
-
-
-		
 
 
     }); //end mouse over
@@ -536,24 +550,37 @@ function makeGraph() {
     	.duration(250)
     	.style("stroke-opacity","0.0");
 
-    	d3.select(this).selectAll(".tooltip").remove();
+    	d3.select(this).selectAll(".tooltip")
+    	.transition()
+    	.duration(250)
+    	.remove();
 
-    	d3.select("svg").selectAll(".acquiredLine , .createdLine")
+    	d3.select("svg").selectAll(".acquiredLine, .createdLine, .exhibitLine")
     	.attr("opacity","1")
     	.transition()
     	.duration(250)
     	.attr("opacity","0")
     	.remove();
+
+    	d3.selectAll(".object").selectAll('.acquired')
+    	.delay(100)
+		.style('fill','white');//change circle back to white
     });
 
 
 
 
-    // event listenered to bring back "about" page
+    // event listener to bring back "about" page
     $("#projectTitle").click(function() {
 		$("#loader").fadeIn("slow");
 	});
 
+
+
+	// event listener on objects
+	d3.selectAll(".obj-trigger").on("click", function(d) {
+		alert("you clicked an object!");
+	});
 
 }; // end of graphing function
 

@@ -508,7 +508,12 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   stroke: teal;
 }
 
-/* line 389, scss/styles.scss */
+/* line 387, scss/styles.scss */
+.exhibitLine {
+  stroke: purple;
+}
+
+/* line 393, scss/styles.scss */
 .tooltip {
   text-anchor: middle;
   font-family: sans-serif;
@@ -548,7 +553,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 .resort a:link, .resort a:visited {
   color: #333333;
 }
-/* line 401, scss/styles.scss */
+/* line 405, scss/styles.scss */
 .resort button {
   border: none;
   background-color: #ff7735;
@@ -559,7 +564,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   font-family: "Akkurat-Light";
   font-size: 1em;
 }
-/* line 415, scss/styles.scss */
+/* line 419, scss/styles.scss */
 .resort button:hover, .resort button:active, .resort button:focus {
   color: #333333;
   font-family: "Akkurat";
@@ -568,7 +573,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 }
 
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 433, scss/styles.scss */
+/* line 437, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;
