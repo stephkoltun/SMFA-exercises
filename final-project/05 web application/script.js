@@ -156,6 +156,10 @@ function makeGraph() {
 
 	/* ------ MAKE THE GRAPH ------ */
 
+	var key = function(d) {
+		return d.key;
+	};
+
 
 	// create SVG
 	var svg = d3.select("#graph")
@@ -183,7 +187,7 @@ function makeGraph() {
 
 	// DEFINE GROUPS FOR EACH OBJECT
 	var objects = svg.selectAll("g.object") //select all <g> w/class "object" in <svg> (empty)
-		.data(allObjectsDataset) // join the selection to a data array
+		.data(allObjectsDataset, key) // join the selection to a data array
 		.enter() // create a selection for the data objects that didn't match elements (all)
 		.append("g") // add a new <g> for each data object
 		.attr("class","object") // set the <g>'s class to match selection criteria
@@ -260,12 +264,15 @@ function makeGraph() {
 			})
 			.transition()
 			.duration(1000)
-	    	.attr("transform", function(d,i) { 
+	    	.attr("transform", function() { 
 	    		return "translate(" + margin.left + "," +margin.top + ")";
 	    	});
     	});
 
-    var resortCreated = d3.select("#sortCreated")
+		// sort data, bind new Y values, update graph?
+
+
+    /*var resortCreated = d3.select("#sortCreated")
 		.on("click", function() {
 			console.log("resorting by year created");
 			objects.sort(function(a, b) {
@@ -290,7 +297,7 @@ function makeGraph() {
 	    		return "translate(" + margin.left + "," + margin.top + ")";
 	    	});
     	});
-
+*/
 /*	var resortLifespan = d3.select("#sortLifespan")
 		.on("click", function() {
 			console.log("resorting by object's lifespan");
