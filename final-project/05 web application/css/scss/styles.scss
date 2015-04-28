@@ -430,17 +430,46 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 
 
 
-#fade {
+/*--------- OBJECT DETAIL VIEW ---------*/
+
+#objDetailFade {
 	height: 100%;
 	width: 100%;
 	z-index: 200;
-	background-color: rgb(100,100,100);
-	opacity: 0.25;
+	background-color: $color-orange;
+	opacity: 0.65;
 
 	display: none;
 
 	position: absolute;
 	top: 0;
+}
+
+#objDetailBox {
+	height: 400px;
+	width: 300px;
+	z-index: 201;
+
+
+	background-color: white;
+	box-shadow: 0px 0px 15px darken($color-orange, 10%);
+	opacity: 1;
+
+	display: none;
+
+	margin: 0 auto;
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+  	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
+
+  	h1 {
+  		color: $color-main;
+  		padding: 0;
+  		margin: 0;
+  	}
+
 }
 
 

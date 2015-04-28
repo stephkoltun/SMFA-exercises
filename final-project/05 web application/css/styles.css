@@ -572,20 +572,44 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   cursor: pointer;
 }
 
-/* line 433, scss/styles.scss */
-#fade {
+/*--------- OBJECT DETAIL VIEW ---------*/
+/* line 435, scss/styles.scss */
+#objDetailFade {
   height: 100%;
   width: 100%;
   z-index: 200;
-  background-color: #646464;
-  opacity: 0.25;
+  background-color: #ff661b;
+  opacity: 0.65;
   display: none;
   position: absolute;
   top: 0;
 }
 
+/* line 448, scss/styles.scss */
+#objDetailBox {
+  height: 400px;
+  width: 300px;
+  z-index: 201;
+  background-color: white;
+  box-shadow: 0px 0px 15px #e74c00;
+  opacity: 1;
+  display: none;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+/* line 467, scss/styles.scss */
+#objDetailBox h1 {
+  color: #333333;
+  padding: 0;
+  margin: 0;
+}
+
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 451, scss/styles.scss */
+/* line 480, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;

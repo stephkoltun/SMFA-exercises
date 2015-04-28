@@ -578,10 +578,16 @@ function makeGraph() {
 
 
 	// event listener on objects
-	d3.selectAll(".obj-trigger").on("click", function(d) {
+	d3.selectAll("g").on("click", function(d) {
 		//alert("you clicked an object!");
-		$("body").append("<div id='fade'><h1>WHAT IS THIS MESS!</h1></div>")
-				.fadeIn();
+		$("body").append("<div id='objDetailFade'><div id='objDetailBox'><h1>" + d.objTitle + "</h1></div></div>");
+		$("#objDetailFade, #objDetailBox").fadeIn();
+	});
+
+
+	$("body").on('click', '#objDetailBox', function() {
+		$("#objDetailFade, #objDetailBox").fadeOut();
+		$("#objDetailFade, #objDetailBox").remove;
 	});
 
 }; // end of graphing function
