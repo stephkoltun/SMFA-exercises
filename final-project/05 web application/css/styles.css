@@ -170,35 +170,35 @@ li {
 }
 
 /* ----------- SCROLL BARS ----------- */
-/* line 90, scss/styles.scss */
+/* line 91, scss/styles.scss */
 ::-webkit-scrollbar {
   width: 5px;
   direction: rtl;
 }
 
-/* line 95, scss/styles.scss */
+/* line 96, scss/styles.scss */
 ::-webkit-scrollbar-track:vertical, ::-webkit-scrollbar-corner {
   background-color: #ededed;
 }
 
-/* line 99, scss/styles.scss */
+/* line 100, scss/styles.scss */
 ::-webkit-scrollbar-track:horizontal {
   background-color: rgba(250, 250, 250, 0.85);
 }
 
-/* line 103, scss/styles.scss */
+/* line 104, scss/styles.scss */
 ::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
 /* this will style the thumb, ignoring the track */
-/* line 107, scss/styles.scss */
+/* line 108, scss/styles.scss */
 ::-webkit-scrollbar-button {
   background-color: #7c2929;
 }
 
 /* ----------- AXES ----------- */
-/* line 118, scss/styles.scss */
+/* line 119, scss/styles.scss */
 .axis text {
   font-family: Akkurat,sans-serif;
   font-size: 10px;
@@ -206,7 +206,7 @@ li {
   y: -15;
 }
 
-/* line 126, scss/styles.scss */
+/* line 127, scss/styles.scss */
 .axis line {
   fill: none;
   stroke: darkgrey;
@@ -214,17 +214,17 @@ li {
   shape-rendering: crispEdges;
 }
 
-/* line 133, scss/styles.scss */
+/* line 134, scss/styles.scss */
 .axis path, .subaxis path {
   display: none;
 }
 
-/* line 137, scss/styles.scss */
+/* line 138, scss/styles.scss */
 .subaxis text {
   display: none;
 }
 
-/* line 141, scss/styles.scss */
+/* line 142, scss/styles.scss */
 .subaxis line {
   fill: none;
   stroke: lightgrey;
@@ -233,7 +233,7 @@ li {
 }
 
 /* ----------- LOADING PAGE ----------- */
-/* line 156, scss/styles.scss */
+/* line 157, scss/styles.scss */
 #loader {
   height: 100%;
   width: 100%;
@@ -245,7 +245,7 @@ li {
   top: 0;
   left: 0;
 }
-/* line 169, scss/styles.scss */
+/* line 170, scss/styles.scss */
 #loader h1 {
   color: white;
   font-family: "Akkurat-Bold";
@@ -255,7 +255,7 @@ li {
   text-transform: uppercase;
   margin: 50px 0 5px 0;
 }
-/* line 181, scss/styles.scss */
+/* line 182, scss/styles.scss */
 #loader h2 {
   color: white;
   font-family: "Akkurat";
@@ -265,7 +265,7 @@ li {
   margin: 0;
   padding: 0;
 }
-/* line 193, scss/styles.scss */
+/* line 194, scss/styles.scss */
 #loader p {
   color: #333333;
   font-family: "Akkurat";
@@ -273,7 +273,7 @@ li {
   font-size: 1.4em;
   line-height: 1.5;
 }
-/* line 203, scss/styles.scss */
+/* line 204, scss/styles.scss */
 #loader p#credit {
   color: white;
   font-family: "Akkurat";
@@ -285,24 +285,24 @@ li {
   right: 0;
   margin: 0 auto;
 }
-/* line 218, scss/styles.scss */
+/* line 219, scss/styles.scss */
 #loader a:link, #loader a:visited {
   text-decoration: underline;
   color: white;
 }
-/* line 223, scss/styles.scss */
+/* line 224, scss/styles.scss */
 #loader a:hover {
   text-decoration: none;
 }
 
-/* line 229, scss/styles.scss */
+/* line 230, scss/styles.scss */
 #loadingWrapper {
   width: 70%;
   max-width: 900px;
   margin: 0 auto;
 }
 
-/* line 235, scss/styles.scss */
+/* line 236, scss/styles.scss */
 button#loaded {
   border: none;
   background-color: #ff661b;
@@ -325,7 +325,7 @@ button#loaded {
   font-size: 2em;
 }
 
-/* line 257, scss/styles.scss */
+/* line 258, scss/styles.scss */
 button#loaded:hover, button#loaded:active, button#loaded:focus {
   color: #333333;
   opacity: 0.85;
@@ -333,12 +333,12 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 }
 
 /* ----------- NAVIGATION ----------- */
-/* line 275, scss/styles.scss */
+/* line 276, scss/styles.scss */
 #projectTItle:hover {
   cursor: pointer;
 }
 
-/* line 279, scss/styles.scss */
+/* line 280, scss/styles.scss */
 #nav-bar {
   margin: 0 auto;
   padding: 0px 30px;
@@ -346,18 +346,18 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   font-family: "Akkurat";
   z-index: 1;
 }
-/* line 285, scss/styles.scss */
+/* line 286, scss/styles.scss */
 #nav-bar a, #nav-bar a:visited {
   color: #333333;
   text-decoration: none;
 }
-/* line 289, scss/styles.scss */
+/* line 290, scss/styles.scss */
 #nav-bar a:hover {
   color: #333333;
   text-decoration: underline;
 }
 
-/* line 297, scss/styles.scss */
+/* line 298, scss/styles.scss */
 #key {
   margin-bottom: 50px;
 }
@@ -393,7 +393,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 #key a:link, #key a:visited {
   color: #333333;
 }
-/* line 299, scss/styles.scss */
+/* line 300, scss/styles.scss */
 #key li {
   color: white;
   font-family: "Akkurat-Light";
@@ -401,7 +401,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   padding: 0px 0px 3px 0px;
   margin: 0;
 }
-/* line 309, scss/styles.scss */
+/* line 310, scss/styles.scss */
 #key i {
   color: white;
   padding-right: 13px;
@@ -439,26 +439,26 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 #modes a:link, #modes a:visited, #sort a:link, #sort a:visited, #arrange a:link, #arrange a:visited, #group a:link, #group a:visited {
   color: #333333;
 }
-/* line 318, scss/styles.scss */
+/* line 319, scss/styles.scss */
 #modes li, #sort li, #arrange li, #group li {
   color: white;
   font-family: "Akkurat-Light";
   font-size: .7em;
 }
-/* line 326, scss/styles.scss */
+/* line 327, scss/styles.scss */
 #modes i, #sort i, #arrange i, #group i {
   color: white;
   padding-right: 6px;
 }
 
-/* line 332, scss/styles.scss */
+/* line 333, scss/styles.scss */
 #legend {
   padding: 0;
   margin: 0;
 }
 
 /*--------- GRAPH ---------*/
-/* line 344, scss/styles.scss */
+/* line 345, scss/styles.scss */
 .lines {
   stroke-width: 1px;
   stroke-dasharray: 1px , 1.5px;
@@ -467,7 +467,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   stroke: black;
 }
 
-/* line 352, scss/styles.scss */
+/* line 353, scss/styles.scss */
 .obj-trigger {
   stroke-width: 10px;
   stroke-linecap: round;
@@ -475,7 +475,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   stroke-opacity: 0.0;
 }
 
-/* line 359, scss/styles.scss */
+/* line 360, scss/styles.scss */
 .created {
   stroke: teal;
   stroke-width: 4px;
@@ -483,7 +483,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   stroke-linecap: square;
 }
 
-/* line 366, scss/styles.scss */
+/* line 367, scss/styles.scss */
 .exhibited {
   stroke: purple;
   stroke-width: 4px;
@@ -491,29 +491,29 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   stroke-linecap: square;
 }
 
-/* line 373, scss/styles.scss */
+/* line 374, scss/styles.scss */
 .acquired {
   stroke: orange;
   stroke-width: 1px;
   fill: white;
 }
 
-/* line 379, scss/styles.scss */
+/* line 380, scss/styles.scss */
 .acquiredLine {
   stroke: orange;
 }
 
-/* line 383, scss/styles.scss */
+/* line 384, scss/styles.scss */
 .createdLine {
   stroke: teal;
 }
 
-/* line 387, scss/styles.scss */
+/* line 388, scss/styles.scss */
 .exhibitLine {
   stroke: purple;
 }
 
-/* line 393, scss/styles.scss */
+/* line 394, scss/styles.scss */
 .tooltip {
   text-anchor: middle;
   font-family: sans-serif;
@@ -553,7 +553,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 .resort a:link, .resort a:visited {
   color: #333333;
 }
-/* line 405, scss/styles.scss */
+/* line 406, scss/styles.scss */
 .resort button {
   border: none;
   background-color: #ff7735;
@@ -564,7 +564,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   font-family: "Akkurat-Light";
   font-size: 1em;
 }
-/* line 419, scss/styles.scss */
+/* line 420, scss/styles.scss */
 .resort button:hover, .resort button:active, .resort button:focus {
   color: #333333;
   font-family: "Akkurat";
@@ -573,13 +573,12 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 }
 
 /*--------- OBJECT DETAIL VIEW ---------*/
-/* line 435, scss/styles.scss */
+/* line 436, scss/styles.scss */
 #objDetailFade {
   height: 100%;
   width: 100%;
   z-index: 200;
-  background-color: #ff661b;
-  opacity: 0.65;
+  background-color: rgba(255, 102, 27, 0.65);
   display: none;
   position: absolute;
   top: 0;
@@ -587,29 +586,36 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 
 /* line 448, scss/styles.scss */
 #objDetailBox {
-  height: 400px;
-  width: 300px;
+  height: 500px;
+  width: 350px;
   z-index: 201;
   background-color: white;
   box-shadow: 0px 0px 15px #e74c00;
-  opacity: 1;
   display: none;
   margin: 0 auto;
+  padding: 20px;
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/* line 467, scss/styles.scss */
+/* line 469, scss/styles.scss */
 #objDetailBox h1 {
   color: #333333;
   padding: 0;
   margin: 0;
 }
 
+/* line 477, scss/styles.scss */
+.detailImage {
+  width: 90%;
+  max-height: 300px;
+  margin: 0 auto;
+}
+
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 480, scss/styles.scss */
+/* line 488, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;

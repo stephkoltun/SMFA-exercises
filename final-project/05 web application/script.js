@@ -32,10 +32,6 @@ for (i = 0; i < objectsIDList.length; i++) {
 		var url ='https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.objects.getInfo&access_token=' + token + '&object_id=' + objectsIDList[i] +"&extras=exhibitions";
 
 
-		//I THINK I CAN REWRITE THIS WITHOUT MAKING A NEW OBJECT.
-		//JUST USE A BUNCH OF IF STATEMENTS TO CHECK YEAR DATA
-		//ONLY ADD COMPLETE OBJECTS TO SET.
-		//MAY HELP DECREASE PROCESSING TIME
 
 		// create an javascript obj for each object instance in collection
 		var objData = { 
@@ -47,7 +43,8 @@ for (i = 0; i < objectsIDList.length; i++) {
 			yearAcquired: "tempDate",
 			hasBeenExhibited: false,
 			exhibitEnd: "null",
-			exhibitStart: "null"
+			exhibitStart: "null",
+			imageURL: "null"
 		};
 
 		//console.log("Processing objects");
@@ -61,11 +58,17 @@ for (i = 0; i < objectsIDList.length; i++) {
 			objData.yearEnd = obj.year_end;	//year object was finished
 			objData.yearStart = obj.year_start;	//year object was started
 			objData.yearAcquired = obj.year_acquired;	//year object acquired
-			//var creationAge = objData.yearEnd - objData.yearStart;
-			//var acquisitionAge = objData.yearAcquired - objData.yearStart;
+
+			if (obj.images != 0) {
+				objData.imageURL = obj.images[0].z.url;
+			} else {
+				console.log(obj.id + " had no images.");
+			}
+
 
 
 			// NOTE TO SELF: DEAL WITH MULTIPLE EXHIBITS!!!
+
 			if (obj.exhibitions.length != 0) { // object has been exhibited
 				hasBeenExhibited = true;
 				objData.lifespan = objData.exhibitEnd - objData.yearStart;
@@ -79,12 +82,13 @@ for (i = 0; i < objectsIDList.length; i++) {
 				objData.lifespan = objData.yearAcquired - objData.yearStart;
 			}
 
+			// only add objects that have date values	
 			if (objData.yearStart != null && obj.exhibitions.length != 0) {
 				allObjectsDataset.push(objData); // add object to full dataset
 			}
 
-			// invoke done function to see if all objects have been processed
-			done();
+			
+			done(); // invoke done function to check if all objs processed
 		}); //End AJAX request
 	})(i);
 }
@@ -579,15 +583,14 @@ function makeGraph() {
 
 	// event listener on objects
 	d3.selectAll("g").on("click", function(d) {
-		//alert("you clicked an object!");
-		$("body").append("<div id='objDetailFade'><div id='objDetailBox'><h1>" + d.objTitle + "</h1></div></div>");
+		$("body").append("<div id='objDetailFade'><div id='objDetailBox'><img class='detailImage' src=" + d.imageURL + " ></img><h1>" + d.objTitle + "</h1><p>This is an object created by designer in year. The Cooper Hewitt acquired it in year under person’s directorship. It was exhibited in year.</p></div></div>");
 		$("#objDetailFade, #objDetailBox").fadeIn();
 	});
 
 
 	$("body").on('click', '#objDetailBox', function() {
 		$("#objDetailFade, #objDetailBox").fadeOut();
-		$("#objDetailFade, #objDetailBox").remove;
+		$("#objDetailFade").remove();
 	});
 
 }; // end of graphing function
