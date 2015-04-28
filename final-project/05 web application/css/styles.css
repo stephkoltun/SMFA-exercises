@@ -11,37 +11,37 @@ Stephanie Koltun
 /* ----- MEDIA QUERIES ----- */
 @font-face {
   font-family: "Akkurat";
-  src: url("/fonts/Akkurat.otf");
+  src: url("../fonts/Akkurat.otf");
 }
 
 @font-face {
   font-family: "Akkurat-Italic";
-  src: url("/fonts/Akkurat-Italic.otf");
+  src: url("../fonts/Akkurat-Italic.otf");
 }
 
 @font-face {
   font-family: "Akkurat-Light";
-  src: url("/fonts/Akkurat-Light.otf");
+  src: url("../fonts/Akkurat-Light.otf");
 }
 
 @font-face {
   font-family: "Akkurat-LightItalic";
-  src: url("/fonts/Akkurat-LightItalic.otf");
+  src: url("../fonts/Akkurat-LightItalic.otf");
 }
 
 @font-face {
   font-family: "Akkurat-Bold";
-  src: url("/fonts/Akkurat-Bold.otf");
+  src: url("../fonts/Akkurat-Bold.otf");
 }
 
 @font-face {
   font-family: "Akkurat-BoldItalic";
-  src: url("/fonts/Akkurat-BoldItalic.otf");
+  src: url("../fonts/Akkurat-BoldItalic.otf");
 }
 
 @font-face {
   font-family: "FontAwesome";
-  src: url("/fonts/font-awesome/fonts/FontAwesome.otf");
+  src: url("../fonts/font-awesome/fonts/FontAwesome.otf");
 }
 
 /* line 42, scss/defaults/_typography.scss */
@@ -572,8 +572,20 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   cursor: pointer;
 }
 
+/* line 433, scss/styles.scss */
+#fade {
+  height: 100%;
+  width: 100%;
+  z-index: 200;
+  background-color: #646464;
+  opacity: 0.25;
+  display: none;
+  position: absolute;
+  top: 0;
+}
+
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 437, scss/styles.scss */
+/* line 451, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;

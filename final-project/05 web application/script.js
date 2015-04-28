@@ -562,9 +562,9 @@ function makeGraph() {
     	.attr("opacity","0")
     	.remove();
 
-    	d3.selectAll(".object").selectAll('.acquired')
+    	/*d3.selectAll(".object").selectAll('.acquired')
     	.delay(100)
-		.style('fill','white');//change circle back to white
+		.style('fill','white');*///change circle back to white
     });
 
 
@@ -579,7 +579,9 @@ function makeGraph() {
 
 	// event listener on objects
 	d3.selectAll(".obj-trigger").on("click", function(d) {
-		alert("you clicked an object!");
+		//alert("you clicked an object!");
+		$("body").append("<div id='fade'><h1>WHAT IS THIS MESS!</h1></div>")
+				.fadeIn();
 	});
 
 }; // end of graphing function

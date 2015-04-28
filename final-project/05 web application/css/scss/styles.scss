@@ -430,6 +430,20 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 
 
 
+#fade {
+	height: 100%;
+	width: 100%;
+	z-index: 200;
+	background-color: rgb(100,100,100);
+	opacity: 0.25;
+
+	display: none;
+
+	position: absolute;
+	top: 0;
+}
+
+
 
 
 /*--------- MAIN BLOG PAGE ---------*/
