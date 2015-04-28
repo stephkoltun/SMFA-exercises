@@ -602,20 +602,31 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 }
 /* line 469, scss/styles.scss */
 #objDetailBox h1 {
+  padding: 0 0 10px 0;
+  margin: 0 20px;
   color: #333333;
-  padding: 0;
-  margin: 0;
+  font-family: "Akkurat";
+  font-size: .8em;
+  text-transform: capitalize;
+}
+/* line 482, scss/styles.scss */
+#objDetailBox p {
+  margin: 0 20px;
+  color: #333333;
+  font-family: "Akkurat-Light";
+  font-size: .8em;
 }
 
-/* line 477, scss/styles.scss */
+/* line 494, scss/styles.scss */
 .detailImage {
-  width: 90%;
-  max-height: 300px;
+  width: 310px;
   margin: 0 auto;
+  display: block;
+  padding: 20px;
 }
 
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 488, scss/styles.scss */
+/* line 507, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;

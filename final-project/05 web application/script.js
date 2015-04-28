@@ -22,18 +22,17 @@ var objectsIDList = [
 18710577,18705947,18710253,18710251,18729965,18732835,18731347,68515679,
 18716171,18731063,18757383,18731245,18788349,68268333,51497205,18556803];
 
-//run after function with callback function and length of object array
-var done = after(makeGraph, objectsIDList.length);
+
+
+
+
+
 
 for (i = 0; i < objectsIDList.length; i++) {
 
 	(function (i) {
-		//get info about a specific object method - returns JSON
-		var url ='https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.objects.getInfo&access_token=' + token + '&object_id=' + objectsIDList[i] +"&extras=exhibitions";
-
-
-
-		// create an javascript obj for each object instance in collection
+		
+		/* ------ DEFINE COLLECTION OBJECT ------ */
 		var objData = { 
 			key: i,
 			objTitle: "tempobjTitle",
@@ -44,31 +43,49 @@ for (i = 0; i < objectsIDList.length; i++) {
 			hasBeenExhibited: false,
 			exhibitEnd: "null",
 			exhibitStart: "null",
-			imageURL: "null"
+			imageURL: "null",
+			designer: "Jane Smith"
 		};
+ 
+		
 
-		//console.log("Processing objects");
 
-		//AJAX request
+
+		/* ------ AJAX REQUEST - returns JSON ------ */
+
+		var url ='https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.objects.getInfo&access_token=' + token + '&object_id=' + objectsIDList[i] +"&extras=exhibitions";
+
 		var request = $.get(url, function( response ) {
 			var objResponse = response; // variable to hold the response
 			var obj = objResponse.object;
 
-			objData.objTitle = obj.title;	
+			objData.objTitle = obj.title;
+
+			
+
+			// assign image url value
+			if (obj.images != 0) {
+				objData.imageURL = obj.images[0].z.url;
+			} else {
+				console.log(obj.id + " has no images.");
+			}
+
+			// assign designer value
+			if (obj.participants != 0) {
+				var designerIndex = obj.participants.length - 1;
+				objData.designer = obj.participants[designerIndex].person_name;
+			} else {
+				console.log (obj.id + " has no associated people.");
+			}
+
+
+			// assign year values
 			objData.yearEnd = obj.year_end;	//year object was finished
 			objData.yearStart = obj.year_start;	//year object was started
 			objData.yearAcquired = obj.year_acquired;	//year object acquired
 
-			if (obj.images != 0) {
-				objData.imageURL = obj.images[0].z.url;
-			} else {
-				console.log(obj.id + " had no images.");
-			}
-
-
 
 			// NOTE TO SELF: DEAL WITH MULTIPLE EXHIBITS!!!
-
 			if (obj.exhibitions.length != 0) { // object has been exhibited
 				hasBeenExhibited = true;
 				objData.lifespan = objData.exhibitEnd - objData.yearStart;
@@ -583,12 +600,12 @@ function makeGraph() {
 
 	// event listener on objects
 	d3.selectAll("g").on("click", function(d) {
-		$("body").append("<div id='objDetailFade'><div id='objDetailBox'><img class='detailImage' src=" + d.imageURL + " ></img><h1>" + d.objTitle + "</h1><p>This is an object created by designer in year. The Cooper Hewitt acquired it in year under person’s directorship. It was exhibited in year.</p></div></div>");
+		$("body").append("<div id='objDetailFade'><div id='objDetailBox'><img class='detailImage' src=" + d.imageURL + " ></img><h1>" + d.objTitle + "</h1><p>This was created by " + d.designer + " in " + d.yearStart + ". The Cooper Hewitt acquired it in year under person’s directorship. It was exhibited in year.</p></div></div>");
 		$("#objDetailFade, #objDetailBox").fadeIn();
 	});
 
 
-	$("body").on('click', '#objDetailBox', function() {
+	$("body").on('click', '#objDetailFade, #objDetailBox', function() {
 		$("#objDetailFade, #objDetailBox").fadeOut();
 		$("#objDetailFade").remove();
 	});
@@ -596,6 +613,10 @@ function makeGraph() {
 }; // end of graphing function
 
 
+
+
+//run after function with callback function and length of object array
+var done = after(makeGraph, objectsIDList.length);
 
 
 // AFTER LOOPING THROUGH ID LIST AND COMPLETING AJAX REQUESTS...

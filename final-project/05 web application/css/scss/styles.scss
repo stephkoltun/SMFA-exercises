@@ -467,17 +467,36 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   	transform: translateY(-50%);
 
   	h1 {
+  		padding: 0 0 10px 0;
+  		margin: 0 20px;
+
   		color: $color-main;
-  		padding: 0;
-  		margin: 0;
+		font: {
+			family: "Akkurat";
+			size: .8em;
+		}
+
+  		text-transform: capitalize;
+  	}
+
+  	p {
+  		margin: 0 20px;
+
+  		color: $color-main;
+  		font: {
+			family: "Akkurat-Light";
+			size: .8em;
+		}
   	}
 
 }
 
 .detailImage {
-	width: 90%;
-	max-height: 300px;
+	width: 310px;
 	margin: 0 auto;
+	display: block;
+
+	padding: 20px;
 }
 
 
