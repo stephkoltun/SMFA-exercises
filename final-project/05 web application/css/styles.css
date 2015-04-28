@@ -11,37 +11,37 @@ Stephanie Koltun
 /* ----- MEDIA QUERIES ----- */
 @font-face {
   font-family: "Akkurat";
-  src: url("/fonts/Akkurat.otf");
+  src: url("../fonts/Akkurat.otf");
 }
 
 @font-face {
   font-family: "Akkurat-Italic";
-  src: url("/fonts/Akkurat-Italic.otf");
+  src: url("../fonts/Akkurat-Italic.otf");
 }
 
 @font-face {
   font-family: "Akkurat-Light";
-  src: url("/fonts/Akkurat-Light.otf");
+  src: url("../fonts/Akkurat-Light.otf");
 }
 
 @font-face {
   font-family: "Akkurat-LightItalic";
-  src: url("/fonts/Akkurat-LightItalic.otf");
+  src: url("../fonts/Akkurat-LightItalic.otf");
 }
 
 @font-face {
   font-family: "Akkurat-Bold";
-  src: url("/fonts/Akkurat-Bold.otf");
+  src: url("../fonts/Akkurat-Bold.otf");
 }
 
 @font-face {
   font-family: "Akkurat-BoldItalic";
-  src: url("/fonts/Akkurat-BoldItalic.otf");
+  src: url("../fonts/Akkurat-BoldItalic.otf");
 }
 
 @font-face {
   font-family: "FontAwesome";
-  src: url("/fonts/font-awesome/fonts/FontAwesome.otf");
+  src: url("../fonts/font-awesome/fonts/FontAwesome.otf");
 }
 
 /* line 42, scss/defaults/_typography.scss */
@@ -508,7 +508,12 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   stroke: teal;
 }
 
-/* line 389, scss/styles.scss */
+/* line 387, scss/styles.scss */
+.exhibitLine {
+  stroke: purple;
+}
+
+/* line 393, scss/styles.scss */
 .tooltip {
   text-anchor: middle;
   font-family: sans-serif;
@@ -548,7 +553,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 .resort a:link, .resort a:visited {
   color: #333333;
 }
-/* line 401, scss/styles.scss */
+/* line 405, scss/styles.scss */
 .resort button {
   border: none;
   background-color: #ff7735;
@@ -559,7 +564,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   font-family: "Akkurat-Light";
   font-size: 1em;
 }
-/* line 415, scss/styles.scss */
+/* line 419, scss/styles.scss */
 .resort button:hover, .resort button:active, .resort button:focus {
   color: #333333;
   font-family: "Akkurat";
@@ -567,8 +572,44 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   cursor: pointer;
 }
 
+/*--------- OBJECT DETAIL VIEW ---------*/
+/* line 435, scss/styles.scss */
+#objDetailFade {
+  height: 100%;
+  width: 100%;
+  z-index: 200;
+  background-color: #ff661b;
+  opacity: 0.65;
+  display: none;
+  position: absolute;
+  top: 0;
+}
+
+/* line 448, scss/styles.scss */
+#objDetailBox {
+  height: 400px;
+  width: 300px;
+  z-index: 201;
+  background-color: white;
+  box-shadow: 0px 0px 15px #e74c00;
+  opacity: 1;
+  display: none;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+/* line 467, scss/styles.scss */
+#objDetailBox h1 {
+  color: #333333;
+  padding: 0;
+  margin: 0;
+}
+
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 433, scss/styles.scss */
+/* line 480, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;
