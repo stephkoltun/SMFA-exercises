@@ -25,7 +25,7 @@ var objectsIDList = [
 
 
 
-
+/* ------ CREATE OBJECT FOR EACH ITEM IN COLLECTION ------ */
 
 
 for (i = 0; i < objectsIDList.length; i++) {
@@ -320,18 +320,7 @@ function makeGraph() {
 	    	});
     	});
 */
-/*	var resortLifespan = d3.select("#sortLifespan")
-		.on("click", function() {
-			console.log("resorting by object's lifespan");
-			objects.sort(function(a, b) {
-				return d3.ascending(a.lifespan, b.lifespan);
-			})
-			.transition()
-			.duration(1000)
-	    	.attr("transform", function(d,i) { 
-	    		return "translate(" + margin.left + "," + (y(i)+margin.top) + ")";
-	    	});
-    	});*/
+
 
 
 
@@ -400,6 +389,9 @@ function makeGraph() {
 		})
 			.each(function(d,i) {
 				d3.select(this).select('.acquired')
+					.transition()
+		    		.delay(100)
+		    		.duration(250)
 					.style('fill','orange');//change circle to filled
 
 				var subSel = d3.select(this).select('g > circle').attr("cy");
@@ -635,18 +627,16 @@ function makeGraph() {
     	d3.selectAll(".object").selectAll('.acquired')
     	.transition()
     	.duration(250)
-		.style('fill','white');//change circle back to white
+		.style('fill','white'); //change circle back to white
     });
 
 
 
 
-    // event listener to bring back "about" page
-    $("#projectTitle").click(function() {
-		$("#loader").fadeIn("slow");
-	});
 
 
+
+    /* ------ FUNCTIONS FOR OBJECT DETAIL VIEW ------ */
 
 	// event listener on objects
 	d3.selectAll("g").on("click", function(d) {
@@ -654,14 +644,31 @@ function makeGraph() {
 		if (d.yearStart == d.yearEnd) {
 			$("body").append("<div id='objDetailFade'><div id='objDetailBox'><img class='detailImage' src=" + d.imageURL + " ></img><h1>" + d.objTitle + "</h1><p>This was created by <a href=''>" + d.designer + "</a> in <a href=''>" + d.yearStart + "</a>. It was acquired by the Cooper Hewitt in <a href=''>" + d.yearAcquired + "</a>. During <a href=''>" + d.exhibitStart + "</a>, it was part of the <a href=''>" + d.exhibitTitle + "</a> exhibition.</p><p class='description'>" + d.objDescription + "</p></div></div>");
 			$("#objDetailFade, #objDetailBox").fadeIn();
+
+			var matchYear = d.yearAcquired;
+			console.log(matchYear);
+
+			var matchObjects = d3.selectAll('.object').filter(function(d) {
+					return d.yearAcquired == matchYear;
+				});
+
+			console.log(matchObjects);
+
+			// get random index value
+			var randomIndex = Math.floor(Math.random() * (matchObjects.length));
+
+			console.log(randomIndex);
+
+			//var randomObject = matchObjects[randomIndex];
+			//console.log(randomObject);
+
+
 		} 
 
 		else if ( d.yearStart != d.yearEnd ) {
 			$("body").append("<div id='objDetailFade'><div id='objDetailBox'><img class='detailImage' src=" + d.imageURL + " ></img><h1>" + d.objTitle + "</h1><p>This was created by <a href=''>" + d.designer + "</a> between <a href=''>" + d.yearStart + "</a> and <a href=''>" + d.yearEnd + "</a>. It was acquired by the Cooper Hewitt in <a href=''>" + d.yearAcquired + "</a>. During <a href=''>" + d.exhibitStart + "</a>, it was part of the <a href=''>" + d.exhibitTitle + "</a> exhibition.</p><p class='description'>" + d.objDescription + "</p></div></div>");
 			$("#objDetailFade, #objDetailBox").fadeIn();
 		}
-
-
 
 	}); // end of object detail view event listener
 
@@ -671,10 +678,17 @@ function makeGraph() {
 		$("#objDetailFade").remove();
 	});
 
+
+	
+
 }; // end of graphing function
 
 
 
+
+
+
+/* ------ FUNCTION FOR PROCESSING THE API DATA ------ */
 
 //run after function with callback function and length of object array
 var done = after(makeGraph, objectsIDList.length);
@@ -695,12 +709,26 @@ function after(callback, count){
 }
 
 
+
+
+
+/* ------ FUNCTIONS / EVENTS FOR LOADING SCREEN ------ */
+
 function removeLoader() {
 	$("button#loaded").fadeIn("slow");
 	$("button#loaded").click(function() {
 		$("#loader").fadeOut("slow");
 	});
 }
+
+// event listener to bring back "about" page
+$("#projectTitle").click(function() {
+	$("#loader").fadeIn("slow");
+});
+
+
+
+/* ------ FUNCTIONS / EVENTS FOR OBJECT DETAIL VIEW ------ */
 
 
 
