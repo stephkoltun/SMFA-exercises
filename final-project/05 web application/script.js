@@ -43,8 +43,10 @@ for (i = 0; i < objectsIDList.length; i++) {
 			hasBeenExhibited: false,
 			exhibitEnd: "null",
 			exhibitStart: "null",
+			exhibitTitle: "null",
 			imageURL: "null",
-			designer: "Jane Smith"
+			designer: "Jane Smith",
+			objDescription: "null"
 		};
  
 		
@@ -60,6 +62,7 @@ for (i = 0; i < objectsIDList.length; i++) {
 			var obj = objResponse.object;
 
 			objData.objTitle = obj.title;
+			objData.objDescription = obj.description;
 
 			
 
@@ -88,6 +91,7 @@ for (i = 0; i < objectsIDList.length; i++) {
 			// NOTE TO SELF: DEAL WITH MULTIPLE EXHIBITS!!!
 			if (obj.exhibitions.length != 0) { // object has been exhibited
 				hasBeenExhibited = true;
+				objData.exhibitTitle = obj.exhibitions[0].title;
 				objData.lifespan = objData.exhibitEnd - objData.yearStart;
 				objData.exhibitStart = obj.exhibitions[0].date_start.substring(0,4);
 				if (obj.exhibitions[0].is_active == 1) {
@@ -482,7 +486,12 @@ function makeGraph() {
     		.attr("class", "tooltip")
     		.attr("x", xPositionStart + 12)
     		.attr("y", yPositionCreated - 8)
-    		.text(d.yearStart);
+    		.text(d.yearStart)
+    		.style('opacity','0')
+		    .transition()
+		    .delay(100)
+		    .duration(250)
+		    .style('opacity','1');
     	}
 		// if created spans less than 5 years
     	else if ((d.yearEnd - d.yearStart) <= 5) {
@@ -490,7 +499,12 @@ function makeGraph() {
 	    		.attr("class", "tooltip")
 	    		.attr("x", xPositionMiddle + 12)
 	    		.attr("y", yPositionCreated  - 8)
-	    		.text(d.yearStart + " - " + d.yearEnd);
+	    		.text(d.yearStart + " - " + d.yearEnd)
+	    		.style('opacity','0')
+			    .transition()
+			    .delay(100)
+			    .duration(250)
+			    .style('opacity','1');
     	}
     	// if created spans more than 5 years
     	if ((d.yearEnd - d.yearStart) > 5) {
@@ -498,13 +512,23 @@ function makeGraph() {
 	    		.attr("class", "tooltip")
 	    		.attr("x", xPositionStart +  12)
 	    		.attr("y", yPositionCreated  - 8)
-	    		.text(d.yearStart);
+	    		.text(d.yearStart)
+	    		.style('opacity','0')
+			    .transition()
+			    .delay(100)
+			    .duration(250)
+			    .style('opacity','1');
 
 	    		currentObject.append("text")
 	    		.attr("class", "tooltip")
 	    		.attr("x", xPositionEnd)
 	    		.attr("y", yPositionCreated  - 8)
-	    		.text(d.yearEnd);
+	    		.text(d.yearEnd)
+	    		.style('opacity','0')
+			    .transition()
+			    .delay(100)
+			    .duration(250)
+			    .style('opacity','1');
     	}
 
     	
@@ -515,7 +539,12 @@ function makeGraph() {
 	    		.attr("class", "tooltip")
 	    		.attr("x", xPositionAcquired + 12)
 	    		.attr("y", yPositionAcquired  - 8)
-	    		.text(d.yearAcquired);
+	    		.text(d.yearAcquired)
+	    		.style('opacity','0')
+			    .transition()
+			    .delay(100)
+			    .duration(250)
+			    .style('opacity','1');
     	}
 
     	
@@ -526,7 +555,12 @@ function makeGraph() {
     		.attr("class", "tooltip")
     		.attr("x", xExhibitedStart + 12)
     		.attr("y", yPositionExhibited  - 8)
-    		.text(d.exhibitStart);
+    		.text(d.exhibitStart)
+	    	.style('opacity','0')
+		    .transition()
+		    .delay(100)
+		    .duration(250)
+		    .style('opacity','1');
     	}
 		// if exhibit spans less than 5 years
     	else if ((d.exhibitStart- d.exhibitEnd) <= 5) {
@@ -534,7 +568,12 @@ function makeGraph() {
 	    		.attr("class", "tooltip")
 	    		.attr("x", xExhibitedMiddle + 12)
 	    		.attr("y", yPositionExhibited  - 8)
-	    		.text(d.exhibitStart + " - " + d.exhibitEnd);
+	    		.text(d.exhibitStart + " - " + d.exhibitEnd)
+	    		.style('opacity','0')
+			    .transition()
+			    .delay(100)
+			    .duration(250)
+			    .style('opacity','1');
     	}
     	// if exhibit spans more than 5 years
     	if ((d.exhibitEnd - d.exhibitStart) > 5) {
@@ -542,13 +581,23 @@ function makeGraph() {
 	    		.attr("class", "tooltip")
 	    		.attr("x", xExhibitedStart + 12)
 	    		.attr("y", yPositionExhibited  - 8)
-	    		.text(d.exhibitStart);
+	    		.text(d.exhibitStart)
+	    		.style('opacity','0')
+			    .transition()
+			    .delay(100)
+			    .duration(250)
+			    .style('opacity','1');
 
 	    		currentObject.append("text")
 	    		.attr("class", "tooltip")
 	    		.attr("x", xExhibitedEnd + 12)
 	    		.attr("y", yPositionExhibited  - 8)
-	    		.text(d.exhibitEnd);
+	    		.text(d.exhibitEnd)
+		    	.style('opacity','0')
+			    .transition()
+			    .delay(100)
+			    .duration(250)
+			    .style('opacity','1');
     	}
 
 
@@ -583,9 +632,10 @@ function makeGraph() {
     	.attr("opacity","0")
     	.remove();
 
-    	/*d3.selectAll(".object").selectAll('.acquired')
-    	.delay(100)
-		.style('fill','white');*///change circle back to white
+    	d3.selectAll(".object").selectAll('.acquired')
+    	.transition()
+    	.duration(250)
+		.style('fill','white');//change circle back to white
     });
 
 
@@ -600,9 +650,20 @@ function makeGraph() {
 
 	// event listener on objects
 	d3.selectAll("g").on("click", function(d) {
-		$("body").append("<div id='objDetailFade'><div id='objDetailBox'><img class='detailImage' src=" + d.imageURL + " ></img><h1>" + d.objTitle + "</h1><p>This was created by " + d.designer + " in " + d.yearStart + ". The Cooper Hewitt acquired it in year under person’s directorship. It was exhibited in year.</p></div></div>");
-		$("#objDetailFade, #objDetailBox").fadeIn();
-	});
+
+		if (d.yearStart == d.yearEnd) {
+			$("body").append("<div id='objDetailFade'><div id='objDetailBox'><img class='detailImage' src=" + d.imageURL + " ></img><h1>" + d.objTitle + "</h1><p>This was created by <a href=''>" + d.designer + "</a> in <a href=''>" + d.yearStart + "</a>. It was acquired by the Cooper Hewitt in <a href=''>" + d.yearAcquired + "</a>. During <a href=''>" + d.exhibitStart + "</a>, it was part of the <a href=''>" + d.exhibitTitle + "</a> exhibition.</p><p class='description'>" + d.objDescription + "</p></div></div>");
+			$("#objDetailFade, #objDetailBox").fadeIn();
+		} 
+
+		else if ( d.yearStart != d.yearEnd ) {
+			$("body").append("<div id='objDetailFade'><div id='objDetailBox'><img class='detailImage' src=" + d.imageURL + " ></img><h1>" + d.objTitle + "</h1><p>This was created by <a href=''>" + d.designer + "</a> between <a href=''>" + d.yearStart + "</a> and <a href=''>" + d.yearEnd + "</a>. It was acquired by the Cooper Hewitt in <a href=''>" + d.yearAcquired + "</a>. During <a href=''>" + d.exhibitStart + "</a>, it was part of the <a href=''>" + d.exhibitTitle + "</a> exhibition.</p><p class='description'>" + d.objDescription + "</p></div></div>");
+			$("#objDetailFade, #objDetailBox").fadeIn();
+		}
+
+
+
+	}); // end of object detail view event listener
 
 
 	$("body").on('click', '#objDetailFade, #objDetailBox', function() {

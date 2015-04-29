@@ -586,7 +586,6 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 
 /* line 448, scss/styles.scss */
 #objDetailBox {
-  height: 500px;
   width: 350px;
   z-index: 201;
   background-color: white;
@@ -600,7 +599,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/* line 469, scss/styles.scss */
+/* line 468, scss/styles.scss */
 #objDetailBox h1 {
   padding: 0 0 10px 0;
   margin: 0 20px;
@@ -609,24 +608,37 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   font-size: .8em;
   text-transform: capitalize;
 }
-/* line 482, scss/styles.scss */
+/* line 481, scss/styles.scss */
 #objDetailBox p {
   margin: 0 20px;
+  padding-bottom: 10px;
   color: #333333;
   font-family: "Akkurat-Light";
   font-size: .8em;
+  line-height: 1.6;
+}
+/* line 493, scss/styles.scss */
+#objDetailBox p.description {
+  font-family: "Akkurat-LightItalic";
+  color: #ababab;
+}
+/* line 500, scss/styles.scss */
+#objDetailBox a, #objDetailBox a:hover, #objDetailBox a:visited {
+  color: #ababab;
+  text-decoration: underline;
 }
 
-/* line 494, scss/styles.scss */
+/* line 507, scss/styles.scss */
 .detailImage {
   width: 310px;
+  max-height: 400px;
   margin: 0 auto;
   display: block;
   padding: 20px;
 }
 
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 507, scss/styles.scss */
+/* line 521, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;
