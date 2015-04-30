@@ -45,6 +45,7 @@ for (i = 0; i < objectsIDList.length; i++) {
 			exhibitStart: "null",
 			exhibitTitle: "null",
 			imageURL: "null",
+			imageSQ: "null",
 			designer: "Jane Smith",
 			objDescription: "null"
 		};
@@ -69,6 +70,7 @@ for (i = 0; i < objectsIDList.length; i++) {
 			// assign image url value
 			if (obj.images != 0) {
 				objData.imageURL = obj.images[0].z.url;
+				objData.imageSQ = obj.images[0].sq.url;
 			} else {
 				console.log(obj.id + " has no images.");
 			}
@@ -284,6 +286,7 @@ function makeGraph() {
 			objects.sort(function(a, b) {
 				return d3.ascending(a.yearAcquired, b.yearAcquired);
 			})
+			.order()
 			.transition()
 			.duration(1000)
 	    	.attr("transform", function() { 
@@ -641,26 +644,19 @@ function makeGraph() {
 	// event listener on objects
 	d3.selectAll("g").on("click", function(d) {
 
+		
+
+		// call function to filter matching objects
+		var matchedObjects = filterMatchedObjects(d);
+		var randomIndex = Math.floor(Math.random() * matchedObjects.length);
+
+
+		var randomObjects = "<div id='matchObjects'><img class='matchImage' src='" + matchedObjects[randomIndex].imageSQ + "'><img class='matchImage' src='" + matchedObjects[randomIndex].imageSQ + "'><img class='matchImage' src='" + matchedObjects[randomIndex].imageSQ + "'><img class='matchImage' src='" + matchedObjects[randomIndex].imageSQ + "'><img class='matchImage' src='" + matchedObjects[randomIndex].imageSQ + "'></div>"
+
+
 		if (d.yearStart == d.yearEnd) {
-			$("body").append("<div id='objDetailFade'><div id='objDetailBox'><img class='detailImage' src=" + d.imageURL + " ></img><h1>" + d.objTitle + "</h1><p>This was created by <a href=''>" + d.designer + "</a> in <a href=''>" + d.yearStart + "</a>. It was acquired by the Cooper Hewitt in <a href=''>" + d.yearAcquired + "</a>. During <a href=''>" + d.exhibitStart + "</a>, it was part of the <a href=''>" + d.exhibitTitle + "</a> exhibition.</p><p class='description'>" + d.objDescription + "</p></div></div>");
+			$("body").append("<div id='objDetailFade'><div id='objDetailBox'><img class='detailImage' src=" + d.imageURL + " ></img><h1>" + d.objTitle + "</h1><p>This was created by <a href=''>" + d.designer + "</a> in <a href=''>" + d.yearStart + "</a>. It was acquired by the Cooper Hewitt in <a href=''>" + d.yearAcquired + "</a>. During <a href=''>" + d.exhibitStart + "</a>, it was part of the <a href=''>" + d.exhibitTitle + "</a> exhibition.</p><p class='description'>" + d.objDescription + "</p>" + randomObjects + "</div></div>");
 			$("#objDetailFade, #objDetailBox").fadeIn();
-
-			var matchYear = d.yearAcquired;
-			console.log(matchYear);
-
-			var matchObjects = d3.selectAll('.object').filter(function(d) {
-					return d.yearAcquired == matchYear;
-				});
-
-			console.log(matchObjects);
-
-			// get random index value
-			var randomIndex = Math.floor(Math.random() * (matchObjects.length));
-
-			console.log(randomIndex);
-
-			//var randomObject = matchObjects[randomIndex];
-			//console.log(randomObject);
 
 
 		} 
@@ -730,6 +726,46 @@ $("#projectTitle").click(function() {
 
 /* ------ FUNCTIONS / EVENTS FOR OBJECT DETAIL VIEW ------ */
 
+
+function filterMatchedObjects(d) {
+
+	var allMatchedObjects = [];
+
+	var matchAcquiredYear = d.yearAcquired;
+	var matchStartYear = d.yearStart;
+	var matchEndYear = d.yearEnd;
+	var matchExhibit = d.exhibitTitle;
+
+
+	// objects with same acquired year
+	// returns an array with an array of matched objects
+	d3.selectAll('.object').filter(function(d) {
+			return d.yearAcquired == matchAcquiredYear;		
+	}).each(function(d,i) {
+			allMatchedObjects.push(d); 
+	}); 
+
+
+	d3.selectAll('.object').filter(function(d) {
+			return d.yearStart == matchStartYear;		
+	}).each(function(d,i) {
+			allMatchedObjects.push(d); 
+	}); 
+
+	d3.selectAll('.object').filter(function(d) {
+			return d.yearEnd == matchEndYear;		
+	}).each(function(d,i) {
+			allMatchedObjects.push(d); 
+	}); 
+
+	d3.selectAll('.object').filter(function(d) {
+			return d.exhibitTitle == matchExhibit;		
+	}).each(function(d,i) {
+			allMatchedObjects.push(d); 
+	}); 
+
+	return allMatchedObjects;
+}
 
 
 

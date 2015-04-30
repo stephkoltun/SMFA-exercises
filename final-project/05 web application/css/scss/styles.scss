@@ -69,14 +69,15 @@ li {
 #graph {
 	overflow:scroll;
 	direction:rtl;
+
 	height: 100%;
+
 	position: absolute;
 	top: 0;
 	left: 190px;
 }
 
 #graphAxes {
-
 	position: absolute;
 	bottom: 0px;
 	left: 190px;
@@ -516,6 +517,18 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 	padding: 20px;
 }
 
+.matchImage {
+	@include border-radius(30px);
+	width: 60px;
+	margin: 0;
+	padding: 0;
+}
+
+#matchObjects {
+	padding: 0;
+	width: 310px;
+	margin: 0 20px;
+}
 
 
 
