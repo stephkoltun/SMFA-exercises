@@ -602,6 +602,14 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   text-transform: capitalize;
 }
 /* line 488, scss/styles.scss */
+#objDetailBox h2 {
+  padding: 0;
+  margin: 0;
+  color: #333333;
+  font-family: "Akkurat-Light";
+  font-size: .8em;
+}
+/* line 499, scss/styles.scss */
 #objDetailBox p {
   margin: 0 20px;
   padding-bottom: 10px;
@@ -610,18 +618,18 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   font-size: .8em;
   line-height: 1.6;
 }
-/* line 500, scss/styles.scss */
+/* line 511, scss/styles.scss */
 #objDetailBox p.description {
   font-family: "Akkurat-LightItalic";
   color: #ababab;
 }
-/* line 507, scss/styles.scss */
+/* line 518, scss/styles.scss */
 #objDetailBox a, #objDetailBox a:hover, #objDetailBox a:visited {
   color: #ababab;
   text-decoration: underline;
 }
 
-/* line 514, scss/styles.scss */
+/* line 525, scss/styles.scss */
 .detailImage {
   width: 310px;
   max-height: 400px;
@@ -630,26 +638,43 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   padding: 20px;
 }
 
-/* line 523, scss/styles.scss */
-.matchImage {
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  -ms-border-radius: 25px;
-  -o-border-radius: 25px;
-  border-radius: 25px;
-  width: 50px;
-  margin: 0 5px;
-}
-
-/* line 529, scss/styles.scss */
+/* line 534, scss/styles.scss */
 #matchObjects {
   padding: 0;
   width: 310px;
   margin: 10px 15px;
 }
 
+/* line 540, scss/styles.scss */
+.matchImage {
+  -webkit-border-radius: 22px;
+  -moz-border-radius: 22px;
+  -ms-border-radius: 22px;
+  -o-border-radius: 22px;
+  border-radius: 22px;
+  width: 44px;
+  margin: 6px;
+  padding: 0;
+  border: 2px solid white;
+}
+
+/* line 549, scss/styles.scss */
+.matchAcquired {
+  box-shadow: 0 0 0 2px orange;
+}
+
+/* line 553, scss/styles.scss */
+.matchCreated {
+  box-shadow: 0 0 0 2px teal;
+}
+
+/* line 557, scss/styles.scss */
+.matchExhibit {
+  box-shadow: 0 0 0 2px purple;
+}
+
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 539, scss/styles.scss */
+/* line 564, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;

@@ -644,33 +644,38 @@ function makeGraph() {
 	// event listener on objects
 	d3.selectAll("g").on("click", function(d) {
 
-		
 
 		// call function to filter matching objects
 		var matchedObjects = filterMatchedObjects(d);
 
-
-		var randomObjects = "<div id='matchObjects'><img class='matchImage' src='" + matchedObjects[randomIndexValue(matchedObjects.length)].imageSQ + "'><img class='matchImage' src='" + matchedObjects[randomIndexValue(matchedObjects.length)].imageSQ + "'><img class='matchImage' src='" + matchedObjects[randomIndexValue(matchedObjects.length)].imageSQ + "'><img class='matchImage' src='" + matchedObjects[randomIndexValue(matchedObjects.length)].imageSQ + "'><img class='matchImage' src='" + matchedObjects[randomIndexValue(matchedObjects.length)].imageSQ + "'></div>"
-
-
-		if (d.yearStart == d.yearEnd) {
-			$("body").append("<div id='objDetailFade'><div id='objDetailBox'><img class='detailImage' src=" + d.imageURL + " ></img><h1>" + d.objTitle + "</h1><p>This was created by <a href=''>" + d.designer + "</a> in <a href=''>" + d.yearStart + "</a>. It was acquired by the Cooper Hewitt in <a href=''>" + d.yearAcquired + "</a>. During <a href=''>" + d.exhibitStart + "</a>, it was part of the <a href=''>" + d.exhibitTitle + "</a> exhibition.</p><p class='description'>" + d.objDescription + "</p>" + randomObjects + "</div></div>");
-			$("#objDetailFade, #objDetailBox").fadeIn();
+		// generate selection of 5 related objects
+		var randomObjects = "<div id='matchObjects'>" + randomObject(matchedObjects, d) + randomObject(matchedObjects, d) + randomObject(matchedObjects, d) + randomObject(matchedObjects, d) + randomObject(matchedObjects, d) + "</div>";
 
 
+		if ( d.yearStart == d.yearEnd ) {
+			var createdHTML = "</a> in <a href=''>" + d.yearStart + "</a>.";
 		} 
-
 		else if ( d.yearStart != d.yearEnd ) {
-			$("body").append("<div id='objDetailFade'><div id='objDetailBox'><img class='detailImage' src=" + d.imageURL + " ></img><h1>" + d.objTitle + "</h1><p>This was created by <a href=''>" + d.designer + "</a> between <a href=''>" + d.yearStart + "</a> and <a href=''>" + d.yearEnd + "</a>. It was acquired by the Cooper Hewitt in <a href=''>" + d.yearAcquired + "</a>. During <a href=''>" + d.exhibitStart + "</a>, it was part of the <a href=''>" + d.exhibitTitle + "</a> exhibition.</p><p class='description'>" + d.objDescription + "</p></div></div>");
-			$("#objDetailFade, #objDetailBox").fadeIn();
+			var createdHTML = "</a> between <a href=''>" + d.yearStart + "</a> and <a href=''>" + d.yearEnd + "</a>.";
 		}
+
+		
+
+		$("body").append("<div id='objDetailFade'><div id='objDetailBox'><img class='detailImage' src=" + d.imageURL + " ></img><h1>" + d.objTitle + "</h1><p>This was created by <a href=''>" + d.designer + createdHTML + "It was acquired by the Cooper Hewitt in <a href=''>" + d.yearAcquired + "</a>. During <a href=''>" + d.exhibitStart + "</a>, it was part of the <a href=''>" + d.exhibitTitle + "</a> exhibition.</p><p class='description'>" + d.objDescription + "</p>" + randomObjects + "</div></div>");
+
+		$("#objDetailFade, #objDetailBox").fadeIn();
+
 
 	}); // end of object detail view event listener
 
 
 	$("body").on('click', '#objDetailFade, #objDetailBox', function() {
-		$("#objDetailFade, #objDetailBox").fadeOut();
-		$("#objDetailFade").remove();
+		$("#objDetailBox").fadeOut();
+		$("#objDetailFade").fadeOut();
+		setTimeout(function() {
+			$("#objDetailFade").remove();
+		}, 500);
+		
 	});
 
 
@@ -723,9 +728,14 @@ $("#projectTitle").click(function() {
 
 
 
+
+
+
+
+
 /* ------ FUNCTIONS / EVENTS FOR OBJECT DETAIL VIEW ------ */
 
-
+// d = object to match properties to
 function filterMatchedObjects(d) {
 
 	var allMatchedObjects = [];
@@ -772,6 +782,24 @@ function randomIndexValue(length) {
 }
 
 
+// d = object to match properties to
+function randomObject(objectList, d) {
+	var index = randomIndexValue(objectList.length);
+	var object = objectList[index];
+
+	if (object.yearAcquired == d.yearAcquired) {
+		var objectHTML = "<img class='matchImage matchAcquired' src='" + object.imageSQ + "'>";
+		return objectHTML;
+	} 
+	else if ((object.yearStart == d.yearStart) || (object.yearEnd == d.yearEnd)) {
+		var objectHTML = "<img class='matchImage matchCreated' src='" + object.imageSQ + "'>";
+		return objectHTML;
+	} 
+	else if (object.exhibitTitle == d.exhibitTitle) {
+		var objectHTML = "<img class='matchImage matchExhibit' src='" + object.imageSQ + "'>";
+		return objectHTML;
+	}
+}
 
 
 
