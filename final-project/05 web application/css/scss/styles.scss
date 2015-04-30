@@ -453,6 +453,9 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 	width: 350px;
 	z-index: 201;
 
+	max-height: 650px;
+	overflow: scroll;
+	overflow-x:hidden;
 
 	background-color: white;
 	box-shadow: 0px 0px 15px darken($color-orange, 10%);
@@ -518,16 +521,15 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 }
 
 .matchImage {
-	@include border-radius(30px);
-	width: 60px;
-	margin: 0;
-	padding: 0;
+	@include border-radius(25px);
+	width: 50px;
+	margin: 0 5px;
 }
 
 #matchObjects {
 	padding: 0;
 	width: 310px;
-	margin: 0 20px;
+	margin: 10px 15px;
 }
 
 

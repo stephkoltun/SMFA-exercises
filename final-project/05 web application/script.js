@@ -648,10 +648,9 @@ function makeGraph() {
 
 		// call function to filter matching objects
 		var matchedObjects = filterMatchedObjects(d);
-		var randomIndex = Math.floor(Math.random() * matchedObjects.length);
 
 
-		var randomObjects = "<div id='matchObjects'><img class='matchImage' src='" + matchedObjects[randomIndex].imageSQ + "'><img class='matchImage' src='" + matchedObjects[randomIndex].imageSQ + "'><img class='matchImage' src='" + matchedObjects[randomIndex].imageSQ + "'><img class='matchImage' src='" + matchedObjects[randomIndex].imageSQ + "'><img class='matchImage' src='" + matchedObjects[randomIndex].imageSQ + "'></div>"
+		var randomObjects = "<div id='matchObjects'><img class='matchImage' src='" + matchedObjects[randomIndexValue(matchedObjects.length)].imageSQ + "'><img class='matchImage' src='" + matchedObjects[randomIndexValue(matchedObjects.length)].imageSQ + "'><img class='matchImage' src='" + matchedObjects[randomIndexValue(matchedObjects.length)].imageSQ + "'><img class='matchImage' src='" + matchedObjects[randomIndexValue(matchedObjects.length)].imageSQ + "'><img class='matchImage' src='" + matchedObjects[randomIndexValue(matchedObjects.length)].imageSQ + "'></div>"
 
 
 		if (d.yearStart == d.yearEnd) {
@@ -768,6 +767,9 @@ function filterMatchedObjects(d) {
 }
 
 
+function randomIndexValue(length) {
+	return Math.floor(Math.random() * length);
+}
 
 
 
