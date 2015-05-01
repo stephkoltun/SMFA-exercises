@@ -385,6 +385,9 @@ function makeGraph() {
 
 
 
+
+
+
     	//     HIGHLIGHT RELATED OBJECTS     //
 
     	// set up variables for the moused-over data
@@ -470,10 +473,27 @@ function makeGraph() {
 			.style('opacity','1'); //matched objs stay solid
 
 
+	
 
-		
+
+
+
+
+
+		// add image on hover
+		d3.select(this)
+			.append("svg:image")
+    		.attr("x", xPositionStart)
+    		.attr("y", yPositionCreated)
+    		.attr("width","50px")
+    		.attr("height","50px")
+    		.attr("xlink:href",d.imageSQ);
 
     	
+
+
+
+
 
 
 
