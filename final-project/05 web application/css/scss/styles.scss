@@ -237,6 +237,12 @@ li {
 	margin: 0 auto;
 }
 
+.loaderImage {
+	margin: 0 auto;
+	width: 50px;
+	height: 50px;
+}
+
 button#loaded {
 		border: none;
 		background-color: $color-orange;
@@ -312,9 +318,9 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 	}
 
 	i {
-		color: white;
 		padding-right: 13px;
 	}
+
 	margin-bottom: 50px;
 }
 
@@ -337,7 +343,20 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 #legend {
 	padding: 0;
 	margin: 0;
+
+	#teal {
+		color: teal;
+	}
+
+	#orange {
+		color: orange;
+	}
+
+	#purple {
+		color: purple;
+	}
 }
+
 
 
 

@@ -336,7 +336,7 @@ function makeGraph() {
     	.transition()
     	.delay(100)
     	.duration(250)
-    	.style('opacity','0.3');
+    	.style('opacity','0.25');
 
     	//don't fade selected object
     	d3.select(this).selectAll('.object')
@@ -344,6 +344,12 @@ function makeGraph() {
     	.delay(100)
     	.duration(250)
     	.style('opacity','1');
+
+    	d3.select(this).selectAll('.lines')
+    	.transition()
+    	.delay(100)
+    	.duration(250)
+    	.style("stroke-dasharray", "0px")
 
     	//background highlight for selected object
     	d3.select(this).selectAll('.obj-trigger')
@@ -620,6 +626,12 @@ function makeGraph() {
     	.duration(250)
     	.remove();
 
+    	d3.select(this).selectAll('.lines')
+    	.transition()
+    	.delay(100)
+    	.duration(250)
+    	.style("stroke-dasharray", "1px 1.5px")
+
     	d3.select("svg").selectAll(".acquiredLine, .createdLine, .exhibitLine")
     	.attr("opacity","1")
     	.transition()
@@ -716,6 +728,8 @@ function after(callback, count){
 
 function removeLoader() {
 	$("button#loaded").fadeIn("slow");
+	$("img.loaderImage").fadeOut("slow");
+	$("img.loaderImage").remove();
 	$("button#loaded").click(function() {
 		$("#loader").fadeOut("slow");
 	});
