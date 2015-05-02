@@ -422,6 +422,11 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 }
 
 
+.hoverImage {
+	@include border-radius(25px);
+}
+
+
 //SORTING BUTTONS
 .resort {
 	@include key-text;

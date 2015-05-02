@@ -483,8 +483,9 @@ function makeGraph() {
 		// add image on hover
 		d3.select(this)
 			.append("svg:image")
-    		.attr("x", xPositionStart)
-    		.attr("y", yPositionCreated)
+			.attr("class", "hoverImage")
+    		.attr("x", xPositionStart - 75)
+    		.attr("y", yPositionCreated - 25)
     		.attr("width","50px")
     		.attr("height","50px")
     		.attr("xlink:href",d.imageSQ);
@@ -645,6 +646,14 @@ function makeGraph() {
     	.transition()
     	.duration(250)
     	.remove();
+
+    	d3.select(this).selectAll(".hoverImage")
+    		.style('opacity','1')
+			.transition()
+    		.duration(250)
+    		.style('opacity','0')
+    		.remove();
+
 
     	d3.select(this).selectAll('.lines')
     	.transition()
