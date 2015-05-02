@@ -206,17 +206,34 @@ function makeGraph() {
 		.attr("transform", "translate(" + margin.left + ",40)")
 		.call(xAxis);
 
+
+
+	// SORT DATA BY YEAR TYPES
+	var sortedByAcquired = allObjectsDataset.sort(function(a, b) {
+		return d3.ascending(a.yearAcquired, b.yearAcquired);
+	});
+	var sortedByCreated = allObjectsDataset.sort(function(a, b) {
+		return d3.ascending(a.yearStart, b.yearStart);
+	});
+	var sortedByExhibited = allObjectsDataset.sort(function(a, b) {
+		return d3.ascending(a.exhibitStart, b.exhibitStart);
+	});
 	
+
+
+
 
 
 	// DEFINE GROUPS FOR EACH OBJECT
 	var objects = svg.selectAll("g.object") //select all <g> w/class "object" in <svg> (empty)
-		.data(allObjectsDataset, function(d) {return d.key}) // join the selection to a data array
+		.data(sortedByAcquired, function(d) {return d.key}) // join the selection to a data array
 		.enter() // create a selection for the data objects that didn't match elements (all)
 		.append("g") // add a new <g> for each data object
 		.attr("class","object") // set the <g>'s class to match selection criteria
 		.attr("transform", function() {
 				return "translate(" + margin.left + "," + margin.top + ")";});
+
+
 
 	// ADD LINES AND CIRCLES within each object <g>, inherits data from <g>
 
@@ -280,8 +297,7 @@ function makeGraph() {
 
 	/* ------ SORTING FUNCTIONS ------ */
 
-	var resortAcquire = d3.select("#sortAcquired")
-		.on("click", function() {
+	/*d3.select("#sortAcquired").on("click", function() {
 			console.log("resorting by year acquired");
 			objects.sort(function(a, b) {
 				return d3.ascending(a.yearAcquired, b.yearAcquired);
@@ -293,24 +309,32 @@ function makeGraph() {
 	    		return "translate(" + margin.left + "," +margin.top + ")";
 	    	});
     	});
-
+*/
 		// sort data, bind new Y values, update graph?
 
 
-    /*var resortCreated = d3.select("#sortCreated")
-		.on("click", function() {
+  /*  d3.select("#sortCreated").on("click", function() {
 			console.log("resorting by year created");
-			objects.sort(function(a, b) {
-				return d3.ascending(a.yearStart, b.yearStart);
-			})
-			.transition()
-			.duration(1000)
-	    	.attr("transform", function(d,i) { 
-	    		return "translate(" + margin.left + "," + margin.top + ")";
-	    	});
-    	});
 
-	var resortExhibited = d3.select("#sortExhibited")
+			var sortedByCreated = allObjectsDataset.sort(function(a, b) {
+				return d3.ascending(a.yearStart, b.yearStart);
+			});
+
+			
+		svg.selectAll("g.object")
+			.data(sortedByCreated, function(d) { return d. key;})
+			.enter() // create a selection for the data objects that didn't match elements (all)
+		.append("g") // add a new <g> for each data object
+		.attr("class","object") // set the <g>'s class to match selection criteria
+		.attr("transform", function() {
+				return "translate(" + margin.left + "," + margin.top + ")";});
+    });*/
+
+
+
+
+
+	/*var resortExhibited = d3.select("#sortExhibited")
 		.on("click", function() {
 			console.log("resorting by year exhibited");
 			objects.sort(function(a, b) {
