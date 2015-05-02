@@ -684,8 +684,14 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   box-shadow: 0 0 0 2px purple;
 }
 
+/* line 583, scss/styles.scss */
+#miniTime {
+  background-color: #f0f0f0;
+  margin-top: 10px;
+}
+
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 586, scss/styles.scss */
+/* line 591, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;

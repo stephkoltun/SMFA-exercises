@@ -850,9 +850,47 @@ function generateObjectView(d) {
 	}
 
 	
-	$("body").append("<div id='objDetailFade'><div id='objDetailBox'><img class='detailImage' src=" + d.imageURL + " ></img><h1>" + d.objTitle + "</h1><p>This was created by <a href=''>" + d.designer + createdHTML + "It was acquired by the Cooper Hewitt in <a href=''>" + d.yearAcquired + "</a>. During <a href=''>" + d.exhibitStart + "</a>, it was part of the <a href=''>" + d.exhibitTitle + "</a> exhibition.</p><p class='description'>" + d.objDescription + "</p></div></div>");
+	$("body").append("<div id='objDetailFade'><div id='objDetailBox'><img class='detailImage' src=" + d.imageURL + " ></img><h1>" + d.objTitle + "</h1><p class='blurb'>This was created by <a href=''>" + d.designer + createdHTML + "It was acquired by the Cooper Hewitt in <a href=''>" + d.yearAcquired + "</a>. During <a href=''>" + d.exhibitStart + "</a>, it was part of the <a href=''>" + d.exhibitTitle + "</a> exhibition.</p><p class='description'>" + d.objDescription + "</p></div></div>");
 
 	$("#objDetailFade, #objDetailBox").fadeIn();
+
+
+
+	var miniTimeline = d3.select(".blurb")
+		.append("svg")
+		.attr("id","miniTime")
+		.attr("width",305)
+		.attr("height",20);
+
+	miniTimeline.append("line") //overall connection line for each obj
+		.attr("class","lines") // set class for CSS styling
+		.attr("x1", 10)
+		.attr("y1", 10)
+		.attr("x2", 250)
+		.attr("y2", 10);
+
+	miniTimeline.append("line") //years created
+		.attr("class","created") 
+		.attr("x1", 10)
+		.attr("y1", 10)
+		.attr("x2", 10)
+		.attr("y2", 10);
+
+	miniTimeline.append("line") //years exhibited
+		.attr("class","exhibited") 
+		.attr("x1", 240)
+		.attr("y1", 10)
+		.attr("x2", 250)
+		.attr("y2", 10);
+
+	miniTimeline.append("circle") //year acquired
+		.attr("class","acquired")
+		.attr("cx", 200)
+		.attr("cy", 10)
+		.attr("r","2.5px");
+
+
+
 
 	// 5 random related objects
 	var randomObjectSet = [];
