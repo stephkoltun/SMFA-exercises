@@ -212,12 +212,6 @@ function makeGraph() {
 	var sortedByAcquired = allObjectsDataset.sort(function(a, b) {
 		return d3.ascending(a.yearAcquired, b.yearAcquired);
 	});
-	var sortedByCreated = allObjectsDataset.sort(function(a, b) {
-		return d3.ascending(a.yearStart, b.yearStart);
-	});
-	var sortedByExhibited = allObjectsDataset.sort(function(a, b) {
-		return d3.ascending(a.exhibitStart, b.exhibitStart);
-	});
 	
 
 
@@ -297,7 +291,8 @@ function makeGraph() {
 
 	/* ------ SORTING FUNCTIONS ------ */
 
-	/*d3.select("#sortAcquired").on("click", function() {
+	var resortAcquire = d3.select("#sortAcquired")
+		.on("click", function() {
 			console.log("resorting by year acquired");
 			objects.sort(function(a, b) {
 				return d3.ascending(a.yearAcquired, b.yearAcquired);
@@ -309,32 +304,24 @@ function makeGraph() {
 	    		return "translate(" + margin.left + "," +margin.top + ")";
 	    	});
     	});
-*/
+
 		// sort data, bind new Y values, update graph?
 
 
-  /*  d3.select("#sortCreated").on("click", function() {
+    /*var resortCreated = d3.select("#sortCreated")
+		.on("click", function() {
 			console.log("resorting by year created");
-
-			var sortedByCreated = allObjectsDataset.sort(function(a, b) {
+			objects.sort(function(a, b) {
 				return d3.ascending(a.yearStart, b.yearStart);
-			});
+			})
+			.transition()
+			.duration(1000)
+	    	.attr("transform", function(d,i) { 
+	    		return "translate(" + margin.left + "," + margin.top + ")";
+	    	});
+    	});
 
-			
-		svg.selectAll("g.object")
-			.data(sortedByCreated, function(d) { return d. key;})
-			.enter() // create a selection for the data objects that didn't match elements (all)
-		.append("g") // add a new <g> for each data object
-		.attr("class","object") // set the <g>'s class to match selection criteria
-		.attr("transform", function() {
-				return "translate(" + margin.left + "," + margin.top + ")";});
-    });*/
-
-
-
-
-
-	/*var resortExhibited = d3.select("#sortExhibited")
+	var resortExhibited = d3.select("#sortExhibited")
 		.on("click", function() {
 			console.log("resorting by year exhibited");
 			objects.sort(function(a, b) {
