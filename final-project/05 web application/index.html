@@ -16,7 +16,7 @@
 	<div id="loadingWrapper">
 		<h1>ACQUIRING DESIGN</h1>
 		<h2>A Visualization of Cooper Hewitt Design Museum Collection</h2>
-		<p>Edit text. Discovering unexpected connections is easy when the related points of connections are readily available. Broader overview of collection rather than focused exhibitions. Drawing from the Cooper Hewitt Smithsonian Design Museum's collection, Acquiring History filters the metadata of its objects to look closely at the relationship between the year a piece of design is created to when it is acquired to when it is exhibited. Furthermore, the project attempts to uncover trends when comparing the temporal data with the categorization of these design objects  - such as medium, place of origin, artist/creator, acquisition by department, change in leadership, etc. </p>
+		<p>Drawing from the Cooper Hewitt Smithsonian Design Museum's collection, Acquiring Design visualizes the ongoing development of its collection and relationships between objects. By presenting the collection as a series of object-relationships over time, the project attempts to uncover trends across mediums, geography, designers, and museum departments. </p>
 		<img class="loaderImage" src="images/loader.gif">
 		<button id="loaded">continue<br><i class="fa fa-arrow-circle-o-right"></i></button>
 		<p id="credit">Another side project by <a href="http://kltn.ca">Stephanie Koltun</a>.</p>
@@ -28,10 +28,10 @@
 	<h1 id="projectTitle">Acquiring Design</h1>
 	<div id="key">
 		<h1>Multi-Object View</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur non erat aliquam, aliquet magna non, aliquet eros. Integer ac nibh non dui tempus finibus.</p>
+		<p>Each object is represented individually, with markers indicating when the piece was created, acquired and exhibited.</p>
 		<ul id="legend">
 			<li><i id="teal" class="fa fa-circle"></i>created</li>
-			<li><i id="orange" class="fa fa-circle"></i>acquired</li>
+			<li><i id="orange" class="fa fa-circle-o"></i>acquired</li>
 			<li><i id="purple" class="fa fa-circle"></i>exhibited</li>
 		</ul>
 	</div>
@@ -49,7 +49,7 @@
 	</div> -->
 
 	<div id="arrange">
-		<h2>arrange by</h2>
+		<h2>sort by</h2>
 		<ul>
 			<li class="resort"><button id="sortCreated">date created</button></li>
 			<li class="resort"><button id="sortAcquired">date acquired</button></li>
@@ -73,12 +73,6 @@
 	<div id="graphAxes"></div>
 </section>
 
-
-
-<!-- Get object data from Cooper Hewitt API 
-<script type="text/javascript">
-	getObjectsData();
-</script>-->
 
 <script src="script.js"></script>
 

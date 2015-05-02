@@ -183,8 +183,6 @@ function makeGraph() {
 
 	/* ------ MAKE THE GRAPH ------ */
 
-	
-
 	// create SVG
 	var svg = d3.select("#graph")
 				.append("svg")
@@ -231,7 +229,6 @@ function makeGraph() {
 
 	// ADD LINES AND CIRCLES within each object <g>, inherits data from <g>
 
-	// add "invisible" shape for mouseover trigger
 	var trigger = objects.append("line")
 		.attr("class","obj-trigger")
 		.attr("x1", xYearStartMap)
@@ -289,9 +286,9 @@ function makeGraph() {
 
 
 
-	/* ------ SORTING FUNCTIONS ------ */
+	/* ------ SORTING FUNCTIONS THAT DO NOT WORK AT ALL ------ */
 
-	var resortAcquire = d3.select("#sortAcquired")
+/*	var resortAcquire = d3.select("#sortAcquired")
 		.on("click", function() {
 			console.log("resorting by year acquired");
 			objects.sort(function(a, b) {
@@ -308,7 +305,7 @@ function makeGraph() {
 		// sort data, bind new Y values, update graph?
 
 
-    /*var resortCreated = d3.select("#sortCreated")
+   	var resortCreated = d3.select("#sortCreated")
 		.on("click", function() {
 			console.log("resorting by year created");
 			objects.sort(function(a, b) {
@@ -356,12 +353,6 @@ function makeGraph() {
     	.duration(250)
     	.style('opacity','1');
 
-    	d3.select(this).selectAll('.lines')
-    	.transition()
-    	.delay(100)
-    	.duration(250)
-    	.style("stroke-dasharray", "0px")
-
     	//background highlight for selected object
     	d3.select(this).selectAll('.obj-trigger')
     	.transition()
@@ -377,20 +368,20 @@ function makeGraph() {
 		var currentObject = d3.select(this);
 
     	//Created Marker Positions
-    	var xPositionStart = parseFloat(d3.select(this).selectAll('.created').attr("x1"));
-    	var xPositionEnd = parseFloat(d3.select(this).selectAll('.created').attr("x2"));
+    	var xPositionStart = parseFloat(currentObject.selectAll('.created').attr("x1"));
+    	var xPositionEnd = parseFloat(currentObject.selectAll('.created').attr("x2"));
     	var xPositionMiddle = (xPositionStart + (xPositionEnd-xPositionStart))
-    	var yPositionCreated = parseFloat(d3.select(this).selectAll('.created').attr("y1"));
+    	var yPositionCreated = parseFloat(currentObject.selectAll('.created').attr("y1"));
 
     	//Acquired Marker Positions
-    	var xPositionAcquired = parseFloat(d3.select(this).selectAll('g > circle').attr("cx"));
-    	var yPositionAcquired = parseFloat(d3.select(this).selectAll('g > circle').attr("cy"));
+    	var xPositionAcquired = parseFloat(currentObject.selectAll('g > circle').attr("cx"));
+    	var yPositionAcquired = parseFloat(currentObject.selectAll('g > circle').attr("cy"));
 
     	//Exhibited Marker Positions
-    	var xExhibitedStart = parseFloat(d3.select(this).selectAll('.exhibited').attr("x1"));
-    	var xExhibitedEnd = parseFloat(d3.select(this).selectAll('.exhibited').attr("x2"));
+    	var xExhibitedStart = parseFloat(currentObject.selectAll('.exhibited').attr("x1"));
+    	var xExhibitedEnd = parseFloat(currentObject.selectAll('.exhibited').attr("x2"));
     	var xExhibitedMiddle = (xExhibitedStart + (xExhibitedEnd-xExhibitedStart));
-    	var yPositionExhibited = parseFloat(d3.select(this).selectAll('.exhibited').attr("y1"));
+    	var yPositionExhibited = parseFloat(currentObject.selectAll('.exhibited').attr("y1"));
 
 
 
@@ -491,7 +482,7 @@ function makeGraph() {
 
 
 
-		// add image on hover
+		//     ADD THUMBNAIL FOR THIS OBJECT     //
 		d3.select(this)
 			.append("svg:image")
 			.attr("class", "hoverImage")
@@ -499,7 +490,16 @@ function makeGraph() {
     		.attr("y", yPositionCreated - 25)
     		.attr("width","50px")
     		.attr("height","50px")
-    		.attr("xlink:href",d.imageSQ);
+    		.attr("xlink:href",d.imageSQ)
+    		.style("stroke","grey")
+    		.style("stroke-width","3px")
+    		.style("opacity","0")
+    		.transition()
+		    .delay(100)
+		    .duration(550)
+		    .style('opacity','1');
+
+    		
 
     	
 
@@ -659,18 +659,12 @@ function makeGraph() {
     	.remove();
 
     	d3.select(this).selectAll(".hoverImage")
-    		.style('opacity','1')
-			.transition()
-    		.duration(250)
-    		.style('opacity','0')
-    		.remove();
-
-
-    	d3.select(this).selectAll('.lines')
-    	.transition()
-    	.delay(100)
+    	.style('opacity','1')
+		.transition()
     	.duration(250)
-    	.style("stroke-dasharray", "1px 1.5px")
+    	.style('opacity','0')
+    	.remove();
+
 
     	d3.select("svg").selectAll(".acquiredLine, .createdLine, .exhibitLine")
     	.attr("opacity","1")
@@ -695,43 +689,19 @@ function makeGraph() {
 
 	// event listener on objects
 	d3.selectAll("g").on("click", function(d) {
+		generateObjectView(d);
+	});
 
 
-		// call function to filter matching objects
-		var matchedObjects = filterMatchedObjects(d);
-
-		// generate selection of 5 related objects
-		var randomObjects = "<div id='matchObjects'>" + randomObject(matchedObjects, d) + randomObject(matchedObjects, d) + randomObject(matchedObjects, d) + randomObject(matchedObjects, d) + randomObject(matchedObjects, d) + "</div>";
-
-
-		if ( d.yearStart == d.yearEnd ) {
-			var createdHTML = "</a> in <a href=''>" + d.yearStart + "</a>.";
-		} 
-		else if ( d.yearStart != d.yearEnd ) {
-			var createdHTML = "</a> between <a href=''>" + d.yearStart + "</a> and <a href=''>" + d.yearEnd + "</a>.";
-		}
-
-		
-
-		$("body").append("<div id='objDetailFade'><div id='objDetailBox'><img class='detailImage' src=" + d.imageURL + " ></img><h1>" + d.objTitle + "</h1><p>This was created by <a href=''>" + d.designer + createdHTML + "It was acquired by the Cooper Hewitt in <a href=''>" + d.yearAcquired + "</a>. During <a href=''>" + d.exhibitStart + "</a>, it was part of the <a href=''>" + d.exhibitTitle + "</a> exhibition.</p><p class='description'>" + d.objDescription + "</p>" + randomObjects + "</div></div>");
-
-		$("#objDetailFade, #objDetailBox").fadeIn();
-
-
-	}); // end of object detail view event listener
-
-
-	$("body").on('click', '#objDetailFade, #objDetailBox', function() {
+	$("body").on('click', '.detailImage', function() {
 		$("#objDetailBox").fadeOut();
 		$("#objDetailFade").fadeOut();
 		setTimeout(function() {
 			$("#objDetailFade").remove();
 		}, 500);
-		
 	});
 
 
-	
 
 }; // end of graphing function
 
@@ -855,5 +825,83 @@ function randomObject(objectList, d) {
 	}
 }
 
+function randomObjectObject(objectList, d) {
+	var index = randomIndexValue(objectList.length);
+	var object = objectList[index];
+
+	return object;
+}
+
+
+
+
+
+
+function generateObjectView(d) {
+
+		// check if object detail view already exists...
+	var checkObjectView = $("#objDetailFade");
+	// remove it if it does
+	if (checkObjectView.is("html *")) {
+		$("#objDetailBox").fadeOut();
+		$("#objDetailFade").fadeOut();
+		setTimeout(function() {
+			$("#objDetailFade").remove();
+		}, 500);
+	}
+
+
+	// call function to filter matching objects
+	var matchedObjects = filterMatchedObjects(d);
+
+
+	if ( d.yearStart == d.yearEnd ) {
+		var createdHTML = "</a> in <a href=''>" + d.yearStart + "</a>.";
+	} 
+	else if ( d.yearStart != d.yearEnd ) {
+		var createdHTML = "</a> between <a href=''>" + d.yearStart + "</a> and <a href=''>" + d.yearEnd + "</a>.";
+	}
+
+	
+	$("body").append("<div id='objDetailFade'><div id='objDetailBox'><img class='detailImage' src=" + d.imageURL + " ></img><h1>" + d.objTitle + "</h1><p>This was created by <a href=''>" + d.designer + createdHTML + "It was acquired by the Cooper Hewitt in <a href=''>" + d.yearAcquired + "</a>. During <a href=''>" + d.exhibitStart + "</a>, it was part of the <a href=''>" + d.exhibitTitle + "</a> exhibition.</p><p class='description'>" + d.objDescription + "</p></div></div>");
+
+	$("#objDetailFade, #objDetailBox").fadeIn();
+
+	// 5 random related objects
+	var randomObjectSet = [];
+	for (i = 0; i < 5; i++) {
+		randomObjectSet.push(randomObjectObject(matchedObjects, d))
+	};
+	console.log("Random Objects: " + randomObjectSet);
+
+
+	// WHY IS THIS NOT APPEARING A SECOND TIME??
+	var imageSVG = d3.select("#objDetailBox")
+			.append("svg")
+			.attr("id","matchObjects")
+			.attr("width", 310)
+			.attr("height", 56);
+
+	imageSVG.selectAll(".hoverImage")
+		.data(randomObjectSet)
+		.enter()
+		.append("svg:image")
+		.attr("class", "hoverImage")
+    	.attr("x", function(d,i) {
+			return (i)*62;
+		})
+		.attr("y", 0)
+		.attr("width","50px")
+		.attr("height","50px")
+		.attr("xlink:href", function(d) {
+			return d.imageSQ;
+		});
+
+
+	d3.selectAll(".hoverImage").on("click", function(d) {
+		generateObjectView(d);
+	});
+
+}
 
 

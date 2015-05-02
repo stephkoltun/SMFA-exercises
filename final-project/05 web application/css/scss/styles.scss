@@ -343,6 +343,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 #legend {
 	padding: 0;
 	margin: 0;
+	background-color: white;
 
 	#teal {
 		color: teal;
@@ -422,9 +423,6 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 }
 
 
-.hoverImage {
-	@include border-radius(25px);
-}
 
 
 //SORTING BUTTONS
@@ -556,19 +554,10 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 }
 
 #matchObjects {
-	padding: 0;
-	width: 310px;
+	padding: 5px;
 	margin: 10px 15px;
 }
 
-.matchImage {
-	@include border-radius(22px);
-	width: 44px;
-	margin: 6px;
-	padding: 0;
-
-	border: 2px solid white;
-}
 
 .matchAcquired {
     box-shadow: 0 0 0 2px orange;
