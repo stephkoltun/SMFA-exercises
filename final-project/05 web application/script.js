@@ -192,16 +192,16 @@ function makeGraph() {
 	var svgAxes = d3.select("#graphAxes")
 				.append("svg")
 				.attr("width", width + margin.left + margin.right)
-				.attr("height", 70);
+				.attr("height", 50);
 
 	//Created AXES
 	svgAxes.append("g")
 		.attr("class","subaxis")
-		.attr("transform", "translate(" + margin.left + ",40)")
+		.attr("transform", "translate(" + margin.left + ",34)")
 		.call(xSubAxis);
 	svgAxes.append("g")
 		.attr("class","axis")
-		.attr("transform", "translate(" + margin.left + ",40)")
+		.attr("transform", "translate(" + margin.left + ",34)")
 		.call(xAxis);
 
 
@@ -363,6 +363,11 @@ function makeGraph() {
 
 
 
+    	
+
+
+
+
     	// VARIABLES FOR "THIS" (the object currently hovered over)
 
 		var currentObject = d3.select(this);
@@ -385,7 +390,21 @@ function makeGraph() {
 
 
 
-
+    	//     ADD THUMBNAIL FOR THIS OBJECT     //
+		
+		d3.select(this)
+			.append("svg:image")
+			.attr("class", "hoverImage")
+    		.attr("x", xPositionStart - 75)
+    		.attr("y", yPositionCreated - 25)
+    		.attr("width","50px")
+    		.attr("height","50px")
+    		.attr("xlink:href",d.imageSQ)
+    		.style("opacity","0")
+    		.transition()
+		    .delay(200)
+		    .duration(550)
+		    .style('opacity','1');
 
 
 
@@ -482,20 +501,7 @@ function makeGraph() {
 
 
 
-		//     ADD THUMBNAIL FOR THIS OBJECT     //
-		d3.select(this)
-			.append("svg:image")
-			.attr("class", "hoverImage")
-    		.attr("x", xPositionStart - 75)
-    		.attr("y", yPositionCreated - 25)
-    		.attr("width","50px")
-    		.attr("height","50px")
-    		.attr("xlink:href",d.imageSQ)
-    		.style("opacity","0")
-    		.transition()
-		    .delay(200)
-		    .duration(550)
-		    .style('opacity','1');
+
 
     		
 
@@ -830,6 +836,11 @@ function generateObjectView(d) {
 	// call function to filter matching objects
 	var matchedObjects = filterMatchedObjects(d);
 
+	var acquiredMatch = d.yearAcquired;
+	var startMatch = d.yearStart;
+	var endMatch = d.yearEnd;
+	var exhibitMatch = d.exhibitTitle;
+
 
 	if ( d.yearStart == d.yearEnd ) {
 		var createdHTML = "</a> in <a href=''>" + d.yearStart + "</a>.";
@@ -851,12 +862,12 @@ function generateObjectView(d) {
 	console.log("Random Objects: " + randomObjectSet);
 
 
-	// WHY IS THIS NOT APPEARING A SECOND TIME??
+	// WHY IS THIS NOT APPEARING A SECOND TIME????
 	var imageSVG = d3.select("#objDetailBox")
 			.append("svg")
 			.attr("id","matchObjects")
 			.attr("width", 310)
-			.attr("height", 56);
+			.attr("height", 60);
 
 	imageSVG.selectAll(".matchImage")
 		.data(randomObjectSet)
@@ -864,14 +875,36 @@ function generateObjectView(d) {
 		.append("svg:image")
 		.attr("class", "matchImage")
     	.attr("x", function(d,i) {
-			return (i)*62;
+			return (i)*62 + 3;
 		})
-		.attr("y", 0)
-		.attr("width","50px")
-		.attr("height","50px")
+		.attr("y", 3)
+		.attr("width","48px")
+		.attr("height","48px")
 		.attr("xlink:href", function(d) {
 			return d.imageSQ;
 		});
+
+	imageSVG.selectAll("rect")
+		.data(randomObjectSet)
+		.enter()
+		.append("rect")
+    	.attr("x", function(d,i) {
+			return (i)*62;
+		})
+		.attr("y", 0)
+		.attr("width","54px")
+		.attr("height","54px")
+		.attr("stroke",function(d){
+			if (d.yearAcquired == acquiredMatch) {
+				return "orange";
+			} else if (d.yearStart == startMatch || d.yearEnd == endMatch) {
+				return "teal";
+			} else if (d.exhibitTitle == exhibitMatch) {
+				return "purple";
+			}
+		})
+		.attr("fill","none");
+
 
 
 	d3.selectAll(".matchImage").on("click", function(d) {
