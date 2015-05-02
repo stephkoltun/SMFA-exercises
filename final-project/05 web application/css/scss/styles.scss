@@ -307,20 +307,6 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 
 #key {
 	@include key-text;
-	li {
-		color: white;
-		font: {
-			family: "Akkurat-Light";
-			size: .7em;
-		}
-		padding: 0px 0px 3px 0px;
-		margin: 0;
-	}
-
-	i {
-		padding-right: 13px;
-	}
-
 	margin-bottom: 50px;
 }
 
@@ -343,7 +329,26 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 #legend {
 	padding: 0;
 	margin: 0;
-	background-color: white;
+
+	li {
+		color: white;
+		font: {
+			family: "Akkurat-Light";
+			size: .7em;
+		}
+		padding: 2px 0;
+		margin: 0;
+	}
+
+	ul {
+		padding: 0;
+		margin: 10px;
+	}
+
+	i {
+		padding-right: 10px;
+	}
+
 
 	#teal {
 		color: teal;
@@ -421,6 +426,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
     font-size: 8px;
     fill: black;
 }
+
 
 
 

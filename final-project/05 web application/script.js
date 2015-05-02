@@ -491,11 +491,9 @@ function makeGraph() {
     		.attr("width","50px")
     		.attr("height","50px")
     		.attr("xlink:href",d.imageSQ)
-    		.style("stroke","grey")
-    		.style("stroke-width","3px")
     		.style("opacity","0")
     		.transition()
-		    .delay(100)
+		    .delay(200)
 		    .duration(550)
 		    .style('opacity','1');
 
@@ -806,34 +804,12 @@ function randomIndexValue(length) {
 }
 
 
-// d = object to match properties to
-function randomObject(objectList, d) {
-	var index = randomIndexValue(objectList.length);
-	var object = objectList[index];
-
-	if (object.yearAcquired == d.yearAcquired) {
-		var objectHTML = "<img class='matchImage matchAcquired' src='" + object.imageSQ + "'>";
-		return objectHTML;
-	} 
-	else if ((object.yearStart == d.yearStart) || (object.yearEnd == d.yearEnd)) {
-		var objectHTML = "<img class='matchImage matchCreated' src='" + object.imageSQ + "'>";
-		return objectHTML;
-	} 
-	else if (object.exhibitTitle == d.exhibitTitle) {
-		var objectHTML = "<img class='matchImage matchExhibit' src='" + object.imageSQ + "'>";
-		return objectHTML;
-	}
-}
-
 function randomObjectObject(objectList, d) {
 	var index = randomIndexValue(objectList.length);
 	var object = objectList[index];
 
 	return object;
 }
-
-
-
 
 
 
@@ -882,11 +858,11 @@ function generateObjectView(d) {
 			.attr("width", 310)
 			.attr("height", 56);
 
-	imageSVG.selectAll(".hoverImage")
+	imageSVG.selectAll(".matchImage")
 		.data(randomObjectSet)
 		.enter()
 		.append("svg:image")
-		.attr("class", "hoverImage")
+		.attr("class", "matchImage")
     	.attr("x", function(d,i) {
 			return (i)*62;
 		})
@@ -898,7 +874,7 @@ function generateObjectView(d) {
 		});
 
 
-	d3.selectAll(".hoverImage").on("click", function(d) {
+	d3.selectAll(".matchImage").on("click", function(d) {
 		generateObjectView(d);
 	});
 
