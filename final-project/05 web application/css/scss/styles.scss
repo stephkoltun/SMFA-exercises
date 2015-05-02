@@ -167,6 +167,8 @@ li {
 	margin: 0 auto;
 	text-align: center;
 
+	padding-top: 50px;
+
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -180,7 +182,7 @@ li {
 		}
 		line-height: 1.2;
 		text-transform: uppercase;
-		margin: 50px 0 5px 0;
+		padding: 30px 0 5px 0;
 	}
 
 	h2 {
@@ -192,7 +194,7 @@ li {
 		}
 		line-height: 1.2;
 		margin: 0;
-		padding: 0;
+		padding: 0 0 20px 0;
 	}
 
 	p {
@@ -203,6 +205,7 @@ li {
 			size: 1.4em;
 		}
 		line-height: 1.5;
+		padding-bottom: 20px;
 	}
 
 	p#credit {
@@ -213,7 +216,7 @@ li {
 			size: .8em;
 		}
 		position: absolute;
-		bottom: 50px;
+		bottom: 100px;
 		left: 0;
 		right: 0;
 		margin: 0 auto;
@@ -481,7 +484,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 	width: 350px;
 	z-index: 201;
 
-	max-height: 650px;
+	max-height: 550px;
 	overflow: scroll;
 	overflow-x:hidden;
 

@@ -231,11 +231,12 @@ li {
   background-color: #ff661b;
   margin: 0 auto;
   text-align: center;
+  padding-top: 50px;
   position: absolute;
   top: 0;
   left: 0;
 }
-/* line 174, scss/styles.scss */
+/* line 176, scss/styles.scss */
 #loader h1 {
   color: white;
   font-family: "Akkurat-Bold";
@@ -243,9 +244,9 @@ li {
   font-size: 4em;
   line-height: 1.2;
   text-transform: uppercase;
-  margin: 50px 0 5px 0;
+  padding: 30px 0 5px 0;
 }
-/* line 186, scss/styles.scss */
+/* line 188, scss/styles.scss */
 #loader h2 {
   color: white;
   font-family: "Akkurat";
@@ -253,53 +254,54 @@ li {
   font-size: 1.5em;
   line-height: 1.2;
   margin: 0;
-  padding: 0;
+  padding: 0 0 20px 0;
 }
-/* line 198, scss/styles.scss */
+/* line 200, scss/styles.scss */
 #loader p {
   color: #333333;
   font-family: "Akkurat";
   font-weight: 400;
   font-size: 1.4em;
   line-height: 1.5;
+  padding-bottom: 20px;
 }
-/* line 208, scss/styles.scss */
+/* line 211, scss/styles.scss */
 #loader p#credit {
   color: white;
   font-family: "Akkurat";
   font-weight: 400;
   font-size: .8em;
   position: absolute;
-  bottom: 50px;
+  bottom: 100px;
   left: 0;
   right: 0;
   margin: 0 auto;
 }
-/* line 223, scss/styles.scss */
+/* line 226, scss/styles.scss */
 #loader a:link, #loader a:visited {
   text-decoration: underline;
   color: white;
 }
-/* line 228, scss/styles.scss */
+/* line 231, scss/styles.scss */
 #loader a:hover {
   text-decoration: none;
 }
 
-/* line 234, scss/styles.scss */
+/* line 237, scss/styles.scss */
 #loadingWrapper {
   width: 70%;
   max-width: 900px;
   margin: 0 auto;
 }
 
-/* line 240, scss/styles.scss */
+/* line 243, scss/styles.scss */
 .loaderImage {
   margin: 0 auto;
   width: 50px;
   height: 50px;
 }
 
-/* line 246, scss/styles.scss */
+/* line 249, scss/styles.scss */
 button#loaded {
   border: none;
   background-color: #ff661b;
@@ -322,7 +324,7 @@ button#loaded {
   font-size: 2em;
 }
 
-/* line 268, scss/styles.scss */
+/* line 271, scss/styles.scss */
 button#loaded:hover, button#loaded:active, button#loaded:focus {
   color: #333333;
   opacity: 0.85;
@@ -330,12 +332,12 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 }
 
 /* ----------- NAVIGATION ----------- */
-/* line 286, scss/styles.scss */
+/* line 289, scss/styles.scss */
 #projectTItle:hover {
   cursor: pointer;
 }
 
-/* line 290, scss/styles.scss */
+/* line 293, scss/styles.scss */
 #nav-bar {
   margin: 0 auto;
   padding: 0px 30px;
@@ -343,18 +345,18 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   font-family: "Akkurat";
   z-index: 1;
 }
-/* line 296, scss/styles.scss */
+/* line 299, scss/styles.scss */
 #nav-bar a, #nav-bar a:visited {
   color: #333333;
   text-decoration: none;
 }
-/* line 300, scss/styles.scss */
+/* line 303, scss/styles.scss */
 #nav-bar a:hover {
   color: #333333;
   text-decoration: underline;
 }
 
-/* line 308, scss/styles.scss */
+/* line 311, scss/styles.scss */
 #key {
   margin-bottom: 50px;
 }
@@ -423,24 +425,24 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 #modes a:link, #modes a:visited, #sort a:link, #sort a:visited, #arrange a:link, #arrange a:visited, #group a:link, #group a:visited {
   color: #333333;
 }
-/* line 315, scss/styles.scss */
+/* line 318, scss/styles.scss */
 #modes li, #sort li, #arrange li, #group li {
   color: white;
   font-family: "Akkurat-Light";
   font-size: .7em;
 }
-/* line 323, scss/styles.scss */
+/* line 326, scss/styles.scss */
 #modes i, #sort i, #arrange i, #group i {
   color: white;
   padding-right: 6px;
 }
 
-/* line 329, scss/styles.scss */
+/* line 332, scss/styles.scss */
 #legend {
   padding: 0;
   margin: 0;
 }
-/* line 333, scss/styles.scss */
+/* line 336, scss/styles.scss */
 #legend li {
   color: white;
   font-family: "Akkurat-Light";
@@ -448,30 +450,30 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   padding: 2px 0;
   margin: 0;
 }
-/* line 343, scss/styles.scss */
+/* line 346, scss/styles.scss */
 #legend ul {
   padding: 0;
   margin: 10px;
 }
-/* line 348, scss/styles.scss */
+/* line 351, scss/styles.scss */
 #legend i {
   padding-right: 10px;
 }
-/* line 353, scss/styles.scss */
+/* line 356, scss/styles.scss */
 #legend #teal {
   color: teal;
 }
-/* line 357, scss/styles.scss */
+/* line 360, scss/styles.scss */
 #legend #orange {
   color: orange;
 }
-/* line 361, scss/styles.scss */
+/* line 364, scss/styles.scss */
 #legend #purple {
   color: purple;
 }
 
 /*--------- GRAPH ---------*/
-/* line 374, scss/styles.scss */
+/* line 377, scss/styles.scss */
 .lines {
   stroke-width: 1px;
   stroke-dasharray: 1px , 1.5px;
@@ -480,7 +482,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   stroke: black;
 }
 
-/* line 382, scss/styles.scss */
+/* line 385, scss/styles.scss */
 .obj-trigger {
   stroke-width: 10px;
   stroke-linecap: round;
@@ -488,7 +490,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   stroke-opacity: 0.0;
 }
 
-/* line 389, scss/styles.scss */
+/* line 392, scss/styles.scss */
 .created {
   stroke: teal;
   stroke-width: 4px;
@@ -496,7 +498,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   stroke-linecap: square;
 }
 
-/* line 396, scss/styles.scss */
+/* line 399, scss/styles.scss */
 .exhibited {
   stroke: purple;
   stroke-width: 4px;
@@ -504,29 +506,29 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   stroke-linecap: square;
 }
 
-/* line 403, scss/styles.scss */
+/* line 406, scss/styles.scss */
 .acquired {
   stroke: orange;
   stroke-width: 1px;
   fill: white;
 }
 
-/* line 409, scss/styles.scss */
+/* line 412, scss/styles.scss */
 .acquiredLine {
   stroke: orange;
 }
 
-/* line 413, scss/styles.scss */
+/* line 416, scss/styles.scss */
 .createdLine {
   stroke: teal;
 }
 
-/* line 417, scss/styles.scss */
+/* line 420, scss/styles.scss */
 .exhibitLine {
   stroke: purple;
 }
 
-/* line 423, scss/styles.scss */
+/* line 426, scss/styles.scss */
 .tooltip {
   text-anchor: middle;
   font-family: sans-serif;
@@ -566,7 +568,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 .resort a:link, .resort a:visited {
   color: #333333;
 }
-/* line 438, scss/styles.scss */
+/* line 441, scss/styles.scss */
 .resort button {
   border: none;
   background-color: #ff7735;
@@ -577,7 +579,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   font-family: "Akkurat-Light";
   font-size: 1em;
 }
-/* line 452, scss/styles.scss */
+/* line 455, scss/styles.scss */
 .resort button:hover, .resort button:active, .resort button:focus {
   color: #333333;
   font-family: "Akkurat";
@@ -586,7 +588,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 }
 
 /*--------- OBJECT DETAIL VIEW ---------*/
-/* line 468, scss/styles.scss */
+/* line 471, scss/styles.scss */
 #objDetailFade {
   height: 100%;
   width: 100%;
@@ -597,11 +599,11 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   top: 0;
 }
 
-/* line 480, scss/styles.scss */
+/* line 483, scss/styles.scss */
 #objDetailBox {
   width: 350px;
   z-index: 201;
-  max-height: 650px;
+  max-height: 550px;
   overflow: scroll;
   overflow-x: hidden;
   background-color: white;
@@ -615,7 +617,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/* line 503, scss/styles.scss */
+/* line 506, scss/styles.scss */
 #objDetailBox h1 {
   padding: 0 0 10px 0;
   margin: 0 20px;
@@ -624,7 +626,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   font-size: .8em;
   text-transform: capitalize;
 }
-/* line 516, scss/styles.scss */
+/* line 519, scss/styles.scss */
 #objDetailBox h2 {
   padding: 0;
   margin: 0;
@@ -632,7 +634,7 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   font-family: "Akkurat-Light";
   font-size: .8em;
 }
-/* line 527, scss/styles.scss */
+/* line 530, scss/styles.scss */
 #objDetailBox p {
   margin: 0 20px;
   padding-bottom: 10px;
@@ -641,18 +643,18 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   font-size: .8em;
   line-height: 1.6;
 }
-/* line 539, scss/styles.scss */
+/* line 542, scss/styles.scss */
 #objDetailBox p.description {
   font-family: "Akkurat-LightItalic";
   color: #ababab;
 }
-/* line 546, scss/styles.scss */
+/* line 549, scss/styles.scss */
 #objDetailBox a, #objDetailBox a:hover, #objDetailBox a:visited {
   color: #ababab;
   text-decoration: underline;
 }
 
-/* line 553, scss/styles.scss */
+/* line 556, scss/styles.scss */
 .detailImage {
   width: 310px;
   max-height: 400px;
@@ -661,29 +663,29 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   padding: 20px;
 }
 
-/* line 562, scss/styles.scss */
+/* line 565, scss/styles.scss */
 #matchObjects {
   padding: 5px;
   margin: 10px 15px;
 }
 
-/* line 568, scss/styles.scss */
+/* line 571, scss/styles.scss */
 .matchAcquired {
   box-shadow: 0 0 0 2px orange;
 }
 
-/* line 572, scss/styles.scss */
+/* line 575, scss/styles.scss */
 .matchCreated {
   box-shadow: 0 0 0 2px teal;
 }
 
-/* line 576, scss/styles.scss */
+/* line 579, scss/styles.scss */
 .matchExhibit {
   box-shadow: 0 0 0 2px purple;
 }
 
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 583, scss/styles.scss */
+/* line 586, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;
