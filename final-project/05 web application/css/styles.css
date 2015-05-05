@@ -655,6 +655,16 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 }
 
 /* line 556, scss/styles.scss */
+.closeImg {
+  position: absolute;
+  right: 15;
+  top: 15;
+  width: 30px;
+  cursor: pointer;
+  opacity: .3;
+}
+
+/* line 565, scss/styles.scss */
 .detailImage {
   width: 310px;
   max-height: 400px;
@@ -663,35 +673,35 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
   padding: 20px;
 }
 
-/* line 565, scss/styles.scss */
+/* line 574, scss/styles.scss */
 #matchObjects {
   padding: 5px;
   margin: 10px 15px;
 }
 
-/* line 571, scss/styles.scss */
+/* line 580, scss/styles.scss */
 .matchAcquired {
   box-shadow: 0 0 0 2px orange;
 }
 
-/* line 575, scss/styles.scss */
+/* line 584, scss/styles.scss */
 .matchCreated {
   box-shadow: 0 0 0 2px teal;
 }
 
-/* line 579, scss/styles.scss */
+/* line 588, scss/styles.scss */
 .matchExhibit {
   box-shadow: 0 0 0 2px purple;
 }
 
-/* line 583, scss/styles.scss */
+/* line 592, scss/styles.scss */
 #miniTime {
   background-color: #f0f0f0;
   margin-top: 10px;
 }
 
 /*--------- MAIN BLOG PAGE ---------*/
-/* line 591, scss/styles.scss */
+/* line 600, scss/styles.scss */
 .clear {
   clear: both;
   line-height: 0;

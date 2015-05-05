@@ -690,22 +690,12 @@ function makeGraph() {
 
 
     /* ------ FUNCTIONS FOR OBJECT DETAIL VIEW ------ */
-
-	// event listener on objects
-	d3.selectAll("g").on("click", function(d) {
+    // event listener on objects
+	d3.selectAll("g.object").on("click", function(d) {
 		generateObjectView(d);
 	});
 
-
-	$("body").on('click', '.detailImage', function() {
-		$("#objDetailBox").fadeOut();
-		$("#objDetailFade").fadeOut();
-		setTimeout(function() {
-			$("#objDetailFade").remove();
-		}, 500);
-	});
-
-
+	
 
 }; // end of graphing function
 
@@ -762,6 +752,19 @@ $("#projectTitle").click(function() {
 
 
 /* ------ FUNCTIONS / EVENTS FOR OBJECT DETAIL VIEW ------ */
+
+
+
+
+$("body").on('click', '.detailImage, .closeImg', function() {
+	$("#objDetailBox").fadeOut();
+	$("#objDetailFade").fadeOut();
+	setTimeout(function() {
+		$("#objDetailFade").remove();
+	}, 500);
+});
+
+
 
 // d = object to match properties to
 function filterMatchedObjects(d) {
@@ -821,7 +824,7 @@ function randomObjectObject(objectList, d) {
 
 function generateObjectView(d) {
 
-		// check if object detail view already exists...
+	// check if object detail view already exists...
 	var checkObjectView = $("#objDetailFade");
 	// remove it if it does
 	if (checkObjectView.is("html *")) {
@@ -850,7 +853,7 @@ function generateObjectView(d) {
 	}
 
 	
-	$("body").append("<div id='objDetailFade'><div id='objDetailBox'><img class='detailImage' src=" + d.imageURL + " ></img><h1>" + d.objTitle + "</h1><p class='blurb'>This was created by <a href=''>" + d.designer + createdHTML + "It was acquired by the Cooper Hewitt in <a href=''>" + d.yearAcquired + "</a>. During <a href=''>" + d.exhibitStart + "</a>, it was part of the <a href=''>" + d.exhibitTitle + "</a> exhibition.</p><p class='description'>" + d.objDescription + "</p></div></div>");
+	$("body").append("<div id='objDetailFade'><div id='objDetailBox'><img class='closeImg' src='images/close.png'><img class='detailImage' src=" + d.imageURL + " ></img><h1>" + d.objTitle + "</h1><p class='blurb'>This was created by <a href=''>" + d.designer + createdHTML + "It was acquired by the Cooper Hewitt in <a href=''>" + d.yearAcquired + "</a>. During <a href=''>" + d.exhibitStart + "</a>, it was part of the <a href=''>" + d.exhibitTitle + "</a> exhibition.</p><p class='description'>" + d.objDescription + "</p></div></div>");
 
 	$("#objDetailFade, #objDetailBox").fadeIn();
 

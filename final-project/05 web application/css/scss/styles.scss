@@ -553,6 +553,15 @@ button#loaded:hover, button#loaded:active, button#loaded:focus {
 
 }
 
+.closeImg {
+	position: absolute;
+	right: 15;
+	top: 15;
+	width: 30px;
+	cursor: pointer;
+	opacity: .3;
+}
+
 .detailImage {
 	width: 310px;
 	max-height: 400px;
